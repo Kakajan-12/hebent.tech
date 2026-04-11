@@ -1,0 +1,119 @@
+@import url("../../public/fonts/video/stylesheet.css");
+
+@font-face {
+  font-family: "Nexa";
+  src: url("/fonts/nexa-bold/NexaLight.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nexa";
+  src: url("/fonts/nexa-bold/NexaBold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vox";
+  src: url("/fonts/Vox-Regular/Vox-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import "tailwindcss";
+
+:root {
+  --background-main: #efefef;
+}
+
+@theme inline {
+  --color-background: var(--background-main);
+  --color-foreground: var(--foreground);
+  --color-brand: #2c509f;
+  --color-brand-blue: #0043d9;
+  --color-footer: #0a1f44;
+  --font-nexa: "Nexa", sans-serif;
+  --font-nexabold: "Nexa", sans-serif;
+  --font-vox: "Vox", sans-serif;
+  --font-vox-15: "Vox 15", sans-serif;
+  --font-video: "Video", sans-serif;
+  --font-video-cond: "Video Cond", sans-serif;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+body {
+  background: var(--background-main);
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.stat-card {
+  clip-path: polygon(53% 0, 100% 0, 100% 100%, 0 100%, 0 57%);
+}
+@keyframes progress-line {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.services-swiper {
+  --swiper-navigation-size: 22px;
+  --swiper-navigation-color: #fff;
+}
+
+.services-swiper .swiper-slide {
+  height: auto;
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
+}
+
+.services-swiper .swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.services-swiper .swiper-button-prev,
+.services-swiper .swiper-button-next {
+  top: 50%;
+  margin-top: -22px;
+  width: 90px;
+  height: 55px;
+  border-radius: 5px;
+  background: rgb(255 255 255 / 0.14);
+  backdrop-filter: blur(4px);
+}
+
+.services-swiper .swiper-button-prev:after,
+.services-swiper .swiper-button-next:after {
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.services-swiper .swiper-button-disabled {
+  opacity: 0.3;
+}
+
+.testimonial-clip {
+  clip-path: polygon(47% 0, 100% 38%, 100% 100%, 0 100%, 0 0);
+}
+.embla {
+  overflow: hidden;
+  cursor: grab;
+}
+.embla:active {
+  cursor: grabbing;
+}

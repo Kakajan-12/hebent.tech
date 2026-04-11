@@ -1,0 +1,369 @@
+{
+  "Meta": {
+    "title": "HEBENT TECHNOLOGY",
+    "description": "End-to-end digital solutions — from strategy and design to development and launch."
+  },
+  "Nav": {
+    "main": "Main",
+    "projects": "Projects",
+    "products": "Products",
+    "newsroom": "Newsroom",
+    "company": "Company",
+    "travel": " Hebent Travel Tech",
+    "logistics": "Hebent Log Tech",
+    "events": "Hebent Event Tech",
+    "about": "About us",
+    "careers": "Careers",
+    "references": "References letter",
+    "contacts": "Contact us"
+  },
+  "VideoHero": {
+    "title": "VIDEO"
+  },
+  "Services": {
+    "iot": {
+      "label": "IOT Services",
+      "heading": "IOT SERVICES",
+      "description": "We deliver smart, end-to-end IoT solutions that connect devices and drive intelligent operations."
+    },
+    "ai": {
+      "label": "AI Services",
+      "heading": "AI SERVICES",
+      "description": "We build practical AI systems that automate workflows, extract insights, and scale with your product."
+    },
+    "consulting": {
+      "label": "IT consulting",
+      "heading": "IT CONSULTING",
+      "description": "Architecture reviews, roadmaps, and technology choices aligned with your business constraints."
+    },
+    "development": {
+      "label": "IT Development",
+      "heading": "IT DEVELOPMENT",
+      "description": "Full-stack engineering from prototypes to production-grade platforms and integrations."
+    },
+    "database": {
+      "label": "Database",
+      "heading": "DATABASE",
+      "description": "Data modeling, performance tuning, and reliable pipelines for analytics and operations."
+    }
+  },
+  "About": {
+    "title": "About Us",
+    "body": "From strategy and design to development and launch – we provide end-to-end digital solutions tailored to your goals. Our team builds reliable technology and intuitive interfaces that create real value for users and businesses.",
+    "accordion": {
+      "mission": {
+        "title": "Our mission",
+        "content": "We build technology that solves real problems for businesses and people. Our mission is to deliver end-to-end digital solutions with clarity, reliability, and measurable impact."
+      },
+      "vision": {
+        "title": "Our vision",
+        "content": "We see a future where complex operations are transparent, data-driven, and humane. We work with organizations to modernize systems without losing sight of the people who use them every day."
+      },
+      "process": {
+        "title": "Our process",
+        "content": "Discovery, design, build, ship, and improve — in tight feedback loops with stakeholders. We align on outcomes early, prototype quickly, and keep quality high through review, testing, and observability."
+      },
+      "culture": {
+        "title": "Our culture",
+        "content": "We value ownership, direct communication, and continuous learning. Teams collaborate across time zones with shared standards and respect for craft."
+      },
+      "technologies": {
+        "title": "Our technologies",
+        "content": "We work with modern web stacks, cloud infrastructure, IoT and data pipelines, and AI where it genuinely helps — always chosen for fit, not hype."
+      },
+      "values": {
+        "title": "Our values",
+        "content": "Integrity, quality, and long-term partnerships. We say what we mean, ship what we promise, and invest in relationships that outlast individual projects."
+      }
+    }
+  },
+  "Careers": {
+    "heroTitle": "Be part of our mission",
+    "heroBody": "At Hebent Tech, we believe that great work starts with great people. We're always looking for passionate, talented, and driven individuals who want to make an impact, grow professionally, and contribute to something meaningful.",
+    "vacanciesTitle": "Current Vacancies",
+    "apply": "Apply",
+    "personalInformation": "Personal Information",
+    "name": "Name",
+    "surname": "Surname",
+    "email": "E-mail",
+    "phoneNumber": "Phone number",
+    "portfolio": "Portfolio",
+    "addOrDropYourFilesHere": "Add or drop your files here",
+    "selected": "Selected",
+    "files": "files",
+    "send": "Send",
+    "aboutTheRole": "About the Role",
+    "whatYoullDo": "What You'll Do",
+    "jobs": [
+      {
+        "id": "1",
+        "title": "Frontend Developer (React.js)",
+        "description": "You'll work on building intuitive and responsive web interfaces for our core platform. We're looking for someone with strong skills in React, CSS, and modern JavaScript frameworks."
+      },
+      {
+        "id": "2",
+        "title": "Frontend Developer (React.js)",
+        "description": "You'll work on building intuitive and responsive web interfaces for our core platform. We're looking for someone with strong skills in React, CSS, and modern JavaScript frameworks."
+      },
+      {
+        "id": "3",
+        "title": "Frontend Developer (React.js)",
+        "description": "You'll work on building intuitive and responsive web interfaces for our core platform. We're looking for someone with strong skills in React, CSS, and modern JavaScript frameworks."
+      },
+      {
+        "id": "4",
+        "title": "Frontend Developer (React.js)",
+        "description": "You'll work on building intuitive and responsive web interfaces for our core platform. We're looking for someone with strong skills in React, CSS, and modern JavaScript frameworks."
+      }
+    ]
+  },
+  "Contacts": {
+    "title": "Contact Us",
+    "body": "Let's build something great together.",
+    "description": "Whether you have a project in mind, a question to ask, or just want to say hello — we'd love to hear from you.",
+    "visitUs": "Visit Us",
+    "talkToUs": "Talk to Us",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "hours": "Hours",
+    "instagram": "Instagram",
+    "twitter": "X",
+    "facebook": "Facebook"
+  },
+  "Stats": {
+    "projectsDelivered": "Projects Delivered",
+    "products": "Products",
+    "clients": "Clients",
+    "teamMembers": "Team Members"
+  },
+  "ProjectsPreview": {
+    "title": "Projects",
+    "viewAll": "View all"
+  },
+  "ProjectsPage": {
+    "heroBefore": "A selection of digital products we've",
+    "designed": "designed",
+    "and": "and",
+    "built": "built",
+    "heroAfter": "— from mobile apps to web platforms and clean user interfaces.",
+    "searchAria": "Search",
+    "searchPlaceholder": "Search",
+    "sortBy": "Sort by:",
+    "sortSingle": "Single",
+    "sortTitle": "Title"
+  },
+  "Projects": {
+    "items": {
+      "1": {
+        "title": "3D Digital Twin of Ashgabat International Airport",
+        "description": "A high-fidelity 3D visualization platform that enhances real-time airport operations, streamlining navigation and management."
+      },
+      "2": {
+        "title": "Industrial monitoring dashboard",
+        "description": "Real-time telemetry and alerting for distributed equipment with role-based access."
+      },
+      "3": {
+        "title": "Enterprise integration layer",
+        "description": "Secure APIs and event-driven workflows connecting legacy systems with modern clients."
+      },
+      "4": {
+        "title": "Mobile field operations",
+        "description": "Offline-first mobile apps for teams working in low-connectivity environments."
+      },
+      "5": {
+        "title": "Data platform modernization",
+        "description": "Lakehouse-ready pipelines with governance, lineage, and self-serve analytics."
+      },
+      "6": {
+        "title": "Customer portal redesign",
+        "description": "Accessible UI system and design system adoption across web and email touchpoints."
+      },
+      "7": {
+        "title": "Security operations tooling",
+        "description": "Automation for triage, ticketing, and audit trails tailored to SOC workflows."
+      },
+      "8": {
+        "title": "Logistics optimization",
+        "description": "Routing and capacity planning models integrated with warehouse management."
+      },
+      "9": {
+        "title": "Healthcare scheduling",
+        "description": "Patient-first scheduling with provider rules, reminders, and analytics."
+      }
+    }
+  },
+  "Testimonials": {
+    "title": "Our Clients About Us",
+    "items": {
+      "t1": {
+        "brand": "OGUZTRAVEL",
+        "quote": "Hebent delivered a stable platform under tight deadlines. Communication was clear and the team owned outcomes end to end.",
+        "author": "Daniel Brooks, Chief Operating Officer, New Bridge Group"
+      },
+      "t2": {
+        "brand": "NORTHLINE",
+        "quote": "From discovery to launch, the product quality exceeded expectations. Our operators adopted the new UI quickly.",
+        "author": "Elena Morris, VP Product, Northline Logistics"
+      },
+      "t3": {
+        "brand": "SKYFORGE",
+        "quote": "They combined strong engineering with pragmatic design decisions. We shipped faster without cutting corners.",
+        "author": "Marcus Chen, CTO, Skyforge Labs"
+      },
+      "t4": {
+        "brand": "AEROVAULT",
+        "quote": "The integration was seamless and the documentation thorough. Hebent's engineers responded to every edge case before we even raised it.",
+        "author": "Sophia Keller, Head of Engineering, AeroVault Systems"
+      },
+      "t5": {
+        "brand": "DATASPAN",
+        "quote": "We needed a team that understood data at scale. Hebent delivered a pipeline that handles peak loads without a hiccup.",
+        "author": "James Okoye, Data Infrastructure Lead, DataSpan Analytics"
+      },
+      "t6": {
+        "brand": "GREENPATH",
+        "quote": "They grasped our domain quickly and built a solution that our field teams actually enjoy using. Rare quality.",
+        "author": "Lena Farris, Product Director, GreenPath Solutions"
+      }
+    }
+  },
+  "Newsroom": {
+    "title": "Newsroom",
+    "description": "Stay informed about our latest projects, industry insights, product releases, and company announcements.",
+    "watchHere": "Watch here",
+    "categoriesAria": "News categories",
+    "categories": {
+      "all": "All",
+      "agriculture": "Agriculture",
+      "petrochemicals": "Petrochemicals",
+      "textiles": "Textiles",
+      "innovation": "Innovation",
+      "technology": "Technology",
+      "trade": "Trade Agreements",
+      "finance": "Finance",
+      "events": "Events & Exhibitions"
+    },
+    "items": {
+      "1": {
+        "title": "Digital Twin Platform Goes Live",
+        "description": "Our new digital twin stack connects real-time telemetry with 3D visualization so operations teams can monitor assets from a single pane.",
+        "body": "The platform unifies sensor streams, historical trends, and spatial context. Early adopters report faster incident response and clearer handovers between shifts. We will roll out additional industry templates throughout the year.",
+        "categoryLabel": "Innovation"
+      },
+      "2": {
+        "title": "Smart Irrigation Pilot Across Regional Farms",
+        "description": "Soil moisture models and weather feeds now drive automated irrigation schedules, cutting water use while protecting yields.",
+        "body": "The pilot covers cooperative farms in three districts. Agronomists receive weekly summaries and can override schedules from a mobile dashboard. Results will inform a broader national program next season.",
+        "categoryLabel": "Agriculture"
+      },
+      "3": {
+        "title": "Safety Analytics for Refinery Operations",
+        "description": "Predictive alerts highlight abnormal pressure and temperature patterns before they escalate into downtime or risk events.",
+        "body": "Integration with existing SCADA preserves investments while adding a lightweight analytics layer. Operators see ranked alerts with recommended checks, reducing mean time to resolution in trial units.",
+        "categoryLabel": "Petrochemicals"
+      },
+      "4": {
+        "title": "Traceability Layer for Textile Supply Chains",
+        "description": "Batch-level QR journeys give brands and buyers verified origin data from fiber to finished goods.",
+        "body": "Partners can audit milestones without exposing commercially sensitive pricing. The system supports mixed cotton and synthetic flows and complies with emerging export documentation requirements.",
+        "categoryLabel": "Textiles"
+      },
+      "5": {
+        "title": "Edge Compute Kits for Remote Industrial Sites",
+        "description": "Rugged gateways run lightweight inference where connectivity is limited, syncing when links return.",
+        "body": "Each kit includes provisioning tools aligned with our cloud control plane. Field engineers can swap modules for different radio profiles without re-imaging the whole stack.",
+        "categoryLabel": "Technology"
+      },
+      "6": {
+        "title": "Customs Integration Cuts Clearance Times",
+        "description": "Structured declarations and status webhooks reduce manual data entry for freight forwarders on key trade lanes.",
+        "body": "The first corridor went live with two partner carriers. Average document cycle time dropped sharply; we are onboarding additional lanes based on partner readiness.",
+        "categoryLabel": "Trade"
+      },
+      "7": {
+        "title": "Treasury Dashboard for Multi-Entity Groups",
+        "description": "Cash positions and FX exposure roll up automatically with role-based views for finance leadership.",
+        "body": "The dashboard reads from core banking exports and treasury workstations. Audit trails satisfy internal control requirements while keeping daily navigation simple for controllers.",
+        "categoryLabel": "Finance"
+      },
+      "8": {
+        "title": "Hebent at Central Asia Tech Week",
+        "description": "Meet our team at the flagship pavilion for demos of logistics, events, and travel products.",
+        "body": "We will run live walkthroughs each morning and host a panel on pragmatic AI adoption in regulated industries. Book a slot via the event app or stop by stand C12.",
+        "categoryLabel": "Events"
+      }
+    },
+    "date": "Date",
+    "category": "Category",
+    "searchAria": "Search",
+    "searchPlaceholder": "Search",
+    "sortBy": "Sort by:",
+    "sortSingle": "Single",
+    "sortTitle": "Title"
+  },
+  "Footer": {
+    "contacts": "Contacts",
+    "explore": "Explore",
+    "rights": "All rights reserved",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookies",
+    "powered": "Powered by",
+    "address": "Ashgabat, Turkmenistan",
+    "hours": "09:00 – 19:00",
+    "about": "About Us",
+    "projects": "Projects",
+    "careers": "Careers",
+    "news": "News",
+    "instagram": "Instagram",
+    "twitter": "X",
+    "facebook": "Facebook"
+  },
+  "Pagination": {
+    "previous": "Previous page",
+    "next": "Next page"
+  },
+  "Lang": {
+    "en": "EN",
+    "ru": "RU",
+    "tk": "TK"
+  },
+  "CookiesPolicy": {
+    "title1": "Cookies Policy",
+    "description1": "At Hebent  Tech, we use cookies to enhance your browsing experience, analyze site traffic, and personalize content. Cookies are small text files stored on your device that help us remember your preferences and understand how you interact with our website.",
+    "title2": "What types of cookies do we use?",
+    "categories": [
+      {
+        "title": "Essential Cookies:",
+        "description": "Necessary for the website to function properly, enabling basic features like page navigation and access to secure areas. Performance Cookies: Collect information about how visitors use our site, helping us improve speed and usability."
+      },
+      {
+        "title": "Functional Cookies:",
+        "description": "Remember your preferences and settings to provide a more personalized experience."
+      },
+      {
+        "title": "Advertising Cookies:",
+        "description": "Used to deliver relevant ads based on your interests and to measure the effectiveness of marketing campaigns."
+      },
+      {
+        "title": "Advertising Cookies:",
+        "description": "Used to deliver relevant ads based on your interests and to measure the effectiveness of marketing campaigns."
+      }
+    ],
+    "title3": "Managing Cookies",
+    "description3": "You can control or disable cookies through your browser settings. Please note that blocking certain cookies may affect the functionality and user experience of our website. For more information about cookies and how to manage them, visit www.aboutcookies.org.",
+    "description4": "For more information about cookies and how to manage them, visit:",
+    "description5": "By continuing to use our website, you consent to our use of cookies in accordance with this policy."
+  },
+  "PrivacyPolicy": {
+    "title1": "Privacy Policy",
+    "description1": "At Hebent Tech, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and protect the personal information you provide to us when you use our website  and any of our services.",
+    "description1_2": "and any of our services.",
+    "title2": "Information We Collect",
+    "description2": "We may collect the following types of information:",
+    "title3": "How We Use Your Information",
+    "description3": "We use your data to:",
+    "title4": "How We Protect Your Information",
+    "description4": "We implement security measures to protect your information from unauthorized access, use, or disclosure."
+  }
+}

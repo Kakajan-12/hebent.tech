@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Vox';
+    src: local('Vox Regular'), local('Vox-Regular'),
+        url('Vox-Regular.woff2') format('woff2'),
+        url('Vox-Regular.woff') format('woff'),
+        url('Vox-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
