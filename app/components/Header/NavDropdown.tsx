@@ -35,7 +35,7 @@ export default function NavDropdown({
     <div className="relative" ref={ref}>
       <button
         type="button"
-        className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-bold font-nexa text-black transition hover:bg-gray-500/10 ${parentActive ? "bg-footer text-white" : "bg-transparent text-black"}`}
+        className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-bold font-nexa transition hover:bg-brand hover:text-white  ${parentActive ? "bg-brand text-white" : "bg-transparent text-black"}`}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
       >
@@ -54,7 +54,7 @@ export default function NavDropdown({
             <Link
               key={item.href}
               href={item.href}
-              className={`block px-4 py-2 text-sm font-nexa text-slate-700 hover:bg-slate-50 ${checkActive(item.href) ? "bg-footer text-white" : "bg-transparent text-black"}`}
+              className={`block px-4 py-2 text-sm font-nexa hover:bg-brand hover:text-white ${checkActive(item.href) ? "bg-brand text-white" : "bg-transparent text-black"}`}
               role="menuitem"
               onClick={() => setOpen(false)}
             >

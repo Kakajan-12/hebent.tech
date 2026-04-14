@@ -129,7 +129,11 @@
     "hours": "09:00 – 19:00",
     "instagram": "Instagram",
     "twitter": "X",
-    "facebook": "Facebook"
+    "facebook": "Facebook",
+    "name": "Ady",
+    "surname": "Familiýasy",
+    "comments": "Komentlar",
+    "send": "Ibermek"
   },
   "Stats": {
     "projectsDelivered": "Tamamlanan taslama",
@@ -147,49 +151,67 @@
     "and": "we",
     "built": "gurdan",
     "heroAfter": "— mobil programmalardan web platformalary we arassa interfeýslere çenli.",
-    "searchAria": "Gözleg",
-    "searchPlaceholder": "Gözleg",
-    "sortBy": "Tertipleşdir:",
-    "sortSingle": "Bellenen",
-    "sortTitle": "Ady boýunça"
+    "searchPlaceholder": "Gözleg ...",
+    "sortSingle": "Tertipleşdir: ",
+    "sortTitle": "Tertipleşdir ady boýunça: ",
+    "customer": "Müşderi: ",
+    "webSite": "Web-sait: "
   },
   "Projects": {
     "items": {
       "1": {
         "title": "Aşgabat halkara howa üstünligiň 3D sanly egdesi",
-        "description": "Howa üstünliginiň amallaryny wagtyň özünde gowulandyrýan ýokary çözgütli 3D wizualizasiýa platformasy."
+        "description": "Howa üstünliginiň amallaryny wagtyň özünde gowulandyrýan ýokary çözgütli 3D wizualizasiýa platformasy.",
+        "customer": "Customer name1",
+        "webSite": "website1"
       },
       "2": {
         "title": "Senagat gözegçilik paneli",
-        "description": "Ýaýran enjamlar üçin wagtyň özünde telemetriýa we duýduryş, rollar bilen giriş."
+        "description": "Ýaýran enjamlar üçin wagtyň özünde telemetriýa we duýduryş, rollar bilen giriş.",
+        "customer": "Customer name2",
+        "webSite": "website2"
       },
       "3": {
         "title": "Korporatiw integrasiýa gatlagy",
-        "description": "Köne ulgamlary täze müşderiler bilen birleşdirýän ygtybarly API we wakalar esasly iş akylary."
+        "description": "Köne ulgamlary täze müşderiler bilen birleşdirýän ygtybarly API we wakalar esasly iş akylary.",
+        "customer": "Customer name3",
+        "webSite": "website3"
       },
       "4": {
         "title": "Meýdança mobil amallary",
-        "description": "Pes aragatnaşykly sebitlerde işleýän toparlar üçin ofsline mobil programmalar."
+        "description": "Pes aragatnaşykly sebitlerde işleýän toparlar üçin ofsline mobil programmalar.",
+        "customer": "Customer name4",
+        "webSite": "website4"
       },
       "5": {
         "title": "Maglumat platformasyny täzelemek",
-        "description": "Lakehouse üçin geçirijiler: dolandyrmak, mukaddeslik we öz-özüne analitika."
+        "description": "Lakehouse üçin geçirijiler: dolandyrmak, mukaddeslik we öz-özüne analitika.",
+        "customer": "Customer name5",
+        "webSite": "website5"
       },
       "6": {
         "title": "Müşderi portalyny täzeden dizaýn",
-        "description": "Web we e-poçta üçin elýeterli dizaýn ulgamy."
+        "description": "Web we e-poçta üçin elýeterli dizaýn ulgamy.",
+        "customer": "Customer name6",
+        "webSite": "website6"
       },
       "7": {
         "title": "Howpsuzlyk amallary gurallary",
-        "description": "SOC iş akylary üçin triýaž, ýazyk we audit awtomatizasiýasy."
+        "description": "SOC iş akylary üçin triýaž, ýazyk we audit awtomatizasiýasy.",
+        "customer": "Customer name7",
+        "webSite": "website7"
       },
       "8": {
         "title": "Logistika optimizasiýasy",
-        "description": "Ammar dolandyrmagy bilen birleşdirilen ugur we kuwwat meýilleşdirmesi."
+        "description": "Ammar dolandyrmagy bilen birleşdirilen ugur we kuwwat meýilleşdirmesi.",
+        "customer": "Customer name8",
+        "webSite": "website8"
       },
       "9": {
         "title": "Saglygy goraýyş meýilnamasy",
-        "description": "Lukman düzgünleri, ýatlatmalar we analitika bilen hassa merkezli meýilnama."
+        "description": "Lukman düzgünleri, ýatlatmalar we analitika bilen hassa merkezli meýilnama.",
+        "customer": "Customer name9",
+        "webSite": "website9"
       }
     }
   },

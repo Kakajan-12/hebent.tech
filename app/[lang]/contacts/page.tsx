@@ -9,37 +9,49 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen container mx-auto px-7 sm:px-10 lg:px-12 mt-30 lg:mt-50 xl:mt-60 mb-20 lg:mb-30">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-8xl font-bold tracking-tighter mb-16 uppercase">
+        <h2 className="font-nexa text-3xl lg:text-5xl xl:text-8xl font-bold tracking-tighter mb-4 lg:mb-10 xl:mb-20 uppercase">
           {t("title")}
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Left Column: Info */}
-          <div className="space-y-12">
-            <div>
-              <h2 className="text-2xl font-bold mb-4">{t("body")}</h2>
-              <p className="text-gray-600 max-w-md leading-relaxed">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 lg:gap-16 xl:gap-36">
+          <div className="contact-info space-y-12">
+            <div className="header-info flex flex-col gap-4">
+              <h2 className="font-nexa text-base lg:text-2xl font-bold mb-4">
+                {t("body")}
+              </h2>
+              <p className="font-vox text-sm lg:text-base xl:text-2xl max-w-2xl leading-relaxed">
                 {t("description")}
               </p>
             </div>
 
-            <div className="space-y-8">
+            <div className="body-info space-y-8 ">
               <section>
-                <h3 className="text-lg font-bold border-b border-gray-300 pb-2 mb-4 w-fit pr-20">
+                <h3 className="font-nexa text-base lg:text-lg xl:text-2xl font-bold border-b border-black pb-2 mb-4 w-full pr-20">
                   {t("visitUs")}
                 </h3>
-                <p className="text-gray-600">{t("address")}</p>
+                <p className="font-vox text-sm lg:text-base xl:text-2xl font-bold">
+                  {t("address")}
+                </p>
               </section>
 
               <section>
-                <h3 className="text-lg font-bold border-b border-gray-300 pb-2 mb-4 w-fit pr-20">
+                <h3 className="font-nexa text-base lg:text-lg xl:text-2xl font-bold border-b border-black pb-2 mb-4 w-full pr-20">
                   {t("talkToUs")}
                 </h3>
                 <div className="space-y-1">
-                  <p className="text-gray-600">{t("phone")}</p>
+                  <div className="flex justify-between">
+                    <p className="font-vox text-sm lg:text-base xl:text-2xl font-bold">
+                      {t("phone")}
+                    </p>
+                    <div className="flex lg:hidden gap-4">
+                      <AiFillInstagram className="w-6 h-6 text-[#5D86C4] cursor-pointer hover:opacity-70" />
+                      <RiTwitterFill className="w-6 h-6 text-[#5D86C4] cursor-pointer hover:opacity-70" />
+                      <FaFacebookF className="w-6 h-6 text-[#5D86C4] cursor-pointer hover:opacity-70" />
+                    </div>
+                  </div>
                   <Link
                     href="info@hebent.tech"
-                    className="text-gray-600 hover:text-black transition-colors block"
+                    className="text-sm lg:text-base xl:text-2xl hover:text-black transition-colors block"
                   >
                     info@hebent.tech
                   </Link>
@@ -48,61 +60,68 @@ export default function ContactPage() {
             </div>
 
             {/* Social Icons */}
-            <div className="flex gap-6 pt-4">
-              <AiFillInstagram className="w-6 h-6 cursor-pointer hover:opacity-70" />
-              <RiTwitterFill className="w-6 h-6 cursor-pointer hover:opacity-70" />
-              <FaFacebookF className="w-6 h-6 cursor-pointer hover:opacity-70" />
+            <div className="hidden lg:flex gap-6 pt-4">
+              <AiFillInstagram className="w-10 h-10 text-[#5D86C4] cursor-pointer hover:opacity-70" />
+              <RiTwitterFill className="w-10 h-10 text-[#5D86C4] cursor-pointer hover:opacity-70" />
+              <FaFacebookF className="w-10 h-10 text-[#5D86C4] cursor-pointer hover:opacity-70" />
             </div>
           </div>
 
           {/* Right Column: Form */}
-          <form className="space-y-6">
+          <form className="form-contact space-y-4 lg:space-y-10 xl:space-y-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-500">
-                  Name
+                <label className="font-vox text-base lg:text-lg xl:text-xl font-light">
+                  {t("name")}
                 </label>
                 <input
+                  id="name"
                   type="text"
-                  className="w-full p-4 bg-gray-100 border-none rounded-sm focus:ring-2 focus:ring-black outline-none"
+                  placeholder={t("name")}
+                  className="font-vox text-sm lg:text-base xl:text-2xl w-full p-2 lg:p-4 xl:p-6 bg-[#D9D9D9] border-b border-black  focus:ring-1 focus:ring-black outline-none"
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-500">
-                  Surname
+                <label className="font-vox text-base lg:text-lg xl:text-xl font-light">
+                  {t("surname")}
                 </label>
                 <input
+                  id="surname"
                   type="text"
-                  className="w-full p-4 bg-gray-100 border-none rounded-sm focus:ring-2 focus:ring-black outline-none"
+                  placeholder={t("surname")}
+                  className="font-vox text-sm lg:text-base xl:text-2xl w-full p-2 lg:p-4 xl:p-6 bg-[#D9D9D9] border-b border-black  focus:ring-1 focus:ring-black outline-none"
                 />
               </div>
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-medium text-gray-500">
-                E-mail
+              <label className="font-vox text-base lg:text-lg xl:text-xl font-light">
+                {t("email")}
               </label>
               <input
+                id="email"
                 type="email"
-                className="w-full p-4 bg-gray-100 border-none rounded-sm focus:ring-2 focus:ring-black outline-none"
+                placeholder={t("email")}
+                className="font-vox text-sm lg:text-base xl:text-2xl w-full p-2 lg:p-4 xl:p-6 bg-[#D9D9D9] border-b border-black  focus:ring-1 focus:ring-black outline-none"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-medium text-gray-500">
-                Comments
+              <label className="font-vox text-base lg:text-lg xl:text-xl font-light">
+                {t("comments")}
               </label>
               <textarea
+                id="comments"
                 rows={6}
-                className="w-full p-4 bg-gray-100 border-none rounded-sm focus:ring-2 focus:ring-black outline-none resize-none"
+                className="font-vox text-sm lg:text-base xl:text-2xl w-full p-2 lg:p-4 xl:p-6 bg-[#D9D9D9] border-b border-black  focus:ring-1 focus:ring-black outline-none resize-none"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full py-4 bg-[#001F3F] text-white font-bold rounded-full hover:bg-black transition-colors uppercase tracking-widest text-sm"
+              className="font-nexa w-full py-4 bg-[#001F3F] text-white font-bold rounded-full hover:bg-black transition-colors uppercase tracking-widest text-sm"
             >
-              Send
+              {t("send")}
             </button>
           </form>
         </div>

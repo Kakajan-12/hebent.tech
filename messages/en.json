@@ -129,7 +129,11 @@
     "hours": "Hours",
     "instagram": "Instagram",
     "twitter": "X",
-    "facebook": "Facebook"
+    "facebook": "Facebook",
+    "name": "Name",
+    "surname": "Surname",
+    "comments": "Comments",
+    "send": "Send"
   },
   "Stats": {
     "projectsDelivered": "Projects Delivered",
@@ -147,49 +151,67 @@
     "and": "and",
     "built": "built",
     "heroAfter": "— from mobile apps to web platforms and clean user interfaces.",
-    "searchAria": "Search",
-    "searchPlaceholder": "Search",
-    "sortBy": "Sort by:",
-    "sortSingle": "Single",
-    "sortTitle": "Title"
+    "searchPlaceholder": "Search ...",
+    "sortSingle": "Sort by default: ",
+    "sortTitle": "Sort by title: ",
+    "customer": "Customer: ",
+    "webSite": "Website: "
   },
   "Projects": {
     "items": {
       "1": {
         "title": "3D Digital Twin of Ashgabat International Airport",
-        "description": "A high-fidelity 3D visualization platform that enhances real-time airport operations, streamlining navigation and management."
+        "description": "A high-fidelity 3D visualization platform that enhances real-time airport operations, streamlining navigation and management.",
+        "customer": "Customer name1",
+        "webSite": "website1"
       },
       "2": {
         "title": "Industrial monitoring dashboard",
-        "description": "Real-time telemetry and alerting for distributed equipment with role-based access."
+        "description": "Real-time telemetry and alerting for distributed equipment with role-based access.",
+        "customer": "Customer name2",
+        "webSite": "website2"
       },
       "3": {
         "title": "Enterprise integration layer",
-        "description": "Secure APIs and event-driven workflows connecting legacy systems with modern clients."
+        "description": "Secure APIs and event-driven workflows connecting legacy systems with modern clients.",
+        "customer": "Customer name3",
+        "webSite": "website3"
       },
       "4": {
         "title": "Mobile field operations",
-        "description": "Offline-first mobile apps for teams working in low-connectivity environments."
+        "description": "Offline-first mobile apps for teams working in low-connectivity environments.",
+        "customer": "Customer name4",
+        "webSite": "website4"
       },
       "5": {
         "title": "Data platform modernization",
-        "description": "Lakehouse-ready pipelines with governance, lineage, and self-serve analytics."
+        "description": "Lakehouse-ready pipelines with governance, lineage, and self-serve analytics.",
+        "customer": "Customer name5",
+        "webSite": "website5"
       },
       "6": {
         "title": "Customer portal redesign",
-        "description": "Accessible UI system and design system adoption across web and email touchpoints."
+        "description": "Accessible UI system and design system adoption across web and email touchpoints.",
+        "customer": "Customer name6",
+        "webSite": "website6"
       },
       "7": {
         "title": "Security operations tooling",
-        "description": "Automation for triage, ticketing, and audit trails tailored to SOC workflows."
+        "description": "Automation for triage, ticketing, and audit trails tailored to SOC workflows.",
+        "customer": "Customer name7",
+        "webSite": "website7"
       },
       "8": {
         "title": "Logistics optimization",
-        "description": "Routing and capacity planning models integrated with warehouse management."
+        "description": "Routing and capacity planning models integrated with warehouse management.",
+        "customer": "Customer name8",
+        "webSite": "website8"
       },
       "9": {
         "title": "Healthcare scheduling",
-        "description": "Patient-first scheduling with provider rules, reminders, and analytics."
+        "description": "Patient-first scheduling with provider rules, reminders, and analytics.",
+        "customer": "Customer name9",
+        "webSite": "website9"
       }
     }
   },

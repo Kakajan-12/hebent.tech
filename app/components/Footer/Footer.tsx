@@ -43,7 +43,7 @@ export default function Footer() {
   return (
     <footer className="bg-footer text-white">
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
-        <div className=" grid grid-cols-2 gap-12 lg:grid-cols-3 lg:gap-8">
+        <div className=" grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-8">
           <div>
             <Link href="/" className="inline-block">
               <Image

@@ -33,13 +33,13 @@ export default function DesktopMenu() {
     >
       <Link
         href="/"
-        className={`rounded-md px-3 py-2 text-sm font-bold hover:bg-gray-500/10 ${checkActive("/") ? "bg-footer text-white" : "bg-transparent text-black"}`}
+        className={`rounded-md px-3 py-2 text-sm font-bold hover:bg-brand hover:text-white ${checkActive("/") ? "bg-brand text-white" : "bg-transparent text-black"}`}
       >
         {t("main")}
       </Link>
       <Link
         href="/project"
-        className={`rounded-md px-3 py-2 text-sm font-bold hover:bg-gray-500/10 ${checkActive("/project") ? "bg-footer text-white" : "bg-transparent text-black"}`}
+        className={`rounded-md px-3 py-2 text-sm font-bold hover:bg-brand hover:text-white ${checkActive("/project") ? "bg-brand text-white" : "bg-transparent text-black"}`}
       >
         {t("projects")}
       </Link>
@@ -50,7 +50,7 @@ export default function DesktopMenu() {
       />
       <Link
         href="/newsroom"
-        className={`rounded-md px-3 py-2 text-sm font-bold hover:bg-gray-500/10 ${checkActive("/newsroom") ? "bg-footer text-white" : "bg-transparent text-black"}`}
+        className={`rounded-md px-3 py-2 text-sm font-bold hover:bg-brand hover:text-white ${checkActive("/newsroom") ? "bg-brand text-white" : "bg-transparent text-black"}`}
       >
         {t("newsroom")}
       </Link>

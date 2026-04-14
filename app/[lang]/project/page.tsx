@@ -8,24 +8,22 @@ import ProjectCard from "@/app/components/Projects/ProjectCard";
 import { expandProjects } from "@/lib/content";
 
 const PAGE_SIZE = 9;
-const ALL = expandProjects(90);
+const ALL = expandProjects();
 
 export default function ProjectsClient() {
   const t = useTranslations("ProjectsPage");
   const tItems = useTranslations("Projects.items");
   const [query, setQuery] = useState("");
-  const [sort, setSort] = useState<"single" | "title">("single");
+  const [sort, setSort] = useState<"single" | "title">("title");
   const [page, setPage] = useState(1);
 
   const filtered = useMemo(() => {
     let list = ALL;
     const q = query.trim().toLowerCase();
     if (q) {
-      list = list.filter((p) => {
-        const title = tItems(`${p.sourceId}.title`).toLowerCase();
-        const desc = tItems(`${p.sourceId}.description`).toLowerCase();
-        return title.includes(q) || desc.includes(q);
-      });
+      list = list.filter((p) =>
+        tItems(`${p.sourceId}.title`).toLowerCase().includes(q),
+      );
     }
     if (sort === "title") {
       list = [...list].sort((a, b) =>
@@ -46,24 +44,21 @@ export default function ProjectsClient() {
 
   return (
     <main
-      className="flex-1 mt-30 lg:mt-60 container mx-auto min-h-screen
+      className="flex-1 mt-30 lg:mt-50 xl:mt-60 container mx-auto min-h-screen
     "
     >
-      <div className="mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
-        <p className="max-w-4xl text-left text-xl lg:text-4xl leading-relaxed">
+      <div className="mx-auto px-5 sm:px-10 lg:px-12 2xl:px-0 pb-8 xl:pb-48">
+        <p className="max-w-5xl text-left text-xl lg:text-4xl xl:text-5xl leading-relaxed lg:leading-snug">
           {t("heroBefore")}{" "}
           <span className="font-semibold text-brand-blue">{t("designed")}</span>{" "}
           {t("and")}{" "}
           <span className="font-semibold text-brand-blue">{t("built")}</span>{" "}
           {t("heroAfter")}
         </p>
-        {/* <div className="mt-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <label className="relative block flex-1 md:max-w-xl">
-            <span className="sr-only">{t("searchAria")}</span>
+        <div className="mt-10 flex flex-col gap-5 md:flex-row items-end md:items-center md:justify-between">
+          <label htmlFor="search" className="relative block w-full md:max-w-md">
             <input
-              aria-label={t("searchAria")}
               id="search"
-              aria-labelledby="search"
               type="search"
               placeholder={t("searchPlaceholder")}
               value={query}
@@ -71,56 +66,29 @@ export default function ProjectsClient() {
                 setQuery(e.target.value);
                 setPage(1);
               }}
-              className="w-full rounded-2xl border border-slate-200 bg-white py-3 pl-12 pr-4 text-sm text-slate-900 shadow-sm outline-none ring-brand/30 placeholder:text-slate-400 focus:ring-2"
+              className="font-nexa font-light w-full rounded-4xl border-2 border-[#ABB7C2] py-2 pl-6 pr-14 text-xs lg:text-sm xl:text-base shadow-sm outline-none transition-all placeholder:text-[#ABB7C2] focus:border-slate-400"
             />
-            <FiSearch
-              className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-slate-400"
-              aria-hidden
-            />
+
+            <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none">
+              <FiSearch className="size-4 text" />
+            </div>
           </label>
-          <div className="flex shrink-0 items-center gap-2">
-            <span className="text-sm text-slate-500">{t("sortBy")}</span>
+          <div className="sort-by flex shrink-0 items-center gap-2">
             <select
+              id="sort"
               value={sort}
               onChange={(e) => {
                 setSort(e.target.value as "single" | "title");
                 setPage(1);
               }}
-              className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-800 shadow-sm outline-none focus:ring-2 focus:ring-brand/30"
+              className="rounded-2xl border-2 border-[#ABB7C2] text-[#7E7E7E] px-4 py-2 text-xs lg:text-sm xl:text-base font-light shadow-sm outline-none focus:ring-1 focus:ring-brand/30"
             >
               <option value="single">{t("sortSingle")}</option>
               <option value="title">{t("sortTitle")}</option>
             </select>
           </div>
-        </div> */}
-        <div className="mt-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-center">
-          <label className="relative block w-full md:max-w-2xl">
-            <span className="sr-only">{t("searchAria")}</span>
-
-            <input
-              type="search"
-              placeholder="Search ..."
-              value={query}
-              onChange={(e) => {
-                setQuery(e.target.value);
-                setPage(1);
-              }}
-              /* Ключевые изменения:
-         - rounded-full для идеального овала
-         - py-4 для большей высоты (как на макете)
-         - border-[#d1d5db] или аналогичный мягкий цвет
-         - pl-6 (текст начинается дальше)
-      */
-              className="w-full rounded-full border border-slate-300 bg-white py-4 pl-6 pr-14 text-lg text-slate-900 shadow-sm outline-none transition-all placeholder:text-slate-400 focus:border-slate-400"
-            />
-
-            {/* Иконка справа, как в Figma */}
-            <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none">
-              <FiSearch className="size-6 text-slate-900" />
-            </div>
-          </label>
         </div>
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {slice.map((p) => (
             <ProjectCard key={p.id} project={p} />
           ))}
