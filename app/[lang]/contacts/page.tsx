@@ -68,58 +68,74 @@ export default function ContactPage() {
           </div>
 
           {/* Right Column: Form */}
-          <form className="form-contact space-y-4 lg:space-y-10 xl:space-y-12">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <label className="font-vox text-base lg:text-lg xl:text-xl font-light">
+          <form className="form-contact flex flex-col gap-2 ">
+            <div className="grid grid-cols-1 gap-2">
+              <div className="flex flex-col gap-2">
+                <label
+                  htmlFor="name"
+                  className="font-vox text-base lg:text-lg xl:text-xl font-light"
+                >
                   {t("name")}
                 </label>
                 <input
                   id="name"
                   type="text"
                   placeholder={t("name")}
-                  className="font-vox text-sm lg:text-base xl:text-2xl w-full p-2 lg:p-4 xl:p-6 bg-[#D9D9D9] border-b border-black  focus:ring-1 focus:ring-black outline-none"
+                  autoComplete="name"
+                  className="font-vox text-sm lg:text-base xl:text-2xl w-full p-2 lg:p-4 bg-[#D9D9D9] border-b border-black  focus:ring-1 focus:ring-black outline-none"
                 />
               </div>
-              <div className="space-y-2">
-                <label className="font-vox text-base lg:text-lg xl:text-xl font-light">
+              <div className="flex flex-col gap-2">
+                <label
+                  htmlFor="surname"
+                  className="font-vox text-base lg:text-lg xl:text-xl font-light"
+                >
                   {t("surname")}
                 </label>
                 <input
                   id="surname"
                   type="text"
                   placeholder={t("surname")}
-                  className="font-vox text-sm lg:text-base xl:text-2xl w-full p-2 lg:p-4 xl:p-6 bg-[#D9D9D9] border-b border-black  focus:ring-1 focus:ring-black outline-none"
+                  className="font-vox text-sm lg:text-base xl:text-2xl w-full p-2 lg:p-4 bg-[#D9D9D9] border-b border-black  focus:ring-1 focus:ring-black outline-none"
+                  autoComplete="surname"
                 />
               </div>
             </div>
 
-            <div className="space-y-2">
-              <label className="font-vox text-base lg:text-lg xl:text-xl font-light">
+            <div className="flex flex-col gap-2">
+              <label
+                htmlFor="email"
+                className="font-vox text-base lg:text-lg xl:text-xl font-light"
+              >
                 {t("email")}
               </label>
               <input
                 id="email"
                 type="email"
                 placeholder={t("email")}
-                className="font-vox text-sm lg:text-base xl:text-2xl w-full p-2 lg:p-4 xl:p-6 bg-[#D9D9D9] border-b border-black  focus:ring-1 focus:ring-black outline-none"
+                className="font-vox text-sm lg:text-base xl:text-2xl w-full p-2 lg:p-4 bg-[#D9D9D9] border-b border-black  focus:ring-1 focus:ring-black outline-none"
+                autoComplete="email"
               />
             </div>
 
-            <div className="space-y-2">
-              <label className="font-vox text-base lg:text-lg xl:text-xl font-light">
+            <div className="flex flex-col gap-2">
+              <label
+                htmlFor="comments"
+                className="font-vox text-base lg:text-lg xl:text-xl font-light"
+              >
                 {t("comments")}
               </label>
               <textarea
                 id="comments"
                 rows={6}
-                className="font-vox text-sm lg:text-base xl:text-2xl w-full p-2 lg:p-4 xl:p-6 bg-[#D9D9D9] border-b border-black  focus:ring-1 focus:ring-black outline-none resize-none"
+                className="font-vox text-sm lg:text-base xl:text-2xl w-full p-2 lg:p-4 bg-[#D9D9D9] border-b border-black  focus:ring-1 focus:ring-black outline-none resize-none"
+                autoComplete="off"
               />
             </div>
 
             <button
               type="submit"
-              className="font-nexa w-full py-4 bg-[#001F3F] text-white font-bold rounded-full hover:bg-black transition-colors uppercase tracking-widest text-sm"
+              className="mt-5 lg:mt-10 font-nexa w-full py-4 bg-[#001F3F] text-white font-bold rounded-full hover:bg-black transition-colors uppercase tracking-widest text-sm"
             >
               {t("send")}
             </button>
