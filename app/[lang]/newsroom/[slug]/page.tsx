@@ -20,17 +20,12 @@ export default async function NewsArticlePage({ params }: Props) {
 
   return (
     <main className="relative">
-      {/* <Link
-        href="/newsroom"
-        className="font-vox text-sm text-slate-500 transition hover:text-brand-blue"
-      >
-        ← {tPage("title")}
-      </Link> */}
       <div className="absolute top-0 left-0 h-90 sm:h-112 lg:h-140 xl:h-160 w-full z-10">
         <Image
           src={NEWS_ITEMS.find((n) => n.id === slug)?.imageSrc || ""}
           alt=""
-          fill
+          width={1000}
+          height={1000}
           className="object-cover w-full h-full"
         />
       </div>
