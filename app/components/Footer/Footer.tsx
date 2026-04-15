@@ -41,20 +41,20 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-footer text-white">
-      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
-        <div className=" grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-8">
-          <div>
+    <footer className="bg-footer text-white ">
+      <div className="container mx-auto px-5 sm:px-6 lg:px-16 xl:px-3 2xl:px-22 pt-6 lg:pt-20 pb-5 lg:pb-8">
+        <div className="footer-container flex flex-col lg:flex-row gap-8 justify-between">
+          <div className="logo-container flex flex-col gap-9 items-center lg:items-start">
             <Link href="/" className="inline-block">
               <Image
                 src="/logo.svg"
                 alt="HEBENT TECHNOLOGY"
-                width={174}
-                height={54}
+                width={300}
+                height={100}
                 className="brightness-0 invert"
               />
             </Link>
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-9">
               <SocialIcon label={t("instagram")}>
                 <AiFillInstagram size={35} />
               </SocialIcon>
@@ -66,63 +66,67 @@ export default function Footer() {
               </SocialIcon>
             </div>
           </div>
-          <div>
-            <h3 className="text-lg font-semibold">{t("contacts")}</h3>
-            <ul className="mt-6 space-y-4 text-sm text-white/90">
-              <li className="flex gap-3">
-                <FiPhone
-                  className="mt-0.5 size-5 shrink-0 text-white"
-                  aria-hidden
-                />
-                <a href="tel:+9930000000" className="hover:text-white/70">
-                  +993 (00) 000-00-00
-                </a>
-              </li>
-              <li className="flex gap-3">
-                <FiMail
-                  className="mt-0.5 size-5 shrink-0 text-white"
-                  aria-hidden
-                />
-                <a
-                  href="mailto:info@hebent.tech"
-                  className="hover:text-white/70"
-                >
-                  info@hebent.tech
-                </a>
-              </li>
-              <li className="flex gap-3">
-                <FiMapPin
-                  className="mt-0.5 size-5 shrink-0 text-white"
-                  aria-hidden
-                />
-                <span>{t("address")}</span>
-              </li>
-              <li className="flex gap-3">
-                <FiClock
-                  className="mt-0.5 size-5 shrink-0 text-white"
-                  aria-hidden
-                />
-                <span>{t("hours")}</span>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold">{t("explore")}</h3>
-            <ul className="mt-6 space-y-3 text-sm font-medium">
-              {exploreLinks.map((l) => (
-                <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    className="text-white hover:text-white/70"
+          <div className="contacts-container flex flex-col sm:flex-row items-start sm:items-center justify-start sm:justify-around gap-9 sm:gap-12">
+            <div className="contacts">
+              <h3 className="font-nexa text-lg font-semibold">
+                {t("contacts")}
+              </h3>
+              <ul className="mt-4 lg:mt-6 space-y-4 text-sm text-white font-bold">
+                <li className="flex gap-4 items-center">
+                  <FiPhone className="size-5 shrink-0 text-white" aria-hidden />
+                  <a
+                    href="tel:+9930000000"
+                    className="font-vox text-sm lg:text-lg hover:text-white/70"
                   >
-                    {t(l.key)}
-                  </Link>
+                    +993 (00) 000-00-00
+                  </a>
                 </li>
-              ))}
-            </ul>
+                <li className="flex gap-4 items-center">
+                  <FiMail className="size-5 shrink-0 text-white" aria-hidden />
+                  <a
+                    href="mailto:info@hebent.tech"
+                    className="font-vox text-sm lg:text-lg hover:text-white/70"
+                  >
+                    info@hebent.tech
+                  </a>
+                </li>
+                <li className="flex gap-4 items-center">
+                  <FiMapPin
+                    className="size-5 shrink-0 text-white"
+                    aria-hidden
+                  />
+                  <span className="font-vox text-sm lg:text-lg">
+                    {t("address")}
+                  </span>
+                </li>
+                <li className="flex gap-4 items-center">
+                  <FiClock className="size-5 shrink-0 text-white" aria-hidden />
+                  <span className="font-vox text-sm lg:text-lg">
+                    {t("hours")}
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div className="links-container">
+              <ul className="mt-0 lg:mt-6 space-y-5 pl-0 sm:pl-8 pr-10 lg:pr-0 border-t sm:border-t-0 border-l-0 sm:border-l border-white py-5 lg:py-0">
+                {exploreLinks.map((l) => (
+                  <li
+                    key={l.href}
+                    className="w-30 lg:w-full border-b border-white pb:1 lg:pb-5 pr-0 lg:pr-42"
+                  >
+                    <Link
+                      href={l.href}
+                      className="font-vox text-sm lg:text-lg text-white font-bold hover:text-white/70"
+                    >
+                      {t(l.key)}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
-        <div className="mt-12 border-t border-white/15 pt-8 text-center text-xs text-white/60">
+        <div className="mt-0 lg:mt-12 pt-8 text-center text-xs text-white/60">
           <p>
             {t("rights")} |{" "}
             <Link
@@ -140,11 +144,11 @@ export default function Footer() {
             </Link>{" "}
             | {t("powered")}{" "}
             <Image
-              src="/logoIcon.svg"
+              src="/logo.svg"
               alt="HEBENT TECHNOLOGY"
-              width={24}
-              height={24}
-              className="inline-block"
+              width={50}
+              height={50}
+              className="inline-block brightness-0 invert"
             />
           </p>
         </div>
