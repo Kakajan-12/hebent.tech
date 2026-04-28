@@ -44,11 +44,11 @@ export default function ProjectsClient() {
 
   return (
     <main
-      className="flex-1 mt-30 lg:mt-50 xl:mt-60 container mx-auto min-h-screen
+      className="flex-1 mt-30 lg:mt-50 container mx-auto min-h-screen
     "
     >
       <div className="mx-auto px-5 sm:px-10 lg:px-12 2xl:px-0 pb-8 xl:pb-48">
-        <p className="max-w-5xl text-left text-xl lg:text-4xl xl:text-5xl leading-relaxed lg:leading-snug">
+        <p className="max-w-5xl text-left text-xl lg:text-3xl leading-relaxed lg:leading-snug">
           {t("heroBefore")}{" "}
           <span className="font-semibold text-brand-blue">{t("designed")}</span>{" "}
           {t("and")}{" "}

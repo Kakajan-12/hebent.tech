@@ -36,7 +36,7 @@ export default function LangSwitcher() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className=" flex items-center gap-2 rounded-3xl border border-black px-4 py-2 font-vox text-base font-medium shadow-sm"
+        className=" flex items-center gap-2 rounded-3xl border border-black px-3 py-2 font-vox text-base font-medium shadow-sm"
         aria-expanded={open}
       >
         {shortLabel}
@@ -46,12 +46,12 @@ export default function LangSwitcher() {
         />
       </button>
       {open ? (
-        <div className="absolute right-0 top-full z-50 mt-2 w-20 rounded-xl border border-slate-200 bg-white py-2 shadow-lg">
+        <div className="absolute right-0 top-full z-50 mt-2 w-18 rounded-xl border border-slate-200 bg-white py-2 shadow-lg">
           {routing.locales.map((loc) => (
             <button
               key={loc}
               type="button"
-              className={`block w-full px-4 py-2 text-center text-sm hover:bg-slate-50 ${
+              className={`block w-full px-2 py-2 text-center text-sm hover:bg-slate-50 ${
                 loc === locale ? "font-semibold text-brand" : ""
               }`}
               onClick={() => switchLocale(loc)}

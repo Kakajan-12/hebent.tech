@@ -22,11 +22,14 @@ export default function Testimonials() {
 
   return (
     <section className="py-16">
-      <div className="mx-auto max-w-7xl px-4 mb-10 container">
+      <div className="mx-auto max-w-7xl px-5 lg:px-10 xl:px-0 mb-10 container">
         <h2 className="text-3xl font-bold">{t("title")}</h2>
       </div>
 
-      <div className="embla overflow-hidden" ref={emblaRef}>
+      <div
+        className="embla overflow-hidden px-5 lg:px-10 xl:px-0"
+        ref={emblaRef}
+      >
         {/* Убрали grid, добавили flex и отрицательный margin, чтобы компенсировать отступы */}
         <div className="embla__container flex -ml-5">
           {TESTIMONIAL_IDS.map((id: TestimonialId) => {
@@ -36,7 +39,7 @@ export default function Testimonials() {
             return (
               <div
                 key={id}
-                className="embla__slide flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_25%] pl-5 min-h-96"
+                className="embla__slide flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.33%] xl:flex-[0_0_25%] pl-5 min-h-96"
               >
                 <figure className="group testimonial-clip rounded-4xl p-8 flex flex-col items-start justify-center bg-white h-full border border-slate-200">
                   <figcaption className="text-sm font-black uppercase tracking-widest mb-6 text-brand-blue">

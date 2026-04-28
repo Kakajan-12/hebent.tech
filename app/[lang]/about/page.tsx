@@ -38,7 +38,7 @@ export default async function AboutPage({ params }: Props) {
           {t("body")}
         </p>
         <AboutSection />
-        <AboutAccordion items={items} defaultOpenId="vision" />
+        <AboutAccordion items={items} />
       </div>
     </section>
   );

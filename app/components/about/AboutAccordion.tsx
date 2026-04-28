@@ -14,9 +14,9 @@ type Props = {
   defaultOpenId?: string | null;
 };
 
-export default function AboutAccordion({ items, defaultOpenId = null }: Props) {
+export default function AboutAccordion({ items }: Props) {
   const baseId = useId();
-  const [openId, setOpenId] = useState<string | null>(defaultOpenId);
+  const [openId, setOpenId] = useState<string | null>(null);
 
   return (
     <div className="container mx-auto mt-10 overflow-hidden rounded-2xl px-6 md:px-20 lg:px-10">
@@ -58,7 +58,7 @@ export default function AboutAccordion({ items, defaultOpenId = null }: Props) {
               }`}
             >
               <div className="overflow-hidden">
-                <p className="px-2 pb-4 pt-0 font-vox text-sm lg:text-base leading-relaxed text-slate-900 md:text-lg">
+                <p className="px-2 pb-4 pt-0 font-nexa text-sm lg:text-lg leading-relaxed text-slate-900 md:text-lg">
                   {item.content}
                 </p>
               </div>

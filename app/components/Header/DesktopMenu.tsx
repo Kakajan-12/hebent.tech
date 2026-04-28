@@ -21,8 +21,10 @@ export default function DesktopMenu() {
 
   const companyLinks = [
     { href: "/about", label: t("about") },
-    { href: "/careers", label: t("careers") },
-    { href: "/references", label: t("references") },
+    // { href: "/careers", label: t("careers") },
+    // { href: "/references", label: t("references") },
+
+    { href: "#", label: t("references") },
     { href: "/contacts", label: t("contacts") },
   ];
 
@@ -38,7 +40,8 @@ export default function DesktopMenu() {
         {t("main")}
       </Link>
       <Link
-        href="/project"
+        href="#"
+        // href="/project"
         className={`rounded-md px-3 py-2 text-sm font-bold hover:bg-brand hover:text-white ${checkActive("/project") ? "bg-brand text-white" : "bg-transparent text-black"}`}
       >
         {t("projects")}
@@ -49,7 +52,8 @@ export default function DesktopMenu() {
         checkActive={checkActive}
       />
       <Link
-        href="/newsroom"
+        href="#"
+        // href="/newsroom"
         className={`rounded-md px-3 py-2 text-sm font-bold hover:bg-brand hover:text-white ${checkActive("/newsroom") ? "bg-brand text-white" : "bg-transparent text-black"}`}
       >
         {t("newsroom")}

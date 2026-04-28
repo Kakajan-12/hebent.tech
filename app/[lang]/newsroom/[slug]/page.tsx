@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
 import { NEWS_ITEMS } from "@/lib/newsroom";
 import Image from "next/image";
 

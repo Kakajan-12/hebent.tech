@@ -18,38 +18,39 @@
     "contacts": "Contact us"
   },
   "VideoHero": {
-    "title": "VIDEO"
+    "title": "VIDEO",
+    "comingSoon": "Coming soon in May"
   },
   "Services": {
     "iot": {
       "label": "IOT Services",
       "heading": "IOT SERVICES",
-      "description": "We deliver smart, end-to-end IoT solutions that connect devices and drive intelligent operations."
+      "description": "We develop end-to-end IoT solutions that connect devices into a unified ecosystem, automate processes, and enable real-time data-driven decisions."
     },
     "ai": {
       "label": "AI Services",
       "heading": "AI SERVICES",
-      "description": "We build practical AI systems that automate workflows, extract insights, and scale with your product."
+      "description": "We implement artificial intelligence solutions to automate tasks, analyze data, and improve business efficiency."
     },
     "consulting": {
       "label": "IT consulting",
       "heading": "IT CONSULTING",
-      "description": "Architecture reviews, roadmaps, and technology choices aligned with your business constraints."
+      "description": "We help you choose and optimize the technology stack, build architecture, and offer solutions that accelerate your business growth."
     },
     "development": {
       "label": "IT Development",
       "heading": "IT DEVELOPMENT",
-      "description": "Full-stack engineering from prototypes to production-grade platforms and integrations."
+      "description": "We provide full-cycle software development — from idea and design to launch and ongoing support."
     },
     "database": {
       "label": "Database",
       "heading": "DATABASE",
-      "description": "Data modeling, performance tuning, and reliable pipelines for analytics and operations."
+      "description": "We design and optimize high-performance databases, ensuring reliable storage, security, and fast access to your data."
     }
   },
   "About": {
     "title": "About Us",
-    "body": "From strategy and design to development and launch – we provide end-to-end digital solutions tailored to your goals. Our team builds reliable technology and intuitive interfaces that create real value for users and businesses.",
+    "body": "From strategy and design to development and launch — we deliver end-to-end digital solutions tailored to your goals. Our team builds reliable technologies and intuitive interfaces that bring real value to both users and businesses.",
     "accordion": {
       "mission": {
         "title": "Our mission",
@@ -119,17 +120,14 @@
   },
   "Contacts": {
     "title": "Contact Us",
-    "body": "Let's build something great together.",
-    "description": "Whether you have a project in mind, a question to ask, or just want to say hello — we'd love to hear from you.",
+    "body": "Let's build something great together!",
+    "description": "If you have a project in mind, a question, or just want to say hello — we’d be happy to hear from you.",
     "visitUs": "Visit Us",
     "talkToUs": "Talk to Us",
     "email": "Email",
     "phone": "Phone",
-    "address": "Address",
+    "address": "Turkmenistan, c. Ashgabat, st. Bitarap Turkmenistan 3/1, 'Altyn Ýüplük' building",
     "hours": "Hours",
-    "instagram": "Instagram",
-    "twitter": "X",
-    "facebook": "Facebook",
     "name": "Name",
     "surname": "Surname",
     "comments": "Comments",
@@ -216,7 +214,7 @@
     }
   },
   "Testimonials": {
-    "title": "Our Clients About Us",
+    "title": "Our clients about us",
     "items": {
       "t1": {
         "brand": "OGUZTRAVEL",
@@ -224,27 +222,27 @@
         "author": "Daniel Brooks, Chief Operating Officer, New Bridge Group"
       },
       "t2": {
-        "brand": "NORTHLINE",
+        "brand": "Shantui",
         "quote": "From discovery to launch, the product quality exceeded expectations. Our operators adopted the new UI quickly.",
         "author": "Elena Morris, VP Product, Northline Logistics"
       },
       "t3": {
-        "brand": "SKYFORGE",
+        "brand": "Sitrak",
         "quote": "They combined strong engineering with pragmatic design decisions. We shipped faster without cutting corners.",
         "author": "Marcus Chen, CTO, Skyforge Labs"
       },
       "t4": {
-        "brand": "AEROVAULT",
+        "brand": "Talvas yoly",
         "quote": "The integration was seamless and the documentation thorough. Hebent's engineers responded to every edge case before we even raised it.",
         "author": "Sophia Keller, Head of Engineering, AeroVault Systems"
       },
       "t5": {
-        "brand": "DATASPAN",
+        "brand": "Lovol",
         "quote": "We needed a team that understood data at scale. Hebent delivered a pipeline that handles peak loads without a hiccup.",
         "author": "James Okoye, Data Infrastructure Lead, DataSpan Analytics"
       },
       "t6": {
-        "brand": "GREENPATH",
+        "brand": "Oguzabat",
         "quote": "They grasped our domain quickly and built a solution that our field teams actually enjoy using. Rare quality.",
         "author": "Lena Farris, Product Director, GreenPath Solutions"
       }
@@ -331,7 +329,7 @@
     "privacy": "Privacy Policy",
     "cookies": "Cookies",
     "powered": "Powered by",
-    "address": "Ashgabat, Turkmenistan",
+    "address": "Turkmenistan,c. Ashgabat,str. Bitarap Turkmenistan 3/1, 'Altyn Ýüplük' bld.",
     "hours": "09:00 – 19:00",
     "about": "About Us",
     "projects": "Projects",
@@ -352,8 +350,8 @@
   },
   "CookiesPolicy": {
     "title1": "Cookies Policy",
-    "description1": "At Hebent  Tech, we use cookies to enhance your browsing experience, analyze site traffic, and personalize content. Cookies are small text files stored on your device that help us remember your preferences and understand how you interact with our website.",
-    "title2": "What types of cookies do we use?",
+    "description": "At Hebent  Tech, we use cookies to enhance your browsing experience, analyze site traffic, and personalize content. Cookies are small text files stored on your device that help us remember your preferences and understand how you interact with our website.",
+    "what": "What types of cookies do we use?",
     "categories": [
       {
         "title": "Essential Cookies:",
@@ -372,20 +370,50 @@
         "description": "Used to deliver relevant ads based on your interests and to measure the effectiveness of marketing campaigns."
       }
     ],
-    "title3": "Managing Cookies",
-    "description3": "You can control or disable cookies through your browser settings. Please note that blocking certain cookies may affect the functionality and user experience of our website. For more information about cookies and how to manage them, visit www.aboutcookies.org.",
-    "description4": "For more information about cookies and how to manage them, visit:",
-    "description5": "By continuing to use our website, you consent to our use of cookies in accordance with this policy."
+    "title2": "Managing Cookies",
+    "p1": "You can control or disable cookies through your browser settings. Please note that blocking certain cookies may affect the functionality and user experience of our website. For more information about cookies and how to manage them, visit www.aboutcookies.org.",
+    "p2": "For more information about cookies and how to manage them, visit:",
+    "p3": "By continuing to use our website, you consent to our use of cookies in accordance with this policy."
   },
   "PrivacyPolicy": {
     "title1": "Privacy Policy",
-    "description1": "At Hebent Tech, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and protect the personal information you provide to us when you use our website  and any of our services.",
-    "description1_2": "and any of our services.",
+    "description1": "At Hebent Tech, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and protect the personal information you provide to us when you use our website ",
+    "description1_2": " and any of our services.",
     "title2": "Information We Collect",
     "description2": "We may collect the following types of information:",
+    "items1": [
+      {
+        "title": "Personal Information:",
+        "description": "When you contact us, apply for a job, or use our services, you may provide personal details such as your name, email address, phone number, or resume."
+      },
+      {
+        "title": "Usage Data:",
+        "description": "We may collect data about how you interact with our website, including IP address, browser type, pages visited, time spent on pages, and referring websites."
+      },
+      {
+        "title": "Cookies and Tracking Technologies:",
+        "description": "We use cookies and similar technologies to improve your experience, analyze usage patterns, and personalize content. You can control cookie preferences in your browser settings."
+      }
+    ],
     "title3": "How We Use Your Information",
     "description3": "We use your data to:",
-    "title4": "How We Protect Your Information",
-    "description4": "We implement security measures to protect your information from unauthorized access, use, or disclosure."
+    "items2": [
+      {
+        "description": "Provide and improve our services"
+      },
+      {
+        "description": "Communicate with you (e.g., responses, updates, newsletters)"
+      },
+      {
+        "description": "Process job applications"
+      },
+      {
+        "description": "Analyze website performance and user behavior"
+      },
+      {
+        "description": "Comply with legal obligations"
+      }
+    ],
+    "span": "We will never sell or rent your personal information to third parties."
   }
 }

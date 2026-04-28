@@ -24,61 +24,61 @@
     "iot": {
       "label": "IoT hyzmatlary",
       "heading": "IOT SERVICES",
-      "description": "Enjamlary birleşdirýän we amallary aňly edýän doly IoT çözgütleri hödürleýäris."
+      "description": "Biz enjamlary bir ekosistema birlesdiryan, prosesleri awtomatizirleşdirýan we hakyky wagtdaky maglumatlar esasynda netijeleri kabul etmäge mümkincilik beryän kompleksleýin Iot çozgutleri işläp taýýarlaýarys"
     },
     "ai": {
       "label": "AI hyzmatlary",
       "heading": "AI SERVICES",
-      "description": "Iş amallaryny awtomatlaşdyrýan, maglumat çykaryşyny we önümi bilen ösýän AI ulgamlaryny gurýarys."
+      "description": "Biz emeli aň çözgütlerini ornaşdyryp, işleri awtomatlaşdyrmaga, maglumatlary seljermäge we işiň netijeliligini ýokarlandyrmaga kömek edýäris."
     },
     "consulting": {
       "label": "IT maslahatçylygy",
       "heading": "IT CONSULTING",
-      "description": "Arhitektura synlary, ýol mapsalary we iş çäklendirmelerine laýyk tehnologiýa saýlawy."
+      "description": "Biz tehnologiýa stackyňyzy saýlamaga we optimizirlemäge, arhitekturany gurmaga hem-de iş ösüşiňizi çaltlandyrýan çözgütleri ornaşdyrmaga kömek edýäris."
     },
     "development": {
-      "label": "IT işläp düzme",
+      "label": "IT programma üpjünçiligi",
       "heading": "IT DEVELOPMENT",
-      "description": "Prototiplerden başlap öndürijilik derejesindäki platformalar we integrasiýalara çenli full-stack işläp düzme."
+      "description": "Biz programma üpjünçiligini doly tapgyr boýunça döredýäris — ideýadan başlap dizaýn, işläp taýýarlamak we goldawa çenli."
     },
     "database": {
       "label": "Maglumat bazalary",
       "heading": "DATABASE",
-      "description": "Maglumat modelleri, öndüjilik we analitika we amallar üçin ygtybarly geçirijiler."
+      "description": "Biz ýokary öndürijilikli maglumat bazalaryny döredýäris we optimizirleýäris, maglumatlaryň ygtybarly saklanmagyny, howpsuzlygyny we tiz elýeterliligini üpjün edýäris."
     }
   },
   "About": {
     "title": "Biz barada",
-    "body": "Strategiýa we dizaýndan işläp düzmäge we işe girizmäge çenli maksatlaryňyza laýyk doly sanly çözgütler hödürleýäris. Toparymyz ulanyjylar we iş üçin hakyky gymmat döredýän ygtybarly tehnologiýa we düşnükli interfeýsler gurýar.",
+    "body": "Strategiýadan we dizaýndan başlap, işläp taýýarlamak we işe girizmek tapgyrlaryna çenli — biz siziň maksatlaryňyza laýyk gelýän doly sanly çözgütleri hödürleýäris. Biziň toparymyz ygtybarly tehnologiýalary we ulanyjylar hem-de biznes üçin peýdaly we düşnükli interfeýsleri taýýarlaýar.",
     "accordion": {
       "mission": {
-        "title": "Biziň wezipämiz",
-        "content": "Biz iş we adamlar üçin hakyky meseleleri çözýän tehnologiýa gurýarys. Biziň wezipämiz — doly sanly çözgütleri düşnükli, ygtybarly we ölçelýän netije bilen üpjün etmek."
+        "title": "Biziň missiýamyz",
+        "content": "Biz işewürligiň we adamlaryň hakyky meselelerini çözýän tehnologiýalary döredýäris. Biziň missiýamyz — anyklyk, ygtybarlylyk we ölçenip bilinýän netije bilen utgaşykly sanly çözgütleri hödürlemekdir."
       },
       "vision": {
-        "title": "Biziň seretmämiz",
-        "content": "Biz çylşyrymly amallaryň aç-açan, maglumat esasly we adamçylykly boljak geljekde işleýändigini görýäris. Kärhanalary ulgamlary täzeleşdirmäge kömek edýäris, olary her gün ulanyjylary ýatdan çykarmazdan."
+        "title": "Biziň garaýşymyz",
+        "content": "Biz çylşyrymly amallaryň aýdyň, maglumatlara esaslanýan we ynsanperwer bolup galýan geljegini görýäris. Biz guramalara ulgamlaryny dörebaplaşdyrmaga kömek edýäris, şunda olary her gün ulanýan adamlary ünsden düşürmeýäris."
       },
       "process": {
-        "title": "Biziň tertibimiz",
-        "content": "Gözleg, dizaýn, işläp düzmek, işe girizmek we gowulamak — gatnaşyjylar bilen gysga yzyna baglanyşykly aýlawlarda. Netijeleri öňünden ylalaşýarys, çalt prototip döredýäris we syn, synag we gözegçilik bilen hilini saklaýarys."
+        "title": "Biziň iş usulymyz",
+        "content": "Barlag, dizaýn, işläp düzmek, goýbermek we kämilleşdirmek — bular gyzyklanma bildirýän taraplar bilen gysga wagtyň içinde yzygiderli habarlaşmak arkaly amala aşyrylýar. Biz netijeler barada öňünden ylalaşýarys, çalt prototip döredýäris we gözden geçirmek, barlag hem-de synlaw arkaly hile gözegçilik edýäris."
       },
       "culture": {
         "title": "Biziň medeniýetimiz",
-        "content": "Biz jogapkärçilik, göni aragatnaşyk we yzygiderli öwrenmegi gymmatlandyrýarys. Toparlar umumy standartlar we ussatlyga söwegsizlik bilen dürli wagt zolaklarynda işleýär."
+        "content": "Biz jogapkärçiligi, göni aragatnaşygy we yzygiderli öwrenmegi gymmat saýýarys. Toparlar dürli wagt guşaklyklarynda umumy standartlara eýerip we ussatlyga hormat goýup işleýärler."
       },
       "technologies": {
         "title": "Biziň tehnologiýalarymyz",
-        "content": "Biz häzirki zaman web stekleri, bulut infrastrukturasy, IoT we maglumat geçirijileri bilen işleýäris; AI bolsa hakykatdan kömek edýän ýerde — her gezek mesele laýyklygynda saýlanýar, moda üçin däl."
+        "content": "Biz döwrebap web-stek, bulut infrastrukturasy, IoT we maglumat geçirijileri, şeýle hem emeli aňyň hakykatdan hem kömek edýän ýerlerinde ulanmak bilen işleýäris — gurallary moda görä däl-de, wezipä görä saýlaýarys."
       },
       "values": {
-        "title": "Biziň gymmatlarymyz",
-        "content": "Dogruluk, hil we uzak möhletleýin hyzmatdaşlyk. Biz açyk gepleýäris, söz berenimizi ýerine ýetirýäris we aýratyn taslama ýaşaýan gatnaşyklara maýa goýýarys."
+        "title": "Biziň gymmatlyklarymyz",
+        "content": "Dogruçyllyk, hil we uzak möhletleýin hyzmatdaşlyk. Biz zady bolşy ýaly aýdýarys, beren wadaňyzy ýerine ýetirýäris we aýratyn taslamalardan has uzak dowam edýän gatnaşyklary gurýarys."
       }
     }
   },
   "Careers": {
-    "heroTitle": "Biziň wezipämiziň bir bölegi boluň",
+    "heroTitle": "Biziň maksatymyzynyň bir bölegi boluň",
     "heroBody": "Hebent Tech-de biz görýäris: uly netije uly topardan başlaýar. Täsir etmek, hünärmenlikde ösmek we manysly zatlara goşant goşmak isleýän aňly, täjek we yhlasly adamlary hemişe gözleýäris.",
     "vacanciesTitle": "Açyk iş orunlary",
     "apply": "Ýüz tutmak",
@@ -119,13 +119,13 @@
   },
   "Contacts": {
     "title": "Biz bilen habarlaşmak",
-    "body": "Biziň wezipämiziň bir bölegi boluň",
-    "description": "Hebent Tech-de biz görýäris: uly netije uly topardan başlaýar. Täsir etmek, hünärmenlikde ösmek we manysly zatlara goşant goşmak isleýän aňly, täjek we yhlasly adamlary hemişe gözleýäris.",
+    "body": "Geliň bilelikde ajaýyp bir zat guralyň!",
+    "description": "Eger taslamaňyz, soragyňyz bar bolsa ýa-da diňe salam bermek isleseňiz, biz sizden habar almaga şat bolarys.",
     "visitUs": "Bize baryp görüň",
     "talkToUs": "Biz bilen habarlaşyň",
     "email": "E-poçta",
     "phone": "Telefon raýyletmek",
-    "address": "Aşgabat, Türkmenistan",
+    "address": "Türkmenistan,ş. Aşgabat,k. Bitarap Türkmenistan 3/1, 'Altyn Ýüplük' bina",
     "hours": "09:00 – 19:00",
     "instagram": "Instagram",
     "twitter": "X",
@@ -216,7 +216,7 @@
     }
   },
   "Testimonials": {
-    "title": "Müşderiler biz hakda",
+    "title": "Müşderiler biz barada",
     "items": {
       "t1": {
         "brand": "OGUZTRAVEL",
@@ -224,27 +224,27 @@
         "author": "Daniel Brooks, Chief Operating Officer, New Bridge Group"
       },
       "t2": {
-        "brand": "NORTHLINE",
+        "brand": "Shantui",
         "quote": "Gözlegden işe girizmäge çenli önümiň hilidi garaşylmagyndan ýokarydy. Operatorylar täze interfeýsi çalt kabul etdi.",
         "author": "Elena Morris, VP Product, Northline Logistics"
       },
       "t3": {
-        "brand": "SKYFORGE",
+        "brand": "Sitrak",
         "quote": "Güýçli injenerlik we pragmatik dizaýn karary. Hilde peseltme ýok, has çalt ýatyrdyk.",
         "author": "Marcus Chen, CTO, Skyforge Labs"
       },
       "t4": {
-        "brand": "AEROVAULT",
+        "brand": "Talvas yoly",
         "quote": "Integrasiýa tekiz geçdi, resminamalar giňişleýindi. Hebent injenerleri meseleleri biz habar bermänkä çözdüler.",
         "author": "Sophia Keller, Head of Engineering, AeroVault Systems"
       },
       "t5": {
-        "brand": "DATASPAN",
+        "brand": "Lovol",
         "quote": "Maşştabda maglumatlary düşünýän topar gerekdi. Hebent iň ýokary ýüklere durnukly pipeline gurdy.",
         "author": "James Okoye, Data Infrastructure Lead, DataSpan Analytics"
       },
       "t6": {
-        "brand": "GREENPATH",
+        "brand": "Oguzabat",
         "quote": "Olar çalt girendiler we meýdan toparlarynyň hakykatdan ulanýan çözgüdini döretdiler. Seýrek hil.",
         "author": "Lena Farris, Product Director, GreenPath Solutions"
       }
@@ -331,7 +331,7 @@
     "privacy": "Gizlinlik syýasaty",
     "cookies": "Cookies",
     "powered": "Goldawçy",
-    "address": "Aşgabat, Türkmenistan",
+    "address": "Türkmenistan,ş. Aşgabat,k. Bitarap Türkmenistan 3/1, 'Altyn Ýüplük' bina",
     "hours": "09:00 – 19:00",
     "about": "Biz barada",
     "projects": "Taslamalar",
@@ -355,40 +355,70 @@
   },
   "CookiesPolicy": {
     "title1": "Cookie syýasaty",
-    "description1": "Hebent Tech-de biz siziň sahypany ulanmak tejribäňizi gowulandyrmak, traffigi seljermek we mazmuny şahsylaşdyrmak üçin cookie faýllaryny ulanýarys. Cookie — bu siziň enjamyňyzda saklanýan kiçi tekst faýllary bolup, olar siziň sazlamalaryňyzy ýatda saklamaga we sahypa bilen nähili aragatnaşyk edýändigiňizi düşünmäge kömek edýär.",
-    "title2": "Biz haýsy cookie görnüşlerini ulanýarys?",
+    "description": "Hebent Tech kompaniýasynda biz siziň web sahypamyzy ulanmak tejribäňizi gowulandyrmak, sahypa traffigini seljermek we mazmuny şahsylaşdyrmak üçin cookie faýllaryny ulanýarys. Cookie faýllary — bu siziň enjamyňyzda saklanýan kiçi tekst faýllary bolup, olar siziň sazlamalaryňyzy ýatda saklamaga we web sahypamyz bilen nähili aragatnaşyk edýändigiňize düşünmäge kömek edýär.",
+    "what": "Biz haýsy görnüşli cookie faýllaryny ulanýarys?",
     "categories": [
       {
-        "title": "Esasy (zerur) cookie-ler:",
-        "description": "sahypanyň dogry işlemegi üçin zerur bolup, sahypa boýunça gezmek we goragly bölümlere giriş ýaly esasy mümkinçilikleri üpjün edýär."
+        "title": "Esasy cookie faýllary:",
+        "description": "web sahypanyň dogry işlemegi üçin zerurdyr, sahypalar boýunça nawigasiýa we goragly bölümlere giriş ýaly esasy funksiýalary üpjün edýär."
       },
       {
-        "title": "Öndürijilik (analitik) cookie-ler:",
-        "description": "ulanyjylaryň sahypany nähili ulanýandygyny ýygnap, tizligi we amatlylygy gowulandyrmaga kömek edýär."
+        "title": "Öndürijilik cookie faýllary:",
+        "description": "ulanyjylaryň sahypamyzy nähili ulanýandygyny ýygnap, tizligi we amatlylygy gowulandyrmaga kömek edýär."
       },
       {
-        "title": "Funksional cookie-ler:",
+        "title": "Funksional cookie faýllary:",
         "description": "siziň sazlamalaryňyzy we islegleriňizi ýatda saklap, has şahsylaşdyrylan tejribe berýär."
       },
       {
-        "title": "Reklama cookie-leri:",
+        "title": "Mahabat cookie faýllary:",
         "description": "siziň gyzyklanmalaryňyza laýyk mahabatlary görkezmek we marketing kampaniýalarynyň netijeliligini ölçemek üçin ulanylýar."
       }
     ],
-    "title3": "Cookie dolandyryşy",
-    "description3": "Siz cookie-leri brauzeriňiziň sazlamalary arkaly dolandyryp ýa-da öçürip bilersiňiz. Käbir cookie-leriň öçürilmegi sahypanyň işleýşine we ulanyş tejribesine täsir edip biler.",
-    "description4": "Cookie barada has giňişleýin maglumat almak we olary dolandyrmak üçin şu sahypa ýüz tutuň:",
-    "description5": "Sahypamyzy ulanmagy dowam etmek bilen, siz şu syýasata laýyklykda cookie-leriň ulanylmagyna razylyk berýärsiňiz."
+    "title2": "Cookie dolandyryşy",
+    "p1": "Siz cookie faýllaryny brauzeriňiziň sazlamalary arkaly dolandyryp ýa-da öçürip bilersiňiz. Käbir cookie faýllaryny bloklamak web sahypanyň işleýşine we ulanyş tejribesine täsir edip biler.",
+    "p2": "Cookie barada has giňişleýin maglumat almak we olary dolandyrmak üçin şu sahypa ýüz tutuň:",
+    "p3": "Web sahypamyzy ulanmagy dowam etdirmegiňiz bilen, siz şu syýasata laýyklykda cookie faýllarynyň ulanylmagyna razylyk berýärsiňiz."
   },
   "PrivacyPolicy": {
     "title1": "Gizlinlik syýasaty",
-    "description1": "“Hebent Tech” -de gizlinligiňizi goramagy maksat edinýäris. Bu Gizlinlik Policyörelgesi, web sahypamyzy ulananyňyzda bize berýän şahsy maglumatlaryňyzy nädip ýygnaýandygymyzy, ulanýandygymyzy we goramagymyzy düşündirýär",
-    "description1_2": "we islendik hyzmatlarymyz.",
-    "title2": "Information We Collect",
-    "description2": "We may collect the following types of information:",
-    "title3": "How We Use Your Information",
-    "description3": "We use your data to:",
-    "title4": "How We Protect Your Information",
-    "description4": "We implement security measures to protect your information from unauthorized access, use, or disclosure."
+    "description1": "Hebent Tech kompaniýasynda biz siziň şahsy maglumatlaryňyzyň goralmagyna uly ähmiýet berýäris. Bu Gizlinlik syýasaty, siz biziň",
+    "description1_2": "web sahypamyzy ýa-da hyzmatlarymyzy ulananyňyzda, biz tarapyndan ýygnalýan, ulanylýan we goralýan şahsy maglumatlar barada düşündirýär.",
+    "title2": "Yygnalýan maglumatlar",
+    "description2": "Biz aşakdaky görnüşdäki maglumatlary ýygnap bileris:",
+    "items1": [
+      {
+        "title": "Şahsy maglumatlar:",
+        "description": "Siz biziň bilen habarlaşanyňyzda, işe ýüz tutanyňyzda ýa-da hyzmatlarymyzy ulananyňyzda, adyňyz, e-poçta salgysy, telefon belgiňiz ýa-da rezýumeňiz ýaly şahsy maglumatlary berip bilersiňiz."
+      },
+      {
+        "title": "Ulanyş maglumatlary:",
+        "description": "Biz siziň web sahypamyz bilen nähili özara gatnaşygyňyz bardygy barada maglumatlary ýygnap bileris, şol sanda IP salgysy, brauzer görnüşi, girilen sahypalar, sahypalarda geçirilen wagt we geçiş edilen çeşme sahypalary."
+      },
+      {
+        "title": "Cookie faýllary we yzarlama tehnologiýalary:",
+        "description": "Biz siziň tejribäňizi gowulandyrmak, ulanyş maglumatlaryny seljermek we mazmuny şahsylaşdyrmak üçin cookie faýllaryny we şuňa meňzeş tehnologiýalary ulanýarys. Siz cookie sazlamalaryny öz brauzeriňizde dolandyryp bilersiňiz."
+      }
+    ],
+    "title3": "Biz siziň maglumatlaryny nähili ulanýarys?",
+    "description3": "Biz siziň maglumatlaryňyzy şu maksatlar üçin ulanýarys:",
+    "items2": [
+      {
+        "description": "Hyzmatlarymyzy hödürlemek we gowulandyrmak"
+      },
+      {
+        "description": "Siziň bilen aragatnaşyk saklamak (mysal üçin, jogaplar, täzelikler, habar býulletenleri)"
+      },
+      {
+        "description": "Işe ýüz tutmalary işläp taýýarlamak"
+      },
+      {
+        "description": "Web sahypanyň işleýşini we ulanyjylaryň hereketini seljermek"
+      },
+      {
+        "description": "Kanuny borçnamalary ýerine ýetirmek"
+      }
+    ],
+    "span": "Biz hiç haçan siziň şahsy maglumatlaryňyzy üçünji taraplara satmaýarys ýa-da kärendesine bermeýäris."
   }
 }

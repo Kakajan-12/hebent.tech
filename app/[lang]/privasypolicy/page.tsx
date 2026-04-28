@@ -11,57 +11,38 @@ const PrivacyPolicyPage: React.FC = () => {
   // Данные можно вынести в отдельный конфиг или файл локализации
   const sections: PrivacySection[] = [
     {
-      title: "1. Information We Collect",
+      title: t("title2"),
       content: (
         <div className="space-y-4">
-          <p>We may collect the following types of information:</p>
+          <p>{t("description2")}</p>
           <div>
-            <h4 className="font-bold text-slate-900">Personal Information:</h4>
-            <p>
-              When you contact us, apply for a job, or use our services, you may
-              provide personal details such as your name, email address, phone
-              number, or resume.
-            </p>
+            <h4 className="font-bold ">{t("items1.0.title")}</h4>
+            <p>{t("items1.0.description")}</p>
           </div>
           <div>
-            <h4 className="font-bold text-slate-900">Usage Data:</h4>
-            <p>
-              We may collect data about how you interact with our website,
-              including IP address, browser type, pages visited, time spent on
-              pages, and referring websites.
-            </p>
+            <h4 className="font-bold ">{t("items1.1.title")}</h4>
+            <p>{t("items1.1.description")}</p>
           </div>
           <div>
-            <h4 className="font-bold text-slate-900">
-              Cookies and Tracking Technologies:
-            </h4>
-            <p>
-              We use cookies and similar technologies to improve your
-              experience, analyze usage patterns, and personalize content. You
-              can control cookie preferences in your browser settings.
-            </p>
+            <h4 className="font-bold">{t("items1.2.title")}</h4>
+            <p>{t("items1.2.description")}</p>
           </div>
         </div>
       ),
     },
     {
-      title: "2. How We Use Your Information",
+      title: t("title3"),
       content: (
         <div className="space-y-4">
-          <p>We use your data to:</p>
+          <p>{t("description3")}</p>
           <ul className="list-disc pl-5 space-y-2">
-            <li>Provide and improve our services</li>
-            <li>
-              Communicate with you (e.g., responses, updates, newsletters)
-            </li>
-            <li>Process job applications</li>
-            <li>Analyze website performance and user behavior</li>
-            <li>Comply with legal obligations</li>
+            <li>{t("items2.0.description")}</li>
+            <li>{t("items2.1.description")}</li>
+            <li>{t("items2.2.description")}</li>
+            <li>{t("items2.3.description")}</li>
+            <li>{t("items2.4.description")}</li>
           </ul>
-          <p className="font-medium text-slate-900 mt-4">
-            We will never sell or rent your personal information to third
-            parties.
-          </p>
+          <p className="font-medium mt-4">{t("span")}</p>
         </div>
       ),
     },
@@ -72,22 +53,20 @@ const PrivacyPolicyPage: React.FC = () => {
       <div className="mx-auto flex flex-col">
         {/* Заголовок */}
         <h2 className="font-nexa text-5xl md:text-6xl font-bold tracking-tight mb-6 lg:mb-12">
-          Privacy Policy
+          {t("title1")}
         </h2>
 
         {/* Вступление */}
         <p className="mb-6 lg:mb-16 text-sm lg:text-xl font-vox leading-relaxed">
-          At Hebent Tech, we are committed to protecting your privacy. This
-          Privacy Policy explains how we collect, use, and protect the personal
-          information you provide to us when you use our website
+          {t("description1")}
           <Link
-            href="https://yourwebsite.com"
+            href="https://hebent.tech"
             target="_blank"
             rel="noopener noreferrer"
             className="underline underline-offset-4 hover:text-gray-500 transition-colors"
           >
             {" "}
-            yourwebsite.com{" "}
+            hebent.tech{" "}
           </Link>
           {t("description1_2")}
         </p>
@@ -96,9 +75,9 @@ const PrivacyPolicyPage: React.FC = () => {
         <div className="space-y-6 lg:space-y-10">
           {sections.map((section, index) => (
             <section key={index} className="font-vox text-sm lg:text-xl pt-4">
-              <h2 className="text-2xl lg:text-3xl font-bold mb-6">
-                {section.title}
-              </h2>
+              <h3 className="text-2xl lg:text-3xl font-bold mb-6">
+                {index + 1}. {section.title}
+              </h3>
               <div className="leading-relaxed text-sm lg:text-xl">
                 {section.content}
               </div>

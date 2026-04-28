@@ -30,11 +30,11 @@ export default function NewsroomPage() {
   return (
     <main className="flex-1 container mx-auto min-h-screen">
       <section className="my-24 md:my-32 lg:my-48 px-5 sm:px-10 xl:px-0">
-        <div className="flex flex-col lg:flex-row gap-4 text-[#1E2124] lg:items-start lg:gap-46 xl:gap-60">
-          <h1 className="font-nexa text-3xl font-bold tracking-tight lg:text-5xl xl:text-7xl">
+        <div className="flex flex-col lg:flex-row gap-4 text-[#1E2124] lg:items-start lg:gap-46 xl:gap-60 px-0 lg:px-10">
+          <h2 className="font-vox text-3xl font-bold tracking-tight lg:text-5xl">
             {t("title")}
-          </h1>
-          <p className="font-vox text-sm lg:text-xl xl:text-4xl">
+          </h2>
+          <p className="font-vox text-sm lg:text-xl xl:text-3xl">
             {t("description")}
           </p>
         </div>

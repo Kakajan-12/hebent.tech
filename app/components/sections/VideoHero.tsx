@@ -1,4 +1,6 @@
 import { getTranslations } from "next-intl/server";
+import Software2 from "@/public/Software2.jpg";
+import Image from "next/image";
 
 export default async function VideoHero() {
   const t = await getTranslations("VideoHero");
@@ -8,6 +10,7 @@ export default async function VideoHero() {
       <h1 className="relative text-5xl font-bold tracking-tight text-slate-900 sm:text-6xl md:text-7xl lg:text-8xl">
         {t("title")}
       </h1>
+      <Image src={Software2} alt="Software2" fill className="object-cover" />
     </section>
   );
 }
