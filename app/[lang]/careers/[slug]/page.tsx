@@ -1,46 +1,61 @@
+"use client";
 import ApplicationForm from "@/app/components/careers/ApplicationForm";
+import { useGetVacanciesQuery } from "@/app/api/api";
+import useAppLocale from "@/app/Hooks/GetLocale";
+import type { Vacancy } from "@/app/Interfaces/interfaces";
 import { useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
+import { ClipLoader } from "react-spinners";
 
 export default function CareerPage() {
   const t = useTranslations("Careers");
-  const points = [
-    "Develop responsive and intuitive UI components using React.js and modern JavaScript (ES6+)",
-    "Collaborate with product designers, backend engineers, and QA to deliver polished features",
-    "Ensure cross-browser compatibility, accessibility (WCAG), and performance best practices",
-    "Maintain and improve our front-end architecture and reusable component libraries",
-    "Participate in code reviews, sprint planning, and technical discussions",
-    "Continuously improve the user experience through experimentation and iteration",
-  ];
+  const locale = useAppLocale();
+  const params = useParams<{ slug: string }>();
+  const vacancyId = Number(params?.slug);
+  const { data, error, isLoading } = useGetVacanciesQuery();
+
+  const vacancies: Vacancy[] = Array.isArray(data) ? data : [];
+  const vacancy = vacancies.find((item) => item.id === vacancyId);
 
   return (
     <main className="min-h-screen container mx-auto px-7 sm:px-10 lg:px-12 mt-30 lg:mt-50 xl:mt-60 mb-20 lg:mb-30">
-      <div className="space-y-5 lg:space-y-16 xl:space-y-20">
-        <h2 className="font-nexa text-xl lg:text-5xl font-bold tracking-tight">
-          {t("aboutTheRole")}
-        </h2>
-        <p className="font-vox text-sm lg:text-2xl leading-relaxed">
-          At Hebent Tech, we believe that great work starts with great people.
-          We&apos;re always looking for passionate, talented, and driven
-          individuals...
+      {isLoading && (
+        <div className="py-10 flex justify-center">
+          <ClipLoader color="#000" size={28} />
+        </div>
+      )}
+
+      {!isLoading && error && (
+        <p className="font-vox text-base text-red-700">
+          Failed to load vacancy.
         </p>
+      )}
 
-        <h2 className="font-nexa text-xl lg:text-5xl font-bold tracking-tight">
-          {t("whatYoullDo")}
-        </h2>
-        <ul className="list-disc space-y-2 mb-16 font-vox text-sm lg:text-2xl">
-          {points.map((point, i) => (
-            <li key={i} className="flex items-center gap-4 text-sm lg:text-2xl">
-              <span className="w-2 h-2 bg-black shrink-0" />
-              <span>{point}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {!isLoading && !error && !vacancy && (
+        <p className="font-vox text-base">Vacancy not found.</p>
+      )}
 
-      <hr className="border-gray-100" />
+      {!isLoading && !error && vacancy && (
+        <>
+          <div className="space-y-5 lg:space-y-16 xl:space-y-20">
+            <h2 className="font-nexa text-xl lg:text-5xl font-bold tracking-tight">
+              {vacancy[`title_${locale}`]}
+            </h2>
 
-      {/* Форма */}
-      <ApplicationForm />
+            <h2 className="font-nexa text-xl lg:text-5xl font-bold tracking-tight">
+              {t("whatYoullDo")}
+            </h2>
+
+            <div
+              className="font-vox text-sm lg:text-2xl leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: vacancy[`text_${locale}`] }}
+            />
+          </div>
+
+          <hr className="border-gray-100 mt-10 lg:mt-16" />
+          <ApplicationForm />
+        </>
+      )}
     </main>
   );
 }

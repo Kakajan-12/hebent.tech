@@ -1,31 +1,47 @@
 "use client";
 
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 import NewsCard from "@/app/components/Newsroom/NewsCard";
-import {
-  NEWS_CATEGORY_IDS,
-  NEWS_ITEMS,
-  type NewsCategoryId,
-} from "@/lib/newsroom";
+import { useGetNewsQuery, useGetNewsCategoryQuery } from "@/app/api/api";
+import useAppLocale from "@/app/Hooks/GetLocale";
+import { NewsItem, NewsCategory } from "@/app/Interfaces/interfaces";
+import { ClipLoader } from "react-spinners";
 
 function formatNewsDate(iso: string, locale: string) {
   return new Intl.DateTimeFormat(locale, {
     month: "long",
     day: "numeric",
     year: "numeric",
-  }).format(new Date(`${iso}T12:00:00`));
+  }).format(new Date(iso));
 }
 
 export default function NewsroomPage() {
   const t = useTranslations("Newsroom");
-  const locale = useLocale();
-  const [activeCategory, setActiveCategory] = useState<NewsCategoryId>("all");
+  const locale = useAppLocale();
+  const [activeCategory, setActiveCategory] = useState<number | "all">("all");
+
+  const {
+    data: newsData,
+    error: newsError,
+    isLoading: newsLoading,
+  } = useGetNewsQuery();
+  const { data: categoryData, isLoading: categoriesLoading } =
+    useGetNewsCategoryQuery();
+
+  const news: NewsItem[] = useMemo(
+    () => (Array.isArray(newsData) ? newsData : []),
+    [newsData],
+  );
+  const categories: NewsCategory[] = useMemo(
+    () => (Array.isArray(categoryData) ? categoryData : []),
+    [categoryData],
+  );
 
   const filtered = useMemo(() => {
-    if (activeCategory === "all") return NEWS_ITEMS;
-    return NEWS_ITEMS.filter((n) => n.category === activeCategory);
-  }, [activeCategory]);
+    if (activeCategory === "all") return news;
+    return news.filter((n) => n.category_id === activeCategory);
+  }, [activeCategory, news]);
 
   return (
     <main className="flex-1 container mx-auto min-h-screen">
@@ -41,18 +57,31 @@ export default function NewsroomPage() {
 
         <nav className="mt-8 lg:mt-16" aria-label={t("categoriesAria")}>
           <ul className="font-nexa flex gap-x-4 gap-y-3 text-sm md:text-xl text-[#1E2124] md:gap-x-8 overflow-x-auto scrollbar-hide">
-            {NEWS_CATEGORY_IDS.map((id) => (
-              <li key={id}>
+            <li>
+              <button
+                type="button"
+                onClick={() => setActiveCategory("all")}
+                className={
+                  activeCategory === "all"
+                    ? "font-bold text-[#1E2124] whitespace-nowrap"
+                    : "font-normal text-slate-600 transition hover:text-[#1E2124] whitespace-nowrap"
+                }
+              >
+                {t("categories.all")}
+              </button>
+            </li>
+            {categories.map((category) => (
+              <li key={category.id}>
                 <button
                   type="button"
-                  onClick={() => setActiveCategory(id)}
+                  onClick={() => setActiveCategory(category.id)}
                   className={
-                    activeCategory === id
+                    activeCategory === category.id
                       ? "font-bold text-[#1E2124] whitespace-nowrap"
                       : "font-normal text-slate-600 transition hover:text-[#1E2124] whitespace-nowrap"
                   }
                 >
-                  {t(`categories.${id}`)}
+                  {category[`category_${locale}`]}
                 </button>
               </li>
             ))}
@@ -60,11 +89,30 @@ export default function NewsroomPage() {
         </nav>
 
         <div className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-4 lg:mt-8 lg:grid-cols-3 xl:grid-cols-4 lg:gap-6">
+          {(newsLoading || categoriesLoading) && (
+            <div className="col-span-full py-6 flex justify-center">
+              <ClipLoader color="#000" size={20} />
+            </div>
+          )}
+          {newsError && !newsLoading && (
+            <div className="col-span-full py-6 font-vox text-sm md:text-base text-red-700 text-center">
+              Failed to load news.
+            </div>
+          )}
+          {!newsLoading && !newsError && filtered.length === 0 && (
+            <div className="col-span-full py-6 font-vox text-sm md:text-base text-center">
+              No news available right now.
+            </div>
+          )}
           {filtered.map((item) => (
             <NewsCard
               key={item.id}
-              item={item}
-              dateLabel={formatNewsDate(item.date, locale)}
+              id={item.id}
+              image={item.image}
+              title={item[`title_${locale}`]}
+              text={item[`text_${locale}`]}
+              dateLabel={formatNewsDate(item.created_at, locale)}
+              isoDate={item.created_at}
             />
           ))}
         </div>

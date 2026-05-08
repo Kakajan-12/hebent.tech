@@ -2,7 +2,6 @@
 
 import { FaChevronDown } from "react-icons/fa6";
 import { Link } from "@/i18n/navigation";
-import { useEffect, useRef, useState } from "react";
 
 type Item = { href: string; label: string };
 
@@ -17,52 +16,36 @@ export default function NavDropdown({
   items,
   checkActive,
 }: NavDropdownProps) {
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
   const parentActive = items.some((item) => checkActive(item.href));
 
-  useEffect(() => {
-    const onDoc = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
-        setOpen(false);
-      }
-    };
-    document.addEventListener("click", onDoc);
-    return () => document.removeEventListener("click", onDoc);
-  }, []);
-
   return (
-    <div className="relative" ref={ref}>
+    <div className="group relative">
       <button
         type="button"
-        className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-bold font-nexa transition hover:bg-brand hover:text-white  ${parentActive ? "bg-brand text-white" : "bg-transparent text-black"}`}
-        aria-expanded={open}
-        onClick={() => setOpen((v) => !v)}
+        className={`flex items-center gap-1 rounded px-3 py-2 text-sm font-bold font-nexa transition hover:bg-brand hover:text-white ${parentActive ? "font-extrabold" : "font-bold"}`}
+        aria-expanded={false}
       >
         {label}
         <FaChevronDown
-          className={`size-3 shrink-0 transition ${open ? "rotate-180" : ""}`}
+          className="size-3 shrink-0 pb-0.5 transition group-hover:rotate-180"
           aria-hidden
         />
       </button>
-      {open ? (
-        <div
-          className="absolute left-0 top-full z-50 mt-1 min-w-[200px] rounded-xl border border-slate-200 bg-white py-2 shadow-lg"
-          role="menu"
-        >
-          {items.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`block px-4 py-2 text-sm font-nexa hover:bg-brand hover:text-white ${checkActive(item.href) ? "bg-brand text-white" : "bg-transparent text-black"}`}
-              role="menuitem"
-              onClick={() => setOpen(false)}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-      ) : null}
+      <div
+        className="absolute left-0 top-full z-50 hidden min-w-fit rounded-xl border border-slate-200 bg-white py-2 shadow-lg group-hover:block"
+        role="menu"
+      >
+        {items.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className={`block whitespace-nowrap px-4 py-2 text-sm font-nexa transition hover:text-brand ${checkActive(item.href) ? "font-extrabold text-brand" : "font-bold text-black "}`}
+            role="menuitem"
+          >
+            {item.label}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

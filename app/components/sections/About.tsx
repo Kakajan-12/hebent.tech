@@ -1,10 +1,38 @@
-import { getTranslations } from "next-intl/server";
-import StatCard from "@/app/components/StatCard";
-import { STATS_VALUES } from "@/lib/content";
+"use client";
 
-export default async function AboutSection() {
-  const tAbout = await getTranslations("About");
-  const tStats = await getTranslations("Stats");
+import { useTranslations } from "next-intl";
+import StatCard from "@/app/components/StatCard";
+import { ClipLoader } from "react-spinners";
+import { Statistic } from "@/app/Interfaces/interfaces";
+import useAppLocale from "@/app/Hooks/GetLocale";
+import { useGetStatisticsQuery } from "@/app/api/api";
+
+function stripHtmlTags(value: string): string {
+  return value.replace(/<[^>]*>/g, "").trim();
+}
+
+export default function AboutSection() {
+  const tAbout = useTranslations("About");
+  const locale = useAppLocale();
+  const { data, error, isLoading } = useGetStatisticsQuery();
+
+  const statistics: Statistic[] = Array.isArray(data) ? data : [];
+
+  // if (isLoading) {
+  //   return <ClipLoader color="#000" size={32} />;
+  // }
+
+  if (error) {
+    return <div>Error loading statistics</div>;
+  }
+
+  if (!statistics.length) {
+    return (
+      <div className="text-center text-lg leading-relaxed md:text-xl">
+        No statistics found
+      </div>
+    );
+  }
 
   return (
     <section className="mb-20">
@@ -13,13 +41,17 @@ export default async function AboutSection() {
           {tAbout("body")}
         </p>
         <div className="mt-12 grid grid-cols-2 justify-items-center gap-4 lg:grid-cols-4 lg:gap-6 mx-0 md:mx-18 lg:mx-0">
-          {STATS_VALUES.map((s) => (
-            <StatCard
-              key={s.labelKey}
-              value={s.value}
-              label={tStats(s.labelKey)}
-            />
-          ))}
+          {isLoading ? (
+            <ClipLoader color="#000" size={32} />
+          ) : (
+            statistics.map((s) => (
+              <StatCard
+                key={s.id}
+                value={stripHtmlTags(s.count.toString())}
+                label={stripHtmlTags(s[`title_${locale}`])}
+              />
+            ))
+          )}
         </div>
       </div>
     </section>

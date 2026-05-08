@@ -57,7 +57,7 @@ export default function DropdownMenu({
       </button>
 
       <div
-        className={`absolute left-0 mt-2 rounded-md divide-y-2 divide-white divide-opacity-40 z-50 px-3 pt-3 pb-4 
+        className={`absolute left-0 mt-2 rounded divide-y-2 divide-white divide-opacity-40 z-50 px-3 pt-3 pb-4 
                     transition-all duration-150 transform origin-top
                     ${
                       isOpen

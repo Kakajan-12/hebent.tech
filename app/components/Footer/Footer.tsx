@@ -1,39 +1,38 @@
+"use client";
+
 import { FiPhone, FiMail, FiClock } from "react-icons/fi";
 import { FiMapPin } from "react-icons/fi";
-import { FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
 import { IoLogoWechat } from "react-icons/io5";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
+import { SocialLink, Phone } from "@/app/Interfaces/interfaces";
+import { useGetPhonesQuery, useGetSocialLinksQuery } from "@/app/api/api";
+import { getSocialIcon } from "@/lib/socialIcon";
+import WeChatLink from "@/components/WeChatLink";
+
+function formatPhoneHref(number: string) {
+  return `tel:${number.replace(/[^+\d]/g, "")}`;
+}
 
 export default function Footer() {
   const t = useTranslations("Footer");
+  const { data: socialLinks } = useGetSocialLinksQuery();
+  const { data: phones } = useGetPhonesQuery();
 
-  // --------------------------------- Taplink QR Code ---------------------------------
-  // const taplinkUrl = "https://taplink.cc/hebent.tech";
-  // const taplinkQrSrc = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(
-  //   taplinkUrl,
-  // )}`;
-  // --------------------------------- Taplink QR Code ---------------------------------
   const exploreLinks = [
     { href: "/about" as const, key: "about" as const },
     { href: "/projects" as const, key: "projects" as const },
     { href: "/careers" as const, key: "careers" as const },
     { href: "/news" as const, key: "news" as const },
   ];
-  const social = [
-    {
-      name: "Wechat",
-      href: "wechat://davud3108",
-      Icon: IoLogoWechat,
-    },
-    { name: "Telegram", href: "https://t.me/davud3108", Icon: FaTelegramPlane },
-    { name: "WhatsApp", href: "https://wa.me/99365634115", Icon: FaWhatsapp },
-  ] as const;
+  const social = (socialLinks ?? []).filter(
+    (link: SocialLink) => link.icon?.toLowerCase() !== "wechat",
+  );
 
   return (
     <footer className="bg-footer text-white ">
-      <div className="container mx-auto px-5 sm:px-6 lg:px-16 xl:px-3 2xl:px-22 pt-6 lg:pt-20 pb-5 lg:pb-8">
+      <div className="container mx-auto px-5 sm:px-6 lg:px-16 xl:px-13 2xl:px-22 pt-6 lg:pt-20 pb-5 lg:pb-8">
         <div className="footer-container flex flex-col lg:flex-row gap-8 lg:gap-52 justify-between">
           <div className="logo-container flex flex-col gap-9 items-center lg:items-start">
             <Link href="/" className="inline-block">
@@ -47,19 +46,23 @@ export default function Footer() {
             </Link>
 
             <div className="flex flex-wrap gap-9">
-              {social.map((item) => {
-                const external = item.href.startsWith("http");
+              <WeChatLink>
+                <IoLogoWechat className="w-10 h-10 text-white cursor-pointer hover:opacity-70" />
+              </WeChatLink>
+              {social.map((item: SocialLink) => {
+                const Icon = getSocialIcon(item.icon);
+                const external = item.url.startsWith("http");
                 return (
                   <a
-                    key={item.name}
-                    href={item.href}
+                    key={item.id}
+                    href={item.url}
                     className="inline-flex"
-                    aria-label={item.name}
+                    aria-label={item.icon}
                     {...(external
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
                   >
-                    <item.Icon className="w-10 h-10 text-[#5D86C4] cursor-pointer hover:opacity-70" />
+                    <Icon className="w-10 h-10 text-white cursor-pointer hover:opacity-70" />
                   </a>
                 );
               })}
@@ -92,15 +95,20 @@ export default function Footer() {
                 {t("contacts")}
               </h3>
               <ul className="mt-4 lg:mt-6 space-y-4 text-sm text-white font-bold">
-                <li className="flex gap-4 items-center">
-                  <FiPhone className="size-5 shrink-0 text-white" aria-hidden />
-                  <a
-                    href="tel:+99371387778"
-                    className="font-nexa text-sm lg:text-lg hover:text-white/70"
-                  >
-                    +993 (71) 387778
-                  </a>
-                </li>
+                {phones?.map((phone: Phone) => (
+                  <li key={phone.id} className="flex gap-4 items-center">
+                    <FiPhone
+                      className="size-5 shrink-0 text-white"
+                      aria-hidden
+                    />
+                    <a
+                      href={formatPhoneHref(phone.number)}
+                      className="font-nexa text-sm lg:text-lg hover:text-white/70"
+                    >
+                      {phone.number}
+                    </a>
+                  </li>
+                ))}
                 <li className="flex gap-4 items-center">
                   <FiMail className="size-5 shrink-0 text-white" aria-hidden />
                   <a
@@ -160,16 +168,17 @@ export default function Footer() {
               href={`/cookies`}
               className="underline-offset-2 hover:underline"
             >
-              {t("cookies")}
+              Cookies
             </Link>{" "}
-            | {t("powered")}{" "}
+            | Powered by{" "}
             <Image
-              src="/logo.svg"
+              src="/logoIcon.svg"
               alt="HEBENT TECHNOLOGY"
-              width={50}
-              height={50}
-              className="inline-block brightness-0 invert"
+              width={24}
+              height={24}
+              className="inline-block mx-1 shrink-0 brightness-0 invert animate-[spin_4s_linear_infinite] motion-reduce:animate-none"
             />
+            <span className="text-white">HEBENT TECHNOLOGY</span>
           </p>
         </div>
       </div>

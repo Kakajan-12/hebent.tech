@@ -1,27 +1,18 @@
-import {
-  getMessages,
-  getTranslations,
-  setRequestLocale,
-} from "next-intl/server";
+"use client";
+
+import { useTranslations } from "next-intl";
 import JobListing from "@/app/components/careers/JobListing";
+import { useGetVacanciesQuery } from "@/app/api/api";
+import useAppLocale from "@/app/Hooks/GetLocale";
+import { Vacancy } from "@/app/Interfaces/interfaces";
+import { ClipLoader } from "react-spinners";
 
-type CareerJob = {
-  id: string;
-  title: string;
-  description: string;
-};
+export default function CareersPage() {
+  const t = useTranslations("Careers");
+  const locale = useAppLocale();
+  const { data, error, isLoading } = useGetVacanciesQuery();
 
-type Props = {
-  params: Promise<{ lang: string }>;
-};
-
-export default async function CareersPage({ params }: Props) {
-  const { lang } = await params;
-  setRequestLocale(lang);
-
-  const t = await getTranslations("Careers");
-  const messages = await getMessages();
-  const jobs = (messages.Careers as { jobs: CareerJob[] }).jobs;
+  const jobs: Vacancy[] = Array.isArray(data) ? data : [];
 
   return (
     <section className="mt-30 lg:mt-50 xl:mt-60 mb-10 lg:mb-20 min-h-screen">
@@ -40,12 +31,27 @@ export default async function CareersPage({ params }: Props) {
         </h3>
 
         <ul className="mt-6 border-t border-black pt-0">
-          {jobs.map((job, index) => (
+          {isLoading && (
+            <li className="py-6 font-vox text-sm md:text-base text-center">
+              <ClipLoader color="#000" size={20} />
+            </li>
+          )}
+          {error && !isLoading && (
+            <li className="py-6 font-vox text-sm md:text-base text-red-700">
+              Failed to load vacancies.
+            </li>
+          )}
+          {!isLoading && !error && jobs.length === 0 && (
+            <li className="py-6 font-vox text-sm md:text-base">
+              No vacancies available right now.
+            </li>
+          )}
+          {[...jobs].reverse().map((job) => (
             <JobListing
-              key={`${job.title}-${index}`}
+              key={job.id}
               id={job.id}
-              title={job.title}
-              description={job.description}
+              title={job[`title_${locale}`]}
+              text={job[`text_${locale}`]}
             />
           ))}
         </ul>

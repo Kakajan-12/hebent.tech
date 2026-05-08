@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslations } from "next-intl";
-import type { Project } from "@/lib/content";
+import type { Project } from "@/app/Interfaces/interfaces";
 import { useRouter } from "@/i18n/navigation";
 import { useEffect, useRef, useState } from "react";
 import "./project.css";
-
+import { resolveMediaUrl } from "@/constant/constant";
+import useAppLocale from "@/app/Hooks/GetLocale";
 type ProjectCardProps = {
   project: Project;
 };
@@ -14,12 +14,18 @@ type ProjectCardProps = {
 const LG = "(min-width: 1024px)";
 const DOUBLE_TAP_MS = 320;
 
+function stripHtmlTags(value?: string): string {
+  return (value ?? "").replace(/<[^>]*>/g, "").trim();
+}
+
 export default function ProjectCard({ project }: ProjectCardProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const t = useTranslations("Projects.items");
   const router = useRouter();
+  const locale = useAppLocale();
   const lastTapRef = useRef(0);
   const cardRef = useRef<HTMLElement>(null);
+  const title = stripHtmlTags(project[`title_${locale}`]);
+  const text = stripHtmlTags(project[`text_${locale}`]);
 
   useEffect(() => {
     const mql = window.matchMedia(LG);
@@ -44,11 +50,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     };
 
     document.addEventListener("pointerdown", onPointerDown, true);
-    return () => document.removeEventListener("pointerdown", onPointerDown, true);
+    return () =>
+      document.removeEventListener("pointerdown", onPointerDown, true);
   }, [isOpen]);
 
   const goToProject = () => {
-    router.push(`/project/${project.sourceId}`);
+    router.push(`/project/${project.id}`);
   };
 
   const handleCardClick = () => {
@@ -74,7 +81,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       onClick={handleCardClick}
     >
       <Image
-        src={project.imageSrc}
+        src={resolveMediaUrl(project.image)}
         alt=""
         fill
         className="pointer-events-none object-cover transition duration-500 group-hover:scale-105"
@@ -87,10 +94,10 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         className={`pointer-events-none absolute inset-0 flex flex-col justify-center items-center p-5 opacity-0 transition duration-300 lg:group-hover:opacity-100 ${isOpen ? "max-lg:opacity-100" : "max-lg:opacity-0"}`}
       >
         <h3 className="text-lg font-semibold leading-snug text-white text-center">
-          {t(`${project.sourceId}.title`)}
+          {title}
         </h3>
         <p className="mt-2 line-clamp-3 text-sm text-white/85 text-center">
-          {t(`${project.sourceId}.description`)}
+          {text}
         </p>
       </div>
     </article>

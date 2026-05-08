@@ -95,6 +95,7 @@
     "send": "Send",
     "aboutTheRole": "About the Role",
     "whatYoullDo": "What You'll Do",
+    "addFiles": "Add your CV and Portfolio",
     "jobs": [
       {
         "id": "1",
@@ -130,8 +131,11 @@
     "hours": "Hours",
     "name": "Name",
     "surname": "Surname",
-    "comments": "Comments",
-    "send": "Send"
+    "comments": "Comments...",
+    "send": "Send",
+    "enterCaptcha": "Enter text in the picture",
+    "addFiles": "Add your CV and Portfolio",
+    "update": "Update"
   },
   "Stats": {
     "projectsDelivered": "Projects Delivered",
@@ -150,8 +154,9 @@
     "built": "built",
     "heroAfter": "— from mobile apps to web platforms and clean user interfaces.",
     "searchPlaceholder": "Search ...",
-    "sortSingle": "Sort by default: ",
-    "sortTitle": "Sort by title: ",
+    "sortBy": "Sort by : ",
+    "sortSingle": "Single",
+    "sortTitle": "Title",
     "customer": "Customer: ",
     "webSite": "Website: "
   },

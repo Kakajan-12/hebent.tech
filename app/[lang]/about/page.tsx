@@ -1,4 +1,4 @@
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import AboutAccordion from "@/app/components/about/AboutAccordion";
 import AboutSection from "@/app/components/sections/About";
 
@@ -11,16 +11,9 @@ const ACCORDION_IDS = [
   "values",
 ] as const;
 
-type Props = {
-  params: Promise<{ lang: string }>;
-};
-
-export default async function AboutPage({ params }: Props) {
-  const { lang } = await params;
-  setRequestLocale(lang);
-
+export default function AboutPage() {
   // const tNav = await getTranslations("Nav");
-  const t = await getTranslations("About");
+  const t = useTranslations("About");
 
   const items = ACCORDION_IDS.map((id) => ({
     id,

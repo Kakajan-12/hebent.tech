@@ -1,57 +1,121 @@
 "use client";
 
-import type { FormEventHandler } from "react";
-import { FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
+import type { FormEvent } from "react";
 import { IoLogoWechat } from "react-icons/io5";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import WeChatLink from "@/components/WeChatLink";
+import Image from "next/image";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { SocialLink, Phone } from "@/app/Interfaces/interfaces";
+import { useGetSocialLinksQuery, useGetPhonesQuery } from "@/app/api/api";
+import { BASE_API_URL } from "@/constant/constant";
+import { getSocialIcon } from "@/lib/socialIcon";
+import { useState, useEffect, useCallback } from "react";
+import { PhoneInput } from "react-international-phone";
+import "react-international-phone/style.css";
+import { toast } from "sonner";
+
+function formatPhoneHref(number: string) {
+  return `tel:${number.replace(/[^+\d]/g, "")}`;
+}
 
 export default function ContactPage() {
   const t = useTranslations("Contacts");
-  const contactEmail = "davud.h@hebent.tech";
+  const { data: socialLinks } = useGetSocialLinksQuery();
+  const { data: phones } = useGetPhonesQuery();
 
-  const social = [
-    // {
-    //   name: "Wechat",
-    //   href: "https://www.wechat.com/",
-    //   Icon: IoLogoWechat,
-    // },
-    { name: "Telegram", href: "https://t.me/davud3108", Icon: FaTelegramPlane },
-    { name: "WhatsApp", href: "https://wa.me/99365634115", Icon: FaWhatsapp },
-  ] as const;
+  const [sending, setSending] = useState(false);
+  const [captchaImage, setCaptchaImage] = useState("");
+  const [captchaLoading, setCaptchaLoading] = useState(false);
+  const [success, setSuccess] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [phoneNumber, setPhoneNumber] = useState("");
 
-  const handleContactSubmit: FormEventHandler<HTMLFormElement> = (event) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    surname: "",
+    email: "",
+    phone: "",
+    message: "",
+    captchaText: "",
+  });
+
+  const social = (socialLinks ?? []).filter(
+    (link: SocialLink) => link.icon?.toLowerCase() !== "wechat",
+  );
+
+  const loadCaptcha = useCallback(async () => {
+    setCaptchaLoading(true);
+    try {
+      const res = await fetch(`${BASE_API_URL}/captcha`, {
+        method: "GET",
+        credentials: "include",
+      });
+      if (!res.ok) throw new Error("Failed to load captcha");
+      const svg = await res.text();
+      setCaptchaImage(svg);
+    } catch {
+      setCaptchaImage("");
+    } finally {
+      setCaptchaLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    void loadCaptcha();
+  }, [loadCaptcha]);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleContactSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setSending(true);
+    setError(null);
+    setSuccess(null);
 
-    const form = event.currentTarget;
-    const formData = new FormData(form);
+    try {
+      const res = await fetch(`${BASE_API_URL}/api/send-mail`, {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, phone: phoneNumber }),
+      });
 
-    const name = String(formData.get("name") ?? "").trim();
-    const surname = String(formData.get("surname") ?? "").trim();
-    const email = String(formData.get("email") ?? "").trim();
-    const comments = String(formData.get("comments") ?? "").trim();
+      const data = (await res.json()) as { error?: string };
 
-    const message = [
-      `Name: ${name}`,
-      `Surname: ${surname}`,
-      `Email: ${email}`,
-      "",
-      "Comments:",
-      comments,
-    ].join("\n");
-
-    const mailtoUrl = `mailto:${contactEmail}?subject=${encodeURIComponent(
-      "Contact form",
-    )}&body=${encodeURIComponent(message)}`;
-
-    window.location.href = mailtoUrl;
-    form.reset();
+      if (!res.ok) {
+        setError(data.error || "Failed to send");
+        void loadCaptcha();
+      } else {
+        toast.success("Message sent successfully!");
+        setSuccess("Message sent successfully!");
+        setFormData({
+          name: "",
+          surname: "",
+          email: "",
+          phone: "",
+          message: "",
+          captchaText: "",
+        });
+        setPhoneNumber("");
+        void loadCaptcha();
+      }
+    } catch {
+      setError("Server error");
+      toast.error("Failed to send message");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -87,15 +151,21 @@ export default function ContactPage() {
                   {t("talkToUs")}
                 </h3>
                 <div className="space-y-1">
-                  <div className="flex justify-between">
-                    <a
-                      href="tel:+99371387778"
-                      className="font-nexa text-sm lg:text-base xl:text-xl font-medium"
-                    >
-                      +993 71 387778
-                    </a>
-                    {/* Phone number mobile */}
-                    <div className="flex lg:hidden gap-4">
+                  <div className="flex justify-between items-start gap-4">
+                    <ul className="flex flex-col gap-1">
+                      {phones?.map((phone: Phone) => (
+                        <li key={phone.id}>
+                          <a
+                            href={formatPhoneHref(phone.number)}
+                            className="font-nexa text-sm lg:text-base xl:text-xl font-medium"
+                          >
+                            {phone.number}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="flex lg:hidden gap-4 shrink-0">
                       <Tooltip>
                         <TooltipTrigger>
                           <WeChatLink>
@@ -104,24 +174,24 @@ export default function ContactPage() {
                         </TooltipTrigger>
                         <TooltipContent>
                           <p className="hidden lg:block font-vox text-sm text-[#5D86C4] bg-white">
-                            {" "}
                             WeChat ID: davud3108
                           </p>
                         </TooltipContent>
                       </Tooltip>
-                      {social.map((item) => {
-                        const external = item.href.startsWith("http");
+                      {social.map((item: SocialLink) => {
+                        const Icon = getSocialIcon(item.icon);
+                        const external = item.url.startsWith("http");
                         return (
                           <a
-                            key={item.name}
-                            href={item.href}
+                            key={item.id}
+                            href={item.url}
                             className="inline-flex"
-                            aria-label={item.name}
+                            aria-label={item.icon}
                             {...(external
                               ? { target: "_blank", rel: "noopener noreferrer" }
                               : {})}
                           >
-                            <item.Icon className="w-8 h-8 text-[#5D86C4] cursor-pointer hover:opacity-70" />
+                            <Icon className="w-8 h-8 text-[#5D86C4] cursor-pointer hover:opacity-70" />
                           </a>
                         );
                       })}
@@ -143,7 +213,6 @@ export default function ContactPage() {
               </section>
             </div>
 
-            {/* Social Icons desktop */}
             <div className="hidden lg:flex gap-6 pt-4">
               <Tooltip>
                 <TooltipTrigger>
@@ -157,26 +226,26 @@ export default function ContactPage() {
                   </p>
                 </TooltipContent>
               </Tooltip>
-              {social.map((item) => {
-                const external = item.href.startsWith("http");
+              {social.map((item: SocialLink) => {
+                const Icon = getSocialIcon(item.icon);
+                const external = item.url.startsWith("http");
                 return (
                   <a
-                    key={item.name}
-                    href={item.href}
+                    key={item.id}
+                    href={item.url}
                     className="inline-flex"
-                    aria-label={item.name}
+                    aria-label={item.icon}
                     {...(external
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
                   >
-                    <item.Icon className="w-10 h-10 text-[#5D86C4] cursor-pointer hover:opacity-70" />
+                    <Icon className="w-10 h-10 text-[#5D86C4] cursor-pointer hover:opacity-70" />
                   </a>
                 );
               })}
             </div>
           </div>
 
-          {/* Right Column: Form */}
           <form
             className="form-contact flex flex-col gap-2 "
             onSubmit={handleContactSubmit}
@@ -195,6 +264,9 @@ export default function ContactPage() {
                   type="text"
                   placeholder={t("name")}
                   autoComplete="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
                   className="font-nexa text-sm lg:text-base xl:text-xl w-full p-2 bg-[#D9D9D9] border-b border-black  focus:ring-1 focus:ring-black outline-none"
                 />
               </div>
@@ -211,7 +283,10 @@ export default function ContactPage() {
                   type="text"
                   placeholder={t("surname")}
                   className="font-nexa text-sm lg:text-base xl:text-xl w-full p-2 bg-[#D9D9D9] border-b border-black  focus:ring-1 focus:ring-black outline-none"
-                  autoComplete="surname"
+                  autoComplete="family-name"
+                  value={formData.surname}
+                  onChange={handleChange}
+                  required
                 />
               </div>
             </div>
@@ -230,32 +305,102 @@ export default function ContactPage() {
                 placeholder={t("email")}
                 className="font-nexa text-sm lg:text-base xl:text-xl w-full p-2 bg-[#D9D9D9] border-b border-black  focus:ring-1 focus:ring-black outline-none"
                 autoComplete="email"
+                value={formData.email}
+                onChange={handleChange}
                 required
               />
             </div>
 
             <div className="flex flex-col gap-2">
               <label
-                htmlFor="comments"
+                htmlFor="phone"
+                className="font-vox text-base lg:text-lg xl:text-xl font-light"
+              >
+                {t("phone")}
+              </label>
+              <PhoneInput
+                defaultCountry="tm"
+                value={phoneNumber}
+                onChange={setPhoneNumber}
+                inputClassName="font-nexa text-sm lg:text-base xl:text-xl w-full p-2 bg-[#D9D9D9] border-b border-black focus:ring-1 focus:ring-black outline-none !rounded-none"
+              />
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <label
+                htmlFor="message"
                 className="font-vox text-base lg:text-lg xl:text-xl font-light"
               >
                 {t("comments")}
               </label>
               <textarea
-                id="comments"
-                name="comments"
+                id="message"
+                name="message"
                 rows={6}
                 className="font-nexa text-sm lg:text-base xl:text-xl w-full p-2 bg-[#D9D9D9] border-b border-black  focus:ring-1 focus:ring-black outline-none resize-none"
                 autoComplete="off"
+                placeholder={t("comments")}
+                value={formData.message}
+                onChange={handleChange}
+                required
               />
             </div>
 
+            <div className="flex flex-col gap-2 mt-4">
+              <label className="font-vox text-base lg:text-lg xl:text-xl font-light">
+                {t("enterCaptcha")}
+              </label>
+
+              <div className="flex items-center gap-4 p-2">
+                <div className="flex items-center gap-4 flex-col">
+                  {captchaImage ? (
+                    <Image
+                      unoptimized
+                      src={`data:image/svg+xml;utf8,${encodeURIComponent(captchaImage)}`}
+                      alt="Captcha"
+                      width={300}
+                      height={300}
+                      className=" px-4 py-2 font-mono font-bold tracking-widest select-none border border-gray-300"
+                    />
+                  ) : (
+                    <div className="w-[300px] h-[100px] bg-white border border-gray-300 grid place-items-center text-xs text-gray-500 px-2 text-center">
+                      {captchaLoading ? "Loading..." : "Captcha unavailable"}
+                    </div>
+                  )}
+                </div>
+                <button
+                  type="button"
+                  onClick={() => void loadCaptcha()}
+                  disabled={captchaLoading}
+                  className="text-sm underline text-[#5D86C4]"
+                >
+                  {captchaLoading ? "..." : t("update")}
+                </button>
+              </div>
+
+              <input
+                id="captchaText"
+                name="captchaText"
+                value={formData.captchaText}
+                type="text"
+                onChange={handleChange}
+                required
+                placeholder={t("enterCaptcha")}
+                className="font-nexa text-sm lg:text-base xl:text-xl w-full p-2 bg-[#D9D9D9] border-b border-black  focus:ring-1 focus:ring-black outline-none"
+                autoComplete="off"
+              />
+            </div>
             <button
               type="submit"
-              className="mt-5 lg:mt-10 font-nexa w-full py-4 bg-[#001F3F] text-white font-bold rounded-full hover:bg-black transition-colors uppercase tracking-widest text-sm"
+              disabled={sending}
+              className="mt-5 lg:mt-10 font-nexa w-full py-4 bg-[#001F3F] text-white font-bold rounded-full cursor-pointer hover:bg-black transition-colors uppercase tracking-widest text-sm disabled:opacity-60"
             >
               {t("send")}
             </button>
+            {success && (
+              <p className="font-nexa text-sm text-green-600">{success}</p>
+            )}
+            {error && <p className="font-nexa text-sm text-red-600">{error}</p>}
           </form>
         </div>
       </div>

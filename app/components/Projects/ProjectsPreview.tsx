@@ -1,11 +1,17 @@
-import { getTranslations } from "next-intl/server";
-import ProjectCard from "@/app/components/Projects/ProjectCard";
-import { Link } from "@/i18n/navigation";
-import { PROJECT_BASES } from "@/lib/content";
+ "use client";
 
-export default async function ProjectsPreview() {
-  const t = await getTranslations("ProjectsPreview");
-  const slice = PROJECT_BASES.slice(0, 6);
+import { useTranslations } from "next-intl";
+import ProjectCard from "@/app/components/Projects/ProjectCard";
+// import { Link } from "@/i18n/navigation";
+import { useGetProjectsQuery } from "@/app/api/api";
+import { Project } from "@/app/Interfaces/interfaces";
+import { ClipLoader } from "react-spinners";
+
+export default function ProjectsPreview() {
+  const t = useTranslations("ProjectsPreview");
+  const { data, error, isLoading } = useGetProjectsQuery();
+  const projects: Project[] = Array.isArray(data) ? data : [];
+  const slice = projects.slice(0, 6);
 
   return (
     <section className="py-16 md:py-24">
@@ -16,11 +22,23 @@ export default async function ProjectsPreview() {
           </h2>
         </div>
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {slice.map((p) => (
-            <ProjectCard
-              key={p.id}
-              project={{ id: p.id, sourceId: p.id, imageSrc: p.imageSrc }}
-            />
+          {isLoading && (
+            <div className="col-span-full flex justify-center py-6">
+              <ClipLoader color="#000" size={20} />
+            </div>
+          )}
+          {error && !isLoading && (
+            <div className="col-span-full py-6 text-center text-sm text-red-700 md:text-base">
+              Failed to load projects.
+            </div>
+          )}
+          {!isLoading && !error && slice.length === 0 && (
+            <div className="col-span-full py-6 text-center text-sm md:text-base">
+              No projects available right now.
+            </div>
+          )}
+          {slice.map((project) => (
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
       </div>

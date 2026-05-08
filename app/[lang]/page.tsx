@@ -18,8 +18,8 @@ export default async function Home({ params }: Props) {
         <VideoHero />
         <AutoSwiper />
         <About />
-        {/* <ProjectsPreview /> */}
-        {/* <Testimonials /> */}
+        <ProjectsPreview />
+        <Testimonials />
       </main>
     </>
   );

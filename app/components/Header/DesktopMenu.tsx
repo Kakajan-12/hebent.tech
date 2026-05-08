@@ -21,10 +21,8 @@ export default function DesktopMenu() {
 
   const companyLinks = [
     { href: "/about", label: t("about") },
-    // { href: "/careers", label: t("careers") },
+    { href: "/careers", label: t("careers") },
     // { href: "/references", label: t("references") },
-
-    { href: "#", label: t("references") },
     { href: "/contacts", label: t("contacts") },
   ];
 
@@ -35,14 +33,13 @@ export default function DesktopMenu() {
     >
       <Link
         href="/"
-        className={`rounded-md px-3 py-2 text-sm font-bold hover:bg-brand hover:text-white ${checkActive("/") ? "bg-brand text-white" : "bg-transparent text-black"}`}
+        className={`rounded px-3 py-2 text-sm font-bold hover:bg-brand hover:text-white ${checkActive("/") ? "bg-brand text-white" : "bg-transparent text-black"}`}
       >
         {t("main")}
       </Link>
       <Link
-        href="#"
-        // href="/project"
-        className={`rounded-md px-3 py-2 text-sm font-bold hover:bg-brand hover:text-white ${checkActive("/project") ? "bg-brand text-white" : "bg-transparent text-black"}`}
+        href="/project"
+        className={`rounded px-3 py-2 text-sm font-bold hover:bg-brand hover:text-white ${checkActive("/project") ? "bg-brand text-white" : "bg-transparent text-black"}`}
       >
         {t("projects")}
       </Link>
@@ -52,9 +49,8 @@ export default function DesktopMenu() {
         checkActive={checkActive}
       />
       <Link
-        href="#"
-        // href="/newsroom"
-        className={`rounded-md px-3 py-2 text-sm font-bold hover:bg-brand hover:text-white ${checkActive("/newsroom") ? "bg-brand text-white" : "bg-transparent text-black"}`}
+        href="/newsroom"
+        className={`rounded px-3 py-2 text-sm font-bold hover:bg-brand hover:text-white ${checkActive("/newsroom") ? "bg-brand text-white" : "bg-transparent text-black"}`}
       >
         {t("newsroom")}
       </Link>

@@ -89,9 +89,8 @@ export default function MobileNav() {
 
   const companyLinks = [
     { href: "/about", label: tNav("about") },
-    // { href: "/careers", label: tNav("careers") },
-    { href: "#", label: tNav("references") },
-    // { href: "/references", label: tNav("references") },
+    { href: "/careers", label: tNav("careers") },
+    { href: "/references", label: tNav("references") },
     { href: "/contacts", label: tNav("contacts") },
   ];
 
@@ -152,8 +151,7 @@ export default function MobileNav() {
             </li>
             <li>
               <Link
-                href="#"
-                // href="/project"
+                href="/project"
                 className={linkClass("/project")}
                 onClick={closeMenu}
               >
@@ -201,8 +199,7 @@ export default function MobileNav() {
             </li>
             <li>
               <Link
-                href="#"
-                // href="/newsroom"
+                href="/newsroom"
                 className={linkClass("/newsroom")}
                 onClick={closeMenu}
               >

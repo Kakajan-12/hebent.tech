@@ -94,6 +94,7 @@
     "send": "Göndermek",
     "aboutTheRole": "Iş orunyň barada",
     "whatYoullDo": "Näme edýärsiňiz",
+    "addFiles": "Resýumeňizi we portfolionyzy goşyň",
     "jobs": [
       {
         "id": "1",
@@ -133,7 +134,9 @@
     "name": "Ady",
     "surname": "Familiýasy",
     "comments": "Komentlar",
-    "send": "Ibermek"
+    "send": "Ibermek",
+    "enterCaptcha": "Teks s suratda giriň",
+    "update": "Üýtgetmek"
   },
   "Stats": {
     "projectsDelivered": "Tamamlanan taslama",
@@ -152,8 +155,9 @@
     "built": "gurdan",
     "heroAfter": "— mobil programmalardan web platformalary we arassa interfeýslere çenli.",
     "searchPlaceholder": "Gözleg ...",
-    "sortSingle": "Tertipleşdir: ",
-    "sortTitle": "Tertipleşdir ady boýunça: ",
+    "sortBy": "Tertipleşdir : ",
+    "sortSingle": "Bellenen",
+    "sortTitle": "Ady boýunça",
     "customer": "Müşderi: ",
     "webSite": "Web-sait: "
   },
