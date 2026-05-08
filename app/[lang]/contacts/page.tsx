@@ -84,7 +84,7 @@ export default function ContactPage() {
     setSuccess(null);
 
     try {
-      const res = await fetch(`${BASE_API_URL}/api/send-mail`, {
+      const res = await fetch(`${BASE_API_URL}/send`, {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
