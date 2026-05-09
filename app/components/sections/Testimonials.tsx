@@ -58,7 +58,7 @@ export default function Testimonials() {
           {testimonials.map((item) => (
             <div
               key={item.id}
-              className="embla__slide min-h-96 flex-[0_0_100%] pl-5 sm:flex-[0_0_42%] lg:flex-[0_0_25%] xl:flex-[0_0_18%] 2xl:flex-[0_0_14%]"
+              className="embla__slide min-h-90 flex-[0_0_100%] pl-5 sm:flex-[0_0_42%] lg:flex-[0_0_25%] xl:flex-[0_0_18%] 2xl:flex-[0_0_14%]"
             >
               <figure className="group testimonial-clip flex h-full flex-col items-start justify-between rounded bg-white p-8 hover:text-black">
                 <figcaption className="relative z-10 mb-6 text-sm font-black uppercase tracking-widest text-gray-400 transition-colors group-hover:text-black">

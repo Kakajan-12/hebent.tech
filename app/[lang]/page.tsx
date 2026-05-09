@@ -1,5 +1,5 @@
 import { setRequestLocale } from "next-intl/server";
-import VideoHero from "../components/sections/VideoHero";
+import Video from "../components/sections/Video";
 import About from "../components/sections/About";
 import ProjectsPreview from "../components/Projects/ProjectsPreview";
 import Testimonials from "../components/sections/Testimonials";
@@ -15,7 +15,9 @@ export default async function Home({ params }: Props) {
   return (
     <>
       <main className="flex-1 bg-background-main">
-        <VideoHero />
+        <section className="h-screen">
+          <Video />
+        </section>
         <AutoSwiper />
         <About />
         <ProjectsPreview />

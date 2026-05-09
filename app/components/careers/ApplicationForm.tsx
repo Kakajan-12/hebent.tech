@@ -147,13 +147,13 @@ const ApplicationForm = () => {
       <form className="space-y-5" onSubmit={handleSubmit}>
         {/* Section: Personal Information */}
         <section className="space-y-5 lg:space-y-16">
-          <h2 className="font-nexa text-xl lg:text-5xl font-bold tracking-tight text-center">
-            {t("personalInformation")}
+          <h2 className="text-xl lg:text-5xl font-bold tracking-tight text-center">
+            {t("personal-info")}
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-5 font-nexa ">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-5 ">
             <div className="flex flex-col gap-2">
-              <label className="font-nexa font-bold text-base lg:text-2xl">
+              <label className="font-bold text-base lg:text-2xl">
                 {t("name")}
               </label>
               <input
@@ -165,7 +165,7 @@ const ApplicationForm = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-nexa font-bold text-base lg:text-2xl">
+              <label className="font-bold text-base lg:text-2xl">
                 {t("surname")}
               </label>
               <input
@@ -177,7 +177,7 @@ const ApplicationForm = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-nexa font-bold text-base lg:text-2xl">
+              <label className="font-bold text-base lg:text-2xl">
                 {t("email")}
               </label>
               <input
@@ -189,7 +189,7 @@ const ApplicationForm = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="font-nexa font-bold text-base lg:text-2xl">
+              <label className="font-bold text-base lg:text-2xl">
                 {t("phoneNumber")}
               </label>
               <input
@@ -203,8 +203,8 @@ const ApplicationForm = () => {
         </section>
 
         <div className="flex flex-col gap-3">
-          <label className="font-nexa font-bold text-base lg:text-2xl">
-            {t("addFiles")}
+          <label className="font-bold text-base lg:text-2xl">
+            {t("drop-files")}
           </label>
 
           <div className="relative">
@@ -235,10 +235,10 @@ const ApplicationForm = () => {
                 >
                   <div className="flex items-center gap-2 overflow-hidden">
                     <div className="w-2 h-2 bg-black rounded-full shrink-0" />
-                    <span className="font-nexa text-sm lg:text-xl truncate">
+                    <span className="text-sm lg:text-xl truncate">
                       {file.name}
                     </span>
-                    <span className="font-nexa text-xs lg:text-xl text-gray-400 truncate">
+                    <span className="text-xs lg:text-xl text-gray-400 truncate">
                       ({(file.size / 1024).toFixed(1)} KB)
                     </span>
                   </div>

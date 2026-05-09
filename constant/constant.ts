@@ -115,12 +115,12 @@ export function resolveMediaUrl(url: unknown): string {
     return "/default-image.png";
   }
 
-  if (s.startsWith(".oguzforum.com")) {
+  if (s.startsWith(".hebent.tech")) {
     s = `https://api${s}`;
   }
   if (
-    s.startsWith("http://.oguzforum.com") ||
-    s.startsWith("https://.oguzforum.com")
+    s.startsWith("http://.hebent.tech") ||
+    s.startsWith("https://.hebent.tech")
   ) {
     s = s
       .replace("http://.", "https://api.")

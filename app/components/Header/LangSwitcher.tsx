@@ -36,12 +36,12 @@ export default function LangSwitcher() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className=" flex items-center gap-2 rounded-3xl border border-black px-3 py-2 font-vox text-base font-medium shadow-sm"
+        className="flex items-center gap-2 rounded border border-black/30 bg-white px-3 py-2 font-vox text-sm shadow-sm"
         aria-expanded={open}
       >
         {shortLabel}
         <FaChevronDown
-          className={`size-4 transition ${open ? "rotate-180" : ""}`}
+          className={`size-3 transition ${open ? "rotate-180" : ""}`}
           aria-hidden
         />
       </button>

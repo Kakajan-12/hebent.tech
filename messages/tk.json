@@ -17,35 +17,8 @@
     "references": "Salgylar haty",
     "contacts": "Biz bilen habarlaşmak"
   },
-  "VideoHero": {
+  "Video": {
     "title": "WIDEO"
-  },
-  "Services": {
-    "iot": {
-      "label": "IoT hyzmatlary",
-      "heading": "IOT SERVICES",
-      "description": "Biz enjamlary bir ekosistema birlesdiryan, prosesleri awtomatizirleşdirýan we hakyky wagtdaky maglumatlar esasynda netijeleri kabul etmäge mümkincilik beryän kompleksleýin Iot çozgutleri işläp taýýarlaýarys"
-    },
-    "ai": {
-      "label": "AI hyzmatlary",
-      "heading": "AI SERVICES",
-      "description": "Biz emeli aň çözgütlerini ornaşdyryp, işleri awtomatlaşdyrmaga, maglumatlary seljermäge we işiň netijeliligini ýokarlandyrmaga kömek edýäris."
-    },
-    "consulting": {
-      "label": "IT maslahatçylygy",
-      "heading": "IT CONSULTING",
-      "description": "Biz tehnologiýa stackyňyzy saýlamaga we optimizirlemäge, arhitekturany gurmaga hem-de iş ösüşiňizi çaltlandyrýan çözgütleri ornaşdyrmaga kömek edýäris."
-    },
-    "development": {
-      "label": "IT programma üpjünçiligi",
-      "heading": "IT DEVELOPMENT",
-      "description": "Biz programma üpjünçiligini doly tapgyr boýunça döredýäris — ideýadan başlap dizaýn, işläp taýýarlamak we goldawa çenli."
-    },
-    "database": {
-      "label": "Maglumat bazalary",
-      "heading": "DATABASE",
-      "description": "Biz ýokary öndürijilikli maglumat bazalaryny döredýäris we optimizirleýäris, maglumatlaryň ygtybarly saklanmagyny, howpsuzlygyny we tiz elýeterliligini üpjün edýäris."
-    }
   },
   "About": {
     "title": "Biz barada",
@@ -78,21 +51,20 @@
     }
   },
   "Careers": {
-    "heroTitle": "Biziň maksatymyzynyň bir bölegi boluň",
-    "heroBody": "Hebent Tech-de biz görýäris: uly netije uly topardan başlaýar. Täsir etmek, hünärmenlikde ösmek we manysly zatlara goşant goşmak isleýän aňly, täjek we yhlasly adamlary hemişe gözleýäris.",
-    "vacanciesTitle": "Açyk iş orunlary",
+    "title": "Biziň maksatymyzynyň bir bölegi boluň",
+    "text": "Hebent Tech-de biz görýäris: uly netije uly topardan başlaýar. Täsir etmek, hünärmenlikde ösmek we manysly zatlara goşant goşmak isleýän aňly, täjek we yhlasly adamlary hemişe gözleýäris.",
+    "vacancies": "Açyk iş orunlary",
     "apply": "Ýüz tutmak",
-    "personalInformation": "Kişisel mü informaciýa",
+    "personal-info": "Kişisel mü informaciýa",
     "name": "Ady",
     "surname": "Familiýasy",
     "email": "E-poçta",
     "phoneNumber": "Telefon raýyletmek",
     "portfolio": "Portfolio",
-    "addOrDropYourFilesHere": "Sizin ýazylanlar ýüze çykaryňyz",
+    "drop-files": "Sizin ýazylanlar ýüze çykaryňyz",
     "selected": "Seçildi",
     "files": "fayllar",
     "send": "Göndermek",
-    "aboutTheRole": "Iş orunyň barada",
     "whatYoullDo": "Näme edýärsiňiz",
     "addFiles": "Resýumeňizi we portfolionyzy goşyň",
     "jobs": [
@@ -154,105 +126,16 @@
     "and": "we",
     "built": "gurdan",
     "heroAfter": "— mobil programmalardan web platformalary we arassa interfeýslere çenli.",
-    "searchPlaceholder": "Gözleg ...",
-    "sortBy": "Tertipleşdir : ",
-    "sortSingle": "Bellenen",
-    "sortTitle": "Ady boýunça",
+    "search-placeholder": "Gözleg ...",
+    "sorted": "Tertipleşdir : ",
+    "sort-single": "Bellenen",
+    "sort-title": "Ady boýunça",
+    "sort-date": "Döredilen senesi boýunça",
     "customer": "Müşderi: ",
     "webSite": "Web-sait: "
   },
-  "Projects": {
-    "items": {
-      "1": {
-        "title": "Aşgabat halkara howa üstünligiň 3D sanly egdesi",
-        "description": "Howa üstünliginiň amallaryny wagtyň özünde gowulandyrýan ýokary çözgütli 3D wizualizasiýa platformasy.",
-        "customer": "Customer name1",
-        "webSite": "website1"
-      },
-      "2": {
-        "title": "Senagat gözegçilik paneli",
-        "description": "Ýaýran enjamlar üçin wagtyň özünde telemetriýa we duýduryş, rollar bilen giriş.",
-        "customer": "Customer name2",
-        "webSite": "website2"
-      },
-      "3": {
-        "title": "Korporatiw integrasiýa gatlagy",
-        "description": "Köne ulgamlary täze müşderiler bilen birleşdirýän ygtybarly API we wakalar esasly iş akylary.",
-        "customer": "Customer name3",
-        "webSite": "website3"
-      },
-      "4": {
-        "title": "Meýdança mobil amallary",
-        "description": "Pes aragatnaşykly sebitlerde işleýän toparlar üçin ofsline mobil programmalar.",
-        "customer": "Customer name4",
-        "webSite": "website4"
-      },
-      "5": {
-        "title": "Maglumat platformasyny täzelemek",
-        "description": "Lakehouse üçin geçirijiler: dolandyrmak, mukaddeslik we öz-özüne analitika.",
-        "customer": "Customer name5",
-        "webSite": "website5"
-      },
-      "6": {
-        "title": "Müşderi portalyny täzeden dizaýn",
-        "description": "Web we e-poçta üçin elýeterli dizaýn ulgamy.",
-        "customer": "Customer name6",
-        "webSite": "website6"
-      },
-      "7": {
-        "title": "Howpsuzlyk amallary gurallary",
-        "description": "SOC iş akylary üçin triýaž, ýazyk we audit awtomatizasiýasy.",
-        "customer": "Customer name7",
-        "webSite": "website7"
-      },
-      "8": {
-        "title": "Logistika optimizasiýasy",
-        "description": "Ammar dolandyrmagy bilen birleşdirilen ugur we kuwwat meýilleşdirmesi.",
-        "customer": "Customer name8",
-        "webSite": "website8"
-      },
-      "9": {
-        "title": "Saglygy goraýyş meýilnamasy",
-        "description": "Lukman düzgünleri, ýatlatmalar we analitika bilen hassa merkezli meýilnama.",
-        "customer": "Customer name9",
-        "webSite": "website9"
-      }
-    }
-  },
   "Testimonials": {
-    "title": "Müşderiler biz barada",
-    "items": {
-      "t1": {
-        "brand": "OGUZTRAVEL",
-        "quote": "Hebent gysga möhlette ygtybarly platforma gowşurdy. Aragatnaşyk açykdy, topar netijäni başdan-aýaga gözegçilik etdi.",
-        "author": "Daniel Brooks, Chief Operating Officer, New Bridge Group"
-      },
-      "t2": {
-        "brand": "Shantui",
-        "quote": "Gözlegden işe girizmäge çenli önümiň hilidi garaşylmagyndan ýokarydy. Operatorylar täze interfeýsi çalt kabul etdi.",
-        "author": "Elena Morris, VP Product, Northline Logistics"
-      },
-      "t3": {
-        "brand": "Sitrak",
-        "quote": "Güýçli injenerlik we pragmatik dizaýn karary. Hilde peseltme ýok, has çalt ýatyrdyk.",
-        "author": "Marcus Chen, CTO, Skyforge Labs"
-      },
-      "t4": {
-        "brand": "Talvas yoly",
-        "quote": "Integrasiýa tekiz geçdi, resminamalar giňişleýindi. Hebent injenerleri meseleleri biz habar bermänkä çözdüler.",
-        "author": "Sophia Keller, Head of Engineering, AeroVault Systems"
-      },
-      "t5": {
-        "brand": "Lovol",
-        "quote": "Maşştabda maglumatlary düşünýän topar gerekdi. Hebent iň ýokary ýüklere durnukly pipeline gurdy.",
-        "author": "James Okoye, Data Infrastructure Lead, DataSpan Analytics"
-      },
-      "t6": {
-        "brand": "Oguzabat",
-        "quote": "Olar çalt girendiler we meýdan toparlarynyň hakykatdan ulanýan çözgüdini döretdiler. Seýrek hil.",
-        "author": "Lena Farris, Product Director, GreenPath Solutions"
-      }
-    }
+    "title": "Müşderiler biz barada"
   },
   "Newsroom": {
     "title": "Täzelikler",
@@ -270,63 +153,15 @@
       "finance": "Maliýe",
       "events": "Çäreler we sergiler"
     },
-    "items": {
-      "1": {
-        "title": "Sanly egde platformasy işe girizildi",
-        "description": "Täze sanly egde ýığındysy wagtyň özünde telemetriýany 3D wizualizasiýa bilen birleşdirýär — amallar topary ähli aktiwlary bir okda görýär.",
-        "body": "Platforma sensor akymalary, taryhy we giňişlik kontekstini birleşdirýär. Ilkinji ulanyjylar wakalary has çalt çözmekde we smenalaryň arasynda has düşnükli geçişde üstünlik çekýär. Ýylyň dowamynda goşmaça senagat şablonlary çykarylar.",
-        "categoryLabel": "Innowasiýa"
-      },
-      "2": {
-        "title": "Sebit daýhançylyklarynda aňly suwarmak synagy",
-        "description": "Toprak çyglylygy we howa maglumatlary awtomat suwarmak tertibini dolandyrýar — suwu tygşytlaýar, önümi gorýar.",
-        "body": "Synag üç sebitde kooperatiw daýhançylyklary öz içine alýar. Agronomlar hepdelik jemleýji alýar we gözegçilik panelinden tertibi üýtgedip bilýär. Netijeler indiki möwsümde giňeldilen programa esas bolýar.",
-        "categoryLabel": "Daýhançylyk"
-      },
-      "3": {
-        "title": "Nebit gaýtgaýtma amallary üçin howpsuzlyk analitikasy",
-        "description": "Çaklamaly duýduryşlar basyş we temperatura düzgüninden daşlap gitmelerini iş kesilmezlik ýa-da howp bolmanka görkezýär.",
-        "body": "Bar bolan SCADA bilen integrasiýa maýa goýumlaryny saklaýar we ýeňil analitika gatlagyny goşýar. Operatorylar synag birliklerinde ortaça çözüliş wagtyny gysgartdyran tertipli duýduryş we tekler görýär.",
-        "categoryLabel": "Nebit himiýasy"
-      },
-      "4": {
-        "title": "Tekstil üpjünçilik zolagy üçin yzarlanma gatlagy",
-        "description": "Partiýa derejesinde QR ýoly markalar we alyjylar üçin süýümden taýýar önüme çenli tassyklanan çeşme maglumatyny berýär.",
-        "body": "Hyzmatdaşlar senagat bahalaryny açman ädimleri barlap bilýär. Ulgam pamuk we sintetik garyşyk akymalary goldaýar we eksport resminamalaryna bolýan talaplara laýykdyr.",
-        "categoryLabel": "Tekstil"
-      },
-      "5": {
-        "title": "Uzak senagat meýdançalary üçin edge komplektler",
-        "description": "Berkitilen geçirijiler pes aragatnaşykda ýeňil çykarylyş ýerine ýetirýär we aragatnaşyk yzyna gelende sinhronlaşýar.",
-        "body": "Her komplekte bulut dolandyrış tekizligi bilen laýyklaşdyrylan üpjünçilik serişdeleri girýär. Inženerler doly gaýtadan ýükleme etmezden dürli radio profilleri üçin modullary çalşyp bilýär.",
-        "categoryLabel": "Tehnologiýa"
-      },
-      "6": {
-        "title": "Gümrük integrasiýasy arassalaşyk wagtyny gysgartýar",
-        "description": "Gurlanlykly yglan etmeler we status webhooklary esasy söwda ýollarynda ekspeditorlar üçin elde girizişi azaldýar.",
-        "body": "Birinji koridor iki hyzmatdaş daşyj bilen işe girizildi. Resminama aýlawynyň ortaça wagty peseldi; hyzmatdaşlaryň taýýarlygy boýunça goşmaça ýollar goşulýar.",
-        "categoryLabel": "Söwda şertnamalary"
-      },
-      "7": {
-        "title": "Köp hukukly toparlar üçin kaznaçylyk paneli",
-        "description": "Nagt pozisiýalary we FX täsirleri awtomatiki ýygnalýar, maliýe ýolbaşçylary üçin rollara görä görünüşler bilen.",
-        "body": "Panel bank çykarylyşlary we kaznaçylyk iş stansiýalaryndan okýar. Audit ýollary içerki gözegçilik talaplaryny kanagatlandyrýar, günlik gezelenç bolsa kontrollerler üçin ýönekeý galýar.",
-        "categoryLabel": "Maliýe"
-      },
-      "8": {
-        "title": "Hebent Merkezi Aziýa Tech Week-de",
-        "description": "Esasy pawilýonda topar bilen duşuşuň — logistika, çäreler we travel önümleriniň demo-synaglary.",
-        "body": "Her gün agşam jikme-jik gezelençler we düzgünleşdirilen senagatlarda AI ulanmagyň pragmatik tarapy barada panel. Çäre programma arkaly ýazgy ýa-da C12 stendi.",
-        "categoryLabel": "Çäreler we sergiler"
-      }
-    },
+
     "date": "Wagt",
     "category": "Kategoriýa",
     "searchAria": "Gözleg",
     "searchPlaceholder": "Gözleg",
     "sortBy": "Tertipleşdir:",
     "sortSingle": "Bellenen",
-    "sortTitle": "Ady boýunça"
+    "sortTitle": "Ady boýunça",
+    "gallery": "Galereýa:"
   },
   "Footer": {
     "contacts": "Aragatnaşyk",

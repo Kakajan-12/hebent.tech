@@ -1,0 +1,139 @@
+"use client";
+
+import { useParams, notFound } from "next/navigation";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+import { ClipLoader } from "react-spinners";
+import { useGetNewsDetailByIdQuery } from "@/app/api/api";
+import useAppLocale from "@/app/Hooks/GetLocale";
+import { NewsDetail, NewsDetailGallery } from "@/app/Interfaces/interfaces";
+import { resolveMediaUrl } from "@/constant/constant";
+import { useState } from "react";
+
+function formatNewsDate(iso: string, locale: string) {
+  return new Intl.DateTimeFormat(locale, {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(new Date(iso));
+}
+function stripHtmlTags(value: string): string {
+  return value.replace(/<[^>]*>/g, "").trim();
+}
+export default function NewsArticlePage() {
+  const params = useParams<{ lang: string; id: string }>();
+  const id = params.id;
+  const locale = useAppLocale();
+  const t = useTranslations("Newsroom");
+
+  const {
+    data: detailData,
+    error: detailError,
+    isLoading: detailLoading,
+  } = useGetNewsDetailByIdQuery({ endpoint: "api/news", id: id });
+
+  const [isImageLoading, setIsImageLoading] = useState(true);
+
+  if (detailLoading) {
+    return (
+      <main className="min-h-screen flex items-center justify-center">
+        <ClipLoader color="#000" size={32} />
+      </main>
+    );
+  }
+
+  if (detailError || !detailData) {
+    notFound();
+  }
+
+  const detail = detailData as NewsDetail;
+  const gallery: NewsDetailGallery[] = Array.isArray(detail.gallery)
+    ? detail.gallery
+    : [];
+
+  const title = stripHtmlTags(detail[`title_${locale}`]);
+  const text = stripHtmlTags(detail[`text_${locale}`]);
+  const category = stripHtmlTags(detail[`category_${locale}`]);
+  const coverImageSrc = resolveMediaUrl(detail.image);
+
+  return (
+    <main className="relative flex-col flex gap-10">
+      <div className="-mt-42 relative h-90 sm:h-110 lg:h-140 xl:h-176 2xl:h-190 w-full flex items-end justify-end overflow-hidden">
+        <div className="absolute inset-0 w-ful h-full z-10">
+          {isImageLoading && (
+            <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100/70">
+              <ClipLoader size={24} color="#1E2124" />
+            </div>
+          )}
+          <Image
+            src={coverImageSrc}
+            alt={title}
+            width={1000}
+            height={1000}
+            className="object-cover w-full h-full"
+            onLoad={() => setIsImageLoading(false)}
+            onError={() => setIsImageLoading(false)}
+          />
+        </div>
+        <div className="header-info text-white bg-black/10 backdrop-blur-sm p-4 rounded-l-lg flex flex-col gap-8 z-20 mb-7">
+          <h2 className="text-3xl lg:text-4xl xl:text-6xl font-bold text-right ml-auto">
+            {title}
+          </h2>
+          <div className="flex flex-col gap-2 ml-auto">
+            <time
+              className="text-sm lg:text-xl xl:text-2xl font-light tracking-wide text-left"
+              dateTime={detail.created_at}
+            >
+              <span className="font-bold">{t("date")}:</span>{" "}
+              {formatNewsDate(detail.created_at, locale)}
+            </time>
+            <p className="text-sm lg:text-xl xl:text-2xl font-light text-left">
+              <span className="font-bold">{t("category")}:</span> {category}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="container mx-auto px-5 lg:px-10 flex flex-col gap-10">
+        <p className="font-vox text-sm lg:text-xl leading-relaxed whitespace-pre-line">
+          {text}
+        </p>
+        <h3 className="text-3xl lg:text-4xl xl:text-6xl font-light">
+          {t("gallery")}
+        </h3>
+        {gallery.length > 0 && (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+            {gallery.map((g) => (
+              <GalleryImage
+                key={g.id}
+                src={resolveMediaUrl(g.image)}
+                alt={title}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    </main>
+  );
+}
+
+function GalleryImage({ src, alt }: { src: string; alt: string }) {
+  const [isLoading, setIsLoading] = useState(true);
+  return (
+    <div className="relative w-full h-26 lg:h-68 overflow-hidden aspect-square">
+      {isLoading && (
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100/70">
+          <ClipLoader size={24} color="#1E2124" />
+        </div>
+      )}
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className="object-cover"
+        // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        onLoad={() => setIsLoading(false)}
+        onError={() => setIsLoading(false)}
+      />
+    </div>
+  );
+}

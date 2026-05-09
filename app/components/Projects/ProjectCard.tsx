@@ -77,18 +77,17 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article
       ref={cardRef}
-      className="group relative aspect-square overflow-hidden shadow-sm cut-card max-lg:cursor-pointer lg:cursor-pointer"
+      className="group relative aspect-square shadow-sm cut-card"
       onClick={handleCardClick}
     >
       <Image
         src={resolveMediaUrl(project.image)}
         alt=""
         fill
-        className="pointer-events-none object-cover transition duration-500 group-hover:scale-105"
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        className="object-cover transition duration-500 group-hover:scale-105"
       />
       <div
-        className={`absolute inset-0 bg-black opacity-0 transition duration-300 lg:group-hover:opacity-60 ${isOpen ? "max-lg:opacity-60" : "max-lg:opacity-0"}`}
+        className={`absolute inset-0 bg-black opacity-0 transition duration-300 lg:group-hover:opacity-60 ${isOpen ? "lg:opacity-60" : "lg:opacity-0"}`}
       />
       <div
         className={`pointer-events-none absolute inset-0 flex flex-col justify-center items-center p-5 opacity-0 transition duration-300 lg:group-hover:opacity-100 ${isOpen ? "max-lg:opacity-100" : "max-lg:opacity-0"}`}

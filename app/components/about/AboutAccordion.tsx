@@ -33,7 +33,7 @@ export default function AboutAccordion({ items }: Props) {
               type="button"
               aria-expanded={isOpen}
               aria-controls={panelId}
-              className="flex w-full items-center justify-between gap-4 px-2 py-1 lg:py-4 font-nexa text-left transition-colors hover:bg-black/3 md:px-2"
+              className="flex w-full items-center justify-between gap-4 px-2 py-1 lg:py-4 text-left transition-colors hover:bg-black/3 md:px-2"
               onClick={() =>
                 setOpenId((current) => (current === item.id ? null : item.id))
               }
@@ -58,7 +58,7 @@ export default function AboutAccordion({ items }: Props) {
               }`}
             >
               <div className="overflow-hidden">
-                <p className="px-2 pb-4 pt-0 font-nexa text-sm lg:text-lg leading-relaxed text-slate-900 md:text-lg">
+                <p className="px-2 pb-4 pt-0 text-sm lg:text-lg leading-relaxed text-slate-900 md:text-lg">
                   {item.content}
                 </p>
               </div>

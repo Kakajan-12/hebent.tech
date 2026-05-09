@@ -51,6 +51,7 @@ export type Service = {
 
 export type Project = {
   id: number;
+  created_at?: string;
   image: string;
   title_tk: string;
   title_en: string;

@@ -22,8 +22,8 @@ export default function AboutPage() {
   }));
 
   return (
-    <section className="min-h-screen mt-28 md:mt-36 lg:mt-48 mb-5">
-      <h2 className="container mx-auto font-nexa text-5xl md:text-6xl font-bold tracking-tight mb-6 lg:mb-12 text-left px-6 md:px-20 lg:px-10">
+    <section className="min-h-screen mb-5 flex flex-col gap-6 md:gap-12 container mx-auto px-5">
+      <h2 className="container mx-auto text-5xl md:text-6xl font-bold text-left">
         {t("title")}
       </h2>
       <div className="mx-auto">

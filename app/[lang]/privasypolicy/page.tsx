@@ -52,7 +52,7 @@ const PrivacyPolicyPage: React.FC = () => {
     <section className="min-h-screen container mx-auto my-28 md:my-32 lg:my-48 px-6 sm:px-12 text-black">
       <div className="mx-auto flex flex-col">
         {/* Заголовок */}
-        <h2 className="font-nexa text-5xl md:text-6xl font-bold tracking-tight mb-6 lg:mb-12">
+        <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 lg:mb-12">
           {t("title1")}
         </h2>
 

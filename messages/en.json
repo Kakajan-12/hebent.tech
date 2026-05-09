@@ -17,36 +17,9 @@
     "references": "References letter",
     "contacts": "Contact us"
   },
-  "VideoHero": {
+  "Video": {
     "title": "VIDEO",
     "comingSoon": "Coming soon in May"
-  },
-  "Services": {
-    "iot": {
-      "label": "IOT Services",
-      "heading": "IOT SERVICES",
-      "description": "We develop end-to-end IoT solutions that connect devices into a unified ecosystem, automate processes, and enable real-time data-driven decisions."
-    },
-    "ai": {
-      "label": "AI Services",
-      "heading": "AI SERVICES",
-      "description": "We implement artificial intelligence solutions to automate tasks, analyze data, and improve business efficiency."
-    },
-    "consulting": {
-      "label": "IT consulting",
-      "heading": "IT CONSULTING",
-      "description": "We help you choose and optimize the technology stack, build architecture, and offer solutions that accelerate your business growth."
-    },
-    "development": {
-      "label": "IT Development",
-      "heading": "IT DEVELOPMENT",
-      "description": "We provide full-cycle software development — from idea and design to launch and ongoing support."
-    },
-    "database": {
-      "label": "Database",
-      "heading": "DATABASE",
-      "description": "We design and optimize high-performance databases, ensuring reliable storage, security, and fast access to your data."
-    }
   },
   "About": {
     "title": "About Us",
@@ -79,21 +52,20 @@
     }
   },
   "Careers": {
-    "heroTitle": "Be part of our mission",
-    "heroBody": "At Hebent Tech, we believe that great work starts with great people. We're always looking for passionate, talented, and driven individuals who want to make an impact, grow professionally, and contribute to something meaningful.",
-    "vacanciesTitle": "Current Vacancies",
+    "title": "Be part of our mission",
+    "text": "At Hebent Tech, we believe that great work starts with great people. We're always looking for passionate, talented, and driven individuals who want to make an impact, grow professionally, and contribute to something meaningful.",
+    "vacancies": "Current Vacancies",
     "apply": "Apply",
-    "personalInformation": "Personal Information",
+    "personal-info": "Personal Information",
     "name": "Name",
     "surname": "Surname",
     "email": "E-mail",
     "phoneNumber": "Phone number",
     "portfolio": "Portfolio",
-    "addOrDropYourFilesHere": "Add or drop your files here",
+    "drop-files": "Add or drop your files here",
     "selected": "Selected",
     "files": "files",
     "send": "Send",
-    "aboutTheRole": "About the Role",
     "whatYoullDo": "What You'll Do",
     "addFiles": "Add your CV and Portfolio",
     "jobs": [
@@ -153,10 +125,11 @@
     "and": "and",
     "built": "built",
     "heroAfter": "— from mobile apps to web platforms and clean user interfaces.",
-    "searchPlaceholder": "Search ...",
-    "sortBy": "Sort by : ",
-    "sortSingle": "Single",
-    "sortTitle": "Title",
+    "search-placeholder": "Search ...",
+    "sorted": "Sort by : ",
+    "sort-single": "Single",
+    "sort-title": "Title",
+    "sort-date": "Creation date",
     "customer": "Customer: ",
     "webSite": "Website: "
   },
@@ -269,63 +242,15 @@
       "finance": "Finance",
       "events": "Events & Exhibitions"
     },
-    "items": {
-      "1": {
-        "title": "Digital Twin Platform Goes Live",
-        "description": "Our new digital twin stack connects real-time telemetry with 3D visualization so operations teams can monitor assets from a single pane.",
-        "body": "The platform unifies sensor streams, historical trends, and spatial context. Early adopters report faster incident response and clearer handovers between shifts. We will roll out additional industry templates throughout the year.",
-        "categoryLabel": "Innovation"
-      },
-      "2": {
-        "title": "Smart Irrigation Pilot Across Regional Farms",
-        "description": "Soil moisture models and weather feeds now drive automated irrigation schedules, cutting water use while protecting yields.",
-        "body": "The pilot covers cooperative farms in three districts. Agronomists receive weekly summaries and can override schedules from a mobile dashboard. Results will inform a broader national program next season.",
-        "categoryLabel": "Agriculture"
-      },
-      "3": {
-        "title": "Safety Analytics for Refinery Operations",
-        "description": "Predictive alerts highlight abnormal pressure and temperature patterns before they escalate into downtime or risk events.",
-        "body": "Integration with existing SCADA preserves investments while adding a lightweight analytics layer. Operators see ranked alerts with recommended checks, reducing mean time to resolution in trial units.",
-        "categoryLabel": "Petrochemicals"
-      },
-      "4": {
-        "title": "Traceability Layer for Textile Supply Chains",
-        "description": "Batch-level QR journeys give brands and buyers verified origin data from fiber to finished goods.",
-        "body": "Partners can audit milestones without exposing commercially sensitive pricing. The system supports mixed cotton and synthetic flows and complies with emerging export documentation requirements.",
-        "categoryLabel": "Textiles"
-      },
-      "5": {
-        "title": "Edge Compute Kits for Remote Industrial Sites",
-        "description": "Rugged gateways run lightweight inference where connectivity is limited, syncing when links return.",
-        "body": "Each kit includes provisioning tools aligned with our cloud control plane. Field engineers can swap modules for different radio profiles without re-imaging the whole stack.",
-        "categoryLabel": "Technology"
-      },
-      "6": {
-        "title": "Customs Integration Cuts Clearance Times",
-        "description": "Structured declarations and status webhooks reduce manual data entry for freight forwarders on key trade lanes.",
-        "body": "The first corridor went live with two partner carriers. Average document cycle time dropped sharply; we are onboarding additional lanes based on partner readiness.",
-        "categoryLabel": "Trade"
-      },
-      "7": {
-        "title": "Treasury Dashboard for Multi-Entity Groups",
-        "description": "Cash positions and FX exposure roll up automatically with role-based views for finance leadership.",
-        "body": "The dashboard reads from core banking exports and treasury workstations. Audit trails satisfy internal control requirements while keeping daily navigation simple for controllers.",
-        "categoryLabel": "Finance"
-      },
-      "8": {
-        "title": "Hebent at Central Asia Tech Week",
-        "description": "Meet our team at the flagship pavilion for demos of logistics, events, and travel products.",
-        "body": "We will run live walkthroughs each morning and host a panel on pragmatic AI adoption in regulated industries. Book a slot via the event app or stop by stand C12.",
-        "categoryLabel": "Events"
-      }
-    },
+
     "date": "Date",
     "category": "Category",
     "searchAria": "Search",
     "searchPlaceholder": "Search",
     "sortBy": "Sort by:",
     "sortSingle": "Single",
-    "sortTitle": "Title"
+    "sortTitle": "Title",
+    "gallery": "Gallery:"
   },
   "Footer": {
     "contacts": "Contacts",

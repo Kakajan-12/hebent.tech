@@ -47,14 +47,14 @@ export const AutoSwiper: React.FC = () => {
     );
   }
   return (
-    <div className="mx-auto w-full mb-10 md:mb-20 lg:mb-30">
+    <section className="mb-10 lg:mb-20">
       {/* Навигационная панель */}
-      <div className="flex gap-2 mb-6 container mx-auto mt-30 overflow-x-auto scrollbar-hide whitespace-nowrap px-5 lg:px-0">
+      <div className="flex gap-2 mb-6 container overflow-x-auto scrollbar-hide px-5 lg:px-10">
         {services.map((service, index) => (
           <button
             key={service.id}
             onClick={() => handleTabClick(index)}
-            className="relative px-6 py-2 w-fit bg-white hover:bg-gray-200 transition-colors text-xs lg:text-sm font-semibold uppercase tracking-wider"
+            className="relative  px-6 py-2 w-fit bg-white hover:bg-gray-200 transition-colors text-xs lg:text-sm font-semibold uppercase tracking-wider"
           >
             {activeIndex === index && (
               <div
@@ -122,6 +122,6 @@ export const AutoSwiper: React.FC = () => {
           ))}
         </Swiper>
       </div>
-    </div>
+    </section>
   );
 };

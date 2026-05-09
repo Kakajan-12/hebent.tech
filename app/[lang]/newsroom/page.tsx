@@ -56,7 +56,7 @@ export default function NewsroomPage() {
         </div>
 
         <nav className="mt-8 lg:mt-16" aria-label={t("categoriesAria")}>
-          <ul className="font-nexa flex gap-x-4 gap-y-3 text-sm md:text-xl text-[#1E2124] md:gap-x-8 overflow-x-auto scrollbar-hide">
+          <ul className="flex gap-x-4 gap-y-3 text-sm md:text-xl text-[#1E2124] md:gap-x-8 overflow-x-auto scrollbar-hide">
             <li>
               <button
                 type="button"

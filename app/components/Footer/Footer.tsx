@@ -31,10 +31,10 @@ export default function Footer() {
   );
 
   return (
-    <footer className="bg-footer text-white ">
+    <footer className="bg-footer text-white mt-10 lg:mt-16">
       <div className="container mx-auto px-5 sm:px-6 lg:px-16 xl:px-13 2xl:px-22 pt-6 lg:pt-20 pb-5 lg:pb-8">
         <div className="footer-container flex flex-col lg:flex-row gap-8 lg:gap-52 justify-between">
-          <div className="logo-container flex flex-col gap-9 items-center lg:items-start">
+          <div className="flex flex-col gap-9 items-center">
             <Link href="/" className="inline-block">
               <Image
                 src="/logo.svg"
@@ -47,7 +47,7 @@ export default function Footer() {
 
             <div className="flex flex-wrap gap-9">
               <WeChatLink>
-                <IoLogoWechat className="w-10 h-10 text-white cursor-pointer hover:opacity-70" />
+                <IoLogoWechat className="w-8 h-8 text-white cursor-pointer hover:opacity-70" />
               </WeChatLink>
               {social.map((item: SocialLink) => {
                 const Icon = getSocialIcon(item.icon);
@@ -62,7 +62,7 @@ export default function Footer() {
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
                   >
-                    <Icon className="w-10 h-10 text-white cursor-pointer hover:opacity-70" />
+                    <Icon className="w-8 h-8 text-white cursor-pointer hover:opacity-70" />
                   </a>
                 );
               })}
@@ -91,9 +91,7 @@ export default function Footer() {
           </div>
           <div className="contacts-container flex flex-col sm:flex-row items-start sm:items-center justify-start sm:justify-around gap-9 sm:gap-10 xl:gap-12 ">
             <div className="contacts">
-              <h3 className="font-nexa text-lg font-semibold">
-                {t("contacts")}
-              </h3>
+              <h3 className="text-lg font-semibold">{t("contacts")}</h3>
               <ul className="mt-4 lg:mt-6 space-y-4 text-sm text-white font-bold">
                 {phones?.map((phone: Phone) => (
                   <li key={phone.id} className="flex gap-4 items-center">
@@ -103,7 +101,7 @@ export default function Footer() {
                     />
                     <a
                       href={formatPhoneHref(phone.number)}
-                      className="font-nexa text-sm lg:text-lg hover:text-white/70"
+                      className="text-sm lg:text-lg hover:text-white/70"
                     >
                       {phone.number}
                     </a>
@@ -113,7 +111,7 @@ export default function Footer() {
                   <FiMail className="size-5 shrink-0 text-white" aria-hidden />
                   <a
                     href="mailto:davud.h@hebent.tech"
-                    className="font-nexa text-sm lg:text-lg hover:text-white/70"
+                    className="text-sm lg:text-lg hover:text-white/70"
                   >
                     davud.h@hebent.tech
                   </a>
@@ -123,15 +121,11 @@ export default function Footer() {
                     className="size-5 shrink-0 text-white"
                     aria-hidden
                   />
-                  <span className="font-nexa text-sm lg:text-lg">
-                    {t("address")}
-                  </span>
+                  <span className="text-sm lg:text-lg">{t("address")}</span>
                 </li>
                 <li className="flex gap-4 items-center">
                   <FiClock className="size-5 shrink-0 text-white" aria-hidden />
-                  <span className="font-nexa text-sm lg:text-lg">
-                    {t("hours")}
-                  </span>
+                  <span className="text-sm lg:text-lg">{t("hours")}</span>
                 </li>
               </ul>
             </div>
@@ -176,7 +170,7 @@ export default function Footer() {
               alt="HEBENT TECHNOLOGY"
               width={24}
               height={24}
-              className="inline-block mx-1 shrink-0 brightness-0 invert animate-[spin_4s_linear_infinite] motion-reduce:animate-none"
+              className="inline-block mx-1 shrink-0 brightness-0 invert logo-spin motion-reduce:animate-none"
             />
             <span className="text-white">HEBENT TECHNOLOGY</span>
           </p>

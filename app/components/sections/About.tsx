@@ -37,7 +37,7 @@ export default function AboutSection() {
   return (
     <section className="mb-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-        <p className="mx-auto font-nexa text-center text-lg leading-relaxed md:text-xl">
+        <p className="mx-auto text-center text-lg leading-relaxed md:text-xl">
           {tAbout("body")}
         </p>
         <div className="mt-12 grid grid-cols-2 justify-items-center gap-4 lg:grid-cols-4 lg:gap-6 mx-0 md:mx-18 lg:mx-0">

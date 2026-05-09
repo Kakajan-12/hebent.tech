@@ -1,11 +1,11 @@
 "use client";
 
 import { ClipLoader } from "react-spinners";
-import { Video } from "@/app/Interfaces/interfaces";
+import type { Video } from "@/app/Interfaces/interfaces";
 import { useGetVideosQuery } from "@/app/api/api";
 import { resolveMediaUrl } from "@/constant/constant";
 
-export default function VideoHero() {
+export default function Video() {
   const { data, error, isLoading } = useGetVideosQuery();
   const videos: Video[] = Array.isArray(data) ? data : [];
   const lastVideo = videos.length > 0 ? videos[videos.length - 1] : null;
@@ -34,8 +34,7 @@ export default function VideoHero() {
   }
 
   return (
-    <section className="relative h-screen bg-slate-100">
-      <div className="absolute inset-0 from-slate-200/80 via-slate-100 to-slate-50" />
+    <section className="absolute top-0 left-0 right-0 h-screen">
       {isLoading ? (
         <div className="h-screen flex items-center justify-center">
           <ClipLoader color="#0043d8" size={50} />

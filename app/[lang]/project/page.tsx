@@ -21,9 +21,16 @@ function stripHtmlTags(value: string): string {
   return value.replace(/<[^>]*>/g, "").trim();
 }
 
-type SortKey = "single" | "title";
+function projectCreatedMs(p: Project): number | null {
+  const raw = p.created_at;
+  if (!raw) return null;
+  const ms = Date.parse(raw);
+  return Number.isNaN(ms) ? null : ms;
+}
 
-const SORT_OPTIONS: SortKey[] = ["single", "title"];
+type SortKey = "single" | "title" | "date";
+
+const SORT_OPTIONS: SortKey[] = ["single", "title", "date"];
 
 export default function ProjectsClient() {
   const t = useTranslations("ProjectsPage");
@@ -46,8 +53,9 @@ export default function ProjectsClient() {
   }, [sortOpen]);
 
   const sortLabel: Record<SortKey, string> = {
-    single: t("sortSingle"),
-    title: t("sortTitle"),
+    single: t("sort-single"),
+    title: t("sort-title"),
+    date: t("sort-date"),
   };
 
   const {
@@ -76,6 +84,16 @@ export default function ProjectsClient() {
         ),
       );
     }
+    if (sort === "date") {
+      list = [...list].sort((a, b) => {
+        const ta = projectCreatedMs(a);
+        const tb = projectCreatedMs(b);
+        if (ta != null && tb != null) return tb - ta;
+        if (ta != null) return -1;
+        if (tb != null) return 1;
+        return b.id - a.id;
+      });
+    }
     return list;
   }, [projects, query, sort, locale]);
 
@@ -87,116 +105,113 @@ export default function ProjectsClient() {
   );
 
   return (
-        <main className="container mx-auto px-4">
-          <div className="mx-auto px-5 sm:px-10 lg:px-12 2xl:px-0 pb-8 xl:pb-48">
-            <p className="max-w-5xl text-left text-xl lg:text-3xl leading-relaxed lg:leading-snug">
-              {t("heroBefore")}{" "}
-              <span className="font-semibold text-brand">{t("designed")}</span>{" "}
-              {t("and")}{" "}
-              <span className="font-semibold text-brand">{t("built")}</span>{" "}
-              {t("heroAfter")}
-            </p>
-            <div className="mt-10 flex flex-col gap-5 md:flex-row items-end md:items-center md:justify-between">
-              <label htmlFor="search" className="relative block w-full md:max-w-md">
-                <input
-                    id="search"
-                    type="search"
-                    placeholder={t("searchPlaceholder")}
-                    value={query}
-                    onChange={(e) => {
-                      setQuery(e.target.value);
-                      setPage(1);
-                    }}
-                    className="font-nexa font-light w-full rounded-4xl border-2 border-[#ABB7C2] py-2 pl-6 pr-14 text-xs lg:text-sm xl:text-base shadow-sm outline-none transition-all placeholder:text-[#ABB7C2] focus:border-slate-400"
-                />
-                <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none">
-                  <FiSearch className="size-4 text"/>
-                </div>
-              </label>
-              <div
-                  ref={sortRef}
-                  className="sort-by relative shrink-0 w-full md:w-auto"
-              >
-                <button
-                    type="button"
-                    aria-haspopup="listbox"
-                    aria-expanded={sortOpen}
-                    onClick={() => setSortOpen((o) => !o)}
-                    className="flex w-full md:w-80 items-center justify-between gap-4 rounded-full border-2 border-[#ABB7C2] text-[#7E7E7E] px-6 py-3 text-sm lg:text-base font-light shadow-sm outline-none transition focus:border-slate-400"
-                >
+    <main className="container mx-auto px-5">
+      <div className="flex flex-col gap-5 lg:gap-15">
+        <p className="text-xl lg:text-3xl">
+          {t("heroBefore")}{" "}
+          <span className="font-semibold text-brand">{t("designed")}</span>{" "}
+          {t("and")}{" "}
+          <span className="font-semibold text-brand">{t("built")}</span>{" "}
+          {t("heroAfter")}
+        </p>
+        <div className="flex flex-col gap-5 md:flex-row items-center md:justify-between font-light text-xs lg:text-sm xl:text-base w-full">
+          <label
+            htmlFor="search"
+            className="relative w-full md:min-w-2xs md:max-w-md flex items-center justify-between rounded-sm border border-[#ABB7C2] py-2 px-6 shadow-sm"
+          >
+            <input
+              id="search"
+              type="search"
+              placeholder={t("search-placeholder")}
+              value={query}
+              onChange={(e) => {
+                setQuery(e.target.value);
+                setPage(1);
+              }}
+              className=" w-full outline-none transition-all placeholder:text-[#ABB7C2] focus:border-slate-400"
+            />
+            <FiSearch className="size-5 text" />
+          </label>
+          <div ref={sortRef} className="w-full md:min-w-2xs md:max-w-sm">
+            <button
+              type="button"
+              aria-haspopup="listbox"
+              aria-expanded={sortOpen}
+              onClick={() => setSortOpen((o) => !o)}
+              className="flex w-full items-center justify-between gap-4 rounded-sm border border-[#ABB7C2] text-[#7E7E7E] px-6 py-2 shadow-sm outline-none transition focus:border-slate-400"
+            >
               <span>
-                {t("sortBy")}
+                {t("sorted")}
                 {sortLabel[sort]}
               </span>
-                  <FaChevronDown
-                      className={`size-3 transition-transform duration-200 ${
-                          sortOpen ? "rotate-180" : ""
+              <FaChevronDown
+                className={`size-3 transition-transform duration-200 ${
+                  sortOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+            {sortOpen && (
+              <ul
+                role="listbox"
+                className="absolute inset-0 z-20 mt-2 overflow-hidden rounded-2xl border-2 border-[#ABB7C2] bg-white shadow-lg"
+              >
+                {SORT_OPTIONS.map((key) => (
+                  <li key={key} role="option" aria-selected={sort === key}>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSort(key);
+                        setPage(1);
+                        setSortOpen(false);
+                      }}
+                      className={`block w-full px-6 py-2.5 text-left text-sm lg:text-base font-light transition ${
+                        sort === key
+                          ? "bg-[#F2F4F7] text-[#1F1F1F]"
+                          : "text-[#7E7E7E] hover:bg-[#F2F4F7]"
                       }`}
-                  />
-                </button>
-                {sortOpen && (
-                    <ul
-                        role="listbox"
-                        className="absolute left-0 right-0 z-20 mt-2 overflow-hidden rounded-2xl border-2 border-[#ABB7C2] bg-white shadow-lg"
                     >
-                      {SORT_OPTIONS.map((key) => (
-                          <li key={key} role="option" aria-selected={sort === key}>
-                            <button
-                                type="button"
-                                onClick={() => {
-                                  setSort(key);
-                                  setPage(1);
-                                  setSortOpen(false);
-                                }}
-                                className={`block w-full px-6 py-2.5 text-left text-sm lg:text-base font-light transition ${
-                                    sort === key
-                                        ? "bg-[#F2F4F7] text-[#1F1F1F]"
-                                        : "text-[#7E7E7E] hover:bg-[#F2F4F7]"
-                                }`}
-                            >
-                              {sortLabel[key]}
-                            </button>
-                          </li>
-                      ))}
-                    </ul>
-                )}
-              </div>
-            </div>
-
-            <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-              {projectsLoading && (
-                  <div className="col-span-full py-6 flex justify-center">
-                    <ClipLoader color="#000" size={20}/>
-                  </div>
-              )}
-              {projectsError && !projectsLoading && (
-                  <div className="col-span-full py-6 font-vox text-sm md:text-base text-red-700 text-center">
-                    Failed to load projects.
-                  </div>
-              )}
-              {!projectsLoading && !projectsError && slice.length === 0 && (
-                  <div className="col-span-full py-6 font-vox text-sm md:text-base text-center">
-                    No projects available right now.
-                  </div>
-              )}
-              {slice.map((project) => (
-                  <ProjectApiCard
-                      key={project.id}
-                      project={project}
-                      title={stripHtmlTags(project[`title_${locale}`])}
-                      text={stripHtmlTags(project[`text_${locale}`])}
-                  />
-              ))}
-            </div>
-
-            <Pagination
-                page={safePage}
-                totalPages={totalPages}
-                onPageChange={(p) => setPage(p)}
-            />
+                      {sortLabel[key]}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
-        </main>
+        </div>
 
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {projectsLoading && (
+            <div className="col-span-full py-6 flex justify-center">
+              <ClipLoader color="#000" size={20} />
+            </div>
+          )}
+          {projectsError && !projectsLoading && (
+            <div className="col-span-full py-6 font-vox text-sm md:text-base text-red-700 text-center">
+              Failed to load projects.
+            </div>
+          )}
+          {!projectsLoading && !projectsError && slice.length === 0 && (
+            <div className="col-span-full py-6 font-vox text-sm md:text-base text-center">
+              No projects available right now.
+            </div>
+          )}
+          {slice.map((project) => (
+            <ProjectApiCard
+              key={project.id}
+              project={project}
+              title={stripHtmlTags(project[`title_${locale}`])}
+              text={stripHtmlTags(project[`text_${locale}`])}
+            />
+          ))}
+        </div>
+
+        <Pagination
+          page={safePage}
+          totalPages={totalPages}
+          onPageChange={(p) => setPage(p)}
+        />
+      </div>
+    </main>
   );
 }
 
@@ -206,7 +221,7 @@ type ProjectApiCardProps = {
   text: string;
 };
 
-function ProjectApiCard({project, title, text}: ProjectApiCardProps) {
+function ProjectApiCard({ project, title, text }: ProjectApiCardProps) {
   const router = useRouter();
   const cardRef = useRef<HTMLElement>(null);
   const lastTapRef = useRef(0);
@@ -237,7 +252,7 @@ function ProjectApiCard({project, title, text}: ProjectApiCardProps) {
 
     document.addEventListener("pointerdown", onPointerDown, true);
     return () =>
-        document.removeEventListener("pointerdown", onPointerDown, true);
+      document.removeEventListener("pointerdown", onPointerDown, true);
   }, [isOpen]);
 
   const goToProject = () => {
@@ -261,35 +276,35 @@ function ProjectApiCard({project, title, text}: ProjectApiCardProps) {
   };
 
   return (
-      <article
-          ref={cardRef}
-          className="group relative aspect-square overflow-hidden shadow-sm cut-card max-lg:cursor-pointer lg:cursor-pointer"
-          onClick={handleCardClick}
+    <article
+      ref={cardRef}
+      className="group relative aspect-square overflow-hidden shadow-sm cut-card"
+      onClick={handleCardClick}
+    >
+      <Image
+        src={imageSrc}
+        alt={title}
+        fill
+        className="pointer-events-none object-cover transition duration-500 group-hover:scale-105"
+        sizes="100vw"
+      />
+      <div
+        className={`absolute inset-0 bg-black opacity-0 transition duration-300 lg:group-hover:opacity-60 ${
+          isOpen ? "max-lg:opacity-60" : "max-lg:opacity-0"
+        }`}
+      />
+      <div
+        className={`pointer-events-none absolute inset-0 flex flex-col justify-center items-center p-5 opacity-0 transition duration-300 lg:group-hover:opacity-100 ${
+          isOpen ? "max-lg:opacity-100" : "max-lg:opacity-0"
+        }`}
       >
-        <Image
-            src={imageSrc}
-            alt={title}
-            fill
-            className="pointer-events-none object-cover transition duration-500 group-hover:scale-105"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
-        <div
-            className={`absolute inset-0 bg-black opacity-0 transition duration-300 lg:group-hover:opacity-60 ${
-                isOpen ? "max-lg:opacity-60" : "max-lg:opacity-0"
-            }`}
-        />
-        <div
-            className={`pointer-events-none absolute inset-0 flex flex-col justify-center items-center p-5 opacity-0 transition duration-300 lg:group-hover:opacity-100 ${
-                isOpen ? "max-lg:opacity-100" : "max-lg:opacity-0"
-            }`}
-        >
-          <h3 className="text-lg font-semibold leading-snug text-white text-center">
-            {title}
-          </h3>
-          <p className="mt-2 line-clamp-3 text-sm text-white/85 text-center">
-            {text}
-          </p>
-        </div>
-      </article>
+        <h3 className="text-lg font-semibold leading-snug text-white text-center">
+          {title}
+        </h3>
+        <p className="mt-2 line-clamp-3 text-sm text-white/85 text-center">
+          {text}
+        </p>
+      </div>
+    </article>
   );
 }
