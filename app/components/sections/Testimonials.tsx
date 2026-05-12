@@ -37,7 +37,7 @@ export default function Testimonials() {
   return (
     <section className="pt-16">
       <div className="container mx-auto mb-10 px-5 lg:px-10">
-        <h2 className="text-3xl font-bold">{t("title")}</h2>
+        <h2 className="text-3xl font-bold font-vox">{t("title")}</h2>
       </div>
 
       <div className="px-5 lg:px-10">

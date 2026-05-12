@@ -100,11 +100,11 @@
     "phone": "Phone",
     "address": "Turkmenistan, c. Ashgabat, st. Bitarap Turkmenistan 3/1, 'Altyn Ýüplük' building",
     "hours": "Hours",
-    "name": "Name",
-    "surname": "Surname",
-    "comments": "Comments...",
+    "name": "Aman",
+    "surname": "Amanov",
+    "comments": "Write your message here...",
     "send": "Send",
-    "enterCaptcha": "Enter text in the picture",
+    "enterCaptcha": "Enter text from the picture",
     "addFiles": "Add your CV and Portfolio",
     "update": "Update"
   },
@@ -134,39 +134,7 @@
     "gallery": "Gallery:"
   },
   "Testimonials": {
-    "title": "Our clients about us",
-    "items": {
-      "t1": {
-        "brand": "OGUZTRAVEL",
-        "quote": "Hebent delivered a stable platform under tight deadlines. Communication was clear and the team owned outcomes end to end.",
-        "author": "Daniel Brooks, Chief Operating Officer, New Bridge Group"
-      },
-      "t2": {
-        "brand": "Shantui",
-        "quote": "From discovery to launch, the product quality exceeded expectations. Our operators adopted the new UI quickly.",
-        "author": "Elena Morris, VP Product, Northline Logistics"
-      },
-      "t3": {
-        "brand": "Sitrak",
-        "quote": "They combined strong engineering with pragmatic design decisions. We shipped faster without cutting corners.",
-        "author": "Marcus Chen, CTO, Skyforge Labs"
-      },
-      "t4": {
-        "brand": "Talvas yoly",
-        "quote": "The integration was seamless and the documentation thorough. Hebent's engineers responded to every edge case before we even raised it.",
-        "author": "Sophia Keller, Head of Engineering, AeroVault Systems"
-      },
-      "t5": {
-        "brand": "Lovol",
-        "quote": "We needed a team that understood data at scale. Hebent delivered a pipeline that handles peak loads without a hiccup.",
-        "author": "James Okoye, Data Infrastructure Lead, DataSpan Analytics"
-      },
-      "t6": {
-        "brand": "Oguzabat",
-        "quote": "They grasped our domain quickly and built a solution that our field teams actually enjoy using. Rare quality.",
-        "author": "Lena Farris, Product Director, GreenPath Solutions"
-      }
-    }
+    "title": "Our clients"
   },
   "Newsroom": {
     "title": "Newsroom",

@@ -32,7 +32,7 @@ export default function LangSwitcher() {
     locale === "en" ? t("en") : locale === "ru" ? t("ru") : t("tk");
 
   return (
-    <div className="relative hidden shrink-0 lg:block" ref={ref}>
+    <div className="relative hidden shrink-0 lg:block font-bold" ref={ref}>
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}

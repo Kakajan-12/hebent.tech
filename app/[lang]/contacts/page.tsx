@@ -18,6 +18,7 @@ import { getSocialIcon } from "@/lib/socialIcon";
 import { useState, useEffect, useCallback } from "react";
 import { toast } from "sonner";
 import { ClipLoader } from "react-spinners";
+import { GrUpdate } from "react-icons/gr";
 
 function formatPhoneHref(number: string) {
   return `tel:${number.replace(/[^+\d]/g, "")}`;
@@ -259,7 +260,7 @@ export default function ContactPage() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="text-sm lg:text-base xl:text-xl w-full p-2 bg-[#D9D9D9] border-b border-black  focus:ring-1 focus:ring-black outline-none"
+                className="text-sm lg:text-base xl:text-xl w-full p-2 bg-slate-200 border-b border-gray-300  focus:ring-1 focus:ring-gray-300 outline-none"
               />
             </div>
             <div className="flex flex-col gap-2">
@@ -274,7 +275,7 @@ export default function ContactPage() {
                 name="surname"
                 type="text"
                 placeholder={t("surname")}
-                className="text-sm lg:text-base xl:text-xl w-full p-2 bg-[#D9D9D9] border-b border-black  focus:ring-1 focus:ring-black outline-none"
+                className="text-sm lg:text-base xl:text-xl w-full p-2 bg-slate-200 border-b border-gray-300  focus:ring-1 focus:ring-gray-300 outline-none"
                 autoComplete="family-name"
                 value={formData.surname}
                 onChange={handleChange}
@@ -294,8 +295,8 @@ export default function ContactPage() {
               id="email"
               name="email"
               type="email"
-              placeholder={t("email")}
-              className="text-sm lg:text-base xl:text-xl w-full p-2 bg-[#D9D9D9] border-b border-black  focus:ring-1 focus:ring-black outline-none"
+              placeholder={"mail@example.com"}
+              className="text-sm lg:text-base xl:text-xl w-full p-2 bg-slate-200 border-b border-gray-300  focus:ring-1 focus:ring-gray-300 outline-none"
               autoComplete="email"
               value={formData.email}
               onChange={handleChange}
@@ -314,7 +315,7 @@ export default function ContactPage() {
               id="message"
               name="message"
               rows={6}
-              className="text-sm lg:text-base xl:text-xl w-full p-2 bg-[#D9D9D9] border-b border-black  focus:ring-1 focus:ring-black outline-none resize-none"
+              className="text-sm lg:text-base xl:text-xl w-full p-2 bg-slate-200 border-b border-gray-300  focus:ring-1 focus:ring-gray-300 outline-none resize-none"
               autoComplete="off"
               placeholder={t("comments")}
               value={formData.message}
@@ -328,16 +329,16 @@ export default function ContactPage() {
               {t("enterCaptcha")}
             </label>
 
-            <div className="flex items-center gap-4 p-2">
+            <div className="flex items-center gap-4">
               <div className="flex items-center gap-4 flex-col">
                 {captchaImage ? (
                   <Image
                     unoptimized
                     src={`data:image/svg+xml;utf8,${encodeURIComponent(captchaImage)}`}
                     alt="Captcha"
-                    width={300}
-                    height={300}
-                    className=" px-4 py-2 font-mono font-bold tracking-widest select-none border border-gray-300"
+                    width={200}
+                    height={200}
+                    className=" px-4 py-2 font-mono font-bold tracking-widest select-none "
                   />
                 ) : (
                   <div className="w-[300px] h-[100px] bg-white border border-gray-300 grid place-items-center text-xs text-gray-500 px-2 text-center">
@@ -351,7 +352,7 @@ export default function ContactPage() {
                 disabled={captchaLoading}
                 className="text-sm underline text-[#5D86C4]"
               >
-                {captchaLoading ? "..." : t("update")}
+                {captchaLoading ? "" : <GrUpdate className="w-4 h-4" />}
               </button>
             </div>
 
@@ -363,7 +364,7 @@ export default function ContactPage() {
               onChange={handleChange}
               required
               placeholder={t("enterCaptcha")}
-              className="text-sm lg:text-base xl:text-xl w-full p-2 bg-[#D9D9D9] border-b border-black  focus:ring-1 focus:ring-black outline-none"
+              className="text-sm lg:text-base xl:text-xl w-full p-2 bg-slate-200 border-b border-gray-300  focus:ring-1 focus:ring-gray-300 outline-none"
               autoComplete="off"
             />
           </div>

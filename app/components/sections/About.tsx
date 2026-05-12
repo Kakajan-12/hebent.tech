@@ -41,20 +41,20 @@ export default function AboutSection() {
   }
 
   return (
-    <section className="">
-      <div className="flex flex-col gap-4 lg:gap-8 items-center justify-center px-5 lg:px-10">
-        <p className="hidden lg:block text-center text-lg md:text-xl">
-          {tAbout("body")}
-        </p>
-        <div className="grid grid-cols-2 justify-items-center gap-4 sm:gap-x-12 lg:grid-cols-4 lg:gap-6">
-          {statistics.map((s) => (
-            <StatCard
-              key={s.id}
-              value={stripHtmlTags(s.count.toString())}
-              label={stripHtmlTags(s[`title_${locale}`])}
-            />
-          ))}
-        </div>
+    <section className="container mx-auto px-5 lg:px-10 flex flex-col gap-4 lg:gap-8 items-center justify-center">
+      {/* <div className="flex flex-col gap-4 lg:gap-8 items-center justify-center px-5 lg:px-10 w-full"> */}
+      <p className="block text-center text-lg md:text-xl font-vox leading-none">
+        {tAbout("body")}
+      </p>
+      <div className="grid grid-cols-2 justify-items-center gap-4 md:grid-cols-4 w-full">
+        {statistics.map((s) => (
+          <StatCard
+            key={s.id}
+            value={stripHtmlTags(s.count.toString())}
+            label={stripHtmlTags(s[`title_${locale}`])}
+          />
+        ))}
+        {/* </div> */}
       </div>
     </section>
   );

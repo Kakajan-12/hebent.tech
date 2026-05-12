@@ -103,7 +103,7 @@ export const AutoSwiper: React.FC = () => {
                   src={resolveMediaUrl(service.image)}
                   alt={service[`title_${locale}`]}
                   fill
-                  className="object-cover"
+                  className="object-fill"
                   sizes="(max-width: 768px) 88vw, 75vw"
                 />
                 <div className="relative z-10 flex w-fit flex-col items-start gap-2 rounded-sm bg-[#D9D9D933] border border-white/40  p-2.5 backdrop-blur-sm">

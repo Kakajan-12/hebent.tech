@@ -102,11 +102,11 @@
     "instagram": "Instagram",
     "twitter": "X",
     "facebook": "Facebook",
-    "name": "Ady",
-    "surname": "Familiýasy",
-    "comments": "Komentlar",
+    "name": "Aman",
+    "surname": "Amanow",
+    "comments": "Sizin habarynyz ýazyp bermek üçin",
     "send": "Ibermek",
-    "enterCaptcha": "Teks s suratda giriň",
+    "enterCaptcha": "Tekst suratdan giriziň",
     "update": "Üýtgetmek"
   },
   "Stats": {
@@ -135,7 +135,7 @@
     "gallery": "Galereýa:"
   },
   "Testimonials": {
-    "title": "Müşderiler biz barada"
+    "title": "Müşderiler"
   },
   "Newsroom": {
     "title": "Täzelikler",

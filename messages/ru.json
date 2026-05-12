@@ -63,9 +63,9 @@
     "instagram": "Instagram",
     "twitter": "X",
     "facebook": "Facebook",
-    "name": "Имя",
-    "surname": "Фамилия",
-    "comments": "Комментарии",
+    "name": "Аман",
+    "surname": "Аманов",
+    "comments": "Напишите ваше сообщение здесь...",
     "send": "Отправить",
     "addFiles": "Добавьте ваше резюме и портфолио",
     "enterCaptcha": "Введите текст с картинки",
@@ -137,7 +137,7 @@
     "gallery": "Галерея:"
   },
   "Testimonials": {
-    "title": "Наши клиенты о нас"
+    "title": "Наши клиенты"
   },
   "Newsroom": {
     "title": "Новости",

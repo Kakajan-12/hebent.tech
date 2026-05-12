@@ -33,7 +33,6 @@
 :root {
   --background-main: #efefef;
   --brand: #0043d8;
-  --stat-card: #2c509f;
   --footer: #0a1f44;
   --font-nexa: "Nexa", sans-serif;
   --font-nexabold: "Nexa", sans-serif;
@@ -45,7 +44,6 @@
 @theme inline {
   --color-background-main: var(--background-main);
   --color-brand: var(--brand);
-  --color-stat-card: var(--stat-card);
   --color-footer: var(--footer);
   --font-nexa: var(--font-nexa);
   --font-nexabold: var(--font-nexabold);
@@ -68,6 +66,21 @@ article {
 }
 .stat-card {
   clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%, 0 25%);
+}
+@media (max-width: 370px) {
+  .stat-card {
+    height: 60px;
+  }
+}
+@media (max-width: 450px) {
+  .stat-card {
+    height: 80px;
+  }
+}
+@media (max-width: 640px) {
+  .stat-card {
+    height: 100px;
+  }
 }
 
 @keyframes progress-line {

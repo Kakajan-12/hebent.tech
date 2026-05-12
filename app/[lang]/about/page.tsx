@@ -22,17 +22,11 @@ export default function AboutPage() {
   }));
 
   return (
-    <section className="min-h-screen flex flex-col gap-3 lg:gap-12 container mx-auto px-5 lg:px-10">
+    <main className="min-h-screen flex flex-col gap-3 lg:gap-12 container mx-auto px-5 lg:px-10">
       <h2 className="container mx-auto text-5xl md:text-6xl font-bold text-left">
         {t("title")}
       </h2>
-      <div className="flex flex-col gap-4 items-center justify-center">
-        <p className="block lg:hidden font-vox text-sm lg:text-xl">
-          {t("body")}
-        </p>
-        <AboutSection />
-        <AboutAccordion items={items} />
-      </div>
-    </section>
+      <AboutSection />
+    </main>
   );
 }

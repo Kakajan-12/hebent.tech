@@ -15,9 +15,9 @@ export default function ProjectsPreview() {
 
   return (
     <section className="py-16 md:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+      <div className="container mx-auto px-5 lg:px-10">
+        <div className="flex flex-wrap items-end justify-between gap-4 ">
+          <h2 className="text-3xl font-vox font-bold tracking-tight text-slate-900 md:text-4xl">
             {t("title")}
           </h2>
         </div>

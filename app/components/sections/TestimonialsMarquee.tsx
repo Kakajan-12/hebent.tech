@@ -38,7 +38,7 @@ export function TestimonialsMarquee({ items }: TestimonialsMarqueeProps) {
         <CarouselContent className="-ml-5 py-3">
           {items.map((item) => (
             <CarouselItem key={item.id} className="w-[280px]">
-              <figure className="group testimonial-clip flex h-full min-h-90 flex-col items-start justify-between bg-white p-8 hover:text-black cursor-pointer">
+              <figure className="group testimonial-clip flex h-full min-h-90 flex-col items-start justify-between bg-white p-4 lg:p-8 hover:text-black cursor-pointer">
                 <figcaption className="relative z-10 mb-6 text-sm font-black uppercase tracking-widest text-gray-400 transition-colors group-hover:text-black">
                   {stripHtmlTags(item.company)}
                 </figcaption>
