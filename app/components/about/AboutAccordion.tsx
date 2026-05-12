@@ -19,7 +19,7 @@ export default function AboutAccordion({ items }: Props) {
   const [openId, setOpenId] = useState<string | null>(null);
 
   return (
-    <div className="container mx-auto mt-10 overflow-hidden rounded-2xl px-6 md:px-20 lg:px-10">
+    <div className="mt-5 lg:mt-10">
       {items.map((item, index) => {
         const isOpen = openId === item.id;
         const panelId = `${baseId}-${item.id}-panel`;

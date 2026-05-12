@@ -16,7 +16,7 @@ export default function CareersPage() {
 
   return (
     <section className="min-h-screen mb-5">
-      <div className="container mx-auto px-5">
+      <div className="container mx-auto px-5 lg:px-10">
         <header className="">
           <h2 className="text-xl font-bold tracking-tight md:text-2xl text-left">
             {t("title")}
@@ -26,7 +26,7 @@ export default function CareersPage() {
           </p>
         </header>
 
-        <h3 className="mt-12 md:mt-10 lg:mt-20 text-xl font-bold  md:text-2xl text-center">
+        <h3 className="mt-10 lg:mt-15 text-xl font-bold  md:text-2xl text-center">
           {t("vacancies")}
         </h3>
 

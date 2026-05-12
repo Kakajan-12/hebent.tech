@@ -6,6 +6,7 @@ import { FiPaperclip, FiX } from "react-icons/fi";
 import { toast } from "sonner";
 import { useApplyJobMutation } from "@/app/api/api";
 import { VacancyResponse } from "@/app/Interfaces/interfaces";
+import { ClipLoader } from "react-spinners";
 
 const MAX_FILES = 2;
 const PDF_MIME = "application/pdf";
@@ -147,7 +148,7 @@ const ApplicationForm = () => {
       <form className="space-y-5" onSubmit={handleSubmit}>
         {/* Section: Personal Information */}
         <section className="space-y-5 lg:space-y-16">
-          <h2 className="text-xl lg:text-5xl font-bold tracking-tight text-center">
+          <h2 className="text-xl lg:text-4xl font-bold tracking-tight text-center">
             {t("personal-info")}
           </h2>
 
@@ -259,9 +260,9 @@ const ApplicationForm = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="font-vox bg-[#001F3F] text-white w-full max-w-[400px] py-4 rounded-full font-bold text-base lg:text-lg hover:bg-opacity-90 transition-colors"
+            className="font-vox bg-[#001F3F] text-white w-full max-w-[400px] py-4 rounded font-bold text-base lg:text-lg hover:bg-opacity-90 transition-colors"
           >
-            {isLoading ? "Sending..." : t("send")}
+            {isLoading ? <ClipLoader color="#000" size={20} /> : t("send")}
           </button>
         </div>
       </form>

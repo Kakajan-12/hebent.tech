@@ -3,7 +3,7 @@
 import { notFound, useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { ClipLoader } from "react-spinners";
 import { useGetProjectDetailByIdQuery } from "@/app/api/api";
 import useAppLocale from "@/app/Hooks/GetLocale";
@@ -35,7 +35,7 @@ export default function ProjectPage() {
   const params = useParams<{ lang: string; id: string }>();
   const id = params.id;
   const locale = useAppLocale();
-  const tPage = useTranslations("ProjectsPage");
+  const tPage = useTranslations("Projects");
   const [isImageLoading, setIsImageLoading] = useState(true);
 
   const {
@@ -89,12 +89,13 @@ export default function ProjectPage() {
             onLoad={() => setIsImageLoading(false)}
             onError={() => setIsImageLoading(false)}
           />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
-        <div className="header-info text-white bg-black/10 backdrop-blur-sm p-4 rounded-l-lg flex flex-col items-start gap-2 lg:gap-8 z-20 mb-7">
-          <h2 className="text-3xl lg:text-4xl xl:text-6xl font-bold text-right ">
+        <div className="container mx-auto px-5 lg:px-10 header-info text-white flex flex-col items-end gap-2 lg:gap-14 z-20 mb-7 lg:mb-13">
+          <h2 className="text-3xl lg:text-4xl xl:text-6xl font-bold">
             {title}
           </h2>
-          <div className="flex flex-col gap-2 ml-auto">
+          <div className="flex flex-col gap-2">
             <p className="text-sm lg:text-xl xl:text-2xl font-light text-left">
               <span className="font-bold">{tPage("customer")}:</span> {customer}
             </p>
@@ -110,21 +111,64 @@ export default function ProjectPage() {
         </div>
       </div>
       <div className="container mx-auto px-5 lg:px-10 flex flex-col gap-10">
-        {details.length > 0 && (
-          <div className="flex flex-col gap-10">
+        {details ? (
+          <div className="flex flex-col gap-12 lg:gap-20">
             {details.map((item, index) => (
-              <section key={item.id} className="flex flex-col gap-4">
+              <section
+                key={item.id}
+                className="grid grid-cols-2 gap-6 lg:gap-10"
+              >
+                <div className="flex flex-col items-start gap-3">
+                  <div className="flex w-full items-center gap-3 text-xs font-light lg:text-sm">
+                    {details.map((_, i) => {
+                      const isActive = i === index;
+                      const isLast = i === details.length - 1;
+                      const lastIsActive = index === details.length - 1;
+                      const lineIsActive =
+                        isActive ||
+                        (lastIsActive && i === details.length - 2);
+                      return (
+                        <Fragment key={i}>
+                          <span
+                            className={
+                              isActive ? "text-black" : "text-black/40"
+                            }
+                          >
+                            [0.{i + 1}]
+                          </span>
+                          {!isLast && (
+                            <span
+                              className={`h-px ${
+                                lineIsActive
+                                  ? "flex-1 bg-black/60"
+                                  : "w-6 bg-black/20"
+                              }`}
+                            />
+                          )}
+                        </Fragment>
+                      );
+                    })}
+                  </div>
+                  <h3 className="text-3xl font-light lg:text-5xl xl:text-6xl">
+                    {stripHtmlTags(item[`title_${locale}`] ?? "")}
+                  </h3>
+                </div>
+
                 <RichText
                   htmlContent={item[`text_${locale}`] ?? ""}
-                  className="max-w-2xl font-vox text-sm font-semibold leading-relaxed text-black lg:text-base [&_li]:ml-5 [&_ol]:list-decimal [&_p]:mb-4 [&_p:last-child]:mb-0 [&_ul]:list-disc"
+                  className="font-vox text-sm font-normal lg:text-base [&_li]:ml-5 [&_ol]:list-decimal [&_p]:mb-4 [&_p:last-child]:mb-0 [&_ul]:list-disc"
                 />
               </section>
             ))}
           </div>
-        )}
+        ) : null}
+        <h3 className="text-3xl lg:text-4xl xl:text-6xl font-light">
+          {tPage("gallery")}
+        </h3>
       </div>
+
       {gallery.length > 0 && (
-        <div className="container mx-auto px-5 sm:px-10 xl:px-5 pb-20 md:pb-30 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="container mx-auto px-5 lg:px-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {gallery.map((g) => (
             <GalleryImage
               key={g.id}

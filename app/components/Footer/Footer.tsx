@@ -10,6 +10,7 @@ import { SocialLink, Phone } from "@/app/Interfaces/interfaces";
 import { useGetPhonesQuery, useGetSocialLinksQuery } from "@/app/api/api";
 import { getSocialIcon } from "@/lib/socialIcon";
 import WeChatLink from "@/components/WeChatLink";
+import bgIcon from "@/public/footer-bg-icon.png";
 
 function formatPhoneHref(number: string) {
   return `tel:${number.replace(/[^+\d]/g, "")}`;
@@ -31,10 +32,18 @@ export default function Footer() {
   );
 
   return (
-    <footer className="bg-footer text-white mt-10 lg:mt-16">
+    <footer className="bg-footer text-white mt-10 lg:mt-16 relative overflow-hidden">
+      <div className="absolute inset-y-0 right-0 h-full aspect-square translate-x-1/2 pointer-events-none">
+        <Image
+          src={bgIcon}
+          alt="Footer Background Icon"
+          fill
+          className="object-contain object-left opacity-10 brightness-0 invert"
+        />
+      </div>
       <div className="container mx-auto px-5 sm:px-6 lg:px-16 xl:px-13 2xl:px-22 pt-6 lg:pt-20 pb-5 lg:pb-8">
-        <div className="footer-container flex flex-col lg:flex-row gap-8 lg:gap-52 justify-between">
-          <div className="flex flex-col gap-9 items-center">
+        <div className="footer-container grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-52">
+          <div className="flex flex-col gap-9 items-center lg:items-start">
             <Link href="/" className="inline-block">
               <Image
                 src="/logo.svg"
@@ -67,29 +76,8 @@ export default function Footer() {
                 );
               })}
             </div>
-            {/* --------------------------------- Taplink QR Code --------------------------------- */}
-            {/* <a
-              href={taplinkUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex flex-col items-center gap-2 rounded-xl bg-white/5 p-3 hover:bg-white/10 transition-colors"
-              aria-label="Open Taplink QR"
-            >
-              <Image
-                src={taplinkQrSrc}
-                alt="Taplink QR code"
-                width={120}
-                height={120}
-                className="rounded-md bg-white p-1"
-                unoptimized
-              />
-              <span className="font-vox text-xs text-white/85">
-                taplink.cc/hebent.tech
-              </span>
-            </a> */}
-            {/* --------------------------------- Taplink QR Code --------------------------------- */}
           </div>
-          <div className="contacts-container flex flex-col sm:flex-row items-start sm:items-center justify-start sm:justify-around gap-9 sm:gap-10 xl:gap-12 ">
+          <div className="contacts-container flex flex-col sm:flex-row items-start sm:items-center justify-start gap-9 sm:gap-10 xl:gap-12 ">
             <div className="contacts">
               <h3 className="text-lg font-semibold">{t("contacts")}</h3>
               <ul className="mt-4 lg:mt-6 space-y-4 text-sm text-white font-bold">
@@ -110,10 +98,10 @@ export default function Footer() {
                 <li className="flex gap-4 items-center">
                   <FiMail className="size-5 shrink-0 text-white" aria-hidden />
                   <a
-                    href="mailto:davud.h@hebent.tech"
+                    href="mailto:info@hebent.tech"
                     className="text-sm lg:text-lg hover:text-white/70"
                   >
-                    davud.h@hebent.tech
+                    info@hebent.tech
                   </a>
                 </li>
                 <li className="flex gap-4 items-center">
@@ -127,23 +115,6 @@ export default function Footer() {
                   <FiClock className="size-5 shrink-0 text-white" aria-hidden />
                   <span className="text-sm lg:text-lg">{t("hours")}</span>
                 </li>
-              </ul>
-            </div>
-            <div className="links-container">
-              <ul className="mt-0 lg:mt-6 space-y-5 pl-0 sm:pl-8 pr-10 lg:pr-0 border-t sm:border-t-0 border-l-0 sm:border-l border-white py-5 lg:py-0">
-                {exploreLinks.map((l) => (
-                  <li
-                    key={l.href}
-                    className="w-30 lg:w-full border-b border-white pb:1 lg:pb-5 pr-0 lg:pr-42 whitespace-nowrap"
-                  >
-                    <Link
-                      href={l.href}
-                      className="font-vox text-sm lg:text-lg text-white font-bold hover:text-white/70"
-                    >
-                      {t(l.key)}
-                    </Link>
-                  </li>
-                ))}
               </ul>
             </div>
           </div>

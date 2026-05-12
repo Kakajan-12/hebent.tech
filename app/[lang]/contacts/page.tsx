@@ -16,9 +16,8 @@ import { useGetSocialLinksQuery, useGetPhonesQuery } from "@/app/api/api";
 import { BASE_API_URL } from "@/constant/constant";
 import { getSocialIcon } from "@/lib/socialIcon";
 import { useState, useEffect, useCallback } from "react";
-import { PhoneInput } from "react-international-phone";
-import "react-international-phone/style.css";
 import { toast } from "sonner";
+import { ClipLoader } from "react-spinners";
 
 function formatPhoneHref(number: string) {
   return `tel:${number.replace(/[^+\d]/g, "")}`;
@@ -34,13 +33,11 @@ export default function ContactPage() {
   const [captchaLoading, setCaptchaLoading] = useState(false);
   const [success, setSuccess] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [phoneNumber, setPhoneNumber] = useState("");
 
   const [formData, setFormData] = useState({
     name: "",
     surname: "",
     email: "",
-    phone: "",
     message: "",
     captchaText: "",
   });
@@ -88,7 +85,7 @@ export default function ContactPage() {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, phone: phoneNumber }),
+        body: JSON.stringify({ ...formData }),
       });
 
       const data = (await res.json()) as { error?: string };
@@ -103,11 +100,9 @@ export default function ContactPage() {
           name: "",
           surname: "",
           email: "",
-          phone: "",
           message: "",
           captchaText: "",
         });
-        setPhoneNumber("");
         void loadCaptcha();
       }
     } catch {
@@ -310,21 +305,6 @@ export default function ContactPage() {
 
           <div className="flex flex-col gap-2">
             <label
-              htmlFor="phone"
-              className="font-vox text-base lg:text-lg xl:text-xl font-light"
-            >
-              {t("phone")}
-            </label>
-            <PhoneInput
-              defaultCountry="tm"
-              value={phoneNumber}
-              onChange={setPhoneNumber}
-              inputClassName="text-sm lg:text-base xl:text-xl w-full p-2 bg-[#D9D9D9] border-b border-black focus:ring-1 focus:ring-black outline-none !rounded-none"
-            />
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <label
               htmlFor="message"
               className="font-vox text-base lg:text-lg xl:text-xl font-light"
             >
@@ -390,9 +370,9 @@ export default function ContactPage() {
           <button
             type="submit"
             disabled={sending}
-            className="mt-5 lg:mt-10 text w-full py-4 bg-[#001F3F] text-white font-bold rounded-full cursor-pointer hover:bg-black transition-colors uppercase tracking-widest text-sm disabled:opacity-60"
+            className="mt-5 lg:mt-10 text w-full py-4 bg-[#001F3F] text-white font-bold rounded hover:bg-black transition-colors uppercase tracking-widest text-sm disabled:opacity-60"
           >
-            {t("send")}
+            {sending ? <ClipLoader color="#000" size={20} /> : t("send")}
           </button>
           {success && <p className="text-sm text-green-600">{success}</p>}
           {error && <p className="text-sm text-red-600">{error}</p>}

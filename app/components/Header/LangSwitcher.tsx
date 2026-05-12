@@ -36,7 +36,7 @@ export default function LangSwitcher() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-2 rounded border border-black/30 bg-white px-3 py-2 font-vox text-sm shadow-sm"
+        className="flex items-center gap-2 rounded px-3 py-2 font-vox text-sm"
         aria-expanded={open}
       >
         {shortLabel}
@@ -46,19 +46,19 @@ export default function LangSwitcher() {
         />
       </button>
       {open ? (
-        <div className="absolute right-0 top-full z-50 mt-2 w-18 rounded-xl border border-slate-200 bg-white py-2 shadow-lg">
-          {routing.locales.map((loc) => (
-            <button
-              key={loc}
-              type="button"
-              className={`block w-full px-2 py-2 text-center text-sm hover:bg-slate-50 ${
-                loc === locale ? "font-semibold text-brand" : ""
-              }`}
-              onClick={() => switchLocale(loc)}
-            >
-              {loc === "en" ? t("en") : loc === "ru" ? t("ru") : t("tk")}
-            </button>
-          ))}
+        <div className="absolute right-0 top-full z-50 mt-2 w-14 rounded border border-neutral-800/20 bg-white/40 backdrop-blur-sm py-2 shadow-lg">
+          {routing.locales
+            .filter((loc) => loc !== locale)
+            .map((loc) => (
+              <button
+                key={loc}
+                type="button"
+                className="block w-full px-2 py-2 text-center text-sm hover:bg-white"
+                onClick={() => switchLocale(loc)}
+              >
+                {loc === "en" ? t("en") : loc === "ru" ? t("ru") : t("tk")}
+              </button>
+            ))}
         </div>
       ) : null}
     </div>

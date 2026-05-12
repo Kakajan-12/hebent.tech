@@ -28,19 +28,17 @@ export default function AboutSection() {
 
   if (!statistics.length) {
     return (
-      <div className="text-center text-lg leading-relaxed md:text-xl">
-        No statistics found
-      </div>
+      <div className="text-center text-lg md:text-xl">No statistics found</div>
     );
   }
 
   return (
-    <section className="mb-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-        <p className="mx-auto text-center text-lg leading-relaxed md:text-xl">
+    <section className="">
+      <div className="flex flex-col gap-4 lg:gap-8 items-center justify-center px-5 lg:px-10">
+        <p className="hidden lg:block text-center text-lg md:text-xl">
           {tAbout("body")}
         </p>
-        <div className="mt-12 grid grid-cols-2 justify-items-center gap-4 lg:grid-cols-4 lg:gap-6 mx-0 md:mx-18 lg:mx-0">
+        <div className="grid grid-cols-2 justify-items-center gap-4 sm:gap-x-12 lg:grid-cols-4 lg:gap-6">
           {isLoading ? (
             <ClipLoader color="#000" size={32} />
           ) : (

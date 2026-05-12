@@ -120,7 +120,7 @@
     "title": "Taslamalar",
     "viewAll": "Ählisini gör"
   },
-  "ProjectsPage": {
+  "Projects": {
     "heroBefore": "Biz işleýän sanly önümleriň saýlanyşy — olary",
     "designed": "dizaýn etdik",
     "and": "we",
@@ -132,7 +132,8 @@
     "sort-title": "Ady boýunça",
     "sort-date": "Döredilen senesi boýunça",
     "customer": "Müşderi: ",
-    "webSite": "Web-sait: "
+    "webSite": "Web-sait: ",
+    "gallery": "Galereýa:"
   },
   "Testimonials": {
     "title": "Müşderiler biz barada"

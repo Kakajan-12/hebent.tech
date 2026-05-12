@@ -33,7 +33,7 @@ type SortKey = "single" | "title" | "date";
 const SORT_OPTIONS: SortKey[] = ["single", "title", "date"];
 
 export default function ProjectsClient() {
-  const t = useTranslations("ProjectsPage");
+  const t = useTranslations("Projects");
   const locale = useAppLocale();
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState<SortKey>("single");
@@ -132,7 +132,10 @@ export default function ProjectsClient() {
             />
             <FiSearch className="size-5 text" />
           </label>
-          <div ref={sortRef} className="w-full md:min-w-2xs md:max-w-sm">
+          <div
+            ref={sortRef}
+            className="w-full md:min-w-2xs md:max-w-sm relative z-20"
+          >
             <button
               type="button"
               aria-haspopup="listbox"
@@ -153,7 +156,7 @@ export default function ProjectsClient() {
             {sortOpen && (
               <ul
                 role="listbox"
-                className="absolute inset-0 z-20 mt-2 overflow-hidden rounded-2xl border-2 border-[#ABB7C2] bg-white shadow-lg"
+                className="absolute top-0 rounded border border-[#ABB7C2] bg-white shadow-lg z-30 w-full"
               >
                 {SORT_OPTIONS.map((key) => (
                   <li key={key} role="option" aria-selected={sort === key}>

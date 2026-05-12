@@ -74,12 +74,13 @@ export default function NewsArticlePage() {
             onLoad={() => setIsImageLoading(false)}
             onError={() => setIsImageLoading(false)}
           />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
-        <div className="header-info text-white bg-black/10 backdrop-blur-sm p-4 rounded-l-lg flex flex-col gap-8 z-20 mb-7">
-          <h2 className="text-3xl lg:text-4xl xl:text-6xl font-bold text-right ml-auto">
+        <div className="container mx-auto px-5 lg:px-10 header-info text-white flex flex-col items-end gap-2 lg:gap-14 z-20 mb-7">
+          <h2 className="text-3xl lg:text-4xl xl:text-6xl font-bold">
             {title}
           </h2>
-          <div className="flex flex-col gap-2 ml-auto">
+          <div className="flex flex-col gap-2">
             <time
               className="text-sm lg:text-xl xl:text-2xl font-light tracking-wide text-left"
               dateTime={detail.created_at}

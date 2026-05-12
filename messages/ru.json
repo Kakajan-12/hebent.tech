@@ -122,7 +122,7 @@
     "title": "Проекты",
     "viewAll": "Смотреть все"
   },
-  "ProjectsPage": {
+  "Projects": {
     "heroBefore": "Подборка цифровых продуктов, которые мы",
     "designed": "спроектировали",
     "and": "и",
@@ -134,7 +134,8 @@
     "sort-title": "По названию",
     "sort-date": "По дате создания",
     "customer": "Клиент: ",
-    "webSite": "Вебсайт: "
+    "webSite": "Вебсайт: ",
+    "gallery": "Галерея:"
   },
   "Testimonials": {
     "title": "Наши клиенты о нас"

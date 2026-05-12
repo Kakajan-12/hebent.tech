@@ -32,9 +32,9 @@
 
 :root {
   --background-main: #efefef;
-  --color-brand: #0043d8;
-  --color-stat-card: #2c509f;
-  --color-footer: #0a1f44;
+  --brand: #0043d8;
+  --stat-card: #2c509f;
+  --footer: #0a1f44;
   --font-nexa: "Nexa", sans-serif;
   --font-nexabold: "Nexa", sans-serif;
   --font-vox: "Vox", sans-serif;
@@ -43,9 +43,10 @@
   --font-video-cond: "Video Cond", sans-serif;
 }
 @theme inline {
-  --color-brand: var(--color-brand);
-  --color-stat-card: var(--color-stat-card);
-  --color-footer: var(--color-footer);
+  --color-background-main: var(--background-main);
+  --color-brand: var(--brand);
+  --color-stat-card: var(--stat-card);
+  --color-footer: var(--footer);
   --font-nexa: var(--font-nexa);
   --font-nexabold: var(--font-nexabold);
   --font-vox: var(--font-vox);
@@ -66,7 +67,7 @@ article {
   cursor: pointer;
 }
 .stat-card {
-  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%, 0 33%);
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%, 0 25%);
 }
 
 @keyframes progress-line {
@@ -165,7 +166,7 @@ article {
 }
 
 .testimonial-clip {
-  clip-path: polygon(76% 0, 100% 15%, 100% 100%, 0 100%, 0 0);
+  clip-path: polygon(75% 0, 100% 15%, 100% 100%, 0 100%, 0 0);
 }
 .embla {
   overflow: hidden;

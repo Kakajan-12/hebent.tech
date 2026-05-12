@@ -54,7 +54,7 @@ export default function NavDropdown({
     >
       <button
         type="button"
-        className={`relative flex items-center gap-1 rounded px-3 py-2 transition font-bold text-black hover:bg-brand hover:text-white ${parentActive ? "bg-brand text-white" : "bg-white text-black"}`}
+        className={`relative flex items-center gap-1 rounded px-3 py-2 transition font-bold text-black hover:text-brand${parentActive ? "text-brand" : " text-black"}`}
         aria-expanded={isOpen}
         onClick={() => setIsOpen((prev) => !prev)}
       >

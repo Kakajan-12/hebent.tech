@@ -18,7 +18,7 @@ export default function CareerPage() {
   const vacancy = vacancies.find((item) => item.id === vacancyId);
 
   return (
-    <main className="min-h-screen container mx-auto px-5">
+    <main className="min-h-screen container mx-auto px-5 lg:px-10">
       {isLoading && (
         <div className="py-10 flex justify-center">
           <ClipLoader color="#000" size={28} />
@@ -37,19 +37,20 @@ export default function CareerPage() {
 
       {!isLoading && !error && vacancy && (
         <>
-          <div className="space-y-5 lg:space-y-16 xl:space-y-20">
-            <h2 className="text-xl lg:text-5xl font-bold tracking-tight">
+          <div className="flex flex-col gap-5 lg:gap-10">
+            <h2 className="text-xl lg:text-5xl font-bold">
               {vacancy[`title_${locale}`]}
             </h2>
 
-            <h2 className="text-xl lg:text-5xl font-bold tracking-tight">
-              {t("whatYoullDo")}
-            </h2>
-
-            <div
-              className="font-vox text-sm lg:text-2xl leading-relaxed"
-              dangerouslySetInnerHTML={{ __html: vacancy[`text_${locale}`] }}
-            />
+            <div className="flex flex-col gap-2">
+              <h3 className="text-xl lg:text-3xl font-bold">
+                {t("whatYoullDo")}
+              </h3>
+              <div
+                className="font-vox text-sm lg:text-2xl leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: vacancy[`text_${locale}`] }}
+              />
+            </div>
           </div>
 
           <hr className="border-gray-100 mt-10 lg:mt-16" />

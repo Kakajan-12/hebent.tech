@@ -57,8 +57,8 @@ export default function DesktopMenu() {
             <Link
               key={link.href}
               href={link.href}
-              className={`rounded px-3 py-2 font-bold  text-black hover:bg-brand hover:text-white ${
-                checkActive(link.href) ? "bg-brand text-white" : "bg-white"
+              className={`rounded px-3 py-2 font-bold  text-black hover:text-brand ${
+                checkActive(link.href) ? " text-brand" : "text-black"
               }`}
             >
               {link.label}
