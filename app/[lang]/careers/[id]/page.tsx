@@ -21,7 +21,7 @@ export default function CareerPage() {
     <main className="min-h-screen container mx-auto px-5 lg:px-10">
       {isLoading && (
         <div className="py-10 flex justify-center">
-          <ClipLoader color="#000" size={28} />
+          <ClipLoader color="#0043d8" size={50} />
         </div>
       )}
 

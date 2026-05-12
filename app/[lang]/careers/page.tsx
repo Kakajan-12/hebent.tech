@@ -33,7 +33,7 @@ export default function CareersPage() {
         <ul className="mt-6 border-t border-black pt-0">
           {isLoading && (
             <li className="py-6 font-vox text-sm md:text-base text-center">
-              <ClipLoader color="#000" size={20} />
+              <ClipLoader color="#0043d8" size={50} />
             </li>
           )}
           {error && !isLoading && (

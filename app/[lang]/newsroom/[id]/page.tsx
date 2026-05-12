@@ -37,7 +37,7 @@ export default function NewsArticlePage() {
   if (detailLoading) {
     return (
       <main className="min-h-screen flex items-center justify-center">
-        <ClipLoader color="#000" size={32} />
+        <ClipLoader color="#0043d8" size={50} />
       </main>
     );
   }
@@ -62,7 +62,7 @@ export default function NewsArticlePage() {
         <div className="absolute inset-0 w-ful h-full z-10">
           {isImageLoading && (
             <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100/70">
-              <ClipLoader size={24} color="#1E2124" />
+              <ClipLoader color="#0043d8" size={50} />
             </div>
           )}
           <Image
@@ -123,7 +123,7 @@ function GalleryImage({ src, alt }: { src: string; alt: string }) {
     <div className="relative w-full h-26 lg:h-68 overflow-hidden aspect-square">
       {isLoading && (
         <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100/70">
-          <ClipLoader size={24} color="#1E2124" />
+          <ClipLoader color="#0043d8" size={50} />
         </div>
       )}
       <Image

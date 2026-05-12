@@ -1,4 +1,4 @@
- "use client";
+"use client";
 
 import { useTranslations } from "next-intl";
 import ProjectCard from "@/app/components/Projects/ProjectCard";
@@ -24,7 +24,7 @@ export default function ProjectsPreview() {
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {isLoading && (
             <div className="col-span-full flex justify-center py-6">
-              <ClipLoader color="#000" size={20} />
+              <ClipLoader color="#0043d8" size={20} />
             </div>
           )}
           {error && !isLoading && (

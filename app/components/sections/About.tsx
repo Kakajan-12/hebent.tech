@@ -18,12 +18,20 @@ export default function AboutSection() {
 
   const statistics: Statistic[] = Array.isArray(data) ? data : [];
 
-  // if (isLoading) {
-  //   return <ClipLoader color="#000" size={32} />;
-  // }
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center py-10">
+        <ClipLoader color="#0043d8" size={50} />
+      </div>
+    );
+  }
 
   if (error) {
-    return <div>Error loading statistics</div>;
+    return (
+      <div className="text-center text-lg md:text-xl">
+        Error loading statistics
+      </div>
+    );
   }
 
   if (!statistics.length) {
@@ -39,17 +47,13 @@ export default function AboutSection() {
           {tAbout("body")}
         </p>
         <div className="grid grid-cols-2 justify-items-center gap-4 sm:gap-x-12 lg:grid-cols-4 lg:gap-6">
-          {isLoading ? (
-            <ClipLoader color="#000" size={32} />
-          ) : (
-            statistics.map((s) => (
-              <StatCard
-                key={s.id}
-                value={stripHtmlTags(s.count.toString())}
-                label={stripHtmlTags(s[`title_${locale}`])}
-              />
-            ))
-          )}
+          {statistics.map((s) => (
+            <StatCard
+              key={s.id}
+              value={stripHtmlTags(s.count.toString())}
+              label={stripHtmlTags(s[`title_${locale}`])}
+            />
+          ))}
         </div>
       </div>
     </section>

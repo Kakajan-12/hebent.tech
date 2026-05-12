@@ -185,7 +185,7 @@ export default function ProjectsClient() {
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {projectsLoading && (
             <div className="col-span-full py-6 flex justify-center">
-              <ClipLoader color="#000" size={20} />
+              <ClipLoader color="#0043d8" size={50} />
             </div>
           )}
           {projectsError && !projectsLoading && (

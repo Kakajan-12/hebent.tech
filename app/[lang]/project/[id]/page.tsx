@@ -48,7 +48,7 @@ export default function ProjectPage() {
   if (detailLoading) {
     return (
       <main className="min-h-screen flex items-center justify-center">
-        <ClipLoader color="#000" size={32} />
+        <ClipLoader color="#0043d8" size={50} />
       </main>
     );
   }
@@ -77,7 +77,7 @@ export default function ProjectPage() {
         <div className="absolute inset-0 w-ful h-full z-10">
           {isImageLoading && (
             <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100/70">
-              <ClipLoader size={24} color="#1E2124" />
+              <ClipLoader color="#0043d8" size={50} />
             </div>
           )}
           <Image
@@ -125,8 +125,7 @@ export default function ProjectPage() {
                       const isLast = i === details.length - 1;
                       const lastIsActive = index === details.length - 1;
                       const lineIsActive =
-                        isActive ||
-                        (lastIsActive && i === details.length - 2);
+                        isActive || (lastIsActive && i === details.length - 2);
                       return (
                         <Fragment key={i}>
                           <span
@@ -188,7 +187,7 @@ function GalleryImage({ src, alt }: { src: string; alt: string }) {
     <div className="relative w-full h-26 lg:h-68 overflow-hidden">
       {isLoading && (
         <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100/70">
-          <ClipLoader size={24} color="#1E2124" />
+          <ClipLoader color="#0043d8" size={50} />
         </div>
       )}
       <Image

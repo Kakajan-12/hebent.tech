@@ -45,7 +45,7 @@ export default function NewsCard({
       <div className="relative w-full overflow-hidden h-42 sm:h-48">
         {isImageLoading && (
           <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100/70">
-            <ClipLoader size={24} color="#1E2124" />
+            <ClipLoader color="#0043d8" size={25} />
           </div>
         )}
         <Image

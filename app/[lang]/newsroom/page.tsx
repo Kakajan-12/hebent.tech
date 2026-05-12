@@ -90,7 +90,7 @@ export default function NewsroomPage() {
       <div className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-4 lg:mt-8 lg:grid-cols-3 xl:grid-cols-4 lg:gap-6">
         {(newsLoading || categoriesLoading) && (
           <div className="col-span-full py-6 flex justify-center">
-            <ClipLoader color="#000" size={20} />
+            <ClipLoader color="#0043d8" size={50} />
           </div>
         )}
         {newsError && !newsLoading && (

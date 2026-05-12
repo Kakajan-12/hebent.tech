@@ -262,7 +262,7 @@ const ApplicationForm = () => {
             disabled={isLoading}
             className="font-vox bg-[#001F3F] text-white w-full max-w-[400px] py-4 rounded font-bold text-base lg:text-lg hover:bg-opacity-90 transition-colors"
           >
-            {isLoading ? <ClipLoader color="#000" size={20} /> : t("send")}
+            {isLoading ? <ClipLoader color="#0043d8" size={20} /> : t("send")}
           </button>
         </div>
       </form>
