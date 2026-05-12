@@ -289,7 +289,7 @@ function ProjectApiCard({ project, title, text }: ProjectApiCardProps) {
         alt={title}
         fill
         className="pointer-events-none object-cover transition duration-500 group-hover:scale-105"
-        sizes="100vw"
+        sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
       />
       <div
         className={`absolute inset-0 bg-black opacity-0 transition duration-300 lg:group-hover:opacity-60 ${

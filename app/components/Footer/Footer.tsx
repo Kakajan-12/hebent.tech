@@ -51,7 +51,7 @@ export default function Footer() {
                 alt="HEBENT TECHNOLOGY"
                 width={300}
                 height={100}
-                className="brightness-0 invert"
+                className="h-auto w-auto brightness-0 invert"
               />
             </Link>
 

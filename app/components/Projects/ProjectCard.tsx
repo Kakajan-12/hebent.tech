@@ -84,6 +84,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         src={resolveMediaUrl(project.image)}
         alt=""
         fill
+        sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
         className="object-cover transition duration-500 group-hover:scale-105"
       />
       <div

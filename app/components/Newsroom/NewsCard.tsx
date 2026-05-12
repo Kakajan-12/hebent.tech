@@ -55,6 +55,7 @@ export default function NewsCard({
           className="object-cover h-full w-full"
           onLoad={() => setIsImageLoading(false)}
           onError={() => setIsImageLoading(false)}
+          sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, (max-width: 1279px) 33vw, 25vw"
         />
       </div>
       <h3 className="text-sm font-bold leading-snug tracking-tight md:text-xl line-clamp-2">

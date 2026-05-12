@@ -372,7 +372,7 @@ export default function ContactPage() {
             disabled={sending}
             className="mt-5 lg:mt-10 text w-full py-4 bg-[#001F3F] text-white font-bold rounded hover:bg-black transition-colors uppercase tracking-widest text-sm disabled:opacity-60"
           >
-            {sending ? <ClipLoader color="#000" size={20} /> : t("send")}
+            {sending ? <ClipLoader color="#0043d8" size={50} /> : t("send")}
           </button>
           {success && <p className="text-sm text-green-600">{success}</p>}
           {error && <p className="text-sm text-red-600">{error}</p>}
