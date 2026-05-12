@@ -37,7 +37,8 @@ export default function Footer() {
         <Image
           src={bgIcon}
           alt="Footer Background Icon"
-          fill
+          width={1000}
+          height={1000}
           className="object-contain object-left opacity-10 brightness-0 invert"
         />
       </div>

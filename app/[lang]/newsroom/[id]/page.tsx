@@ -76,7 +76,7 @@ export default function NewsArticlePage() {
           />
           <div className="absolute inset-0 bg-black/50" />
         </div>
-        <div className="container mx-auto px-5 lg:px-10 header-info text-white flex flex-col items-end gap-2 lg:gap-14 z-20 mb-7">
+        <div className="container mx-auto px-5 lg:px-10 header-info text-white flex flex-col items-end gap-2 lg:gap-14 z-20 mb-7 lg:mb-13">
           <h2 className="text-3xl lg:text-4xl xl:text-6xl font-bold">
             {title}
           </h2>
@@ -129,7 +129,8 @@ function GalleryImage({ src, alt }: { src: string; alt: string }) {
       <Image
         src={src}
         alt={alt}
-        fill
+        width={1000}
+        height={1000}
         className="object-cover"
         // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         onLoad={() => setIsLoading(false)}
