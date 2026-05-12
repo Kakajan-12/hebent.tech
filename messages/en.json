@@ -14,7 +14,6 @@
     "events": "Hebent Event Tech",
     "about": "About us",
     "careers": "Careers",
-    "references": "References letter",
     "contacts": "Contact us"
   },
   "Video": {
@@ -93,7 +92,7 @@
   },
   "Contacts": {
     "title": "Contact Us",
-    "body": "Let's build something great together!",
+    "text": "Let's build something great together!",
     "description": "If you have a project in mind, a question, or just want to say hello — we’d be happy to hear from you.",
     "visitUs": "Visit Us",
     "talkToUs": "Talk to Us",

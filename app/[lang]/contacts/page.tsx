@@ -122,7 +122,7 @@ export default function ContactPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 lg:gap-16 xl:gap-36">
         <div className="contact-info space-y-9">
           <div className="header-info flex flex-col gap-4">
-            <h2 className="text-base lg:text-2xl font-bold">{t("body")}</h2>
+            <h2 className="text-base lg:text-2xl font-bold">{t("text")}</h2>
             <p className="text-sm lg:text-base xl:text-xl max-w-2xl leading-relaxed">
               {t("description")}
             </p>

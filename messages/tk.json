@@ -14,7 +14,6 @@
     "events": "Hebent Event Tech",
     "about": "Biz barada",
     "careers": "Iş orunlary",
-    "references": "Salgylar haty",
     "contacts": "Biz bilen habarlaşmak"
   },
   "Video": {
@@ -92,7 +91,7 @@
   },
   "Contacts": {
     "title": "Biz bilen habarlaşmak",
-    "body": "Geliň bilelikde ajaýyp bir zat guralyň!",
+    "text": "Geliň bilelikde ajaýyp bir zat guralyň!",
     "description": "Eger taslamaňyz, soragyňyz bar bolsa ýa-da diňe salam bermek isleseňiz, biz sizden habar almaga şat bolarys.",
     "visitUs": "Bize baryp görüň",
     "talkToUs": "Biz bilen habarlaşyň",

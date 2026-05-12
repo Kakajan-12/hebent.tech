@@ -90,7 +90,6 @@ export default function MobileNav() {
   const companyLinks = [
     { href: "/about", label: tNav("about") },
     { href: "/careers", label: tNav("careers") },
-    { href: "/references", label: tNav("references") },
     { href: "/contacts", label: tNav("contacts") },
   ];
 

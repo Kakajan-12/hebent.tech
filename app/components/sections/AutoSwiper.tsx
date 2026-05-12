@@ -97,7 +97,7 @@ export const AutoSwiper: React.FC = () => {
         >
           {services.map((service) => (
             <SwiperSlide key={service.id}>
-              <div className="relative flex min-h-[min(70vw,480px)] items-start overflow-hidden rounded-2xl bg-[#0f172a] p-8 shadow-xl sm:min-h-[520px] sm:p-12 md:min-h-[600px]">
+              <div className="relative flex min-h-[min(70vw,480px)] items-start overflow-hidden rounded bg-[#0f172a] p-4 lg:p-8 shadow-xl sm:min-h-[520px] md:min-h-[600px]">
                 <Image
                   loading="eager"
                   src={resolveMediaUrl(service.image)}
@@ -106,7 +106,7 @@ export const AutoSwiper: React.FC = () => {
                   className="object-cover"
                   sizes="(max-width: 768px) 88vw, 75vw"
                 />
-                <div className="relative z-10 flex w-full max-w-lg flex-col items-start gap-2 rounded-sm bg-[#D9D9D933] border border-white/40  p-2.5 backdrop-blur-sm">
+                <div className="relative z-10 flex w-fit flex-col items-start gap-2 rounded-sm bg-[#D9D9D933] border border-white/40  p-2.5 backdrop-blur-sm">
                   <p className="text-[8px] lg:text-sm xl:text-xl font-bold uppercase text-white">
                     {stripHtmlTags(service[`title_${locale}`])}
                   </p>

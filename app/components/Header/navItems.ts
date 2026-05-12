@@ -22,7 +22,6 @@ export const makeNavItems = (locale: string): NavItem[] => [
     items: [
       { labelKey: "about", href: `/about` },
       { labelKey: "careers", href: `${locale}/careers` },
-      { labelKey: "references", href: `/references` },
       { labelKey: "contacts", href: `${locale}/contacts` },
     ],
   },
