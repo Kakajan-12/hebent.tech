@@ -14,6 +14,7 @@ import {
 } from "@/app/Interfaces/interfaces";
 import { resolveMediaUrl } from "@/constant/constant";
 import RichText from "@/components/ui/Richtext";
+import { motion } from "motion/react";
 
 type ProjectDetailResponse = ProjectDetail & {
   title_tk?: string;
@@ -72,7 +73,7 @@ export default function ProjectPage() {
 
   // console.log(detail);
   return (
-    <main className="relative flex-col flex gap-10">
+    <main className="relative flex-col flex gap-10 min-h-screen">
       <div className="-mt-42 relative h-90 sm:h-110 lg:h-140 xl:h-176 2xl:h-190 w-full flex items-end justify-end overflow-hidden">
         <div className="absolute inset-0 w-ful h-full z-10">
           {isImageLoading && (
@@ -91,7 +92,7 @@ export default function ProjectPage() {
           />
           <div className="absolute inset-0 bg-black/50" />
         </div>
-        <div className="container mx-auto px-5 lg:px-10 header-info text-white flex flex-col items-end gap-2 lg:gap-14 z-20 mb-7 lg:mb-13">
+        <div className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 header-info text-white flex flex-col items-end gap-2 lg:gap-14 z-20 mb-7 lg:mb-13">
           <h2 className="text-3xl lg:text-4xl xl:text-6xl font-bold">
             {title}
           </h2>
@@ -110,13 +111,19 @@ export default function ProjectPage() {
           </div>
         </div>
       </div>
-      <div className="container mx-auto px-5 lg:px-10 flex flex-col gap-10">
+      <motion.div
+        initial={{ opacity: 0, y: 80 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+        className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 flex flex-col gap-10"
+      >
         {details ? (
           <div className="flex flex-col gap-12 lg:gap-20">
             {details.map((item, index) => (
               <section
                 key={item.id}
-                className="grid grid-cols-2 gap-6 lg:gap-10"
+                className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10"
               >
                 <div className="flex flex-col items-start gap-3">
                   <div className="flex w-full items-center gap-3 text-xs font-light lg:text-sm">
@@ -161,13 +168,21 @@ export default function ProjectPage() {
             ))}
           </div>
         ) : null}
-        <h3 className="text-3xl lg:text-4xl xl:text-6xl font-light">
-          {tPage("gallery")}
-        </h3>
-      </div>
+        {gallery.length > 0 && (
+          <h3 className="text-3xl lg:text-4xl xl:text-6xl font-light">
+            {tPage("gallery")}
+          </h3>
+        )}
+      </motion.div>
 
       {gallery.length > 0 && (
-        <div className="container mx-auto px-5 lg:px-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <motion.div
+          initial={{ opacity: 0, x: 200 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+          className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+        >
           {gallery.map((g) => (
             <GalleryImage
               key={g.id}
@@ -175,7 +190,7 @@ export default function ProjectPage() {
               alt={title}
             />
           ))}
-        </div>
+        </motion.div>
       )}
     </main>
   );

@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import { useApplyJobMutation } from "@/app/api/api";
 import { VacancyResponse } from "@/app/Interfaces/interfaces";
 import { ClipLoader } from "react-spinners";
+import { motion } from "motion/react";
 
 const MAX_FILES = 2;
 const PDF_MIME = "application/pdf";
@@ -144,10 +145,22 @@ const ApplicationForm = () => {
   };
 
   return (
-    <div className="container mx-auto ">
+    <motion.div
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+      className="container mx-auto "
+    >
       <form className="space-y-5" onSubmit={handleSubmit}>
         {/* Section: Personal Information */}
-        <section className="space-y-5 lg:space-y-16">
+        <motion.section
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+          className="space-y-5 lg:space-y-16"
+        >
           <h2 className="text-xl lg:text-4xl font-bold tracking-tight text-center">
             {t("personal-info")}
           </h2>
@@ -160,8 +173,9 @@ const ApplicationForm = () => {
               <input
                 type="text"
                 name="name"
+                placeholder={t("name-placeholder")}
                 required
-                className="bg-[#D9D9D9] text-sm lg:text-xl p-4 border-b border-black outline-none focus:ring-2 focus:ring-blue-400 transition-all"
+                className=" text-sm lg:text-xl p-4 bg-slate-200 border-b border-gray-300 outline-none focus:ring-2 focus:ring-gray-300 transition-all"
               />
             </div>
 
@@ -172,8 +186,9 @@ const ApplicationForm = () => {
               <input
                 type="text"
                 name="surname"
+                placeholder={t("surname-placeholder")}
                 required
-                className="bg-[#D9D9D9] text-sm lg:text-xl p-4 border-b border-black outline-none focus:ring-2 focus:ring-blue-400 transition-all"
+                className=" text-sm lg:text-xl p-4 bg-slate-200 border-b border-gray-300 outline-none focus:ring-2 focus:ring-gray-300 transition-all"
               />
             </div>
 
@@ -184,8 +199,9 @@ const ApplicationForm = () => {
               <input
                 type="email"
                 name="email"
+                placeholder={"mail@example.com"}
                 required
-                className="bg-[#D9D9D9] text-sm lg:text-xl p-4 border-b border-black outline-none focus:ring-2 focus:ring-blue-400 transition-all"
+                className=" text-sm lg:text-xl p-4 bg-slate-200 border-b border-gray-300 outline-none focus:ring-2 focus:ring-gray-300 transition-all"
               />
             </div>
 
@@ -196,12 +212,13 @@ const ApplicationForm = () => {
               <input
                 type="tel"
                 name="phone"
+                placeholder={"+933 00 00 00 00"}
                 required
-                className="bg-[#D9D9D9] text-sm lg:text-xl p-4 border-b border-black outline-none focus:ring-2 focus:ring-blue-400 transition-all"
+                className=" text-sm lg:text-xl p-4 bg-slate-200 border-b border-gray-300 outline-none focus:ring-2 focus:ring-gray-300 transition-all"
               />
             </div>
           </div>
-        </section>
+        </motion.section>
 
         <div className="flex flex-col gap-3">
           <label className="font-bold text-base lg:text-2xl">
@@ -217,7 +234,7 @@ const ApplicationForm = () => {
               className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
             />
 
-            <div className="bg-[#D9D9D9] p-4 border-b border-black flex justify-between items-center min-h-[56px]">
+            <div className="bg-slate-200 p-4 border-b border-gray-300 flex justify-between items-center min-h-[56px]">
               <span className="font-vox text-sm lg:text-base text-gray-600">
                 {files.length === 0
                   ? "No files selected"
@@ -266,7 +283,7 @@ const ApplicationForm = () => {
           </button>
         </div>
       </form>
-    </div>
+    </motion.div>
   );
 };
 

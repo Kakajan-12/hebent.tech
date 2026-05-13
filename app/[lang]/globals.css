@@ -30,6 +30,15 @@
 
 @import "shadcn/tailwind.css";
 
+@utility container {
+  margin-inline: auto;
+  max-width: 2000px;
+}
+/* @utility container {
+  margin-inline: auto;
+  max-width: 1800px;
+} */
+
 :root {
   --background-main: #efefef;
   --brand: #0043d8;
@@ -67,19 +76,24 @@ article {
 .stat-card {
   clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%, 0 25%);
 }
-@media (max-width: 370px) {
+@media (max-width: 768px) {
   .stat-card {
-    height: 60px;
+    padding: 18px 18px;
+  }
+}
+@media (max-width: 600px) {
+  .stat-card {
+    padding: 12px 12px;
   }
 }
 @media (max-width: 450px) {
   .stat-card {
-    height: 80px;
+    padding: 6px 6px;
   }
 }
-@media (max-width: 640px) {
+@media (max-width: 370px) {
   .stat-card {
-    height: 100px;
+    padding: 4px 4px;
   }
 }
 
@@ -156,11 +170,11 @@ article {
     height: 60px;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .services-swiper .swiper-button-prev,
   .services-swiper .swiper-button-next {
-    width: 30px;
-    height: 30px;
+    opacity: 0;
+    visibility: hidden;
   }
 }
 .services-swiper .swiper-button-prev:hover,
@@ -220,5 +234,48 @@ article {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.footer-bg-pattern {
+  pointer-events: none;
+  /* margin-bottom: 20px; */
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat;
+  opacity: 0.1;
+  background-image: var(--footer-bg-url);
+  background-size: var(--footer-bg-cell) var(--footer-bg-cell);
+  --footer-bg-cell: 45px;
+}
+
+@media (min-width: 640px) {
+  .footer-bg-pattern {
+    --footer-bg-cell: 40px;
+  }
+}
+
+@media (min-width: 768px) {
+  .footer-bg-pattern {
+    --footer-bg-cell: 48px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-bg-pattern {
+    --footer-bg-cell: 52px;
+    /* margin-bottom: 3rem; */
+  }
+}
+
+@media (min-width: 1280px) {
+  .footer-bg-pattern {
+    --footer-bg-cell: 56px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .footer-bg-pattern {
+    --footer-bg-cell: 72px;
   }
 }

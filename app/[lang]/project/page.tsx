@@ -13,10 +13,9 @@ import { Project } from "@/app/Interfaces/interfaces";
 import { resolveMediaUrl } from "@/constant/constant";
 import { useRouter } from "@/i18n/navigation";
 import "@/app/components/Projects/project.css";
+import { motion } from "motion/react";
 
 const PAGE_SIZE = 9;
-const LG = "(min-width: 1024px)";
-const DOUBLE_TAP_MS = 320;
 function stripHtmlTags(value: string): string {
   return value.replace(/<[^>]*>/g, "").trim();
 }
@@ -105,8 +104,20 @@ export default function ProjectsClient() {
   );
 
   return (
-    <main className="container mx-auto px-5">
-      <div className="flex flex-col gap-5 lg:gap-15">
+    <motion.main
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="container mx-auto px-5 sm:px-10 lg:px-20 xl:px-36"
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+        className="flex flex-col gap-5 lg:gap-15"
+      >
         <p className="text-xl lg:text-3xl">
           {t("heroBefore")}{" "}
           <span className="font-semibold text-brand">{t("designed")}</span>{" "}
@@ -114,10 +125,16 @@ export default function ProjectsClient() {
           <span className="font-semibold text-brand">{t("built")}</span>{" "}
           {t("heroAfter")}
         </p>
-        <div className="flex flex-col gap-5 md:flex-row items-center md:justify-between font-light text-xs lg:text-sm xl:text-base w-full">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+          className="flex flex-col gap-5 md:flex-row items-center md:justify-between font-light text-xs lg:text-sm xl:text-base w-full"
+        >
           <label
             htmlFor="search"
-            className="relative w-full md:min-w-2xs md:max-w-md flex items-center justify-between rounded-sm border border-[#ABB7C2] py-2 px-6 shadow-sm"
+            className="relative flex h-10 w-full items-center justify-between rounded-sm border border-[#ABB7C2] px-3 shadow-sm md:min-w-2xs md:max-w-md"
           >
             <input
               id="search"
@@ -128,9 +145,15 @@ export default function ProjectsClient() {
                 setQuery(e.target.value);
                 setPage(1);
               }}
-              className=" w-full outline-none transition-all placeholder:text-[#ABB7C2] focus:border-slate-400"
+              className="h-full min-h-0 min-w-0 items-center flex-1 bg-transparent py-0 outline-none transition-all placeholder:text-[#ABB7C2] focus:border-slate-400"
             />
-            <FiSearch className="size-5 text" />
+            <span
+              className={`flex shrink-0 items-center transition-opacity duration-150 ${
+                query.trim() ? "hidden" : ""
+              }`}
+            >
+              <FiSearch className="size-5 text-[#ABB7C2]" aria-hidden />
+            </span>
           </label>
           <div
             ref={sortRef}
@@ -141,7 +164,7 @@ export default function ProjectsClient() {
               aria-haspopup="listbox"
               aria-expanded={sortOpen}
               onClick={() => setSortOpen((o) => !o)}
-              className="flex w-full items-center justify-between gap-4 rounded-sm border border-[#ABB7C2] text-[#7E7E7E] px-6 py-2 shadow-sm outline-none transition focus:border-slate-400"
+              className="flex h-10 w-full items-center justify-between gap-4 rounded-sm border border-[#ABB7C2] px-3 text-[#7E7E7E] shadow-sm outline-none transition focus:border-slate-400"
             >
               <span>
                 {t("sorted")}
@@ -180,9 +203,15 @@ export default function ProjectsClient() {
               </ul>
             )}
           </div>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+          className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+        >
           {projectsLoading && (
             <div className="col-span-full py-6 flex justify-center">
               <ClipLoader color="#0043d8" size={50} />
@@ -206,15 +235,15 @@ export default function ProjectsClient() {
               text={stripHtmlTags(project[`text_${locale}`])}
             />
           ))}
-        </div>
+        </motion.div>
 
         <Pagination
           page={safePage}
           totalPages={totalPages}
           onPageChange={(p) => setPage(p)}
         />
-      </div>
-    </main>
+      </motion.div>
+    </motion.main>
   );
 }
 
@@ -226,63 +255,15 @@ type ProjectApiCardProps = {
 
 function ProjectApiCard({ project, title, text }: ProjectApiCardProps) {
   const router = useRouter();
-  const cardRef = useRef<HTMLElement>(null);
-  const lastTapRef = useRef(0);
-  const [isOpen, setIsOpen] = useState(false);
   const imageSrc = resolveMediaUrl(project.image);
-
-  useEffect(() => {
-    const mql = window.matchMedia(LG);
-    const onChange = () => {
-      if (mql.matches) {
-        setIsOpen(false);
-        lastTapRef.current = 0;
-      }
-    };
-    mql.addEventListener("change", onChange);
-    return () => mql.removeEventListener("change", onChange);
-  }, []);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (window.matchMedia(LG).matches || !isOpen) return;
-
-    const onPointerDown = (e: PointerEvent) => {
-      if (cardRef.current?.contains(e.target as Node)) return;
-      setIsOpen(false);
-      lastTapRef.current = 0;
-    };
-
-    document.addEventListener("pointerdown", onPointerDown, true);
-    return () =>
-      document.removeEventListener("pointerdown", onPointerDown, true);
-  }, [isOpen]);
-
   const goToProject = () => {
     router.push(`/project/${project.id}`);
   };
 
-  const handleCardClick = () => {
-    if (window.matchMedia(LG).matches) {
-      goToProject();
-      return;
-    }
-    const now = Date.now();
-    const delta = now - lastTapRef.current;
-    if (lastTapRef.current > 0 && delta < DOUBLE_TAP_MS) {
-      lastTapRef.current = 0;
-      goToProject();
-      return;
-    }
-    lastTapRef.current = now;
-    setIsOpen((open) => !open);
-  };
-
   return (
     <article
-      ref={cardRef}
-      className="group relative aspect-square overflow-hidden shadow-sm cut-card"
-      onClick={handleCardClick}
+      className="group relative aspect-square shadow-sm cut-card"
+      onClick={goToProject}
     >
       <Image
         src={imageSrc}
@@ -291,16 +272,8 @@ function ProjectApiCard({ project, title, text }: ProjectApiCardProps) {
         className="pointer-events-none object-cover transition duration-500 group-hover:scale-105"
         sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
       />
-      <div
-        className={`absolute inset-0 bg-black opacity-0 transition duration-300 lg:group-hover:opacity-60 ${
-          isOpen ? "max-lg:opacity-60" : "max-lg:opacity-0"
-        }`}
-      />
-      <div
-        className={`pointer-events-none absolute inset-0 flex flex-col justify-center items-center p-5 opacity-0 transition duration-300 lg:group-hover:opacity-100 ${
-          isOpen ? "max-lg:opacity-100" : "max-lg:opacity-0"
-        }`}
-      >
+      <div className="absolute inset-0 bg-black opacity-60 transition duration-300 lg:opacity-0 lg:group-hover:opacity-60" />
+      <div className="pointer-events-none absolute inset-0 flex flex-col justify-center items-center p-5 opacity-100 transition duration-300 lg:opacity-0 lg:group-hover:opacity-100">
         <h3 className="text-lg font-semibold leading-snug text-white text-center">
           {title}
         </h3>

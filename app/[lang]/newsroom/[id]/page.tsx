@@ -9,6 +9,7 @@ import useAppLocale from "@/app/Hooks/GetLocale";
 import { NewsDetail, NewsDetailGallery } from "@/app/Interfaces/interfaces";
 import { resolveMediaUrl } from "@/constant/constant";
 import { useState } from "react";
+import { motion } from "motion/react";
 
 function formatNewsDate(iso: string, locale: string) {
   return new Intl.DateTimeFormat(locale, {
@@ -57,7 +58,7 @@ export default function NewsArticlePage() {
   const coverImageSrc = resolveMediaUrl(detail.image);
 
   return (
-    <main className="relative flex-col flex gap-10">
+    <main className="relative flex-col flex gap-10 min-h-screen">
       <div className="-mt-42 relative h-90 sm:h-110 lg:h-140 xl:h-176 2xl:h-190 w-full flex items-end justify-end overflow-hidden">
         <div className="absolute inset-0 w-ful h-full z-10">
           {isImageLoading && (
@@ -76,7 +77,7 @@ export default function NewsArticlePage() {
           />
           <div className="absolute inset-0 bg-black/50" />
         </div>
-        <div className="container mx-auto px-5 lg:px-10 header-info text-white flex flex-col items-end gap-2 lg:gap-14 z-20 mb-7 lg:mb-13">
+        <div className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 header-info text-white flex flex-col items-end gap-2 lg:gap-14 z-20 mb-7 lg:mb-13">
           <h2 className="text-3xl lg:text-4xl xl:text-6xl font-bold">
             {title}
           </h2>
@@ -94,25 +95,40 @@ export default function NewsArticlePage() {
           </div>
         </div>
       </div>
-      <div className="container mx-auto px-5 lg:px-10 flex flex-col gap-10">
+      <motion.div
+        initial={{ opacity: 0, y: 80 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+        className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 flex flex-col gap-10"
+      >
         <p className="font-vox text-sm lg:text-xl leading-relaxed whitespace-pre-line">
           {text}
         </p>
-        <h3 className="text-3xl lg:text-4xl xl:text-6xl font-light">
-          {t("gallery")}
-        </h3>
+
         {gallery.length > 0 && (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
-            {gallery.map((g) => (
-              <GalleryImage
-                key={g.id}
-                src={resolveMediaUrl(g.image)}
-                alt={title}
-              />
-            ))}
-          </div>
+          <>
+            <h3 className="text-3xl lg:text-4xl xl:text-6xl font-light">
+              {t("gallery")}
+            </h3>
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"
+            >
+              {gallery.map((g) => (
+                <GalleryImage
+                  key={g.id}
+                  src={resolveMediaUrl(g.image)}
+                  alt={title}
+                />
+              ))}
+            </motion.div>
+          </>
         )}
-      </div>
+      </motion.div>
     </main>
   );
 }

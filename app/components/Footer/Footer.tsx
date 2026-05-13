@@ -1,5 +1,6 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { FiPhone, FiMail, FiClock } from "react-icons/fi";
 import { FiMapPin } from "react-icons/fi";
 import { IoLogoWechat } from "react-icons/io5";
@@ -10,7 +11,7 @@ import { SocialLink, Phone } from "@/app/Interfaces/interfaces";
 import { useGetPhonesQuery, useGetSocialLinksQuery } from "@/app/api/api";
 import { getSocialIcon } from "@/lib/socialIcon";
 import WeChatLink from "@/components/WeChatLink";
-import bgIcon from "@/public/footer-bg-icon.png";
+import footerBg from "../../../public/bg-footer1.svg";
 
 function formatPhoneHref(number: string) {
   return `tel:${number.replace(/[^+\d]/g, "")}`;
@@ -21,30 +22,28 @@ export default function Footer() {
   const { data: socialLinks } = useGetSocialLinksQuery();
   const { data: phones } = useGetPhonesQuery();
 
-  const exploreLinks = [
-    { href: "/about" as const, key: "about" as const },
-    { href: "/projects" as const, key: "projects" as const },
-    { href: "/careers" as const, key: "careers" as const },
-    { href: "/news" as const, key: "news" as const },
-  ];
   const social = (socialLinks ?? []).filter(
     (link: SocialLink) => link.icon?.toLowerCase() !== "wechat",
   );
 
   return (
-    <footer className="bg-footer text-white mt-10 lg:mt-16 relative overflow-hidden">
-      <div className="absolute inset-y-0 right-0 h-full aspect-square translate-x-1/2 pointer-events-none">
-        <Image
-          src={bgIcon}
-          alt="Footer Background Icon"
-          width={1000}
-          height={1000}
-          className="object-contain object-left opacity-10 brightness-0 invert"
-        />
-      </div>
-      <div className="container mx-auto px-5 sm:px-6 lg:px-16 xl:px-13 2xl:px-22 pt-6 lg:pt-20 pb-5 lg:pb-8">
-        <div className="footer-container grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-52">
-          <div className="flex flex-col gap-9 items-center lg:items-start">
+    <footer className="bg-footer text-white mt-10 lg:mt-16 relative font-vox">
+      <div
+        className="absolute inset-0 bg-linear-to-r from-[#002146] via-[#004180] to-[#0051AC] z-0"
+        aria-hidden
+      />
+      <div
+        className="footer-bg-pattern"
+        style={
+          {
+            "--footer-bg-url": `url(${footerBg.src})`,
+          } as CSSProperties
+        }
+        aria-hidden
+      />
+      <div className="relative z-10 container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 py-6 lg:py-14">
+        <div className="footer-container grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="flex flex-col gap-9 items-start">
             <Link href="/" className="inline-block">
               <Image
                 src="/logo.svg"
@@ -56,23 +55,23 @@ export default function Footer() {
             </Link>
 
             <div className="flex flex-wrap gap-9">
-              <WeChatLink>
-                <IoLogoWechat className="w-8 h-8 text-white cursor-pointer hover:opacity-70" />
+              <WeChatLink className="inline-flex bg-white rounded p-2">
+                <IoLogoWechat className="w-5 h-5 lg:w-7 lg:h-7 text-[#004180] cursor-pointer hover:opacity-70" />
               </WeChatLink>
               {social.map((item: SocialLink) => {
                 const Icon = getSocialIcon(item.icon);
-                const external = item.url.startsWith("http");
+                const external = item.url.startsWith("https://");
                 return (
                   <a
                     key={item.id}
                     href={item.url}
-                    className="inline-flex"
+                    className="inline-flex bg-white rounded p-2"
                     aria-label={item.icon}
                     {...(external
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
                   >
-                    <Icon className="w-8 h-8 text-white cursor-pointer hover:opacity-70" />
+                    <Icon className="w-5 h-5 lg:w-7 lg:h-7 text-[#004180] cursor-pointer hover:opacity-70" />
                   </a>
                 );
               })}
@@ -105,7 +104,7 @@ export default function Footer() {
                     info@hebent.tech
                   </a>
                 </li>
-                <li className="flex gap-4 items-center">
+                <li className="flex gap-4 items-start">
                   <FiMapPin
                     className="size-5 shrink-0 text-white"
                     aria-hidden
@@ -120,23 +119,24 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-0 lg:mt-12 pt-8 text-center text-xs text-white/60">
-          <p>
-            {t("rights")} |{" "}
-            <Link
-              href={`/privasypolicy`}
-              className="underline-offset-2 hover:underline"
-            >
-              {t("privacy")}
-            </Link>{" "}
-            |{" "}
-            <Link
-              href={`/cookies`}
-              className="underline-offset-2 hover:underline"
-            >
-              Cookies
-            </Link>{" "}
-            | Powered by{" "}
+      </div>
+      <div className="relative z-10 w-full bg-linear-to-r from-[#002146] via-[#004180] to-[#0051AC] px-5 py-2 text-center text-xs text-white/60 lg:px-10">
+        <div className="w-full flex flex-wrap items-center justify-center gap-1">
+          <span className="whitespace-nowrap">{t("rights")} | </span>
+          <Link
+            href={`/privasypolicy`}
+            className="underline-offset-2 hover:underline whitespace-nowrap"
+          >
+            {t("privacy")} |
+          </Link>
+          <Link
+            href={`/cookies`}
+            className="underline-offset-2 hover:underline whitespace-nowrap"
+          >
+            Cookies |
+          </Link>
+          <span className="whitespace-nowrap"> Powered by </span>
+          <div className="flex items-center">
             <Image
               src="/logoIcon.svg"
               alt="HEBENT TECHNOLOGY"
@@ -144,8 +144,10 @@ export default function Footer() {
               height={24}
               className="inline-block mx-1 shrink-0 brightness-0 invert logo-spin motion-reduce:animate-none"
             />
-            <span className="text-white">HEBENT TECHNOLOGY</span>
-          </p>
+            <span className="text-white whitespace-nowrap">
+              HEBENT TECHNOLOGY
+            </span>
+          </div>
         </div>
       </div>
     </footer>

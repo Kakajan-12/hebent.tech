@@ -19,6 +19,7 @@ import { useState, useEffect, useCallback } from "react";
 import { toast } from "sonner";
 import { ClipLoader } from "react-spinners";
 import { GrUpdate } from "react-icons/gr";
+import { motion } from "motion/react";
 
 function formatPhoneHref(number: string) {
   return `tel:${number.replace(/[^+\d]/g, "")}`;
@@ -115,23 +116,35 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen container mx-auto px-5">
+    <motion.main
+      initial={{ opacity: 0, y: 70 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="min-h-screen container mx-auto px-5 sm:px-7 lg:px-10 xl:px-20 2xl:px-36"
+    >
       <h2 className="text-3xl lg:text-5xl font-bold tracking-tighter mb-4 lg:mb-10 uppercase">
         {t("title")}
       </h2>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 lg:gap-16 xl:gap-36">
-        <div className="contact-info space-y-9">
-          <div className="header-info flex flex-col gap-4">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+        className="grid grid-cols-1 lg:grid-cols-2 gap-1 lg:gap-16 xl:gap-36"
+      >
+        <div className="contact-info space-y-3 lg:space-y-8 mb-3 lg:mb-0">
+          <div className="header-info flex flex-col gap-1 lg:gap-4">
             <h2 className="text-base lg:text-2xl font-bold">{t("text")}</h2>
             <p className="text-sm lg:text-base xl:text-xl max-w-2xl leading-relaxed">
               {t("description")}
             </p>
           </div>
 
-          <div className="body-info space-y-8 ">
+          <div className="body-info space-y-3 lg:space-y-8 ">
             <section>
-              <h3 className="text-base lg:text-lg xl:text-2xl font-bold border-b border-black pb-2 mb-4 w-full pr-20">
+              <h3 className="text-base lg:text-lg xl:text-2xl font-bold border-b border-black mb-4 w-full">
                 {t("visitUs")}
               </h3>
               <p className="text-sm lg:text-base xl:text-xl font-medium">
@@ -140,7 +153,7 @@ export default function ContactPage() {
             </section>
 
             <section>
-              <h3 className="text-base lg:text-lg xl:text-2xl font-bold border-b border-black pb-2 mb-4 w-full pr-20">
+              <h3 className="text-base lg:text-lg xl:text-2xl font-bold border-b border-black mb-4 w-full">
                 {t("talkToUs")}
               </h3>
               <div className="space-y-1">
@@ -157,64 +170,26 @@ export default function ContactPage() {
                       </li>
                     ))}
                   </ul>
-
-                  <div className="flex lg:hidden gap-4 shrink-0">
-                    <Tooltip>
-                      <TooltipTrigger>
-                        <WeChatLink>
-                          <IoLogoWechat className="w-8 h-8 text-[#5D86C4] cursor-pointer hover:opacity-70" />
-                        </WeChatLink>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p className="hidden lg:block font-vox text-sm text-[#5D86C4] bg-white">
-                          WeChat ID: davud3108
-                        </p>
-                      </TooltipContent>
-                    </Tooltip>
-                    {social.map((item: SocialLink) => {
-                      const Icon = getSocialIcon(item.icon);
-                      const external = item.url.startsWith("http");
-                      return (
-                        <a
-                          key={item.id}
-                          href={item.url}
-                          className="inline-flex"
-                          aria-label={item.icon}
-                          {...(external
-                            ? { target: "_blank", rel: "noopener noreferrer" }
-                            : {})}
-                        >
-                          <Icon className="w-8 h-8 text-[#5D86C4] cursor-pointer hover:opacity-70" />
-                        </a>
-                      );
-                    })}
-                  </div>
                 </div>
                 <Link
-                  href="mailto:davud.h@hebent.tech"
+                  href="mailto:info@hebent.tech"
                   className="text-sm lg:text-base xl:text-xl hover:text-black transition-colors block"
                 >
-                  davud.h@hebent.tech
-                </Link>
-                <Link
-                  href="mailto:kakajan.t@hebent.tech"
-                  className="text-sm lg:text-base xl:text-xl hover:text-black transition-colors block"
-                >
-                  kakajan.t@hebent.tech
+                  info@hebent.tech
                 </Link>
               </div>
             </section>
           </div>
 
-          <div className="hidden lg:flex gap-6 pt-4">
+          <div className="flex gap-6">
             <Tooltip>
               <TooltipTrigger>
                 <WeChatLink>
-                  <IoLogoWechat className="w-10 h-10 text-[#5D86C4] cursor-pointer hover:opacity-70" />
+                  <IoLogoWechat className="w-8 h-8 lg:w-10 lg:h-10 text-[#073fa1] cursor-pointer hover:opacity-70" />
                 </WeChatLink>
               </TooltipTrigger>
               <TooltipContent>
-                <p className="hidden lg:block font-vox text-sm text-[#5D86C4]">
+                <p className="hidden lg:block font-vox text-sm text-brand">
                   WeChat ID: davud3108
                 </p>
               </TooltipContent>
@@ -232,7 +207,7 @@ export default function ContactPage() {
                     ? { target: "_blank", rel: "noopener noreferrer" }
                     : {})}
                 >
-                  <Icon className="w-10 h-10 text-[#5D86C4] cursor-pointer hover:opacity-70" />
+                  <Icon className="w-8 h-8 lg:w-10 lg:h-10 text-[#073fa1] cursor-pointer hover:opacity-70" />
                 </a>
               );
             })}
@@ -350,7 +325,7 @@ export default function ContactPage() {
                 type="button"
                 onClick={() => void loadCaptcha()}
                 disabled={captchaLoading}
-                className="text-sm underline text-[#5D86C4]"
+                className="text-sm underline text-brand"
               >
                 {captchaLoading ? "" : <GrUpdate className="w-4 h-4" />}
               </button>
@@ -378,7 +353,7 @@ export default function ContactPage() {
           {success && <p className="text-sm text-green-600">{success}</p>}
           {error && <p className="text-sm text-red-600">{error}</p>}
         </form>
-      </div>
-    </main>
+      </motion.div>
+    </motion.main>
   );
 }

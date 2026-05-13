@@ -6,6 +6,7 @@ import type { Vacancy } from "@/app/Interfaces/interfaces";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 import { ClipLoader } from "react-spinners";
+import { motion } from "motion/react";
 
 export default function CareerPage() {
   const t = useTranslations("Careers");
@@ -18,7 +19,13 @@ export default function CareerPage() {
   const vacancy = vacancies.find((item) => item.id === vacancyId);
 
   return (
-    <main className="min-h-screen container mx-auto px-5 lg:px-10">
+    <motion.main
+      initial={{ opacity: 0, y: 70 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="min-h-screen container mx-auto px-5 sm:px-7 lg:px-10 xl:px-20 2xl:px-36"
+    >
       {isLoading && (
         <div className="py-10 flex justify-center">
           <ClipLoader color="#0043d8" size={50} />
@@ -37,7 +44,13 @@ export default function CareerPage() {
 
       {!isLoading && !error && vacancy && (
         <>
-          <div className="flex flex-col gap-5 lg:gap-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+            className="flex flex-col gap-5 lg:gap-10"
+          >
             <h2 className="text-xl lg:text-5xl font-bold">
               {vacancy[`title_${locale}`]}
             </h2>
@@ -51,12 +64,12 @@ export default function CareerPage() {
                 dangerouslySetInnerHTML={{ __html: vacancy[`text_${locale}`] }}
               />
             </div>
-          </div>
+          </motion.div>
 
           <hr className="border-gray-100 mt-10 lg:mt-16" />
           <ApplicationForm />
         </>
       )}
-    </main>
+    </motion.main>
   );
 }

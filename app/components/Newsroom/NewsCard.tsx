@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { resolveMediaUrl } from "@/constant/constant";
 import { ClipLoader } from "react-spinners";
+import { useRouter } from "@/i18n/navigation";
 
 type NewsCardProps = {
   id: string;
@@ -34,8 +35,12 @@ export default function NewsCard({
   const cleanTitle = useMemo(() => stripHtmlTags(title), [title]);
   const cleanText = useMemo(() => stripHtmlTags(text), [text]);
 
+  const router = useRouter();
   return (
-    <article className="flex flex-col gap-3 px-2 py-4 text-[#1E2124] hover:shadow-sm transition duration-300 hover:scale-105 hover:cursor-pointer">
+    <article
+      className="flex flex-col gap-3 px-2 py-4 text-[#1E2124] hover:shadow-sm transition duration-300 hover:scale-105 hover:cursor-pointer"
+      onClick={() => router.push(`/newsroom/${id}`)}
+    >
       <time
         className="text-xs font-light uppercase tracking-wide text-[#767676]"
         dateTime={isoDate}
@@ -61,7 +66,7 @@ export default function NewsCard({
       <h3 className="text-sm font-bold leading-snug tracking-tight md:text-xl line-clamp-2">
         {cleanTitle}
       </h3>
-      <p className="font-vox font-medium line-clamp-4 flex-1 text-sm leading-relaxed">
+      <p className="font-medium line-clamp-4 flex-1 text-sm leading-relaxed">
         {cleanText}
       </p>
       <Link

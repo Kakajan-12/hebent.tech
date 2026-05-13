@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <header className="h-32 lg:h-42 ">
       <div className="fixed top-10 left-0 right-0 z-50 flex items-center justify-center ">
-        <div className="container mx-auto px-5 lg:px-10 font-vox">
+        <div className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 font-vox">
           <div className="flex h-12 md:h-16 lg:h-18 items-center justify-between gap-3 rounded-xl bg-white/10 backdrop-blur-sm border-b border-white/20 shadow-sm px-2 py-2 sm:px-7">
             <Link
               href="/"

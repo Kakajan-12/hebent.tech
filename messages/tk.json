@@ -57,6 +57,8 @@
     "personal-info": "Kişisel mü informaciýa",
     "name": "Ady",
     "surname": "Familiýasy",
+    "name-placeholder": "Aman",
+    "surname-placeholder": "Amanov",
     "email": "E-poçta",
     "phoneNumber": "Telefon raýyletmek",
     "portfolio": "Portfolio",
@@ -102,8 +104,10 @@
     "instagram": "Instagram",
     "twitter": "X",
     "facebook": "Facebook",
-    "name": "Aman",
-    "surname": "Amanow",
+    "name": "Ady",
+    "surname": "Familiýasy",
+    "name-placeholder": "Aman",
+    "surname-placeholder": "Amanow",
     "comments": "Sizin habarynyz ýazyp bermek üçin",
     "send": "Ibermek",
     "enterCaptcha": "Tekst suratdan giriziň",
@@ -140,7 +144,7 @@
   "Newsroom": {
     "title": "Täzelikler",
     "description": "Biziň soňky taslamalary, sanly inzýyrty, önüm aýyrýalary we kompaniýa habarlary bilen baglanyşykly möhletleriňizde bolýyn.",
-    "watchHere": "Şu ýerde gör",
+    "watchHere": "Giňişleýin",
     "categoriesAria": "Täzelik kategoriýalary",
     "categories": {
       "all": "Ählisi",
@@ -164,7 +168,7 @@
     "gallery": "Galereýa:"
   },
   "Footer": {
-    "contacts": "Aragatnaşyk",
+    "contacts": "Habarlaşmak",
     "explore": "Bölümler",
     "rights": "Ähli hukuklar goralan",
     "privacy": "Gizlinlik syýasaty",

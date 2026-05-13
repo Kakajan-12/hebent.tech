@@ -6,7 +6,7 @@ import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import Image from "next/image";
-
+import { motion } from "motion/react";
 import { useGetServicesQuery } from "@/app/api/api";
 import { Service } from "@/app/Interfaces/interfaces";
 import { resolveMediaUrl } from "@/constant/constant";
@@ -47,9 +47,20 @@ export const AutoSwiper: React.FC = () => {
     );
   }
   return (
-    <section className="mb-10 lg:mb-20">
-      {/* Навигационная панель */}
-      <div className="flex gap-2 mb-6 container overflow-x-auto scrollbar-hide px-5 lg:px-10">
+    <motion.section
+      initial={{ opacity: 0, y: 110 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="mb-10 lg:mb-20"
+    >
+      <motion.div
+        initial={{ opacity: 0, x: 200 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className="flex gap-2 mb-6 container mx-auto overflow-x-auto scrollbar-hide px-5 lg:px-10 xl:px-20 2xl:px-36"
+      >
         {services.map((service, index) => (
           <button
             key={service.id}
@@ -74,14 +85,20 @@ export const AutoSwiper: React.FC = () => {
             </span>
           </button>
         ))}
-      </div>
+      </motion.div>
 
-      <div className="relative">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="relative"
+      >
         <Swiper
           modules={[Autoplay, Navigation]}
           loop={true}
           centeredSlides={true}
-          slidesPerView={1.2}
+          slidesPerView={1.1}
           spaceBetween={20}
           speed={800}
           autoplay={{
@@ -97,33 +114,29 @@ export const AutoSwiper: React.FC = () => {
         >
           {services.map((service) => (
             <SwiperSlide key={service.id}>
-              <div className="relative flex min-h-[min(70vw,480px)] items-start overflow-hidden rounded bg-[#0f172a] p-4 lg:p-8 shadow-xl sm:min-h-[520px] md:min-h-[600px]">
+              <div className="relative flex min-h-[80vh] items-start overflow-hidden rounded bg-[#0f172a] p-4 lg:p-8 shadow-xl">
                 <Image
                   loading="eager"
                   src={resolveMediaUrl(service.image)}
                   alt={service[`title_${locale}`]}
                   fill
-                  className="object-fill"
+                  className="object-fil"
                   sizes="(max-width: 768px) 88vw, 75vw"
                 />
-                <div className="relative z-10 flex w-fit flex-col items-start gap-2 rounded-sm bg-[#D9D9D933] border border-white/40  p-2.5 backdrop-blur-sm">
-                  <p className="text-[8px] lg:text-sm xl:text-xl font-bold uppercase text-white">
+                <div className="relative z-10 flex min-w-60 flex-col items-start gap-2 rounded-sm bg-[#D9D9D933] border border-white/30  p-2.5 backdrop-blur-sm">
+                  <h3 className="text-[8px] lg:text-sm xl:text-xl font-bold uppercase text-white">
                     {stripHtmlTags(service[`title_${locale}`])}
-                  </p>
-                  <h2 className="text-sm lg:text-base xl:text-2xl font-medium leading-tight text-white wrap-break-word">
+                  </h3>
+                  <p className="text-sm lg:text-base xl:text-2xl font-medium leading-tight text-white wrap-break-word">
                     {stripHtmlTags(service[`text_${locale}`])}
-                  </h2>
-                </div>
-
-                <div className="absolute right-[-10%] top-1/2 flex h-[100px] w-[100px] -translate-y-1/2 items-center justify-center rounded-full border border-blue-500/30 opacity-40">
-                  <div className="absolute left-1/2 top-1/2 h-[150px] w-[150px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-500/50" />
-                  <div className="absolute left-1/2 top-1/2 h-[150px] w-[150px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-400" />
+                  </p>
+                  <div className="w-full h-full bg-black/20 absolute inset-0" />
                 </div>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
