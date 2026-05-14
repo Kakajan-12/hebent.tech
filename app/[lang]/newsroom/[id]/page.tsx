@@ -79,7 +79,7 @@ export default function NewsArticlePage() {
           <div className="absolute inset-0 bg-black/50" />
         </div>
         <div className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 header-info text-white flex flex-col items-end gap-2 lg:gap-14 z-20 mb-7 lg:mb-13">
-          <h2 className="text-3xl lg:text-4xl xl:text-6xl font-bold">
+          <h2 className="text-xl md:text-3xl lg:text-4xl xl:text-6xl font-bold text-right">
             {title}
           </h2>
           <div className="flex flex-col gap-2">
@@ -97,10 +97,9 @@ export default function NewsArticlePage() {
         </div>
       </div>
       <motion.div
-        initial={{ opacity: 0, y: 80 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 flex flex-col gap-10"
       >
         <p className="font-vox text-sm lg:text-xl leading-relaxed whitespace-pre-line">

@@ -88,7 +88,7 @@ export default function ProjectPage() {
             width={1000}
             height={1000}
             priority
-            className="object-cover w-full h-full"
+            className="object-contain w-full h-full"
             onLoad={() => setIsImageLoading(false)}
             onError={() => setIsImageLoading(false)}
           />

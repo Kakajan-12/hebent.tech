@@ -15,6 +15,7 @@ import { useRouter } from "@/i18n/navigation";
 import "@/app/components/Projects/project.css";
 import { motion } from "motion/react";
 import DecryptedText from "@/components/ui/DecryptedText";
+import TypingText from "@/components/ui/TypingText";
 
 const PAGE_SIZE = 9;
 function stripHtmlTags(value: string): string {
@@ -121,22 +122,23 @@ export default function ProjectsClient() {
       >
         <p className="text-xl lg:text-3xl">
           {t("heroBefore")}{" "}
-          <DecryptedText
+          <TypingText
+            as="span"
+            key={t("designed")}
             text={t("designed")}
             speed={120}
-            maxIterations={15}
-            characters="спроектировали"
-            className="revealed text-brand"
-            parentClassName="all-letters"
-            encryptedClassName="encrypted"
+            animateOn="view"
+            className="text-brand"
           />
           {/* <span className="font-semibold text-brand">{t("designed")}</span>{" "} */}{" "}
           {t("and")}{" "}
-          <DecryptedText
+          <TypingText
+            as="span"
+            key={t("built")}
             text={t("built")}
-            revealDirection="start"
-            sequential
-            useOriginalCharsOnly={false}
+            speed={120}
+            animateOn="view"
+            className="text-brand"
           />
           {t("heroAfter")}
         </p>
@@ -270,32 +272,42 @@ type ProjectApiCardProps = {
 
 function ProjectApiCard({ project, title, text }: ProjectApiCardProps) {
   const router = useRouter();
+  const [isImageLoading, setIsImageLoading] = useState(true);
   const imageSrc = resolveMediaUrl(project.image);
   const goToProject = () => {
     router.push(`/project/${project.id}`);
   };
 
   return (
-    <article
-      className="group relative aspect-square shadow-sm cut-card"
-      onClick={goToProject}
-    >
-      <Image
-        src={imageSrc}
-        alt={title}
-        fill
-        className="pointer-events-none object-cover transition duration-500 group-hover:scale-105"
-        sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
-      />
-      <div className="absolute inset-0 bg-black opacity-60 transition duration-300 lg:opacity-0 lg:group-hover:opacity-60" />
-      <div className="pointer-events-none absolute inset-0 flex flex-col justify-center items-center p-5 opacity-100 transition duration-300 lg:opacity-0 lg:group-hover:opacity-100">
-        <h3 className="text-lg font-semibold leading-snug text-white text-center">
-          {title}
-        </h3>
-        <p className="mt-2 line-clamp-3 text-sm text-white/85 text-center">
-          {text}
-        </p>
-      </div>
-    </article>
+    <div className="cut-card bg-brand p-px">
+      <article
+        className="group relative aspect-square cut-card bg-background-main"
+        onClick={goToProject}
+      >
+        {isImageLoading && (
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100/70">
+            <ClipLoader color="#0043d8" size={40} />
+          </div>
+        )}
+        <Image
+          src={imageSrc}
+          alt={title}
+          fill
+          sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
+          className="object-contain transition duration-500 group-hover:scale-105"
+          onLoad={() => setIsImageLoading(false)}
+          onError={() => setIsImageLoading(false)}
+        />
+        <div className="absolute inset-0 bg-black opacity-60 transition duration-300 lg:opacity-0 lg:group-hover:opacity-60" />
+        <div className="pointer-events-none absolute inset-0 flex flex-col justify-center items-center p-5 opacity-100 transition duration-300 lg:opacity-0 lg:group-hover:opacity-100">
+          <h3 className="text-lg font-semibold leading-snug text-white text-center">
+            {title}
+          </h3>
+          <p className="mt-2 line-clamp-3 text-sm text-white/85 text-center">
+            {text}
+          </p>
+        </div>
+      </article>
+    </div>
   );
 }
