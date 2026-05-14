@@ -82,11 +82,11 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25, ease: "easeOut" }}
-          className="fixed inset-0 z-100 bg-black text-white font-vox overflow-y-auto"
+          className="fixed inset-0 z-100 bg-black text-white font-vox min-h-screen"
           role="dialog"
           aria-modal="true"
         >
-          <div className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 pt-32 lg:pt-42 pb-10">
+          <div className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 pt-32 lg:pt-42 pb-10 h-full">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
