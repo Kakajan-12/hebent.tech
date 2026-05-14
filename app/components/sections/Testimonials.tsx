@@ -53,7 +53,7 @@ export default function Testimonials() {
         <h2 className="text-3xl font-bold font-vox">{t("title")}</h2>
       </motion.div>
 
-      <div className="px-5 lg:px-10 xl:px-20 2xl:px-36">
+      <div className="px-2">
         <TestimonialsMarquee items={testimonials} />
       </div>
     </motion.section>

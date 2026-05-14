@@ -39,7 +39,7 @@ export function TestimonialsMarquee({ items }: TestimonialsMarqueeProps) {
           {items.map((item) => (
             <CarouselItem key={item.id} className="w-[280px]">
               <div className="bg-brand testimonial-clip p-px">
-                <figure className="group testimonial-clip flex h-full min-h-90 flex-col items-start justify-between lg:p-8 bg-background-main hover:text-black cursor-pointer">
+                <figure className="group testimonial-clip flex h-full min-h-90 flex-col items-start justify-between p-3 lg:p-8 bg-background-main hover:text-black cursor-pointer">
                   <figcaption className="relative z-10 mb-6 text-sm font-black uppercase tracking-widest text-gray-400 transition-colors group-hover:text-black">
                     {stripHtmlTags(item.company)}
                   </figcaption>
@@ -49,7 +49,7 @@ export function TestimonialsMarquee({ items }: TestimonialsMarqueeProps) {
                       {stripHtmlTags(item.text)}
                     </blockquote>
 
-                    <div className="mt-6 max-h-0 translate-y-2 overflow-hidden opacity-0 transition-all duration-300 ease-out group-hover:max-h-20 group-hover:translate-y-0 group-hover:opacity-100">
+                    <div className="mt-6 max-h-20 translate-y-0 overflow-hidden opacity-100 transition-all duration-300 ease-out lg:max-h-0 lg:translate-y-2 lg:opacity-0 lg:group-hover:max-h-20 lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
                       <p className="text-sm font-bold">
                         {stripHtmlTags(item.name)}
                       </p>

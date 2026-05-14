@@ -16,7 +16,7 @@ export default function Header() {
 
   return (
     <header className="h-32 lg:h-42">
-      <div className="fixed top-10 left-0 right-0 z-110">
+      <div className="fixed top-5 left-0 right-0 z-110">
         <div className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 font-vox">
           <div
             className={`flex items-center justify-between gap-3 rounded px-2 ${isOpen ? "" : "backdrop-blur-sm bg-white/10"}`}
