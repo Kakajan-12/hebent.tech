@@ -4,6 +4,11 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import NavDropdown from "./NavDropdown";
 import React from "react";
+import { CiMenuBurger } from "react-icons/ci";
+{
+  /* <CiMenuBurger /> */
+}
+
 export default function DesktopMenu() {
   const pathname = usePathname();
 

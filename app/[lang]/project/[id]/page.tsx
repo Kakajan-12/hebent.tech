@@ -14,6 +14,7 @@ import {
 } from "@/app/Interfaces/interfaces";
 import { resolveMediaUrl } from "@/constant/constant";
 import RichText from "@/components/ui/Richtext";
+import TypingText from "@/components/ui/TypingText";
 import { motion } from "motion/react";
 
 type ProjectDetailResponse = ProjectDetail & {
@@ -86,6 +87,7 @@ export default function ProjectPage() {
             alt={title}
             width={1000}
             height={1000}
+            priority
             className="object-cover w-full h-full"
             onLoad={() => setIsImageLoading(false)}
             onError={() => setIsImageLoading(false)}
@@ -93,9 +95,13 @@ export default function ProjectPage() {
           <div className="absolute inset-0 bg-black/50" />
         </div>
         <div className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 header-info text-white flex flex-col items-end gap-2 lg:gap-14 z-20 mb-7 lg:mb-13">
-          <h2 className="text-3xl lg:text-4xl xl:text-6xl font-bold">
-            {title}
-          </h2>
+          <TypingText
+            as="h2"
+            text={title}
+            speed={60}
+            animateOn="mount"
+            className="text-3xl lg:text-4xl xl:text-6xl font-bold"
+          />
           <div className="flex flex-col gap-2">
             <p className="text-sm lg:text-xl xl:text-2xl font-light text-left">
               <span className="font-bold">{tPage("customer")}:</span> {customer}
@@ -111,13 +117,7 @@ export default function ProjectPage() {
           </div>
         </div>
       </div>
-      <motion.div
-        initial={{ opacity: 0, y: 80 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-        className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 flex flex-col gap-10"
-      >
+      <div className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 flex flex-col gap-10">
         {details ? (
           <div className="flex flex-col gap-12 lg:gap-20">
             {details.map((item, index) => (
@@ -155,9 +155,13 @@ export default function ProjectPage() {
                       );
                     })}
                   </div>
-                  <h3 className="text-3xl font-light lg:text-5xl xl:text-6xl">
-                    {stripHtmlTags(item[`title_${locale}`] ?? "")}
-                  </h3>
+                  <TypingText
+                    as="h3"
+                    text={stripHtmlTags(item[`title_${locale}`] ?? "")}
+                    speed={40}
+                    animateOn="view"
+                    className="text-3xl font-light lg:text-5xl xl:text-6xl"
+                  />
                 </div>
 
                 <RichText
@@ -169,11 +173,15 @@ export default function ProjectPage() {
           </div>
         ) : null}
         {gallery.length > 0 && (
-          <h3 className="text-3xl lg:text-4xl xl:text-6xl font-light">
-            {tPage("gallery")}
-          </h3>
+          <TypingText
+            as="h3"
+            text={tPage("gallery")}
+            speed={50}
+            animateOn="view"
+            className="text-3xl lg:text-4xl xl:text-6xl font-light"
+          />
         )}
-      </motion.div>
+      </div>
 
       {gallery.length > 0 && (
         <motion.div

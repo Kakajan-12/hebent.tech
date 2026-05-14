@@ -33,7 +33,7 @@ export default function Footer() {
         aria-hidden
       />
       <div
-        className="footer-bg-pattern"
+        className="footer-bg-pattern "
         style={
           {
             "--footer-bg-url": `url(${footerBg.src})`,
@@ -55,7 +55,7 @@ export default function Footer() {
             </Link>
 
             <div className="flex flex-wrap gap-9">
-              <WeChatLink className="inline-flex bg-white rounded p-2">
+              <WeChatLink className="inline-flex bg-white rounded p-1">
                 <IoLogoWechat className="w-5 h-5 lg:w-7 lg:h-7 text-[#004180] cursor-pointer hover:opacity-70" />
               </WeChatLink>
               {social.map((item: SocialLink) => {
@@ -65,13 +65,13 @@ export default function Footer() {
                   <a
                     key={item.id}
                     href={item.url}
-                    className="inline-flex bg-white rounded p-2"
+                    className="inline-flex bg-white rounded p-1"
                     aria-label={item.icon}
                     {...(external
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
                   >
-                    <Icon className="w-5 h-5 lg:w-7 lg:h-7 text-[#004180] cursor-pointer hover:opacity-70" />
+                    <Icon className="w-5 h-5 lg:w-7 lg:h-7 text-[#004180] cursor-pointer hover:opacity-70 grow-0" />
                   </a>
                 );
               })}
@@ -84,7 +84,7 @@ export default function Footer() {
                 {phones?.map((phone: Phone) => (
                   <li key={phone.id} className="flex gap-4 items-center">
                     <FiPhone
-                      className="size-5 shrink-0 text-white"
+                      className="size-5 shrink-0 text-white mt-1"
                       aria-hidden
                     />
                     <a
@@ -96,7 +96,10 @@ export default function Footer() {
                   </li>
                 ))}
                 <li className="flex gap-4 items-center">
-                  <FiMail className="size-5 shrink-0 text-white" aria-hidden />
+                  <FiMail
+                    className="size-5 shrink-0 text-white mt-1"
+                    aria-hidden
+                  />
                   <a
                     href="mailto:info@hebent.tech"
                     className="text-sm lg:text-lg hover:text-white/70"
@@ -106,13 +109,18 @@ export default function Footer() {
                 </li>
                 <li className="flex gap-4 items-start">
                   <FiMapPin
-                    className="size-5 shrink-0 text-white"
+                    className="size-5 shrink-0 text-white mt-1"
                     aria-hidden
                   />
-                  <span className="text-sm lg:text-lg">{t("address")}</span>
+                  <span className="text-sm lg:text-lg max-w-xs">
+                    {t("address")}
+                  </span>
                 </li>
                 <li className="flex gap-4 items-center">
-                  <FiClock className="size-5 shrink-0 text-white" aria-hidden />
+                  <FiClock
+                    className="size-5 shrink-0 text-white mt-1"
+                    aria-hidden
+                  />
                   <span className="text-sm lg:text-lg">{t("hours")}</span>
                 </li>
               </ul>

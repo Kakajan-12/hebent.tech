@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 
-export default function LangSwitcher() {
+export default function LangSwitcher({ isOpen }: { isOpen?: boolean }) {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -32,28 +32,28 @@ export default function LangSwitcher() {
     locale === "en" ? t("en") : locale === "ru" ? t("ru") : t("tk");
 
   return (
-    <div className="relative hidden shrink-0 lg:block font-bold" ref={ref}>
+    <div className="relative shrink-0 font-bold" ref={ref}>
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-2 rounded px-3 py-2 font-vox text-sm"
+        className={`flex items-center gap-2 p-2.5 font-vox text-sm border border-r-0 border-black ${isOpen ? "bg-black text-white border-white hover:bg-black" : "bg-white text-black hover:bg-white"}`}
         aria-expanded={open}
       >
         {shortLabel}
         <FaChevronDown
-          className={`size-3 transition ${open ? "rotate-180" : ""}`}
+          className={`size-3 transition ${isOpen ? "text-white" : "text-black"} ${open ? "rotate-180" : ""}`}
           aria-hidden
         />
       </button>
       {open ? (
-        <div className="absolute right-0 top-full z-50 mt-2 w-14 rounded border border-neutral-800/20 bg-white/40 backdrop-blur-sm py-2 shadow-lg">
+        <div className="absolute right-0 top-full z-50 mt-2 w-14 border border-neutral-800/20 bg-white/40 backdrop-blur-sm py-2 shadow-lg">
           {routing.locales
             .filter((loc) => loc !== locale)
             .map((loc) => (
               <button
                 key={loc}
                 type="button"
-                className="block w-full px-2 py-2 text-center text-sm hover:bg-white"
+                className={`block w-full px-2 py-2 text-center text-sm ${isOpen ? " text-white hover:bg-black" : " text-black hover:bg-white/80"}`}
                 onClick={() => switchLocale(loc)}
               >
                 {loc === "en" ? t("en") : loc === "ru" ? t("ru") : t("tk")}

@@ -12,6 +12,9 @@ const PRODUCTS_LABELS = new Set(
     "продуктов",
     "produktlar",
     "produkt",
+    "проекты",
+    "proýektlar",
+    "projects",
   ].map((s) => s.normalize("NFKC").toLowerCase()),
 );
 

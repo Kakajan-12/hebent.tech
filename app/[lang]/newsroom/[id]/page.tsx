@@ -71,6 +71,7 @@ export default function NewsArticlePage() {
             alt={title}
             width={1000}
             height={1000}
+            priority
             className="object-cover w-full h-full"
             onLoad={() => setIsImageLoading(false)}
             onError={() => setIsImageLoading(false)}

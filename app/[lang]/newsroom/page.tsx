@@ -59,10 +59,12 @@ export default function NewsroomPage() {
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
         className="grid grid-cols-1 lg:grid-cols-2 lg:items-start gap-4"
       >
-        <h2 className="font-vox text-3xl font-bold tracking-tight lg:text-5xl">
+        <h2 className="font-video text-3xl font-medium tracking-tight lg:text-5xl">
           {t("title")}
         </h2>
-        <p className="text-sm lg:text-xl xl:text-3xl">{t("description")}</p>
+        <p className="font-video text-sm lg:text-xl xl:text-3xl">
+          {t("description")}
+        </p>
       </motion.div>
 
       <motion.nav

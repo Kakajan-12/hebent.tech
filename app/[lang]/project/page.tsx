@@ -14,6 +14,7 @@ import { resolveMediaUrl } from "@/constant/constant";
 import { useRouter } from "@/i18n/navigation";
 import "@/app/components/Projects/project.css";
 import { motion } from "motion/react";
+import DecryptedText from "@/components/ui/DecryptedText";
 
 const PAGE_SIZE = 9;
 function stripHtmlTags(value: string): string {
@@ -120,9 +121,23 @@ export default function ProjectsClient() {
       >
         <p className="text-xl lg:text-3xl">
           {t("heroBefore")}{" "}
-          <span className="font-semibold text-brand">{t("designed")}</span>{" "}
+          <DecryptedText
+            text={t("designed")}
+            speed={120}
+            maxIterations={15}
+            characters="спроектировали"
+            className="revealed text-brand"
+            parentClassName="all-letters"
+            encryptedClassName="encrypted"
+          />
+          {/* <span className="font-semibold text-brand">{t("designed")}</span>{" "} */}{" "}
           {t("and")}{" "}
-          <span className="font-semibold text-brand">{t("built")}</span>{" "}
+          <DecryptedText
+            text={t("built")}
+            revealDirection="start"
+            sequential
+            useOriginalCharsOnly={false}
+          />
           {t("heroAfter")}
         </p>
         <motion.div

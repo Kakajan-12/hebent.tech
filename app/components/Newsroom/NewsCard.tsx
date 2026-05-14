@@ -15,10 +15,15 @@ type NewsCardProps = {
   text: string;
   dateLabel: string;
   isoDate: string;
+  onNavigate?: () => void;
+  light?: boolean;
 };
 
-function stripHtmlTags(value: string): string {
-  return value.replace(/<[^>]*>/g, "").trim();
+function stripHtmlTags(value: string | undefined | null): string {
+  if (value == null) return "";
+  return String(value)
+    .replace(/<[^>]*>/g, "")
+    .trim();
 }
 
 export default function NewsCard({
@@ -28,6 +33,8 @@ export default function NewsCard({
   text,
   dateLabel,
   isoDate,
+  onNavigate,
+  light = false,
 }: NewsCardProps) {
   const tPage = useTranslations("Newsroom");
   const imageSrc = resolveMediaUrl(image);
@@ -38,11 +45,18 @@ export default function NewsCard({
   const router = useRouter();
   return (
     <article
-      className="flex flex-col gap-3 px-2 py-4 text-[#1E2124] hover:shadow-sm transition duration-300 hover:scale-105 hover:cursor-pointer"
-      onClick={() => router.push(`/newsroom/${id}`)}
+      className={`flex flex-col gap-3 px-2 py-4 hover:shadow-sm transition duration-300 hover:cursor-pointer group ${
+        light ? "text-white" : "text-[#1E2124] hover:scale-105"
+      }`}
+      onClick={() => {
+        onNavigate?.();
+        router.push(`/newsroom/${id}`);
+      }}
     >
       <time
-        className="text-xs font-light uppercase tracking-wide text-[#767676]"
+        className={`text-xs font-light uppercase tracking-wide ${
+          light ? "text-white/70" : "text-[#767676]"
+        }`}
         dateTime={isoDate}
       >
         {dateLabel}
@@ -71,7 +85,15 @@ export default function NewsCard({
       </p>
       <Link
         href={`/newsroom/${id}`}
-        className="capitalize mt-2 inline-flex text-base font-light text-[#767676] underline-offset-4 transition hover:text-black underline"
+        onClick={(e) => {
+          e.stopPropagation();
+          onNavigate?.();
+        }}
+        className={`link-underline-slide capitalize mt-2 text-base font-light ${
+          light
+            ? "text-white/70 hover:text-white"
+            : "text-[#767676] hover:text-black"
+        }`}
       >
         {tPage("watchHere")}
       </Link>
