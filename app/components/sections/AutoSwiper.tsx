@@ -114,7 +114,7 @@ export const AutoSwiper: React.FC = () => {
         >
           {services.map((service) => (
             <SwiperSlide key={service.id}>
-              <div className="relative flex min-h-[40vh] sm:min-h-[80vh] lg:min-h-[80vh] items-start overflow-hidden rounded bg-[#0f172a] p-4 lg:p-8 shadow-xl">
+              <div className="relative flex aspect-video items-start overflow-hidden rounded bg-[#0f172a] p-4 lg:p-8 shadow-xl">
                 <Image
                   loading="eager"
                   src={resolveMediaUrl(service.image)}
@@ -123,11 +123,11 @@ export const AutoSwiper: React.FC = () => {
                   className="object-cover lg:object-fill"
                   sizes="(max-width: 768px) 88vw, 75vw"
                 />
-                <div className="relative z-10 flex min-w-60 flex-col items-start gap-2 rounded-sm bg-gray-500/20 border border-white/30  p-2.5 backdrop-blur-sm">
+                <div className="relative z-10 flex min-w-20 lg:min-w-60 flex-col items-start gap-1 lg:gap-2 rounded-sm bg-gray-500/20 border border-white/30 p-1 lg:p-2.5 backdrop-blur-sm">
                   <h3 className="text-[8px] lg:text-sm xl:text-xl font-bold uppercase text-white">
                     {stripHtmlTags(service[`title_${locale}`])}
                   </h3>
-                  <p className="text-sm lg:text-base xl:text-2xl font-medium leading-tight text-white wrap-break-word">
+                  <p className="text-xs sm:text-sm lg:text-base xl:text-2xl font-medium leading-tight text-white wrap-break-word">
                     {stripHtmlTags(service[`text_${locale}`])}
                   </p>
                   <div className="w-full h-full bg-black/20 absolute inset-0" />

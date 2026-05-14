@@ -36,7 +36,7 @@ export default function LangSwitcher({ isOpen }: { isOpen?: boolean }) {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className={`flex items-center gap-2 p-2.5 font-vox text-sm border border-r-0 border-black ${isOpen ? "bg-black text-white border-white hover:bg-black" : "bg-white text-black hover:bg-white"}`}
+        className={`flex items-center gap-2 p-1 lg:p-2.5 font-vox text-sm border border-r-0 border-black ${isOpen ? "bg-black text-white border-white hover:bg-black" : "bg-white text-black hover:bg-white"}`}
         aria-expanded={open}
       >
         {shortLabel}

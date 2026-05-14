@@ -50,7 +50,7 @@ export default function Header() {
             <div className="flex items-center gap-2">
               <Link
                 href="/contacts"
-                className={`hidden sm:inline-flex items-center justify-center border px-5 lg:px-8 py-2.5 lg:py-2.5 text-sm font-medium transition ${
+                className={`hidden sm:inline-flex items-center justify-center border px-3 lg:px-8 py-1 lg:py-2.5  text-sm font-medium transition ${
                   isOpen
                     ? "bg-black border-white text-white hover:bg-black"
                     : "bg-white border-black text-black hover:bg-white"
@@ -65,7 +65,7 @@ export default function Header() {
                   aria-label={isOpen ? "Close menu" : "Open menu"}
                   aria-expanded={isOpen}
                   onClick={() => setIsOpen((v) => !v)}
-                  className={`border p-2.5 transition ${
+                  className={`border p-1 lg:p-2.5 transition ${
                     isOpen
                       ? "bg-black border-white text-white hover:bg-black"
                       : "bg-white border-black text-black hover:bg-white"
