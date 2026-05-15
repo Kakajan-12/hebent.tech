@@ -4,7 +4,7 @@ import { notFound, useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Fragment, useState } from "react";
-import { ClipLoader } from "react-spinners";
+import Loading from "@/components/ui/Loading";
 import { useGetProjectDetailByIdQuery } from "@/app/api/api";
 import useAppLocale from "@/app/Hooks/GetLocale";
 import {
@@ -50,7 +50,7 @@ export default function ProjectPage() {
   if (detailLoading) {
     return (
       <main className="min-h-screen flex items-center justify-center">
-        <ClipLoader color="#0043d8" size={50} />
+        <Loading size="sm" />
       </main>
     );
   }
@@ -79,7 +79,7 @@ export default function ProjectPage() {
         <div className="absolute inset-0 w-ful h-full z-10">
           {isImageLoading && (
             <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100/70">
-              <ClipLoader color="#0043d8" size={50} />
+              <Loading size="sm" />
             </div>
           )}
           <Image
@@ -166,7 +166,7 @@ export default function ProjectPage() {
 
                 <RichText
                   htmlContent={item[`text_${locale}`] ?? ""}
-                  className="font-vox text-sm font-normal lg:text-base [&_li]:ml-5 [&_ol]:list-decimal [&_p]:mb-4 [&_p:last-child]:mb-0 [&_ul]:list-disc"
+                  className="rich-text font-vox text-sm font-normal lg:text-xl [&_li]:ml-5 [&_ol]:list-decimal [&_p]:mb-4 [&_p:last-child]:mb-0 [&_ul]:list-disc"
                 />
               </section>
             ))}
@@ -210,7 +210,7 @@ function GalleryImage({ src, alt }: { src: string; alt: string }) {
     <div className="relative w-full h-26 lg:h-68 overflow-hidden">
       {isLoading && (
         <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100/70">
-          <ClipLoader color="#0043d8" size={50} />
+          <Loading size="sm" />
         </div>
       )}
       <Image

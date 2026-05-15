@@ -14,7 +14,7 @@ export default async function Home({ params }: Props) {
 
   return (
     <>
-      <main className="flex-1 min-w-screen">
+      <main className="flex-1 min-w-screen ">
         <section className="h-screen">
           <Video />
         </section>

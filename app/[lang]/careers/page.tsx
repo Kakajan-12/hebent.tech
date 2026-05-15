@@ -5,7 +5,7 @@ import JobListing from "@/app/components/careers/JobListing";
 import { useGetVacanciesQuery } from "@/app/api/api";
 import useAppLocale from "@/app/Hooks/GetLocale";
 import { Vacancy } from "@/app/Interfaces/interfaces";
-import { ClipLoader } from "react-spinners";
+import Loading from "@/components/ui/Loading";
 import { motion } from "motion/react";
 
 export default function CareersPage() {
@@ -51,7 +51,7 @@ export default function CareersPage() {
       >
         {isLoading && (
           <li className="py-6 font-vox text-sm md:text-base text-center">
-            <ClipLoader color="#000" size={20} />
+            <Loading size="sm" />
           </li>
         )}
         {error && !isLoading && (

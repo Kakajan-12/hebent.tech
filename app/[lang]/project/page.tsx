@@ -5,16 +5,14 @@ import { FiSearch } from "react-icons/fi";
 import { FaChevronDown } from "react-icons/fa6";
 import { useTranslations } from "next-intl";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { ClipLoader } from "react-spinners";
+import Loading from "@/components/ui/Loading";
 import Pagination from "@/app/components/Pagination";
 import { useGetProjectsQuery } from "@/app/api/api";
 import useAppLocale from "@/app/Hooks/GetLocale";
 import { Project } from "@/app/Interfaces/interfaces";
 import { resolveMediaUrl } from "@/constant/constant";
 import { useRouter } from "@/i18n/navigation";
-import "@/app/components/Projects/project.css";
 import { motion } from "motion/react";
-import DecryptedText from "@/components/ui/DecryptedText";
 import TypingText from "@/components/ui/TypingText";
 
 const PAGE_SIZE = 9;
@@ -231,7 +229,7 @@ export default function ProjectsClient() {
         >
           {projectsLoading && (
             <div className="col-span-full py-6 flex justify-center">
-              <ClipLoader color="#0043d8" size={50} />
+              <Loading size="sm" />
             </div>
           )}
           {projectsError && !projectsLoading && (
@@ -286,7 +284,7 @@ function ProjectApiCard({ project, title, text }: ProjectApiCardProps) {
       >
         {isImageLoading && (
           <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100/70">
-            <ClipLoader color="#0043d8" size={40} />
+            <Loading size="sm" />
           </div>
         )}
         <Image

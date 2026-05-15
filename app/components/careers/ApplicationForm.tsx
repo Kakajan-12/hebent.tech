@@ -6,7 +6,7 @@ import { FiPaperclip, FiX } from "react-icons/fi";
 import { toast } from "sonner";
 import { useApplyJobMutation } from "@/app/api/api";
 import { VacancyResponse } from "@/app/Interfaces/interfaces";
-import { ClipLoader } from "react-spinners";
+import Loading from "@/components/ui/Loading";
 import { motion } from "motion/react";
 
 const MAX_FILES = 2;
@@ -279,7 +279,7 @@ const ApplicationForm = () => {
             disabled={isLoading}
             className="font-vox bg-[#001F3F] text-white w-full max-w-[400px] py-4 rounded font-bold text-base lg:text-lg hover:bg-opacity-90 transition-colors"
           >
-            {isLoading ? <ClipLoader color="#0043d8" size={20} /> : t("send")}
+            {isLoading ? <Loading size="sm" /> : t("send")}
           </button>
         </div>
       </form>

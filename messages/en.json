@@ -25,28 +25,45 @@
     "body": "From strategy and design to development and launch — we deliver end-to-end digital solutions tailored to your goals. Our team builds reliable technologies and intuitive interfaces that bring real value to both users and businesses.",
     "accordion": {
       "mission": {
-        "title": "Our mission",
-        "content": "We build technology that solves real problems for businesses and people. Our mission is to deliver end-to-end digital solutions with clarity, reliability, and measurable impact."
+        "our": "OUR",
+        "title": "mission",
+
+        "content": "To bridge the gap between physical infrastructure and digital intelligence — making data work for people, not the other way around."
       },
       "vision": {
-        "title": "Our vision",
-        "content": "We see a future where complex operations are transparent, data-driven, and humane. We work with organizations to modernize systems without losing sight of the people who use them every day."
+        "our": "OUR",
+        "title": "vision",
+        "content": "A world where every asset, process, and decision is connected, transparent, and efficient — without complexity."
       },
       "process": {
-        "title": "Our process",
-        "content": "Discovery, design, build, ship, and improve — in tight feedback loops with stakeholders. We align on outcomes early, prototype quickly, and keep quality high through review, testing, and observability."
-      },
-      "culture": {
-        "title": "Our culture",
-        "content": "We value ownership, direct communication, and continuous learning. Teams collaborate across time zones with shared standards and respect for craft."
+        "our": "OUR",
+        "title": "process",
+        "intro": "We keep it simple and human:",
+        "steps": [
+          "Understand — we listen to real daily pains.",
+          "Build — we create lightweight, scalable tech.",
+          "Deliver — we deploy, train, and stay for support."
+        ]
       },
       "technologies": {
-        "title": "Our technologies",
-        "content": "We work with modern web stacks, cloud infrastructure, IoT and data pipelines, and AI where it genuinely helps — always chosen for fit, not hype."
+        "our": "OUR",
+        "title": "technologies",
+        "items": [
+          "Cloud-native platforms",
+          "Real-time data streaming and analytics",
+          "IoT hardware and sensor integration",
+          "Mobile and web applications"
+        ]
       },
       "values": {
-        "title": "Our values",
-        "content": "Integrity, quality, and long-term partnerships. We say what we mean, ship what we promise, and invest in relationships that outlast individual projects."
+        "our": "OUR",
+        "title": "values",
+        "items": [
+          "Clarity — no buzzwords, no hidden agendas",
+          "Impact — we measure success by what we solve, not what we sell",
+          "Simplicity — if it's not easy to use, it's not done",
+          "Partnership — your growth is our only KPI"
+        ]
       }
     }
   },

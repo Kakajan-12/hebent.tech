@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { ClipLoader } from "react-spinners";
 import type { Video } from "@/app/Interfaces/interfaces";
 import { useGetVideosQuery } from "@/app/api/api";
 import { resolveMediaUrl } from "@/constant/constant";
+import Loading from "@/components/ui/Loading";
 
 export default function Video() {
   const { data, error, isLoading } = useGetVideosQuery();
@@ -16,7 +16,7 @@ export default function Video() {
   if (isLoading) {
     return (
       <div className="absolute inset-0 flex items-center justify-center">
-        <ClipLoader color="#0043d8" size={50} />
+        <Loading />
       </div>
     );
   }
@@ -39,7 +39,7 @@ export default function Video() {
     <section className="absolute top-0 left-0 right-0 h-screen">
       {!isVideoReady && (
         <div className="absolute inset-0 flex items-center justify-center z-10 bg-white">
-          <ClipLoader color="#0043d8" size={50} />
+          <Loading />
         </div>
       )}
       <video

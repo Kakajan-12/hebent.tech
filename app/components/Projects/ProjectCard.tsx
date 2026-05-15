@@ -3,7 +3,6 @@
 import Image from "next/image";
 import type { Project } from "@/app/Interfaces/interfaces";
 import { useRouter } from "@/i18n/navigation";
-import "./project.css";
 import { resolveMediaUrl } from "@/constant/constant";
 import useAppLocale from "@/app/Hooks/GetLocale";
 type ProjectCardProps = {

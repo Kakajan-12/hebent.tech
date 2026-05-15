@@ -3,7 +3,7 @@
 import { useParams, notFound } from "next/navigation";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { ClipLoader } from "react-spinners";
+import Loading from "@/components/ui/Loading";
 import { useGetNewsDetailByIdQuery } from "@/app/api/api";
 import useAppLocale from "@/app/Hooks/GetLocale";
 import { NewsDetail, NewsDetailGallery } from "@/app/Interfaces/interfaces";
@@ -38,7 +38,7 @@ export default function NewsArticlePage() {
   if (detailLoading) {
     return (
       <main className="min-h-screen flex items-center justify-center">
-        <ClipLoader color="#0043d8" size={50} />
+        <Loading size="sm" />
       </main>
     );
   }
@@ -53,7 +53,7 @@ export default function NewsArticlePage() {
     : [];
 
   const title = stripHtmlTags(detail[`title_${locale}`]);
-  const text = stripHtmlTags(detail[`text_${locale}`]);
+  const textHtml = detail[`text_${locale}`] ?? "";
   const category = stripHtmlTags(detail[`category_${locale}`]);
   const coverImageSrc = resolveMediaUrl(detail.image);
 
@@ -63,7 +63,7 @@ export default function NewsArticlePage() {
         <div className="absolute inset-0 w-ful h-full z-10">
           {isImageLoading && (
             <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100/70">
-              <ClipLoader color="#0043d8" size={50} />
+              <Loading size="sm" />
             </div>
           )}
           <Image
@@ -102,9 +102,10 @@ export default function NewsArticlePage() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 flex flex-col gap-10"
       >
-        <p className="font-vox text-sm lg:text-xl leading-relaxed whitespace-pre-line">
-          {text}
-        </p>
+        <div
+          className="rich-text text-sm lg:text-xl"
+          dangerouslySetInnerHTML={{ __html: textHtml }}
+        />
 
         {gallery.length > 0 && (
           <>
@@ -139,7 +140,7 @@ function GalleryImage({ src, alt }: { src: string; alt: string }) {
     <div className="relative w-full h-26 lg:h-68 overflow-hidden aspect-square">
       {isLoading && (
         <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100/70">
-          <ClipLoader color="#0043d8" size={50} />
+          <Loading size="sm" />
         </div>
       )}
       <Image

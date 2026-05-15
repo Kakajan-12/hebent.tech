@@ -1,0 +1,148 @@
+/* ─────────────────────────────────────────
+   LOADER WRAPPER
+───────────────────────────────────────── */
+.variant {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-loader {
+  --c: #2254f4; /* primary brand blue */
+  --size: 80px; /* overall size */
+  --dur: 1.8s; /* animation cycle */
+
+  width: var(--size);
+  height: var(--size);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.logo-loader svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ─────────────────────────────────────────
+VARIANT 1 — pulse
+Each block fades in/out in sequence
+(default, recommended)
+───────────────────────────────────────── */
+@keyframes ll-pulse {
+  0%,
+  60%,
+  100% {
+    opacity: 0.12;
+    transform: scale(0.75);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.logo-loader .block {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Delays applied in Loading.tsx */
+.logo-loader.pulse .block {
+  animation: ll-pulse var(--dur) ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────
+VARIANT 2 — spin
+Whole logo rotates smoothly
+───────────────────────────────────────── */
+@keyframes ll-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.logo-loader.spin svg {
+  animation: ll-spin 2.4s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+/* ─────────────────────────────────────────
+VARIANT 3 — orbit
+Outer blocks orbit; center breathes
+───────────────────────────────────────── */
+@keyframes ll-orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes ll-breathe {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.logo-loader.orbit .outer {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ll-orbit 3s linear infinite;
+}
+
+/* The center block */
+.logo-loader.orbit .center {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ll-breathe 1.5s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────
+SIZE HELPERS
+───────────────────────────────────────── */
+.logo-loader.sm {
+  --size: 40px;
+}
+.logo-loader.md {
+  --size: 80px;
+}
+.logo-loader.lg {
+  --size: 120px;
+}
+
+/* ─────────────────────────────────────────
+COLOR HELPERS
+───────────────────────────────────────── */
+.logo-loader.white {
+  --c: #fff;
+}
+.logo-loader.dark {
+  --c: #0a0e1a;
+}
+
+/* ─────────────────────────────────────────
+FULL-SCREEN OVERLAY (production usage)
+<div class="loader-overlay">
+<div class="logo-loader pulse md"></div>
+</div>
+───────────────────────────────────────── */
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  background: #fff; /* change to your page bg */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+
+  /* fade out when .done is added */
+  transition: opacity 0.5s ease;
+}
+.loader-overlay.done {
+  opacity: 0;
+  pointer-events: none;
+}

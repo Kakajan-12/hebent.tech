@@ -17,7 +17,7 @@ import { BASE_API_URL } from "@/constant/constant";
 import { getSocialIcon } from "@/lib/socialIcon";
 import { useState, useEffect, useCallback } from "react";
 import { toast } from "sonner";
-import { ClipLoader } from "react-spinners";
+import Loading from "@/components/ui/Loading";
 import { GrUpdate } from "react-icons/gr";
 import { motion } from "motion/react";
 
@@ -32,7 +32,7 @@ export default function ContactPage() {
 
   const [sending, setSending] = useState(false);
   const [captchaImage, setCaptchaImage] = useState("");
-  const [captchaLoading, setCaptchaLoading] = useState(false);
+  const [captchaLoading, setCaptchaLoading] = useState(true);
   const [success, setSuccess] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -48,26 +48,45 @@ export default function ContactPage() {
     (link: SocialLink) => link.icon?.toLowerCase() !== "wechat",
   );
 
+  const fetchCaptcha = useCallback(async () => {
+    const res = await fetch(`${BASE_API_URL}/captcha`, {
+      method: "GET",
+      credentials: "include",
+    });
+    if (!res.ok) throw new Error("Failed to load captcha");
+    return res.text();
+  }, []);
+
   const loadCaptcha = useCallback(async () => {
     setCaptchaLoading(true);
     try {
-      const res = await fetch(`${BASE_API_URL}/captcha`, {
-        method: "GET",
-        credentials: "include",
-      });
-      if (!res.ok) throw new Error("Failed to load captcha");
-      const svg = await res.text();
+      const svg = await fetchCaptcha();
       setCaptchaImage(svg);
     } catch {
       setCaptchaImage("");
     } finally {
       setCaptchaLoading(false);
     }
-  }, []);
+  }, [fetchCaptcha]);
 
   useEffect(() => {
-    void loadCaptcha();
-  }, [loadCaptcha]);
+    let cancelled = false;
+
+    fetchCaptcha()
+      .then((svg) => {
+        if (!cancelled) setCaptchaImage(svg);
+      })
+      .catch(() => {
+        if (!cancelled) setCaptchaImage("");
+      })
+      .finally(() => {
+        if (!cancelled) setCaptchaLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [fetchCaptcha]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -348,7 +367,7 @@ export default function ContactPage() {
             disabled={sending}
             className="mt-5 lg:mt-10 text w-full py-4 bg-[#001F3F] text-white font-bold rounded hover:bg-black transition-colors uppercase tracking-widest text-sm disabled:opacity-60"
           >
-            {sending ? <ClipLoader color="#0043d8" size={50} /> : t("send")}
+            {sending ? <Loading size="sm" /> : t("send")}
           </button>
           {success && <p className="text-sm text-green-600">{success}</p>}
           {error && <p className="text-sm text-red-600">{error}</p>}

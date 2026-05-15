@@ -5,7 +5,7 @@ import useAppLocale from "@/app/Hooks/GetLocale";
 import type { Vacancy } from "@/app/Interfaces/interfaces";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
-import { ClipLoader } from "react-spinners";
+import Loading from "@/components/ui/Loading";
 import { motion } from "motion/react";
 
 export default function CareerPage() {
@@ -28,7 +28,7 @@ export default function CareerPage() {
     >
       {isLoading && (
         <div className="py-10 flex justify-center">
-          <ClipLoader color="#0043d8" size={50} />
+          <Loading size="sm" />
         </div>
       )}
 

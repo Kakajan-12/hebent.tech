@@ -84,25 +84,20 @@ article {
 .stat-card {
   clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%, 0 25%);
 }
-@media (max-width: 768px) {
-  .stat-card {
-    padding: 18px 18px;
-  }
-}
-@media (max-width: 600px) {
-  .stat-card {
-    padding: 12px 12px;
-  }
-}
-@media (max-width: 450px) {
-  .stat-card {
-    padding: 6px 6px;
-  }
-}
-@media (max-width: 370px) {
-  .stat-card {
-    padding: 4px 4px;
-  }
+
+.cut-card {
+  --card-chamfer: clamp(12px, 4%, 12px);
+
+  clip-path: polygon(
+    var(--card-chamfer) 0%,
+    calc(100% - var(--card-chamfer)) 0%,
+    100% var(--card-chamfer),
+    100% calc(100% - var(--card-chamfer)),
+    calc(100% - var(--card-chamfer)) 100%,
+    var(--card-chamfer) 100%,
+    0% calc(100% - var(--card-chamfer)),
+    0% var(--card-chamfer)
+  );
 }
 
 .link-underline-slide {
@@ -269,15 +264,15 @@ article {
   position: absolute;
   inset: 0;
   background-repeat: repeat;
-  opacity: 0.07;
+  opacity: 0.03;
   background-image: var(--footer-bg-url);
   background-size: var(--footer-bg-cell) var(--footer-bg-cell);
-  --footer-bg-cell: 45px;
+  --footer-bg-cell: 30px;
 }
 
 @media (min-width: 640px) {
   .footer-bg-pattern {
-    --footer-bg-cell: 40px;
+    --footer-bg-cell: 32px;
   }
 }
 
@@ -287,21 +282,123 @@ article {
   }
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   .footer-bg-pattern {
     --footer-bg-cell: 52px;
     /* margin-bottom: 3rem; */
-  }
-}
 
-@media (min-width: 1280px) {
+/* @media (min-width: 1280px) {
   .footer-bg-pattern {
     --footer-bg-cell: 56px;
   }
-}
+} */
 
-@media (min-width: 1536px) {
+/* @media (min-width: 1536px) {
   .footer-bg-pattern {
     --footer-bg-cell: 72px;
   }
+} */
+
+.logo {
+  color: white; /* Базовый цвет */
+  mix-blend-mode: difference;
+}
+
+/* Контент с сервера (CMS): рендерим теги и возвращаем им стили,
+   которые сбрасывает preflight Tailwind */
+.rich-text {
+  font-family: var(--font-vox);
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.rich-text > *:first-child {
+  margin-top: 0;
+}
+.rich-text > *:last-child {
+  margin-bottom: 0;
+}
+
+.rich-text h1,
+.rich-text h2,
+.rich-text h3,
+.rich-text h4,
+.rich-text h5,
+.rich-text h6 {
+  font-family: var(--font-nexa);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 1.4em;
+  margin-bottom: 0.5em;
+}
+
+.rich-text h1 {
+  font-size: clamp(1.75rem, 1.2rem + 1.6vw, 3rem);
+}
+.rich-text h2 {
+  font-size: clamp(1.5rem, 1.1rem + 1.2vw, 2.25rem);
+}
+.rich-text h3 {
+  font-size: clamp(1.25rem, 1rem + 0.8vw, 1.75rem);
+}
+.rich-text h4 {
+  font-size: clamp(1.125rem, 1rem + 0.4vw, 1.375rem);
+}
+.rich-text h5,
+.rich-text h6 {
+  font-size: 1.125rem;
+}
+
+.rich-text p {
+  margin-bottom: 1em;
+}
+
+.rich-text a {
+  color: var(--brand);
+  text-decoration: underline;
+}
+
+.rich-text strong,
+.rich-text b {
+  font-weight: 700;
+}
+
+.rich-text em,
+.rich-text i {
+  font-style: italic;
+}
+
+.rich-text ul,
+.rich-text ol {
+  margin-bottom: 1em;
+  padding-left: 1.5rem;
+}
+.rich-text ul {
+  list-style: disc;
+}
+.rich-text ol {
+  list-style: decimal;
+}
+.rich-text li {
+  margin-bottom: 0.35em;
+}
+
+.rich-text blockquote {
+  border-left: 3px solid var(--brand);
+  padding-left: 1rem;
+  margin: 1em 0;
+  font-style: italic;
+  color: #444;
+}
+
+.rich-text img {
+  max-width: 100%;
+  height: auto;
+  margin: 1em 0;
+}
+
+.rich-text hr {
+  border: 0;
+  border-top: 1px solid #d4d4d4;
+  margin: 1.5em 0;
 }

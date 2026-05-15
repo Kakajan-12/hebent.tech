@@ -5,7 +5,7 @@ import ProjectCard from "@/app/components/Projects/ProjectCard";
 import { motion } from "motion/react";
 import { useGetProjectsQuery } from "@/app/api/api";
 import { Project } from "@/app/Interfaces/interfaces";
-import { ClipLoader } from "react-spinners";
+import Loading from "@/components/ui/Loading";
 
 export default function ProjectsPreview() {
   const t = useTranslations("ProjectsPreview");
@@ -48,7 +48,7 @@ export default function ProjectsPreview() {
         >
           {isLoading && (
             <div className="col-span-full flex justify-center py-6">
-              <ClipLoader color="#0043d8" size={20} />
+              <Loading size="sm" />
             </div>
           )}
           {error && !isLoading && (

@@ -6,7 +6,7 @@ import NewsCard from "@/app/components/Newsroom/NewsCard";
 import { useGetNewsQuery, useGetNewsCategoryQuery } from "@/app/api/api";
 import useAppLocale from "@/app/Hooks/GetLocale";
 import { NewsItem, NewsCategory } from "@/app/Interfaces/interfaces";
-import { ClipLoader } from "react-spinners";
+import Loading from "@/components/ui/Loading";
 import { motion } from "motion/react";
 
 function formatNewsDate(iso: string, locale: string) {
@@ -59,10 +59,10 @@ export default function NewsroomPage() {
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
         className="grid grid-cols-1 lg:grid-cols-2 lg:items-start gap-4"
       >
-        <h2 className="font-video text-3xl font-medium tracking-tight lg:text-5xl">
+        <h2 className=" text-3xl font-bold tracking-tight lg:text-5xl">
           {t("title")}
         </h2>
-        <p className="font-video text-sm lg:text-xl xl:text-3xl">
+        <p className="text-sm lg:text-xl xl:text-3xl font-normal">
           {t("description")}
         </p>
       </motion.div>
@@ -115,8 +115,8 @@ export default function NewsroomPage() {
         className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-4 lg:mt-8 lg:grid-cols-3 xl:grid-cols-4 lg:gap-6"
       >
         {(newsLoading || categoriesLoading) && (
-          <div className="col-span-full py-6 flex justify-center">
-            <ClipLoader color="#0043d8" size={50} />
+          <div className="col-span-full flex justify-center">
+            <Loading size="sm" />
           </div>
         )}
         {newsError && !newsLoading && (

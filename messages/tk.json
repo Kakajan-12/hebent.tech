@@ -24,28 +24,44 @@
     "body": "Strategiýadan we dizaýndan başlap, işläp taýýarlamak we işe girizmek tapgyrlaryna çenli — biz siziň maksatlaryňyza laýyk gelýän doly sanly çözgütleri hödürleýäris. Biziň toparymyz ygtybarly tehnologiýalary we ulanyjylar hem-de biznes üçin peýdaly we düşnükli interfeýsleri taýýarlaýar.",
     "accordion": {
       "mission": {
-        "title": "Biziň missiýamyz",
-        "content": "Biz işewürligiň we adamlaryň hakyky meselelerini çözýän tehnologiýalary döredýäris. Biziň missiýamyz — anyklyk, ygtybarlylyk we ölçenip bilinýän netije bilen utgaşykly sanly çözgütleri hödürlemekdir."
+        "our": "Biziň",
+        "title": "missiýamyz",
+        "content": "Fiziki infrastruktura bilen sanly intellektiň arasyndaky boşlugy ýapmak. Adamlar maglumatlara däl-de, maglumatlar adamlara hyzmat etsin."
       },
       "vision": {
-        "title": "Biziň garaýşymyz",
-        "content": "Biz çylşyrymly amallaryň aýdyň, maglumatlara esaslanýan we ynsanperwer bolup galýan geljegini görýäris. Biz guramalara ulgamlaryny dörebaplaşdyrmaga kömek edýäris, şunda olary her gün ulanýan adamlary ünsden düşürmeýäris."
+        "our": "Biziň",
+        "title": "garaýşymyz",
+        "content": "Çylşyrymlylygy bolmazdan, her bir serişdäniň, prosesiň we kararyň baglanyşykly, düşnükli we netijeli bolan dünýäsi."
       },
       "process": {
-        "title": "Biziň iş usulymyz",
-        "content": "Barlag, dizaýn, işläp düzmek, goýbermek we kämilleşdirmek — bular gyzyklanma bildirýän taraplar bilen gysga wagtyň içinde yzygiderli habarlaşmak arkaly amala aşyrylýar. Biz netijeler barada öňünden ylalaşýarys, çalt prototip döredýäris we gözden geçirmek, barlag hem-de synlaw arkaly hile gözegçilik edýäris."
-      },
-      "culture": {
-        "title": "Biziň medeniýetimiz",
-        "content": "Biz jogapkärçiligi, göni aragatnaşygy we yzygiderli öwrenmegi gymmat saýýarys. Toparlar dürli wagt guşaklyklarynda umumy standartlara eýerip we ussatlyga hormat goýup işleýärler."
+        "our": "Biziň",
+        "title": "PROSESIMIZ",
+        "intro": "Biz ýönekeýlige we adama gönükdirilen çemeleşmäni ulanýarys:",
+        "steps": [
+          "Düşünýäris: Müşderilerimiziň gündelik hakyky agyrylaryny diňleýäris.",
+          "Gurýarys: Ýeňil, giňelip bilýän we güýçli tehnologiýalary döredýäris.",
+          "Ýetirýäris: Ornaşdyrýarys, ulanyjylary öwredýäris we goldaw bermegi dowam etdirýäris."
+        ]
       },
       "technologies": {
-        "title": "Biziň tehnologiýalarymyz",
-        "content": "Biz döwrebap web-stek, bulut infrastrukturasy, IoT we maglumat geçirijileri, şeýle hem emeli aňyň hakykatdan hem kömek edýän ýerlerinde ulanmak bilen işleýäris — gurallary moda görä däl-de, wezipä görä saýlaýarys."
+        "our": "Biziň",
+        "title": "tehnologiýalarymyz",
+        "items": [
+          "Cloud platformalar",
+          "Hakyky wagtda maglumat akymlary we analitika",
+          "IoT enjamlary we sensor integrasiýasy",
+          "Ygtybarly, 5G taýýar infrastruktura"
+        ]
       },
       "values": {
-        "title": "Biziň gymmatlyklarymyz",
-        "content": "Dogruçyllyk, hil we uzak möhletleýin hyzmatdaşlyk. Biz zady bolşy ýaly aýdýarys, beren wadaňyzy ýerine ýetirýäris we aýratyn taslamalardan has uzak dowam edýän gatnaşyklary gurýarys."
+        "our": "Biziň",
+        "title": "gymmatlygymyz",
+        "items": [
+          "Anyklyk — boş sözler ýok, gizlin maksatlar ýok",
+          "Täsir — çözýän zadymyz bilen ölçeýäris",
+          "Ýönekeýlik — aňsat däl bolsa, gutarylan däl",
+          "Hyzmatdaşlyk — siziň ösüşiňiz biziň KPI"
+        ]
       }
     }
   },

@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useGetTestimonialsQuery } from "@/app/api/api";
 import { Testimonial } from "@/app/Interfaces/interfaces";
-import { ClipLoader } from "react-spinners";
+import Loading from "@/components/ui/Loading";
 import { TestimonialsMarquee } from "./TestimonialsMarquee";
 import { motion } from "motion/react";
 
@@ -15,7 +15,7 @@ export default function Testimonials() {
   if (isLoading) {
     return (
       <div className="h-screen flex items-center justify-center">
-        <ClipLoader color="#0043d8" size={50} />
+        <Loading size="sm" />
       </div>
     );
   }
