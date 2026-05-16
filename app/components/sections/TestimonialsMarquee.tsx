@@ -9,7 +9,23 @@ import {
 } from "@/components/ui/carousel";
 import { Testimonial } from "@/app/Interfaces/interfaces";
 
+const TESTIMONIAL_TEXT_MAX = 100;
+
 const stripHtmlTags = (text: string) => text.replace(/<[^>]*>?/g, "");
+
+function limitText(text: string, maxLength = TESTIMONIAL_TEXT_MAX): string {
+  const clean = stripHtmlTags(text).trim();
+  if (clean.length <= maxLength) return clean;
+
+  const slice = clean.slice(0, maxLength);
+  const lastSpace = slice.lastIndexOf(" ");
+
+  if (lastSpace > maxLength * 0.6) {
+    return `${slice.slice(0, lastSpace)}…`;
+  }
+
+  return `${slice.trimEnd()}…`;
+}
 
 type TestimonialsMarqueeProps = {
   items: Testimonial[];
@@ -46,7 +62,7 @@ export function TestimonialsMarquee({ items }: TestimonialsMarqueeProps) {
 
                   <div className="relative z-10 flex flex-col gap-2">
                     <blockquote className="text-base font-medium leading-relaxed text-gray-400 transition-colors group-hover:text-black">
-                      {stripHtmlTags(item.text)}
+                      {limitText(item.text)}
                     </blockquote>
 
                     <div className="mt-6 max-h-20 translate-y-0 overflow-hidden opacity-100 transition-all duration-300 ease-out lg:max-h-0 lg:translate-y-2 lg:opacity-0 lg:group-hover:max-h-20 lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
