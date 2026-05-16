@@ -59,9 +59,9 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
   }, [newsData]);
 
   const products = [
-    { href: "/products/traveltech", label: t("travel") },
-    { href: "/products/logtech", label: t("logistics") },
-    { href: "/products/eventtech", label: t("events") },
+    { href: "https://travel.hebent.tech", label: t("travel") },
+    { href: "https://logtech.hebent.tech", label: t("logistics") },
+    { href: "https://eventtech.hebent.tech", label: t("events") },
   ];
 
   const otherPages = [
