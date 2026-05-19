@@ -5,13 +5,11 @@ import type { Project } from "@/app/Interfaces/interfaces";
 import { useRouter } from "@/i18n/navigation";
 import { resolveMediaUrl } from "@/constant/constant";
 import useAppLocale from "@/app/Hooks/GetLocale";
+import { stripHtmlTags } from "@/lib/utils";
+
 type ProjectCardProps = {
   project: Project;
 };
-
-function stripHtmlTags(value?: string): string {
-  return (value ?? "").replace(/<[^>]*>/g, "").trim();
-}
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   const router = useRouter();

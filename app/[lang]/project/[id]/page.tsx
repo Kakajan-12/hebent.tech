@@ -16,6 +16,7 @@ import { resolveMediaUrl } from "@/constant/constant";
 import RichText from "@/components/ui/Richtext";
 import TypingText from "@/components/ui/TypingText";
 import { motion } from "motion/react";
+import { stripHtmlTags } from "@/lib/utils";
 
 type ProjectDetailResponse = ProjectDetail & {
   title_tk?: string;
@@ -28,10 +29,6 @@ type ProjectDetailResponse = ProjectDetail & {
   costumer_en?: string;
   costumer_ru?: string;
 };
-
-function stripHtmlTags(value: string): string {
-  return value.replace(/<[^>]*>/g, "").trim();
-}
 
 export default function ProjectPage() {
   const params = useParams<{ lang: string; id: string }>();

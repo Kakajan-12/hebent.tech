@@ -14,11 +14,9 @@ import { resolveMediaUrl } from "@/constant/constant";
 import { useRouter } from "@/i18n/navigation";
 import { motion } from "motion/react";
 import TypingText from "@/components/ui/TypingText";
+import { stripHtmlTags } from "@/lib/utils";
 
 const PAGE_SIZE = 9;
-function stripHtmlTags(value: string): string {
-  return value.replace(/<[^>]*>/g, "").trim();
-}
 
 function projectCreatedMs(p: Project): number | null {
   const raw = p.created_at;

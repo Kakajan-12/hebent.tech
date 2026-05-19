@@ -8,10 +8,7 @@ import { Statistic } from "@/app/Interfaces/interfaces";
 import useAppLocale from "@/app/Hooks/GetLocale";
 import { useGetStatisticsQuery } from "@/app/api/api";
 import Logo from "@/components/ui/Logo";
-
-function stripHtmlTags(value: string): string {
-  return value.replace(/<[^>]*>/g, "").trim();
-}
+import { stripHtmlTags } from "@/lib/utils";
 
 export default function AboutSection({
   showLogo = false,

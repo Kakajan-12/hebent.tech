@@ -307,7 +307,7 @@ article {
 /* Контент с сервера (CMS): рендерим теги и возвращаем им стили,
    которые сбрасывает preflight Tailwind */
 .rich-text {
-  font-family: var(--font-vox);
+  /* font-family: var(--font-vox); */
   line-height: 1.7;
   font-weight: 400;
 }

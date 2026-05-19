@@ -7,6 +7,7 @@ import { Link } from "@/i18n/navigation";
 import { resolveMediaUrl } from "@/constant/constant";
 import Loading from "@/components/ui/Loading";
 import { useRouter } from "@/i18n/navigation";
+import { stripHtmlTags } from "@/lib/utils";
 
 type NewsCardProps = {
   id: string;
@@ -18,13 +19,6 @@ type NewsCardProps = {
   onNavigate?: () => void;
   light?: boolean;
 };
-
-function stripHtmlTags(value: string | undefined | null): string {
-  if (value == null) return "";
-  return String(value)
-    .replace(/<[^>]*>/g, "")
-    .trim();
-}
 
 export default function NewsCard({
   id,

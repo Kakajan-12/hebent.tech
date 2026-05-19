@@ -8,6 +8,7 @@ import { useGetNewsDetailByIdQuery } from "@/app/api/api";
 import useAppLocale from "@/app/Hooks/GetLocale";
 import { NewsDetail, NewsDetailGallery } from "@/app/Interfaces/interfaces";
 import { resolveMediaUrl } from "@/constant/constant";
+import { stripHtmlTags } from "@/lib/utils";
 import { useState } from "react";
 import { motion } from "motion/react";
 
@@ -17,9 +18,6 @@ function formatNewsDate(iso: string, locale: string) {
     day: "numeric",
     year: "numeric",
   }).format(new Date(iso));
-}
-function stripHtmlTags(value: string): string {
-  return value.replace(/<[^>]*>/g, "").trim();
 }
 export default function NewsArticlePage() {
   const params = useParams<{ lang: string; id: string }>();

@@ -12,12 +12,9 @@ import { Service } from "@/app/Interfaces/interfaces";
 import { resolveMediaUrl } from "@/constant/constant";
 import Loading from "@/components/ui/Loading";
 import useAppLocale from "@/app/Hooks/GetLocale";
+import { stripHtmlTags } from "@/lib/utils";
 
 const AUTOPLAY_DELAY = 5000;
-
-function stripHtmlTags(value: string): string {
-  return value.replace(/<[^>]*>/g, "").trim();
-}
 
 export const AutoSwiper: React.FC = () => {
   const { data, error, isLoading } = useGetServicesQuery();

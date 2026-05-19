@@ -8,10 +8,9 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import { Testimonial } from "@/app/Interfaces/interfaces";
+import { stripHtmlTags } from "@/lib/utils";
 
 const TESTIMONIAL_TEXT_MAX = 100;
-
-const stripHtmlTags = (text: string) => text.replace(/<[^>]*>?/g, "");
 
 function limitText(text: string, maxLength = TESTIMONIAL_TEXT_MAX): string {
   const clean = stripHtmlTags(text).trim();
