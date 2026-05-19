@@ -9,15 +9,11 @@ import Header from "../components/Header/Header";
 import ReduxProvider from "../ProviderRedux";
 import Footer from "../components/Footer/Footer";
 import { Toaster } from "sonner";
-import favicon from "@/public/favicon.ico";
 
 export const metadata: Metadata = {
   title: "Hebent Technology",
   description:
     "End-to-end digital solutions — from strategy and design to development and launch.",
-  icons: {
-    icon: favicon.src,
-  },
 };
 
 export function generateStaticParams() {
