@@ -14,6 +14,13 @@ export const metadata: Metadata = {
   title: "Hebent Technology",
   description:
     "End-to-end digital solutions — from strategy and design to development and launch.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "380x380" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export function generateStaticParams() {
