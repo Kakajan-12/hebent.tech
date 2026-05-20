@@ -282,23 +282,6 @@ article {
   }
 }
 
-/* @media (min-width: 1024px) {
-  .footer-bg-pattern {
-    --footer-bg-cell: 52px;
-    /* margin-bottom: 3rem; */
-
-/* @media (min-width: 1280px) {
-  .footer-bg-pattern {
-    --footer-bg-cell: 56px;
-  }
-} */
-
-/* @media (min-width: 1536px) {
-  .footer-bg-pattern {
-    --footer-bg-cell: 72px;
-  }
-} */
-
 .logo {
   color: white; /* Базовый цвет */
   mix-blend-mode: difference;
