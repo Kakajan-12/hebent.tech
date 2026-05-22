@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { CiMenuBurger } from "react-icons/ci";
-import { GoSearch } from "react-icons/go";
 import { IoClose } from "react-icons/io5";
 import Navigation from "../sections/Navigation";
 import LangSwitcher from "./LangSwitcher";
