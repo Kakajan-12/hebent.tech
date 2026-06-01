@@ -135,6 +135,9 @@ export function resolveMediaUrl(url: unknown): string {
     return s;
   }
 
+  if (s.startsWith("/app/uploads/")) {
+    return `${MEDIA_ORIGIN}${s.slice("/app".length)}`;
+  }
   if (s.startsWith("/uploads") || s.startsWith("/storage")) {
     return `${MEDIA_ORIGIN}${s}`;
   }

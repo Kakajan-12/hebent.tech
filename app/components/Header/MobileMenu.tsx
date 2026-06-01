@@ -36,41 +36,6 @@ export default function MobileNav() {
       document.body.style.overflow = "";
     };
   }, [open]);
-
-  // useEffect(() => {
-  //   try {
-  //     const raw = sessionStorage.getItem(KEEP_MOBILE_NAV_OPEN_KEY);
-  //     if (!raw) return;
-  //     sessionStorage.removeItem(KEEP_MOBILE_NAV_OPEN_KEY);
-  //     const parsed = JSON.parse(raw) as {
-  //       section?: unknown;
-  //       next?: string;
-  //       t?: number;
-  //     };
-  //     const ttlMs = 15_000;
-  //     if (
-  //       typeof parsed.t !== "number" ||
-  //       Date.now() - parsed.t > ttlMs ||
-  //       parsed.next !== locale
-  //     ) {
-  //       return;
-  //     }
-  //     const s = parsed.section;
-  //     queueMicrotask(() => {
-  //       setOpen(true);
-  //       if (s === "products" || s === "company" || s === null) {
-  //         setSection(s);
-  //       }
-  //     });
-  //   } catch {
-  //     try {
-  //       sessionStorage.removeItem(KEEP_MOBILE_NAV_OPEN_KEY);
-  //     } catch {
-  //       /* ignore */
-  //     }
-  //   }
-  // }, [locale]);
-
   const checkActive = (href: string) => {
     if (href === "/") return pathname === "/";
     return pathname.startsWith(href);
