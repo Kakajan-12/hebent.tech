@@ -69,7 +69,7 @@ export default function ProjectPage() {
   const website = stripHtmlTags(detail.website ?? "");
   const coverImageSrc = resolveMediaUrl(detail.image);
 
-  // console.log(detail);
+  console.log(detail);
   return (
     <main className="relative flex-col flex gap-10 min-h-screen">
       <div className="-mt-42 relative h-90 sm:h-110 lg:h-140 xl:h-176 2xl:h-190 w-full flex items-end justify-end overflow-hidden">
@@ -186,12 +186,12 @@ export default function ProjectPage() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-          className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          className="container mx-auto px-5 lg:px-10 flex flex-wrap gap-1"
         >
           {gallery.map((g) => (
             <GalleryImage
               key={g.id}
-              src={resolveMediaUrl(g.image)}
+              src={resolveMediaUrl(g.images)}
               alt={title}
             />
           ))}
@@ -204,7 +204,7 @@ export default function ProjectPage() {
 function GalleryImage({ src, alt }: { src: string; alt: string }) {
   const [isLoading, setIsLoading] = useState(true);
   return (
-    <div className="relative w-full h-26 lg:h-68 overflow-hidden">
+    <div className="relative h-26 sm:h-40 md:h-52 lg:h-68  overflow-hidden aspect-square border border-black/10">
       {isLoading && (
         <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100/70">
           <Loading size="sm" />
@@ -214,7 +214,7 @@ function GalleryImage({ src, alt }: { src: string; alt: string }) {
         src={src}
         alt={alt}
         fill
-        className="object-cover"
+        className="object-contain h-full w-full"
         sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
         onLoad={() => setIsLoading(false)}
         onError={() => setIsLoading(false)}

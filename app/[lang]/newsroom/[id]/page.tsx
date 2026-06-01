@@ -98,7 +98,7 @@ export default function NewsArticlePage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 flex flex-col gap-10"
+        className="container mx-auto px-5 lg:px-10 flex flex-col gap-10"
       >
         <div
           className="rich-text text-sm lg:text-xl"
@@ -115,7 +115,7 @@ export default function NewsArticlePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2"
+              className="flex flex-wrap gap-1"
             >
               {gallery.map((g) => (
                 <GalleryImage
@@ -135,7 +135,7 @@ export default function NewsArticlePage() {
 function GalleryImage({ src, alt }: { src: string; alt: string }) {
   const [isLoading, setIsLoading] = useState(true);
   return (
-    <div className="relative w-full h-26 lg:h-68 overflow-hidden aspect-square">
+    <div className="relative h-26 sm:h-40 md:h-52 lg:h-68 overflow-hidden aspect-square">
       {isLoading && (
         <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100/70">
           <Loading size="sm" />
@@ -146,7 +146,7 @@ function GalleryImage({ src, alt }: { src: string; alt: string }) {
         alt={alt}
         width={1000}
         height={1000}
-        className="object-cover"
+        className="object-cover h-full w-full"
         // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         onLoad={() => setIsLoading(false)}
         onError={() => setIsLoading(false)}

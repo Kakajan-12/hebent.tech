@@ -87,7 +87,7 @@ export type ProjectDetailItem = {
 
 export type Gallery = {
   id: number;
-  image: string;
+  images: string;
   project_id: number;
 };
 
