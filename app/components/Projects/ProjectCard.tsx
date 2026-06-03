@@ -24,7 +24,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <div className="cut-card bg-brand p-px">
       <article
-        className="group relative aspect-square cut-card bg-background-main"
+        className="group relative aspect-square cut-card bg-white"
         onClick={goToProject}
       >
         <Image
