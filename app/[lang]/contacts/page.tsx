@@ -365,9 +365,13 @@ export default function ContactPage() {
           <button
             type="submit"
             disabled={sending}
-            className="mt-5 lg:mt-10 text w-full py-4 bg-[#001F3F] text-white font-bold rounded hover:bg-black transition-colors uppercase tracking-widest text-sm disabled:opacity-60"
+            className={`mt-5 lg:mt-10 text w-full py-4 text-white font-bold rounded transition-colors uppercase tracking-widest text-sm flex items-center justify-center min-h-[56px] ${
+              sending
+                ? "bg-[#0a2a4f] cursor-wait py-0"
+                : "bg-[#001F3F] hover:bg-black"
+            }`}
           >
-            {sending ? <Loading size="sm" /> : t("send")}
+            {sending ? <Loading size="xs" className="white" /> : t("send")}
           </button>
           {success && <p className="text-sm text-green-600">{success}</p>}
           {error && <p className="text-sm text-red-600">{error}</p>}

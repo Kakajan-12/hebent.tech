@@ -62,7 +62,7 @@ function applyPulseAnimation(loader: HTMLElement) {
 }
 
 type LoadingProps = {
-  size?: "sm" | "md" | "lg";
+  size?: "xs" | "sm" | "md" | "lg";
   className?: string;
 };
 

@@ -104,6 +104,9 @@ Outer blocks orbit; center breathes
 /* ─────────────────────────────────────────
 SIZE HELPERS
 ───────────────────────────────────────── */
+.logo-loader.xs {
+  --size: 20px;
+}
 .logo-loader.sm {
   --size: 40px;
 }
