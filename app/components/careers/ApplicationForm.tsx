@@ -30,10 +30,21 @@ type ApplyPayload = Pick<
 
 const ApplicationForm = () => {
   const t = useTranslations("Careers");
-  const params = useParams<{ slug: string }>();
+  const params = useParams<{ id: string }>();
   const [applyJob, { isLoading }] = useApplyJobMutation();
 
   const [files, setFiles] = useState<File[]>([]);
+  const [phone, setPhone] = useState("");
+
+  const PHONE_PREFIX = "+993";
+  const PHONE_MAX_DIGITS = 8;
+
+  const formatPhone = (value: string) => {
+    // first 3 digits are the fixed 993 country code; keep up to 8 after it
+    const digits = value.replace(/\D/g, "");
+    const rest = digits.slice(3, 3 + PHONE_MAX_DIGITS);
+    return PHONE_PREFIX + rest;
+  };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
@@ -93,7 +104,7 @@ const ApplicationForm = () => {
     e.preventDefault();
     const form = e.currentTarget;
 
-    const vacancyId = Number(params?.slug);
+    const vacancyId = Number(params?.id);
     if (!Number.isFinite(vacancyId)) {
       toast.error("Invalid vacancy");
       return;
@@ -139,6 +150,7 @@ const ApplicationForm = () => {
       toast.success("Application sent successfully");
       form.reset();
       setFiles([]);
+      setPhone("");
     } catch {
       toast.error("Failed to send application");
     }
@@ -212,8 +224,18 @@ const ApplicationForm = () => {
               <input
                 type="tel"
                 name="phone"
-                placeholder={"+933 00 00 00 00"}
+                inputMode="numeric"
+                pattern="\+993[0-9]{8}"
+                placeholder={"+993 (00) 00 00 00"}
+                value={phone}
                 required
+                onFocus={() => {
+                  if (!phone) setPhone(PHONE_PREFIX);
+                }}
+                onChange={(e) => setPhone(formatPhone(e.target.value))}
+                onBlur={() => {
+                  if (phone === PHONE_PREFIX) setPhone("");
+                }}
                 className=" text-sm lg:text-xl p-4 bg-slate-200 border-b border-gray-300 outline-none focus:ring-2 focus:ring-gray-300 transition-all"
               />
             </div>
@@ -277,9 +299,9 @@ const ApplicationForm = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="font-vox bg-[#001F3F] text-white w-full max-w-[400px] py-4 rounded font-bold text-base lg:text-lg hover:bg-opacity-90 transition-colors"
+            className="flex justify-center items-center font-vox bg-[#001F3F] text-white w-full max-w-[400px] min-h-[56px] py-4 rounded font-bold text-base lg:text-lg hover:bg-opacity-90 transition-colors"
           >
-            {isLoading ? <Loading size="sm" /> : t("send")}
+            {isLoading ? <Loading size="xs" /> : t("send")}
           </button>
         </div>
       </form>
