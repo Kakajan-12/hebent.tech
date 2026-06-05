@@ -17,6 +17,7 @@ import RichText from "@/components/ui/Richtext";
 import TypingText from "@/components/ui/TypingText";
 import { motion } from "motion/react";
 import { stripHtmlTags } from "@/lib/utils";
+import { HiOutlineXMark } from "react-icons/hi2";
 
 type ProjectDetailResponse = ProjectDetail & {
   title_tk?: string;
@@ -36,6 +37,7 @@ export default function ProjectPage() {
   const locale = useAppLocale();
   const tPage = useTranslations("Projects");
   const [isImageLoading, setIsImageLoading] = useState(true);
+  const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
 
   const {
     data: detailData,
@@ -71,7 +73,7 @@ export default function ProjectPage() {
 
   console.log(detail);
   return (
-    <main className="relative flex-col flex gap-10 min-h-screen">
+    <main className="relative flex-col flex gap-10 min-h-screen overflow-x-clip">
       <div className="-mt-42 relative h-90 sm:h-110 lg:h-140 xl:h-176 2xl:h-190 w-full flex items-end justify-end overflow-hidden">
         <div className="absolute inset-0 w-ful h-full z-10">
           {isImageLoading && (
@@ -193,18 +195,56 @@ export default function ProjectPage() {
               key={g.id}
               src={resolveMediaUrl(g.images)}
               alt={title}
+              onClick={() => setFullscreenImage(resolveMediaUrl(g.images))}
             />
           ))}
         </motion.div>
+      )}
+
+      {fullscreenImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+          onClick={() => setFullscreenImage(null)}
+        >
+          <div
+            className="relative h-[80vh] w-[80vw]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={fullscreenImage}
+              alt={title}
+              fill
+              className="object-contain h-full w-full"
+              sizes="(max-width: 768px) 80vw, 42rem"
+              priority
+            />
+            <button
+              type="button"
+              aria-label="Close"
+              onClick={() => setFullscreenImage(null)}
+              className="absolute top-10 -right-12 z-10 hidden h-10 w-10 items-center justify-center rounded-full bg-white/10 text-2xl text-white transition hover:bg-white/20 lg:flex"
+            >
+              <HiOutlineXMark className="text-2xl text-white" />
+            </button>
+          </div>
+        </div>
       )}
     </main>
   );
 }
 
-function GalleryImage({ src, alt }: { src: string; alt: string }) {
+function GalleryImage({
+  src,
+  alt,
+  onClick,
+}: {
+  src: string;
+  alt: string;
+  onClick: () => void;
+}) {
   const [isLoading, setIsLoading] = useState(true);
   return (
-    <div className="relative h-26 sm:h-40 md:h-52 lg:h-68  overflow-hidden aspect-square border border-black/10">
+    <div className="relative h-26 sm:h-40 md:h-52 lg:h-68 overflow-hidden aspect-square border border-black/10">
       {isLoading && (
         <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100/70">
           <Loading size="sm" />
@@ -214,10 +254,11 @@ function GalleryImage({ src, alt }: { src: string; alt: string }) {
         src={src}
         alt={alt}
         fill
-        className="object-contain h-full w-full"
+        className="object-contain h-full w-full cursor-pointer"
         sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
         onLoad={() => setIsLoading(false)}
         onError={() => setIsLoading(false)}
+        onClick={onClick}
       />
     </div>
   );
