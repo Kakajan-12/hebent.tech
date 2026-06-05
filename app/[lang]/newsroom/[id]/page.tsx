@@ -153,9 +153,9 @@ export default function NewsArticlePage() {
               type="button"
               aria-label="Close"
               onClick={() => setFullscreenImage(null)}
-              className="absolute top-10 -right-12 z-10 hidden h-10 w-10 items-center justify-center rounded-full bg-white/10 text-2xl text-white transition hover:bg-white/20 lg:flex"
+              className="absolute top-10 -right-3 lg:-right-12 z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 p-0 leading-none text-white transition hover:bg-white/20"
             >
-              <HiOutlineXMark className="text-2xl text-white" />
+              <HiOutlineXMark className="size-6 shrink-0" />
             </button>
           </div>
         </div>
