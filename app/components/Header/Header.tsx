@@ -32,6 +32,7 @@ export default function Header() {
                   width={174}
                   height={54}
                   priority
+                  onClick={() => setIsOpen(false)}
                   className="w-[108px] h-auto md:w-[150px] lg:w-[174px] brightness-0 invert"
                 />
               ) : (
@@ -49,6 +50,7 @@ export default function Header() {
             <div className="flex items-center gap-2">
               <Link
                 href="/contacts"
+                onClick={() => setIsOpen(false)}
                 className={`hidden sm:inline-flex items-center justify-center border px-3 lg:px-8 py-1 lg:py-2.5  text-sm font-medium transition ${
                   isOpen
                     ? "bg-black border-white text-white hover:bg-black"
