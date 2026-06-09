@@ -16,6 +16,13 @@
     "careers": "Iş orunlary",
     "contacts": "Biz bilen habarlaşmak"
   },
+  "Products": {
+    "title": "Önümlerimiz",
+    "subtitle": "Hebent tarapyndan döredilen, tutuş pudaklary öňe iterýän platformalar.",
+    "travelDesc": "Akylly syýahat we bron çözgütleri — gözlegden rahat syýahata çenli",
+    "logisticsDesc": "Doly logistika we üpjünçilik zynjyryny dolandyrmak — hemişe öz wagtynda",
+    "eventsDesc": "Çäreleri dolandyrmak we bilet satuwy — meýilleşdirmeden çärä çenli"
+  },
   "Video": {
     "title": "WIDEO"
   },
@@ -82,6 +89,9 @@
     "selected": "Seçildi",
     "files": "fayllar",
     "send": "Göndermek",
+    "successTitle": "Arza iberildi!",
+    "successMessage": "Ýüz tutanyňyz üçin sag boluň. Arzaňyzy gözden geçireris we ýakyn wagtda siz bilen habarlaşarys.",
+    "close": "Ýapmak",
     "whatYoullDo": "Näme edýärsiňiz",
     "addFiles": "Resýumeňizi we portfolionyzy goşyň",
     "jobs": [
@@ -124,10 +134,15 @@
     "surname": "Familiýasy",
     "name-placeholder": "Aman",
     "surname-placeholder": "Amanow",
-    "comments": "Sizin habarynyz ýazyp bermek üçin",
+    "comments-placeholder": "Sizin habarynyz ýazyp bermek üçin",
+    "comments": "Habarlaşmak",
     "send": "Ibermek",
-    "enterCaptcha": "Tekst suratdan giriziň",
-    "update": "Üýtgetmek"
+    "enterCaptcha-placeholder": "Tekst suratdan giriziň",
+    "enterCaptcha": "Captcha giriziň",
+    "update": "Üýtgetmek",
+    "successTitle": "Habar iberildi!",
+    "successMessage": "Biz bilen habarlaşandygyňyz üçin sag boluň. Ýakyn wagtda siz bilen habarlaşarys.",
+    "close": "Ýapmak"
   },
   "Stats": {
     "projectsDelivered": "Tamamlanan taslama",
@@ -173,7 +188,6 @@
       "finance": "Maliýe",
       "events": "Çäreler we sergiler"
     },
-
     "date": "Wagt",
     "category": "Kategoriýa",
     "searchAria": "Gözleg",

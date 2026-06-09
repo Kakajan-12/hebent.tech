@@ -16,6 +16,13 @@
     "careers": "Careers",
     "contacts": "Contact us"
   },
+  "Products": {
+    "title": "Our Products",
+    "subtitle": "Industry-focused platforms engineered by Hebent to move whole sectors forward.",
+    "travelDesc": "Smart travel and booking solutions, from search to seamless trips",
+    "logisticsDesc": "End-to-end logistics and supply chain management, on time, every time",
+    "eventsDesc": "Powerful event management and ticketing, from planning to the show"
+  },
   "Video": {
     "title": "VIDEO",
     "comingSoon": "Coming soon in May"
@@ -27,7 +34,6 @@
       "mission": {
         "our": "OUR",
         "title": "mission",
-
         "content": "To bridge the gap between physical infrastructure and digital intelligence — making data work for people, not the other way around."
       },
       "vision": {
@@ -84,6 +90,9 @@
     "selected": "Selected",
     "files": "files",
     "send": "Send",
+    "successTitle": "Application sent!",
+    "successMessage": "Thank you for applying. We'll review your application and get back to you soon.",
+    "close": "Close",
     "whatYoullDo": "What You'll Do",
     "addFiles": "Add your CV and Portfolio",
     "jobs": [
@@ -123,11 +132,16 @@
     "surname": "Surname",
     "name-placeholder": "Aman",
     "surname-placeholder": "Amanov",
-    "comments": "Write your message here...",
+    "comments-placeholder": "Write your message here...",
+    "comments": "Comments",
     "send": "Send",
-    "enterCaptcha": "Enter text from the picture",
+    "enterCaptcha-placeholder": "Enter text from the picture",
+    "enterCaptcha": "Enter Captcha",
     "addFiles": "Add your CV and Portfolio",
-    "update": "Update"
+    "update": "Update",
+    "successTitle": "Message sent!",
+    "successMessage": "Thank you for contacting us. We'll get back to you soon.",
+    "close": "Close"
   },
   "Stats": {
     "projectsDelivered": "Projects Delivered",
@@ -173,7 +187,6 @@
       "finance": "Finance",
       "events": "Events & Exhibitions"
     },
-
     "date": "Date",
     "category": "Category",
     "searchAria": "Search",
