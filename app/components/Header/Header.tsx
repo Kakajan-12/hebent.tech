@@ -36,7 +36,7 @@ export default function Header() {
             >
               <Image
                 src="/logoIcon.svg"
-                alt="HEBENT TECHNOLOGY"
+                alt="logo icon"
                 width={54}
                 height={54}
                 priority
@@ -44,11 +44,12 @@ export default function Header() {
               />
               <Image
                 src="/logo.svg"
-                alt=""
+                alt="HEBENT TECHNOLOGY"
                 aria-hidden
                 width={121}
                 height={54}
                 priority
+                loading="eager"
                 className="invisible w-[88px] h-auto md:w-[112px] lg:w-[130px]"
               />
             </Link>
@@ -63,7 +64,7 @@ export default function Header() {
             <div className="flex shrink-0 items-center px-3 py-2 sm:px-5">
               <Image
                 src="/logoIcon.svg"
-                alt=""
+                alt="logo icon"
                 aria-hidden
                 width={54}
                 height={54}
