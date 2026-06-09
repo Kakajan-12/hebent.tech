@@ -15,39 +15,73 @@ export default function Header() {
 
   return (
     <header className="h-32 lg:h-42">
-      <div className="fixed top-5 left-0 right-0 z-110">
-        <div className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 font-vox">
-          <div
-            className={`flex items-center justify-between gap-3 rounded px-2 ${isOpen ? "" : "backdrop-blur-sm bg-white/10"}`}
-          >
+      {/* Frosted glass bar */}
+      <div className="fixed top-5 left-0 right-0 z-100 pointer-events-none px-5 lg:px-10 xl:px-20">
+        <div className="container mx-auto h-18 shadow-sm backdrop-blur-xs bg-white/5 border-b border-white/10 rounded" />
+      </div>
+
+      {/* Logo layer A — icon keeps its color; */}
+      <div className="fixed top-5 left-0 right-0 z-110 pointer-events-none">
+        <div className="container mx-auto px-5 lg:px-10 xl:px-20">
+          <div className="flex items-center px-2">
             <Link
               href="/"
               aria-label="Home"
-              className="flex shrink-0 items-center px-3 py-2 sm:px-5"
+              onClick={() => setIsOpen(false)}
+              className="pointer-events-auto flex shrink-0 items-center px-3 py-2 sm:px-5"
             >
-              {isOpen ? (
-                <Image
-                  src="/logo.svg"
-                  alt="HEBENT TECHNOLOGY"
-                  width={174}
-                  height={54}
-                  priority
-                  onClick={() => setIsOpen(false)}
-                  className="w-[108px] h-auto md:w-[150px] lg:w-[174px] brightness-0 invert"
-                />
-              ) : (
-                <Image
-                  src="/logo.svg"
-                  alt="HEBENT TECHNOLOGY"
-                  width={174}
-                  height={54}
-                  priority
-                  className="w-[108px] h-auto md:w-[150px] lg:w-[174px]"
-                />
-              )}
+              <Image
+                src="/logoIcon.svg"
+                alt="HEBENT TECHNOLOGY"
+                width={54}
+                height={54}
+                priority
+                className="w-[54px] h-[54px]"
+              />
+              <Image
+                src="/logo.svg"
+                alt=""
+                aria-hidden
+                width={121}
+                height={54}
+                priority
+                className="invisible w-[88px] h-auto md:w-[112px] lg:w-[130px]"
+              />
             </Link>
+          </div>
+        </div>
+      </div>
 
-            <div className="flex items-center gap-2">
+      {/* Logo layer B — text only */}
+      <div className="fixed top-5 left-0 right-0 z-110 mix-blend-difference pointer-events-none">
+        <div className="container mx-auto px-5 lg:px-10 xl:px-20">
+          <div className="flex items-center px-2">
+            <div className="flex shrink-0 items-center px-3 py-2 sm:px-5">
+              <Image
+                src="/logoIcon.svg"
+                alt=""
+                aria-hidden
+                width={54}
+                height={54}
+                className="invisible w-[54px] h-[54px]"
+              />
+              <Image
+                src="/logo.svg"
+                alt="HEBENT TECHNOLOGY"
+                width={121}
+                height={54}
+                priority
+                className="w-[88px] h-auto md:w-[112px] lg:w-[130px] brightness-0 invert"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="fixed top-10 lg:top-8.5 left-0 right-0 z-110 pointer-events-none">
+        <div className="container mx-auto px-5 lg:px-10 xl:px-20 font-vox">
+          <div className="flex items-center justify-end gap-3 rounded px-2">
+            <div className="pointer-events-auto flex items-center gap-2">
               <Link
                 href="/contacts"
                 onClick={() => setIsOpen(false)}
