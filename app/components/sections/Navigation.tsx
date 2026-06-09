@@ -83,16 +83,16 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25, ease: "easeOut" }}
-          className="fixed inset-0 z-100 bg-black text-white font-vox overflow-y-auto overscroll-contain pb-4"
+          className="fixed inset-0 z-100 bg-black text-white font-vox overflow-y-auto lg:overflow-y-hidden overscroll-contain pb-4"
           role="dialog"
           aria-modal="true"
         >
-          <div className="container mx-auto px-5 lg:px-10 xl:px-20 pt-32 pb-10">
+          <div className="container mx-auto px-5 lg:px-10 xl:px-20 pt-26 lg:pt-28 xl:pt-30 pb-10 lg:pb-0">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, ease: "easeOut", delay: 0.05 }}
-              className="grid grid-cols-1 lg:grid-cols-[300px_1fr_300px] gap-4 lg:gap-8 xl:gap-12"
+              className="grid grid-cols-1 lg:grid-cols-[200px_1fr_200px] xl:grid-cols-[300px_1fr_300px] gap-4 lg:gap-8 xl:gap-12"
             >
               <div>
                 <motion.div
