@@ -50,7 +50,7 @@ export default function NewsroomPage() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="container mx-auto min-h-screen px-5 lg:px-10 xl:px-20 2xl:px-36"
+      className="container mx-auto min-h-screen px-5 lg:px-10 xl:px-20"
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}

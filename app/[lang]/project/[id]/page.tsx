@@ -18,6 +18,7 @@ import TypingText from "@/components/ui/TypingText";
 import { motion } from "motion/react";
 import { stripHtmlTags } from "@/lib/utils";
 import { HiOutlineXMark } from "react-icons/hi2";
+import { Skeleton } from "@/components/ui/skeleton";
 
 type ProjectDetailResponse = ProjectDetail & {
   title_tk?: string;
@@ -44,12 +45,11 @@ export default function ProjectPage() {
     error: detailError,
     isLoading: detailLoading,
   } = useGetProjectDetailByIdQuery({ endpoint: "api/projects", id: id });
-  console.log(detailData);
 
   if (detailLoading) {
     return (
       <main className="min-h-screen flex items-center justify-center">
-        <Loading size="sm" />
+        <Loading size="md" />
       </main>
     );
   }
@@ -71,29 +71,28 @@ export default function ProjectPage() {
   const website = stripHtmlTags(detail.website ?? "");
   const coverImageSrc = resolveMediaUrl(detail.image);
 
-  console.log(detail);
   return (
     <main className="relative flex-col flex gap-10 min-h-screen overflow-x-clip">
       <div className="-mt-42 relative h-90 sm:h-110 lg:h-140 xl:h-176 2xl:h-190 w-full flex items-end justify-end overflow-hidden">
         <div className="absolute inset-0 w-ful h-full z-10">
           {isImageLoading && (
-            <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100/70">
-              <Loading size="sm" />
-            </div>
+            <Skeleton className="absolute inset-0 z-10 h-full w-full rounded-none" />
           )}
-          <Image
-            src={coverImageSrc}
-            alt={title}
-            width={1000}
-            height={1000}
-            priority
-            className="object-contain w-full h-full"
-            onLoad={() => setIsImageLoading(false)}
-            onError={() => setIsImageLoading(false)}
-          />
+          {coverImageSrc && (
+            <Image
+              src={coverImageSrc}
+              alt={title}
+              width={1000}
+              height={1000}
+              priority
+              className="object-contain w-full h-full"
+              onLoad={() => setIsImageLoading(false)}
+              onError={() => setIsImageLoading(false)}
+            />
+          )}
           <div className="absolute inset-0 bg-black/50" />
         </div>
-        <div className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 header-info text-white flex flex-col items-end gap-2 lg:gap-14 z-20 mb-7 lg:mb-13">
+        <div className="container mx-auto px-5 lg:px-10 xl:px-20 header-info text-white flex flex-col items-end gap-2 lg:gap-14 z-20 mb-7 lg:mb-13">
           <TypingText
             as="h2"
             text={title}
@@ -116,7 +115,7 @@ export default function ProjectPage() {
           </div>
         </div>
       </div>
-      <div className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 flex flex-col gap-10">
+      <div className="container mx-auto px-5 lg:px-10 xl:px-20 flex flex-col gap-10">
         {details ? (
           <div className="flex flex-col gap-12 lg:gap-20">
             {details.map((item, index) => (
@@ -125,7 +124,7 @@ export default function ProjectPage() {
                 className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10"
               >
                 <div className="flex flex-col items-start gap-3">
-                  <div className="flex w-full items-center gap-3 text-xs font-light lg:text-sm">
+                  {/* <div className="flex w-full items-center gap-3 text-xs font-light lg:text-sm">
                     {details.map((_, i) => {
                       const isActive = i === index;
                       const isLast = i === details.length - 1;
@@ -133,27 +132,27 @@ export default function ProjectPage() {
                       const lineIsActive =
                         isActive || (lastIsActive && i === details.length - 2);
                       return (
-                        <Fragment key={i}>
-                          <span
-                            className={
-                              isActive ? "text-black" : "text-black/40"
-                            }
-                          >
-                            [0.{i + 1}]
-                          </span>
-                          {!isLast && (
-                            <span
-                              className={`h-px ${
-                                lineIsActive
-                                  ? "flex-1 bg-black/60"
-                                  : "w-6 bg-black/20"
-                              }`}
-                            />
-                          )}
-                        </Fragment>
+                        // <Fragment key={i}>
+                        //   <span
+                        //     className={
+                        //       isActive ? "text-black" : "text-black/40"
+                        //     }
+                        //   >
+                        //     [0.{i + 1}]
+                        //   </span>
+                        //   {!isLast && (
+                        //     <span
+                        //       className={`h-px ${
+                        //         lineIsActive
+                        //           ? "flex-1 bg-black/60"
+                        //           : "w-6 bg-black/20"
+                        //       }`}
+                        //     />
+                        //   )}
+                        // </Fragment>
                       );
                     })}
-                  </div>
+                  </div> */}
                   <TypingText
                     as="h3"
                     text={stripHtmlTags(item[`title_${locale}`] ?? "")}
@@ -188,7 +187,7 @@ export default function ProjectPage() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-          className="container mx-auto px-5 lg:px-10 flex flex-wrap gap-1"
+          className="container mx-auto px-5 lg:px-10 xl:px-20 flex flex-wrap gap-1"
         >
           {gallery.map((g) => (
             <GalleryImage
@@ -207,7 +206,7 @@ export default function ProjectPage() {
           onClick={() => setFullscreenImage(null)}
         >
           <div
-            className="relative h-[80vh] w-[80vw]"
+            className="relative h-[60vh] w-[60vw]"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
@@ -247,7 +246,7 @@ function GalleryImage({
     <div className="relative h-26 sm:h-40 md:h-52 lg:h-68 overflow-hidden aspect-square border border-black/10">
       {isLoading && (
         <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100/70">
-          <Loading size="sm" />
+          <Skeleton className="w-full h-full" />
         </div>
       )}
       <Image

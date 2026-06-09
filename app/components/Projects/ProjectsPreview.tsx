@@ -15,10 +15,10 @@ export default function ProjectsPreview() {
 
   return (
     <motion.section
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
       className="py-16 md:py-24"
     >
       <motion.div
@@ -26,7 +26,7 @@ export default function ProjectsPreview() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-        className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36"
+        className="container mx-auto px-5 lg:px-10 xl:px-20"
       >
         <motion.div
           initial={{ opacity: 0, y: 20 }}

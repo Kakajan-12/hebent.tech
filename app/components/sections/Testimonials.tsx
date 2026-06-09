@@ -48,7 +48,7 @@ export default function Testimonials() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-        className="container mx-auto mb-10 px-5 lg:px-10 xl:px-20 2xl:px-36"
+        className="container mx-auto mb-10 px-5 lg:px-10 xl:px-20"
       >
         <h2 className="text-3xl font-bold font-vox">{t("title")}</h2>
       </motion.div>

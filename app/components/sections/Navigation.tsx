@@ -87,12 +87,12 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
           role="dialog"
           aria-modal="true"
         >
-          <div className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 pt-32 lg:pt-42 pb-10 min-h-full">
+          <div className="container mx-auto px-5 lg:px-10 xl:px-20 pt-32 pb-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, ease: "easeOut", delay: 0.05 }}
-              className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8 xl:gap-12"
+              className="grid grid-cols-1 lg:grid-cols-[300px_1fr_300px] gap-4 lg:gap-8 xl:gap-12"
             >
               <div>
                 <motion.div

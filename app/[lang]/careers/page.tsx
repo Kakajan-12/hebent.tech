@@ -21,7 +21,7 @@ export default function CareersPage() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="min-h-screen mb-5 container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36"
+      className="min-h-screen mb-5 container mx-auto px-5 lg:px-10 xl:px-20"
     >
       <header className="">
         <h2 className="text-xl font-bold tracking-tight md:text-2xl text-left">

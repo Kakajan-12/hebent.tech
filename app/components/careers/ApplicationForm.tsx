@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import { useApplyJobMutation } from "@/app/api/api";
 import { VacancyResponse } from "@/app/Interfaces/interfaces";
 import Loading from "@/components/ui/Loading";
+import SuccessModal from "@/components/ui/SuccessModal";
 import { motion } from "motion/react";
 
 const MAX_FILES = 2;
@@ -35,6 +36,7 @@ const ApplicationForm = () => {
 
   const [files, setFiles] = useState<File[]>([]);
   const [phone, setPhone] = useState("");
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const PHONE_PREFIX = "+993";
   const PHONE_MAX_DIGITS = 8;
@@ -147,7 +149,7 @@ const ApplicationForm = () => {
 
     try {
       await applyJob(formData).unwrap();
-      toast.success("Application sent successfully");
+      setShowSuccessModal(true);
       form.reset();
       setFiles([]);
       setPhone("");
@@ -305,6 +307,16 @@ const ApplicationForm = () => {
           </button>
         </div>
       </form>
+
+      <SuccessModal
+        open={showSuccessModal}
+        onClose={() => setShowSuccessModal(false)}
+        title={t("successTitle")}
+        message={t("successMessage")}
+        closeLabel={t("close")}
+        titleId="application-success-title"
+        showActionButton={false}
+      />
     </motion.div>
   );
 };

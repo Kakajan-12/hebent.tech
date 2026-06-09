@@ -125,7 +125,7 @@ export default function AboutAccordion() {
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36"
+      className="container mx-auto px-5 lg:px-10 xl:px-20"
     >
       {SECTION_IDS.map((id, index) => {
         const status: SectionStatus =

@@ -12,6 +12,7 @@ import { stripHtmlTags } from "@/lib/utils";
 import { useState } from "react";
 import { motion } from "motion/react";
 import { HiOutlineXMark } from "react-icons/hi2";
+import { Skeleton } from "@/components/ui/skeleton";
 
 function formatNewsDate(iso: string, locale: string) {
   return new Intl.DateTimeFormat(locale, {
@@ -32,22 +33,32 @@ export default function NewsArticlePage() {
     isLoading: detailLoading,
   } = useGetNewsDetailByIdQuery({ endpoint: "api/news", id: id });
 
-  const [isImageLoading, setIsImageLoading] = useState(true);
+  const [loadedCoverSrc, setLoadedCoverSrc] = useState<string | null>(null);
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
 
-  if (detailLoading) {
+  const detail = detailData as NewsDetail | undefined;
+
+  if (detailError) {
+    notFound();
+  }
+
+  if (!detailLoading && !detail) {
+    notFound();
+  }
+
+  // Спиннер на всю загрузку данных — картинки сюда не входят, у них свой скелетон.
+  if (detailLoading || !detail) {
     return (
-      <main className="min-h-screen flex items-center justify-center">
-        <Loading size="sm" />
+      <main className="relative flex min-h-screen items-center justify-center">
+        <Loading size="md" />
       </main>
     );
   }
 
-  if (detailError || !detailData) {
-    notFound();
-  }
+  const coverImageSrc = resolveMediaUrl(detail.image);
+  const isCoverImageLoading =
+    Boolean(coverImageSrc) && loadedCoverSrc !== coverImageSrc;
 
-  const detail = detailData as NewsDetail;
   const gallery: NewsDetailGallery[] = Array.isArray(detail.gallery)
     ? detail.gallery
     : [];
@@ -55,30 +66,29 @@ export default function NewsArticlePage() {
   const title = stripHtmlTags(detail[`title_${locale}`]);
   const textHtml = detail[`text_${locale}`] ?? "";
   const category = stripHtmlTags(detail[`category_${locale}`]);
-  const coverImageSrc = resolveMediaUrl(detail.image);
 
   return (
     <main className="relative flex-col flex gap-10 min-h-screen">
-      <div className="-mt-42 relative h-90 sm:h-110 lg:h-140 xl:h-176 2xl:h-190 w-full flex items-end justify-end overflow-hidden">
+      <div className="-mt-42 relative h-90 sm:h-110 lg:h-140 xl:h-176 2xl:h-190 aspect-video w-full flex items-end justify-end overflow-hidden">
         <div className="absolute inset-0 w-ful h-full z-10">
-          {isImageLoading && (
-            <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100/70">
-              <Loading size="sm" />
-            </div>
+          {isCoverImageLoading && (
+            <Skeleton className="absolute inset-0 z-10 h-full w-full rounded-none" />
           )}
-          <Image
-            src={coverImageSrc}
-            alt={title}
-            width={1000}
-            height={1000}
-            priority
-            className="object-cover w-full h-full"
-            onLoad={() => setIsImageLoading(false)}
-            onError={() => setIsImageLoading(false)}
-          />
+          {coverImageSrc && (
+            <Image
+              src={coverImageSrc}
+              alt={title}
+              width={1000}
+              height={1000}
+              priority
+              className="object-cover w-full h-full"
+              onLoad={() => setLoadedCoverSrc(coverImageSrc)}
+              onError={() => setLoadedCoverSrc(coverImageSrc)}
+            />
+          )}
           <div className="absolute inset-0 bg-black/50" />
         </div>
-        <div className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 header-info text-white flex flex-col items-end gap-2 lg:gap-14 z-20 mb-7 lg:mb-13">
+        <div className="container mx-auto px-5 lg:px-10 xl:px-20 header-info text-white flex flex-col items-end gap-2 lg:gap-14 z-20 mb-7 lg:mb-13">
           <h2 className="text-xl md:text-3xl lg:text-4xl xl:text-6xl font-bold text-right">
             {title}
           </h2>
@@ -100,7 +110,7 @@ export default function NewsArticlePage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="container mx-auto px-5 lg:px-10 flex flex-col gap-10"
+        className="container mx-auto px-5 lg:px-10 xl:px-20 flex flex-col gap-10"
       >
         <div
           className="rich-text text-sm lg:text-xl"
@@ -138,7 +148,7 @@ export default function NewsArticlePage() {
           onClick={() => setFullscreenImage(null)}
         >
           <div
-            className="relative h-[80vh] w-[80vw]"
+            className="relative h-[60vh] w-[60vw]"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
@@ -178,7 +188,7 @@ function GalleryImage({
     <div className="relative h-26 sm:h-40 md:h-52 lg:h-68 overflow-hidden aspect-square border border-black/10">
       {isLoading && (
         <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100/70">
-          <Loading size="sm" />
+          <Skeleton className="w-full h-full" />
         </div>
       )}
       <Image

@@ -51,7 +51,7 @@ export default function AboutSection({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 flex flex-col gap-4 lg:gap-8 items-center justify-center"
+      className="container mx-auto px-5 lg:px-10 xl:px-20 flex flex-col gap-4 lg:gap-8 items-center justify-center"
     >
       <motion.div
         variants={{

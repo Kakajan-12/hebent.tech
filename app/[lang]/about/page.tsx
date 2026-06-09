@@ -15,7 +15,7 @@ export default function AboutPage() {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="min-h-screen flex flex-col gap-3 lg:gap-12"
     >
-      <h2 className="container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 text-5xl md:text-6xl font-bold text-left">
+      <h2 className="container mx-auto px-5 lg:px-10 xl:px-20 text-5xl md:text-6xl font-bold text-left">
         {t("title")}
       </h2>
       <AboutSection showLogo />

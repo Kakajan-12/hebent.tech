@@ -8,6 +8,7 @@ import { resolveMediaUrl } from "@/constant/constant";
 import Loading from "@/components/ui/Loading";
 import { useRouter } from "@/i18n/navigation";
 import { stripHtmlTags } from "@/lib/utils";
+import { Skeleton } from "@/components/ui/skeleton";
 
 type NewsCardProps = {
   id: string;
@@ -58,7 +59,7 @@ export default function NewsCard({
       <div className="relative w-full overflow-hidden h-42 sm:h-48">
         {isImageLoading && (
           <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100/70">
-            <Loading size="sm" />
+            <Skeleton className="w-full h-full" />
           </div>
         )}
         <Image

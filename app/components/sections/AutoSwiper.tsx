@@ -49,14 +49,14 @@ export const AutoSwiper: React.FC = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="mb-10 lg:mb-20"
+      className="mb-10 lg:mb-20 mt-5 lg:mt-10"
     >
       <motion.div
         initial={{ opacity: 0, x: 200 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
-        className="flex gap-2 mb-6 container mx-auto overflow-x-auto scrollbar-hide px-5 lg:px-10 xl:px-20 2xl:px-36"
+        className="flex gap-2 mb-6 container mx-auto overflow-x-auto scrollbar-hide px-5 lg:px-10 xl:px-20"
       >
         {services.map((service, index) => (
           <button

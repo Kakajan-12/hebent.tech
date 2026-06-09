@@ -16,8 +16,8 @@ import { useGetSocialLinksQuery, useGetPhonesQuery } from "@/app/api/api";
 import { BASE_API_URL } from "@/constant/constant";
 import { getSocialIcon } from "@/lib/socialIcon";
 import { useState, useEffect, useCallback } from "react";
-import { toast } from "sonner";
 import Loading from "@/components/ui/Loading";
+import SuccessModal from "@/components/ui/SuccessModal";
 import { GrUpdate } from "react-icons/gr";
 import { motion } from "motion/react";
 
@@ -27,13 +27,14 @@ function formatPhoneHref(number: string) {
 
 export default function ContactPage() {
   const t = useTranslations("Contacts");
+  const tPlaceHolder = useTranslations("Careers");
   const { data: socialLinks } = useGetSocialLinksQuery();
   const { data: phones } = useGetPhonesQuery();
 
   const [sending, setSending] = useState(false);
   const [captchaImage, setCaptchaImage] = useState("");
   const [captchaLoading, setCaptchaLoading] = useState(true);
-  const [success, setSuccess] = useState<string | null>(null);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const [formData, setFormData] = useState({
@@ -99,7 +100,6 @@ export default function ContactPage() {
     event.preventDefault();
     setSending(true);
     setError(null);
-    setSuccess(null);
 
     try {
       const res = await fetch(`${BASE_API_URL}/send`, {
@@ -115,8 +115,7 @@ export default function ContactPage() {
         setError(data.error || "Failed to send");
         void loadCaptcha();
       } else {
-        toast.success("Message sent successfully!");
-        setSuccess("Message sent successfully!");
+        setShowSuccessModal(true);
         setFormData({
           name: "",
           surname: "",
@@ -128,7 +127,6 @@ export default function ContactPage() {
       }
     } catch {
       setError("Server error");
-      toast.error("Failed to send message");
     } finally {
       setSending(false);
     }
@@ -163,26 +161,40 @@ export default function ContactPage() {
 
           <div className="body-info space-y-3 lg:space-y-8 ">
             <section>
-              <h3 className="text-base lg:text-lg xl:text-2xl font-bold border-b border-black mb-4 w-full">
+              <h3 className="text-base lg:text-lg xl:text-2xl font-bold w-full">
                 {t("visitUs")}
               </h3>
-              <p className="text-sm lg:text-base xl:text-xl font-medium">
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
+                style={{ transformOrigin: "left" }}
+                className="h-px bg-black"
+              />
+              <p className="text-sm lg:text-base xl:text-xl font-medium mt-4">
                 {t("address")}
               </p>
             </section>
 
             <section>
-              <h3 className="text-base lg:text-lg xl:text-2xl font-bold border-b border-black mb-4 w-full">
+              <h3 className="text-base lg:text-lg xl:text-2xl font-bold w-full">
                 {t("talkToUs")}
               </h3>
-              <div className="space-y-1">
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
+                style={{ transformOrigin: "left" }}
+                className="h-px bg-black"
+              />
+              <div className="space-y-1 mt-4">
                 <div className="flex justify-between items-start gap-4">
                   <ul className="flex flex-col gap-1">
                     {phones?.map((phone: Phone) => (
                       <li key={phone.id}>
                         <a
                           href={formatPhoneHref(phone.number)}
-                          className="text-sm lg:text-base xl:text-xl font-medium"
+                          className="text-sm lg:text-base xl:text-xl font-medium hover:text-brand hover:translate-x-1 transition-all duration-300 block"
                         >
                           {phone.number}
                         </a>
@@ -192,7 +204,7 @@ export default function ContactPage() {
                 </div>
                 <Link
                   href="mailto:info@hebent.tech"
-                  className="text-sm lg:text-base xl:text-xl hover:text-black transition-colors block"
+                  className="text-sm lg:text-base xl:text-xl hover:text-brand hover:translate-x-1 transition-all duration-300 block"
                 >
                   info@hebent.tech
                 </Link>
@@ -249,7 +261,7 @@ export default function ContactPage() {
                 id="name"
                 name="name"
                 type="text"
-                placeholder={t("name")}
+                placeholder={tPlaceHolder("name-placeholder")}
                 autoComplete="name"
                 value={formData.name}
                 onChange={handleChange}
@@ -268,7 +280,7 @@ export default function ContactPage() {
                 id="surname"
                 name="surname"
                 type="text"
-                placeholder={t("surname")}
+                placeholder={tPlaceHolder("surname-placeholder")}
                 className="text-sm lg:text-base xl:text-xl w-full p-2 bg-slate-200 border-b border-gray-300  focus:ring-1 focus:ring-gray-300 outline-none"
                 autoComplete="family-name"
                 value={formData.surname}
@@ -311,7 +323,7 @@ export default function ContactPage() {
               rows={6}
               className="text-sm lg:text-base xl:text-xl w-full p-2 bg-slate-200 border-b border-gray-300  focus:ring-1 focus:ring-gray-300 outline-none resize-none"
               autoComplete="off"
-              placeholder={t("comments")}
+              placeholder={t("comments-placeholder")}
               value={formData.message}
               onChange={handleChange}
               required
@@ -319,10 +331,6 @@ export default function ContactPage() {
           </div>
 
           <div className="flex flex-col gap-2 mt-4">
-            <label className="font-vox text-base lg:text-lg xl:text-xl font-light">
-              {t("enterCaptcha")}
-            </label>
-
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-4 flex-col">
                 {captchaImage ? (
@@ -357,7 +365,7 @@ export default function ContactPage() {
               type="text"
               onChange={handleChange}
               required
-              placeholder={t("enterCaptcha")}
+              placeholder={t("enterCaptcha-placeholder")}
               className="text-sm lg:text-base xl:text-xl w-full p-2 bg-slate-200 border-b border-gray-300  focus:ring-1 focus:ring-gray-300 outline-none"
               autoComplete="off"
             />
@@ -373,10 +381,18 @@ export default function ContactPage() {
           >
             {sending ? <Loading size="xs" className="white" /> : t("send")}
           </button>
-          {success && <p className="text-sm text-green-600">{success}</p>}
           {error && <p className="text-sm text-red-600">{error}</p>}
         </form>
       </motion.div>
+
+      <SuccessModal
+        open={showSuccessModal}
+        onClose={() => setShowSuccessModal(false)}
+        title={t("successTitle")}
+        message={t("successMessage")}
+        closeLabel={t("close")}
+        titleId="contact-success-title"
+      />
     </motion.main>
   );
 }

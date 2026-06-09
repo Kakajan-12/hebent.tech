@@ -5,6 +5,7 @@ import type { Video } from "@/app/Interfaces/interfaces";
 import { useGetVideosQuery } from "@/app/api/api";
 import { resolveMediaUrl } from "@/constant/constant";
 import Loading from "@/components/ui/Loading";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Video() {
   const { data, error, isLoading } = useGetVideosQuery();
@@ -16,7 +17,7 @@ export default function Video() {
   if (isLoading) {
     return (
       <div className="absolute inset-0 flex items-center justify-center">
-        <Loading />
+        <Skeleton className="w-full h-full" />
       </div>
     );
   }
@@ -30,7 +31,7 @@ export default function Video() {
   if (!videoSrc) {
     return (
       <div className="text-center text-lg leading-relaxed md:text-xl h-screen flex items-center justify-center">
-        No video found
+        <Skeleton className="w-full h-full" />
       </div>
     );
   }

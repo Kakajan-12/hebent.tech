@@ -41,8 +41,8 @@ export default function Footer() {
         }
         aria-hidden
       />
-      <div className="relative z-10 container mx-auto px-5 lg:px-10 xl:px-20 2xl:px-36 py-6 lg:py-14">
-        <div className="footer-container grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="relative z-10 container mx-auto px-5 lg:px-10 xl:px-20 py-6 lg:py-14">
+        <div className="footer-container grid grid-cols-1 lg:grid-cols-[1fr_1fr_100px] gap-8">
           <div className="flex flex-col gap-9 items-start">
             <Link href="/" className="inline-block">
               <Image
@@ -126,23 +126,25 @@ export default function Footer() {
               </ul>
             </div>
           </div>
+          <div className="flex flex-col items-end gap-1 font-semibold ">
+            <Link
+              href={`/privasypolicy`}
+              className="underline-offset-2 hover:underline whitespace-nowrap"
+            >
+              {t("privacy")} |
+            </Link>
+            <Link
+              href={`/cookies`}
+              className="underline-offset-2 hover:underline whitespace-nowrap"
+            >
+              Cookies |
+            </Link>
+          </div>
         </div>
       </div>
       <div className="relative z-10 w-full bg-linear-to-r from-[#002146] via-[#004180] to-[#0051AC] px-5 py-2 text-center text-xs text-white/60 lg:px-10">
         <div className="w-full flex flex-wrap items-center justify-center gap-1">
           <span className="whitespace-nowrap">{t("rights")} | </span>
-          <Link
-            href={`/privasypolicy`}
-            className="underline-offset-2 hover:underline whitespace-nowrap"
-          >
-            {t("privacy")} |
-          </Link>
-          <Link
-            href={`/cookies`}
-            className="underline-offset-2 hover:underline whitespace-nowrap"
-          >
-            Cookies |
-          </Link>
           <span className="whitespace-nowrap"> Powered by </span>
           <div className="flex items-center">
             <Image
