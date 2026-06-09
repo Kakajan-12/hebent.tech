@@ -65,15 +65,8 @@ export default function Products() {
           {products.map((product, index) => {
             const number = `/0.${index + 1}`;
             const content = (
-              <article className="group relative grid grid-cols-1 items-center gap-4 py-6 lg:py-8 transition-colors duration-300 md:grid-cols-2 md:gap-10 md:py-10">
-                <motion.div
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
-                  style={{ transformOrigin: "left" }}
-                  className="col-span-full h-px w-full bg-black"
-                />
+              <article className="group relative grid grid-cols-1 items-center gap-4 py-6 lg:py-8 transition-colors duration-300 md:grid-cols-2 md:gap-6 md:py-10">
+                <div className="col-span-full h-px w-full origin-left scale-x-0 bg-black transition-transform duration-700 ease-out delay-0 group-hover:scale-x-100 group-hover:delay-150" />
                 <div className="flex flex-col gap-6">
                   <p className="font-vox text-lg leading-snug lg:text-xl lg:max-w-xs">
                     {product.desc}
@@ -89,7 +82,7 @@ export default function Products() {
                   </h3>
                   <HiArrowUpRight
                     aria-hidden
-                    className="size-7 shrink-0 text-slate-400 transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 md:size-9"
+                    className="size-7 shrink-0 transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 md:size-9"
                   />
                 </div>
               </article>
@@ -126,7 +119,7 @@ export default function Products() {
               </motion.div>
             );
           })}
-          <div className="border-t border-slate-200" />
+          {/* <div className="border-t border-slate-200" /> */}
         </div>
       </div>
     </motion.section>
