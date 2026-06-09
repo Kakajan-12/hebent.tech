@@ -330,7 +330,7 @@ export default function ContactPage() {
             />
           </div>
 
-          <div className="flex flex-col gap-2 mt-4">
+          <div className="flex flex-col gap-2">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-4 flex-col">
                 {captchaImage ? (
@@ -375,8 +375,8 @@ export default function ContactPage() {
             disabled={sending}
             className={`mt-5 lg:mt-10 text w-full py-4 text-white font-bold rounded transition-colors uppercase tracking-widest text-sm flex items-center justify-center min-h-[56px] ${
               sending
-                ? "bg-[#0a2a4f] cursor-wait py-0"
-                : "bg-[#001F3F] hover:bg-black"
+                ? "bg-brand cursor-wait py-0"
+                : "bg-brand hover:bg-brand/80"
             }`}
           >
             {sending ? <Loading size="xs" className="white" /> : t("send")}

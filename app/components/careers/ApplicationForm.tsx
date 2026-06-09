@@ -301,7 +301,7 @@ const ApplicationForm = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="flex justify-center items-center font-vox bg-[#001F3F] text-white w-full max-w-[400px] min-h-[56px] py-4 rounded font-bold text-base lg:text-lg hover:bg-opacity-90 transition-colors"
+            className="flex justify-center items-center font-vox bg-brand text-white w-full max-w-[400px] min-h-[56px] py-4 rounded font-bold text-base lg:text-lg hover:bg-opacity-90 transition-colors"
           >
             {isLoading ? <Loading size="xs" /> : t("send")}
           </button>
