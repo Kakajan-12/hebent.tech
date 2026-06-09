@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
@@ -13,6 +13,7 @@ import { resolveMediaUrl } from "@/constant/constant";
 import Loading from "@/components/ui/Loading";
 import useAppLocale from "@/app/Hooks/GetLocale";
 import { stripHtmlTags } from "@/lib/utils";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const AUTOPLAY_DELAY = 5000;
 
@@ -25,14 +26,35 @@ export const AutoSwiper: React.FC = () => {
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const locale = useAppLocale();
-
+  const lastWheelRef = useRef<number>(0);
   const handleTabClick = (index: number) => {
     swiper?.slideToLoop(index);
   };
+
+  // Перелистывание горизонтальным жестом двумя пальцами на трекпаде —
+  // по одному слайду, с лупом. Нативный wheel-листенер с passive:false,
+  // чтобы перехватить жест до навигации браузера "назад/вперёд";
+  // троттлинг защищает от инерционного "хвоста" событий трекпада.
+  useEffect(() => {
+    if (!swiper) return;
+    const el = swiper.el;
+    const handleWheel = (e: WheelEvent) => {
+      if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return;
+      e.preventDefault();
+      if (Math.abs(e.deltaX) < 10) return;
+      if (e.timeStamp - lastWheelRef.current < 500) return;
+      lastWheelRef.current = e.timeStamp;
+      if (e.deltaX > 0) swiper.slideNext();
+      else swiper.slidePrev();
+    };
+    el.addEventListener("wheel", handleWheel, { passive: false });
+    return () => el.removeEventListener("wheel", handleWheel);
+  }, [swiper]);
+
   if (isLoading) {
     return (
       <div className="h-screen flex items-center justify-center">
-        <Loading size="sm" />
+        <Skeleton className="w-full h-full" />
       </div>
     );
   }
@@ -120,14 +142,17 @@ export const AutoSwiper: React.FC = () => {
                   className="object-cover lg:object-fill"
                   sizes="(max-width: 768px) 88vw, 75vw"
                 />
-                <div className="relative z-10 flex min-w-20 lg:min-w-60 flex-col items-start gap-1 lg:gap-2 rounded-sm border border-white/30 p-1 lg:p-2.5 backdrop-blur-sm">
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 bg-linear-to-r from-black/80 via-black/40 to-transparent"
+                />
+                <div className="relative z-10 flex min-w-20 lg:min-w-60 max-w-[70%] flex-col items-start gap-1 lg:gap-2">
                   <h3 className="text-[8px] lg:text-sm xl:text-xl font-bold uppercase text-white">
                     {stripHtmlTags(service[`title_${locale}`])}
                   </h3>
                   <p className="text-xs sm:text-sm lg:text-base xl:text-2xl font-medium leading-tight text-white wrap-break-word">
                     {stripHtmlTags(service[`text_${locale}`])}
                   </p>
-                  <div className="w-full h-full bg-black/20 absolute inset-0" />
                 </div>
               </div>
             </SwiperSlide>
