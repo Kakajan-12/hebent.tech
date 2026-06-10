@@ -17,7 +17,7 @@ export default function Header() {
     <header className="h-32 lg:h-42">
       {/* Frosted glass bar — always visible, except inside nav at lg+ */}
       <div
-        className={`fixed lg:top-5 left-0 right-0 z-110 pointer-events-none lg:px-10 xl:px-20 ${
+        className={`fixed lg:top-5 left-0 right-0 z-90 pointer-events-none lg:px-10 xl:px-20 ${
           isOpen ? "lg:hidden" : ""
         }`}
       >

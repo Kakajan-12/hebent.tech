@@ -41,43 +41,59 @@ export default function Footer() {
         }
         aria-hidden
       />
-      <div className="relative z-10 container mx-auto px-5 lg:px-10 xl:px-20 py-6 lg:py-14">
-        <div className="footer-container grid grid-cols-1 lg:grid-cols-[1fr_1fr_100px] gap-8">
-          <div className="flex flex-col gap-9 items-start">
-            <Link href="/" className="inline-block">
-              <Image
-                src="/logo.svg"
-                alt="HEBENT TECHNOLOGY"
-                width={300}
-                height={100}
-                className="h-auto w-auto brightness-0 invert"
-              />
-            </Link>
+      <div className="relative z-10 container mx-auto  px-5 lg:px-10 xl:px-20 py-6 lg:py-14">
+        <div className="footer-container grid grid-cols-1 lg:grid-cols-2 gap-8 justify-between">
+          <div className="flex flex-col gap-9 items-start justify-between">
+            <div className="flex flex-col gap-5 items-start justify-start">
+              <Link href="/" className="inline-block">
+                <Image
+                  src="/logo1.svg"
+                  alt="HEBENT TECHNOLOGY"
+                  width={300}
+                  height={100}
+                  className="h-auto w-auto brightness-0 invert"
+                />
+              </Link>
 
-            <div className="flex flex-wrap gap-9">
-              <WeChatLink className="inline-flex bg-white rounded p-1">
-                <IoLogoWechat className="w-5 h-5 lg:w-7 lg:h-7 text-[#004180] cursor-pointer hover:opacity-70" />
-              </WeChatLink>
-              {social.map((item: SocialLink) => {
-                const Icon = getSocialIcon(item.icon);
-                const external = item.url.startsWith("https://");
-                return (
-                  <a
-                    key={item.id}
-                    href={item.url}
-                    className="inline-flex bg-white rounded p-1"
-                    aria-label={item.icon}
-                    {...(external
-                      ? { target: "_blank", rel: "noopener noreferrer" }
-                      : {})}
-                  >
-                    <Icon className="w-5 h-5 lg:w-7 lg:h-7 text-[#004180] cursor-pointer hover:opacity-70 grow-0" />
-                  </a>
-                );
-              })}
+              <div className="flex flex-wrap gap-9">
+                <WeChatLink className="inline-flex bg-white rounded p-1">
+                  <IoLogoWechat className="w-5 h-5 lg:w-7 lg:h-7 text-[#004180] cursor-pointer hover:opacity-70" />
+                </WeChatLink>
+                {social.map((item: SocialLink) => {
+                  const Icon = getSocialIcon(item.icon);
+                  const external = item.url.startsWith("https://");
+                  return (
+                    <a
+                      key={item.id}
+                      href={item.url}
+                      className="inline-flex bg-white rounded p-1"
+                      aria-label={item.icon}
+                      {...(external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                    >
+                      <Icon className="w-5 h-5 lg:w-7 lg:h-7 text-[#004180] cursor-pointer hover:opacity-70 grow-0" />
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="flex flex-col justify-end items-start gap-1 font-semibold text-sm ">
+              <Link
+                href={`/privasypolicy`}
+                className="underline-offset-2 hover:underline whitespace-nowrap"
+              >
+                {t("privacy")} |
+              </Link>
+              <Link
+                href={`/cookies`}
+                className="underline-offset-2 hover:underline whitespace-nowrap"
+              >
+                Cookies |
+              </Link>
             </div>
           </div>
-          <div className="contacts-container flex flex-col sm:flex-row items-start sm:items-center justify-start gap-9 sm:gap-10 xl:gap-12 ">
+          <div className="contacts-container flex flex-col sm:flex-row items-start sm:items-center justify-end gap-9 sm:gap-10 xl:gap-12 ">
             <div className="contacts">
               <h3 className="text-lg font-semibold">{t("contacts")}</h3>
               <ul className="mt-4 lg:mt-6 space-y-4 text-sm text-white font-bold">
@@ -125,20 +141,6 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-          </div>
-          <div className="flex flex-col items-end gap-1 font-semibold ">
-            <Link
-              href={`/privasypolicy`}
-              className="underline-offset-2 hover:underline whitespace-nowrap"
-            >
-              {t("privacy")} |
-            </Link>
-            <Link
-              href={`/cookies`}
-              className="underline-offset-2 hover:underline whitespace-nowrap"
-            >
-              Cookies |
-            </Link>
           </div>
         </div>
       </div>

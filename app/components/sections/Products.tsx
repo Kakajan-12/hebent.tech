@@ -76,7 +76,7 @@ export default function Products() {
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between gap-4 md:justify-end">
+                <div className="flex items-center justify-between gap-4">
                   <h3 className="font-vox text-4xl font-bold tracking-tight transition-transform duration-500 ease group-hover:translate-x-3 sm:text-5xl md:text-6xl lg:text-7xl">
                     {product.label}
                   </h3>
