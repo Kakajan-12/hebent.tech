@@ -148,24 +148,24 @@ export default function NewsArticlePage() {
           onClick={() => setFullscreenImage(null)}
         >
           <div
-            className="relative h-[60vh] w-[60vw]"
+            className="relative inline-flex max-h-[80vh] max-w-[80vw] lg:max-h-[70vh] lg:max-w-[70vw]"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
               src={fullscreenImage}
               alt={title}
-              fill
-              className="object-contain h-full w-full"
-              sizes="(max-width: 768px) 80vw, 42rem"
+              width={1600}
+              height={1600}
+              className="object-contain h-auto w-auto max-h-[80vh] max-w-[80vw] lg:max-h-[70vh] lg:max-w-[70vw]"
               priority
             />
             <button
               type="button"
               aria-label="Close"
               onClick={() => setFullscreenImage(null)}
-              className="absolute top-10 -right-3 lg:-right-12 z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 p-0 leading-none text-white transition hover:bg-white/20"
+              className="absolute top-2 right-2 z-10 flex h-7 w-7 lg:h-10 lg:w-10 shrink-0 items-center justify-center rounded-full bg-white/10 p-0 leading-none text-white transition hover:bg-white/20"
             >
-              <HiOutlineXMark className="size-6 shrink-0" />
+              <HiOutlineXMark className="size-5 lg:size-6 shrink-0" />
             </button>
           </div>
         </div>

@@ -84,7 +84,7 @@ export const AutoSwiper: React.FC = () => {
           <button
             key={service.id}
             onClick={() => handleTabClick(index)}
-            className="relative  px-6 py-2 w-fit bg-white hover:bg-gray-200 transition-colors text-xs lg:text-sm font-semibold uppercase tracking-wider"
+            className="relative px-3 lg:px-6 py-2 w-fit bg-white hover:bg-gray-200 transition-colors text-xs lg:text-sm font-semibold uppercase tracking-wider"
           >
             {activeIndex === index && (
               <div

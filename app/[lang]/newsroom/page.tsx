@@ -71,7 +71,7 @@ export default function NewsroomPage() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+        transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
         className="mt-8 lg:mt-16"
         aria-label={t("categoriesAria")}
       >

@@ -206,7 +206,7 @@ export default function ProjectPage() {
           onClick={() => setFullscreenImage(null)}
         >
           <div
-            className="relative h-[60vh] w-[60vw]"
+            className="relative h-[60vh] w-[70vw]"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
@@ -221,9 +221,9 @@ export default function ProjectPage() {
               type="button"
               aria-label="Close"
               onClick={() => setFullscreenImage(null)}
-              className="absolute top-10 -right-3 lg:-right-12 z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 p-0 leading-none text-white transition hover:bg-white/20"
+              className="absolute top-26 sm:top-20 md:top-10 lg:top-0 -right-10 sm:-right-12 xl:-right-14 z-10 flex h-7 w-7 lg:h-10 lg:w-10 shrink-0 items-center justify-center rounded-full bg-white/10 p-0 leading-none text-white transition hover:bg-white/20"
             >
-              <HiOutlineXMark className="size-6 shrink-0" />
+              <HiOutlineXMark className="size-5 lg:size-6 shrink-0" />
             </button>
           </div>
         </div>

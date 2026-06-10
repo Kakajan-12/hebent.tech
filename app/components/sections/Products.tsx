@@ -39,7 +39,7 @@ export default function Products() {
 
   return (
     <motion.section
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -65,8 +65,8 @@ export default function Products() {
           {products.map((product, index) => {
             const number = `/0.${index + 1}`;
             const content = (
-              <article className="group relative grid grid-cols-1 items-center gap-4 py-6 lg:py-8 transition-colors duration-300 md:grid-cols-2 md:gap-6 md:py-10">
-                <div className="col-span-full h-px w-full origin-left scale-x-0 bg-black transition-transform duration-700 ease-out delay-0 group-hover:scale-x-100 group-hover:delay-150" />
+              <article className="group relative grid grid-cols-1 items-center gap-4 py-4 lg:py-8 transition-colors duration-300 md:grid-cols-2 md:gap-6 md:py-10">
+                <div className="col-span-full h-px w-full origin-left scale-x-100 bg-black lg:scale-x-0 lg:transition-transform lg:duration-700 lg:ease-out lg:group-hover:scale-x-100 lg:group-hover:delay-150" />
                 <div className="flex flex-col gap-6">
                   <p className="font-vox text-lg leading-snug lg:text-xl lg:max-w-xs">
                     {product.desc}

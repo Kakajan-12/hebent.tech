@@ -17,11 +17,15 @@ export default function Header() {
     <header className="h-32 lg:h-42">
       {/* Frosted glass bar — always visible, except inside nav at lg+ */}
       <div
-        className={`fixed lg:top-5 left-0 right-0 z-90 pointer-events-none lg:px-10 xl:px-20 ${
-          isOpen ? "lg:hidden" : ""
+        className={`fixed lg:top-5 left-0 right-0 pointer-events-none lg:px-10 xl:px-20 ${
+          isOpen ? "lg:hidden z-105" : "z-90"
         }`}
       >
-        <div className="container mx-auto h-15 md:h-18 shadow-sm backdrop-blur-xs bg-white/5 border-b border-white/10 rounded" />
+        <div
+          className={`container mx-auto h-15 md:h-18 shadow-sm backdrop-blur-xs border-b border-white/10 rounded ${
+            isOpen ? "bg-white/10" : "bg-white/5"
+          }`}
+        />
       </div>
 
       {/* Logo layer A — icon keeps its color; */}
@@ -37,12 +41,12 @@ export default function Header() {
               <Image
                 src="/logoIcon.svg"
                 alt="logo icon"
-                width={54}
-                height={54}
+                width={44}
+                height={44}
                 priority
-                className="w-[44px] h-[44px] md:w-[54px] md:h-[54px]"
+                className={`w-[44px] h-[44px] md:w-[54px] md:h-[54px] ${isOpen ? "brightness-0 invert" : ""}`}
               />
-              <Image
+              {/* <Image
                 src="/logo.svg"
                 alt="HEBENT TECHNOLOGY"
                 aria-hidden
@@ -51,7 +55,7 @@ export default function Header() {
                 priority
                 loading="eager"
                 className="invisible w-[88px] h-auto md:w-[112px] lg:w-[130px]"
-              />
+              /> */}
             </Link>
           </div>
         </div>

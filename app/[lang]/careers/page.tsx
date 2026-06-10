@@ -50,17 +50,17 @@ export default function CareersPage() {
         className="mt-6 border-t border-black pt-0"
       >
         {isLoading && (
-          <li className="py-6 font-vox text-sm md:text-base text-center">
+          <li className="flex justify-center items-center py-6 font-vox text-sm md:text-base">
             <Loading size="sm" />
           </li>
         )}
         {error && !isLoading && (
-          <li className="py-6 font-vox text-sm md:text-base text-red-700">
+          <li className="flex justify-center items-center py-6 font-vox text-sm md:text-base text-red-700">
             Failed to load vacancies.
           </li>
         )}
         {!isLoading && !error && jobs.length === 0 && (
-          <li className="py-6 font-vox text-sm md:text-base">
+          <li className="flex justify-center items-center py-6 font-vox text-sm md:text-base">
             No vacancies available right now.
           </li>
         )}

@@ -14,35 +14,17 @@ export default function ProjectsPreview() {
   const slice = projects.slice(0, 6);
 
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      className="py-16 md:py-24"
-    >
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-        className="container mx-auto px-5 lg:px-10 xl:px-20"
-      >
+    <section className="py-6 lg:py-24">
+      <div className="container mx-auto px-5 lg:px-10 xl:px-20">
+        {/* <div className="flex flex-wrap items-end justify-between gap-4 "> */}
+        <h2 className="text-3xl font-vox font-bold tracking-tight text-slate-900 md:text-4xl">
+          {t("title")}
+        </h2>
+        {/* </div> */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-          className="flex flex-wrap items-end justify-between gap-4 "
-        >
-          <h2 className="text-3xl font-vox font-bold tracking-tight text-slate-900 md:text-4xl">
-            {t("title")}
-          </h2>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
           className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
         >
@@ -69,7 +51,7 @@ export default function ProjectsPreview() {
             />
           ))}
         </motion.div>
-      </motion.div>
-    </motion.section>
+      </div>
+    </section>
   );
 }

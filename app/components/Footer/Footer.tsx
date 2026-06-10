@@ -55,7 +55,7 @@ export default function Footer() {
                 />
               </Link>
 
-              <div className="flex flex-wrap gap-9">
+              <div className="flex flex-wrap gap-5 lg:gap-8">
                 <WeChatLink className="inline-flex bg-white rounded p-1">
                   <IoLogoWechat className="w-5 h-5 lg:w-7 lg:h-7 text-[#004180] cursor-pointer hover:opacity-70" />
                 </WeChatLink>
