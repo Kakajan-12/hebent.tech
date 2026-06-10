@@ -228,7 +228,7 @@ const ApplicationForm = () => {
                 name="phone"
                 inputMode="numeric"
                 pattern="\+993[0-9]{8}"
-                placeholder={"+993 (00) 00 00 00"}
+                placeholder={"+993 (XX) XXX XX XX"}
                 value={phone}
                 required
                 onFocus={() => {
@@ -301,7 +301,7 @@ const ApplicationForm = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="flex justify-center items-center font-vox bg-brand text-white w-full max-w-[400px] min-h-[56px] py-4 rounded font-bold text-base lg:text-lg hover:bg-opacity-90 transition-colors"
+            className="flex justify-center items-center font-vox bg-brand text-white w-full max-w-[400px] py-2 lg:py-4 rounded font-bold text-base lg:text-lg hover:bg-opacity-90 transition-colors"
           >
             {isLoading ? <Loading size="xs" /> : t("send")}
           </button>

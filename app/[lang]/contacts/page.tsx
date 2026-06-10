@@ -109,7 +109,7 @@ export default function ContactPage() {
         body: JSON.stringify({ ...formData }),
       });
 
-      const data = (await res.json()) as { error?: string };
+      const data: { error?: string } = await res.json().catch(() => ({}));
 
       if (!res.ok) {
         setError(data.error || "Failed to send");
@@ -373,15 +373,19 @@ export default function ContactPage() {
           <button
             type="submit"
             disabled={sending}
-            className={`mt-5 lg:mt-10 text w-full py-4 text-white font-bold rounded transition-colors uppercase tracking-widest text-sm flex items-center justify-center min-h-[56px] ${
+            className={`mt-5 lg:mt-10 text w-full py-2 lg:py-4 text-white font-bold rounded transition-colors uppercase tracking-widest text-sm flex items-center justify-center ${
               sending
-                ? "bg-brand cursor-wait py-0"
-                : "bg-brand hover:bg-brand/80"
+                ? "bg-[#073fa1] cursor-wait py-0"
+                : "bg-[#073fa1] hover:bg-[#073fa1]/80"
             }`}
           >
             {sending ? <Loading size="xs" className="white" /> : t("send")}
           </button>
-          {error && <p className="text-sm text-red-600">{error}</p>}
+          {error && (
+            <p role="alert" className="text-sm text-red-600">
+              {error}
+            </p>
+          )}
         </form>
       </motion.div>
 
