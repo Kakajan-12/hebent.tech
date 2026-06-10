@@ -61,8 +61,12 @@ export default function ProjectsPreview() {
               No projects available right now.
             </div>
           )}
-          {slice.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+          {slice.map((project, index) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              small={index === 3}
+            />
           ))}
         </motion.div>
       </motion.div>
