@@ -46,7 +46,7 @@ export default function Header() {
                 priority
                 className={`w-[44px] h-[44px] md:w-[54px] md:h-[54px] ${isOpen ? "brightness-0 invert" : ""}`}
               />
-              {/* <Image
+              <Image
                 src="/logo.svg"
                 alt="HEBENT TECHNOLOGY"
                 aria-hidden
@@ -55,7 +55,7 @@ export default function Header() {
                 priority
                 loading="eager"
                 className="invisible w-[88px] h-auto md:w-[112px] lg:w-[130px]"
-              /> */}
+              />
             </Link>
           </div>
         </div>
