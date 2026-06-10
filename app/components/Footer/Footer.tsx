@@ -78,7 +78,7 @@ export default function Footer() {
                 })}
               </div>
             </div>
-            <div className="flex flex-col justify-end items-start gap-1 font-semibold text-sm ">
+            <div className="flex justify-end items-start gap-1 font-semibold text-sm ">
               <Link
                 href={`/privasypolicy`}
                 className="underline-offset-2 hover:underline whitespace-nowrap"
@@ -93,10 +93,10 @@ export default function Footer() {
               </Link>
             </div>
           </div>
-          <div className="contacts-container flex flex-col sm:flex-row items-start sm:items-center justify-end gap-9 sm:gap-10 xl:gap-12 ">
+          <div className="contacts-container flex flex-col sm:flex-row items-start sm:items-center justify-center gap-9 sm:gap-10 xl:gap-12 ">
             <div className="contacts">
               <h3 className="text-lg font-semibold">{t("contacts")}</h3>
-              <ul className="mt-4 lg:mt-6 space-y-4 text-sm text-white font-bold">
+              <ul className="mt-4 lg:mt-6 space-y-4 text-sm text-white font-normal">
                 {phones?.map((phone: Phone) => (
                   <li key={phone.id} className="flex gap-4 items-center">
                     <FiPhone

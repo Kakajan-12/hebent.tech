@@ -26,9 +26,9 @@ export default function ProjectCard({
   };
 
   return (
-    <div className="">
+    <div className="cut-card bg-brand p-px">
       <article
-        className="group relative stat-card aspect-video bg-white"
+        className="group relative cut-card aspect-square  bg-white"
         onClick={goToProject}
       >
         <Image
@@ -36,8 +36,8 @@ export default function ProjectCard({
           alt={title}
           fill
           sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
-          className={`object-contain transition duration-500 group-hover:scale-70 ${
-            small ? "scale-85" : ""
+          className={`object-contain transition duration-500 ${
+            small ? "scale-85 group-hover:scale-90" : "group-hover:scale-110"
           }`}
         />
         <div className="absolute inset-0 bg-black opacity-60 transition duration-300 lg:opacity-0 lg:group-hover:opacity-60" />
