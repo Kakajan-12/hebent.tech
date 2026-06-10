@@ -86,7 +86,7 @@ export default function NewsArticlePage() {
               onError={() => setLoadedCoverSrc(coverImageSrc)}
             />
           )}
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-linear-to-tl from-black/75 via-black/60 to-transparent" />
         </div>
         <div className="container mx-auto px-5 lg:px-10 xl:px-20 header-info text-white flex flex-col items-end gap-2 lg:gap-14 z-20 mb-7 lg:mb-13">
           <h2 className="text-xl md:text-3xl lg:text-4xl xl:text-6xl font-bold text-right">
