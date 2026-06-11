@@ -3,7 +3,7 @@
 import { notFound, useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import Loading from "@/components/ui/Loading";
 import { useGetProjectDetailByIdQuery } from "@/app/api/api";
 import useAppLocale from "@/app/Hooks/GetLocale";
@@ -118,7 +118,7 @@ export default function ProjectPage() {
       <div className="container mx-auto px-5 lg:px-10 xl:px-20 flex flex-col gap-10">
         {details ? (
           <div className="flex flex-col gap-12 lg:gap-20">
-            {details.map((item, index) => (
+            {details.map((item) => (
               <section
                 key={item.id}
                 className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10"
@@ -158,13 +158,13 @@ export default function ProjectPage() {
                     text={stripHtmlTags(item[`title_${locale}`] ?? "")}
                     speed={40}
                     animateOn="view"
-                    className="text-3xl font-light lg:text-5xl xl:text-6xl"
+                    className="text-3xl font-vox font-light lg:text-5xl"
                   />
                 </div>
 
                 <RichText
                   htmlContent={item[`text_${locale}`] ?? ""}
-                  className="rich-text font-vox text-sm font-normal lg:text-xl [&_li]:ml-5 [&_ol]:list-decimal [&_p]:mb-4 [&_p:last-child]:mb-0 [&_ul]:list-disc"
+                  className="rich-text text-sm font-normal lg:text-xl [&_li]:ml-5 [&_ol]:list-decimal [&_p]:mb-4 [&_p:last-child]:mb-0 [&_ul]:list-disc"
                 />
               </section>
             ))}
@@ -176,7 +176,7 @@ export default function ProjectPage() {
             text={tPage("gallery")}
             speed={50}
             animateOn="view"
-            className="text-3xl lg:text-4xl xl:text-6xl font-light"
+            className="text-3xl lg:text-4xl xl:text-5xl font-light"
           />
         )}
       </div>

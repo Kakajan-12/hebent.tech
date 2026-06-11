@@ -119,7 +119,7 @@ export default function NewsArticlePage() {
 
         {gallery.length > 0 && (
           <>
-            <h3 className="text-3xl lg:text-4xl xl:text-6xl font-light">
+            <h3 className="text-3xl lg:text-4xl xl:text-5xl font-light">
               {t("gallery")}
             </h3>
             <motion.div
