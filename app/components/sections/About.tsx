@@ -51,7 +51,7 @@ export default function AboutSection({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="container mx-auto px-5 lg:px-10 xl:px-20 flex flex-col gap-4 lg:gap-8 items-center justify-center"
+      className="container mx-auto px-5 lg:px-10 flex flex-col gap-4 lg:gap-8 items-center justify-center"
     >
       <motion.div
         variants={{
@@ -62,20 +62,22 @@ export default function AboutSection({
             transition: { duration: 0.5, ease: "easeOut" },
           },
         }}
-        className="flex flex-col sm:flex-row items-center w-full justify-center lg:justify-start gap-4"
+        className="flex flex-col lg:flex-row items-start lg:items-center w-full justify-center lg:justify-start gap-4"
       >
         {showLogo && (
-          <div className="flex items-center justify-start w-full lg:w-2/3">
+          <div className="flex items-center justify-end w-full lg:w-1/2">
             <Logo />
           </div>
         )}
-        {/* <RotatingLogo logos={logos} className="col-span-1" /> */}
+        <h2 className="block lg:hidden capitalize font-vox font-bold text-2xl md:text-3xl leading-tight text-right whitespace-nowrap">
+          {tAbout("title")}
+        </h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-          className="text-center lg:text-left text-lg md:text-xl font-vox leading-none lg:leading-relaxed"
+          className="text-lg md:text-2xl lg:text-3xl font-medium text-left lg:w-1/2"
         >
           {tAbout("body")}
         </motion.p>
@@ -91,7 +93,7 @@ export default function AboutSection({
             transition: { staggerChildren: 0.12, delayChildren: 0.2 },
           },
         }}
-        className="grid justify-items-center gap-2 md:gap-8 grid-cols-2 sm:grid-cols-4 w-full"
+        className="grid justify-items-center gap-2 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full"
       >
         {statistics.map((s) => (
           <motion.div

@@ -73,11 +73,11 @@
     }
   },
   "Careers": {
-    "title": "Biziň maksatymyzynyň bir bölegi boluň",
+    "title": "Biziň maksatymyzynyň <br></br> bir bölegi boluň",
     "text": "Hebent Tech-de biz görýäris: uly netije uly topardan başlaýar. Täsir etmek, hünärmenlikde ösmek we manysly zatlara goşant goşmak isleýän aňly, täjek we yhlasly adamlary hemişe gözleýäris.",
     "vacancies": "Açyk iş orunlary",
     "apply": "Ýüz tutmak",
-    "personal-info": "Kişisel mü informaciýa",
+    "personal-info": "Şahsy <br></br> maglumatlar",
     "name": "Ady",
     "surname": "Familiýasy",
     "name-placeholder": "Aman",
@@ -121,7 +121,7 @@
     "title": "Biz bilen habarlaşmak",
     "text": "Geliň bilelikde ajaýyp bir zat guralyň!",
     "description": "Eger taslamaňyz, soragyňyz bar bolsa ýa-da diňe salam bermek isleseňiz, biz sizden habar almaga şat bolarys.",
-    "visitUs": "Bize baryp görüň",
+    "visitUs": "Baş ofis",
     "talkToUs": "Biz bilen habarlaşyň",
     "email": "E-poçta",
     "phone": "Telefon raýyletmek",
@@ -155,6 +155,7 @@
     "viewAll": "Ählisini gör"
   },
   "Projects": {
+    "title": "Taslamalar",
     "heroBefore": "Biz işleýän sanly önümleriň saýlanyşy — olary",
     "designed": "dizaýn etdik",
     "and": "we",

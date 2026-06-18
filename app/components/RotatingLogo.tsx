@@ -51,7 +51,7 @@ export default function RotatingLogo({
             alt="logo"
             width={logo.width}
             height={logo.height}
-            className="h-3 lg:h-6 w-auto max-w-full"
+            className="h-6.5 md:h-10 lg:h-12 xl:h-14 w-auto max-w-full"
           />
         </motion.div>
       </AnimatePresence>

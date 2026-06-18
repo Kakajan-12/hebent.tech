@@ -74,15 +74,15 @@
     }
   },
   "Careers": {
-    "title": "Be part of our mission",
+    "title": "Be part of <br></br> our mission",
     "text": "At Hebent Tech, we believe that great work starts with great people. We're always looking for passionate, talented, and driven individuals who want to make an impact, grow professionally, and contribute to something meaningful.",
     "vacancies": "Current Vacancies",
     "apply": "Apply",
-    "personal-info": "Personal Information",
+    "personal-info": "Personal <br></br> Information",
     "name": "Name",
     "surname": "Surname",
-    "name-placeholder": "Aman",
-    "surname-placeholder": "Amanov",
+    "name-placeholder": "Enter your name",
+    "surname-placeholder": "Enter your surname",
     "email": "E-mail",
     "phoneNumber": "Phone number",
     "portfolio": "Portfolio",
@@ -122,7 +122,7 @@
     "title": "Contact Us",
     "text": "Let's build something great together!",
     "description": "If you have a project in mind, a question, or just want to say hello — we’d be happy to hear from you.",
-    "visitUs": "Visit Us",
+    "visitUs": "Head office",
     "talkToUs": "Talk to Us",
     "email": "Email",
     "phone": "Phone",
@@ -154,7 +154,8 @@
     "viewAll": "View all"
   },
   "Projects": {
-    "heroBefore": "A selection of digital products we've",
+    "title": "Projects",
+    "heroBefore": "A selection of digital products we have",
     "designed": "designed",
     "and": "and",
     "built": "built",

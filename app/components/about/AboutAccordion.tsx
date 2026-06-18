@@ -125,7 +125,7 @@ export default function AboutAccordion() {
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="container mx-auto px-5 lg:px-10 xl:px-20"
+      className="container mx-auto px-5 lg:px-10"
     >
       {SECTION_IDS.map((id, index) => {
         const status: SectionStatus =
@@ -199,7 +199,7 @@ function SectionRow({
       />
 
       <section
-        className={`grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-16 py-4 lg:py-10 transition-opacity duration-300 ${
+        className={`grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-12 py-4 lg:py-10 transition-opacity duration-300 ${
           status === "waiting" ? "opacity-0" : "opacity-100"
         }`}
         aria-hidden={status === "waiting"}
@@ -215,7 +215,7 @@ function SectionRow({
               currentPhase === "done"
             }
             onComplete={() => setPhase("title")}
-            className="font-light text-2xl lg:text-4xl"
+            className="font-vox font-bold text-xl lg:text-2xl"
           />
           <TypingText
             text={titleText}
@@ -224,7 +224,7 @@ function SectionRow({
               isDone || currentPhase === "content" || currentPhase === "done"
             }
             onComplete={() => setPhase("content")}
-            className="font-bold text-4xl lg:text-6xl"
+            className="font-vox font-bold text-4xl lg:text-6xl leading-6 lg:leading-10"
           />
         </h3>
 
@@ -285,7 +285,7 @@ function SectionContent({
         duration: CONTENT_DURATION,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className="font-vox text-sm leading-relaxed lg:text-lg xl:text-xl font-bold"
+      className="text-sm leading-relaxed lg:text-lg xl:text-xl font-medium"
     >
       {id === "process" ? (
         <ProcessContent t={t} />
@@ -308,7 +308,7 @@ function ProcessContent({
   return (
     <div className="space-y-1 lg:space-y-4">
       <p>{t("process.intro")}</p>
-      <ol className="list-decimal space-y-2 pl-5">
+      <ol className="list-decimal pl-5">
         {steps.map((step) => (
           <ProcessStep key={step} text={step} />
         ))}
@@ -327,11 +327,10 @@ function BulletListContent({
   const items = t.raw(`${sectionId}.items`) as string[];
 
   return (
-    <ul className="space-y-3">
+    <ul className="space-y-1">
       {items.map((item) => (
-        <li key={item} className="flex items-start gap-3">
-          <DiamondBullet />
-          <span>{item}</span>
+        <li key={item} className="flex items-start gap-1">
+          +<span>{item}</span>
         </li>
       ))}
     </ul>

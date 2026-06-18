@@ -7,6 +7,7 @@ import useAppLocale from "@/app/Hooks/GetLocale";
 import { Vacancy } from "@/app/Interfaces/interfaces";
 import Loading from "@/components/ui/Loading";
 import { motion } from "motion/react";
+import Heading from "@/components/Heading";
 
 export default function CareersPage() {
   const t = useTranslations("Careers");
@@ -21,23 +22,18 @@ export default function CareersPage() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="min-h-screen mb-5 container mx-auto px-5 lg:px-10 xl:px-20"
+      className="mb-5 container mx-auto px-5 lg:px-10"
     >
-      <header className="">
-        <h2 className="text-xl font-bold tracking-tight md:text-2xl text-left">
-          {t("title")}
-        </h2>
-        <p className="mt-2 font-vox font-normal text-sm lg:text-xl leading-relaxed text-left">
-          {t("text")}
-        </p>
-      </header>
-
+      <Heading
+        title={t.rich("title", { br: () => <br /> })}
+        description={t("text")}
+      />
       <motion.h3
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-        className="mt-10 lg:mt-15 text-xl font-bold  md:text-2xl text-center"
+        className="mt-10 lg:mt-15 font-vox text-xl font-bold md:text-4xl lg:text-5xl text-left"
       >
         {t("vacancies")}
       </motion.h3>

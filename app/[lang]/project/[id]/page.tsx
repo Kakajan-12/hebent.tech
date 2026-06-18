@@ -17,8 +17,9 @@ import RichText from "@/components/ui/Richtext";
 import TypingText from "@/components/ui/TypingText";
 import { motion } from "motion/react";
 import { stripHtmlTags } from "@/lib/utils";
-import { HiOutlineXMark } from "react-icons/hi2";
 import { Skeleton } from "@/components/ui/skeleton";
+import useDominantColor from "@/app/Hooks/useDominantColor";
+import GalleryLightbox from "@/components/ui/GalleryLightbox";
 
 type ProjectDetailResponse = ProjectDetail & {
   title_tk?: string;
@@ -38,13 +39,18 @@ export default function ProjectPage() {
   const locale = useAppLocale();
   const tPage = useTranslations("Projects");
   const [isImageLoading, setIsImageLoading] = useState(true);
-  const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const {
     data: detailData,
     error: detailError,
     isLoading: detailLoading,
   } = useGetProjectDetailByIdQuery({ endpoint: "api/projects", id: id });
+
+  const accentSrc = detailData
+    ? resolveMediaUrl((detailData as ProjectDetailResponse).image)
+    : null;
+  const accentColor = useDominantColor(accentSrc);
 
   if (detailLoading) {
     return (
@@ -68,13 +74,16 @@ export default function ProjectPage() {
 
   const title = stripHtmlTags(detail[`title_${locale}`] ?? "");
   const customer = stripHtmlTags(detail[`costumer_${locale}`] ?? "");
-  const website = stripHtmlTags(detail.website ?? "");
+  const website = stripHtmlTags(detail.website ?? "")
+    .replace(/^https?:\/\//, "")
+    .replace(/^www\./, "")
+    .replace(/\/+$/, "");
   const coverImageSrc = resolveMediaUrl(detail.image);
 
   return (
-    <main className="relative flex-col flex gap-10 min-h-screen overflow-x-clip">
-      <div className="-mt-42 relative h-90 sm:h-110 lg:h-140 xl:h-176 2xl:h-190 w-full flex items-end justify-end overflow-hidden">
-        <div className="absolute inset-0 w-ful h-full z-10">
+    <main className="relative flex-col flex gap-3 md:gap-10 min-h-screen overflow-x-clip">
+      <div className="-mt-42 relative h-90 sm:h-110 md:h-130 lg:h-140 xl:h-176 2xl:h-190 w-full flex items-end justify-end overflow-hidden bg-white">
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-2/3 h-2/3 z-10">
           {isImageLoading && (
             <Skeleton className="absolute inset-0 z-10 h-full w-full rounded-none" />
           )}
@@ -85,43 +94,43 @@ export default function ProjectPage() {
               width={1000}
               height={1000}
               priority
-              className="object-contain w-full h-full"
+              className="object-contain w-full h-full scale-80"
               onLoad={() => setIsImageLoading(false)}
               onError={() => setIsImageLoading(false)}
             />
           )}
-          <div className="absolute inset-0 bg-linear-to-tl from-black/75 via-black/60 to-transparent" />
         </div>
-        <div className="container mx-auto px-5 lg:px-10 xl:px-20 header-info text-white flex flex-col items-end gap-2 lg:gap-14 z-20 mb-7 lg:mb-13">
+        <div className="container mx-auto px-5 lg:px-10 header-info flex flex-col items-end gap-1 lg:gap-6 z-20 mb-7">
           <TypingText
             as="h2"
             text={title}
             speed={60}
             animateOn="mount"
-            className="text-3xl lg:text-4xl xl:text-6xl font-bold"
+            className="text-3xl lg:text-4xl xl:text-6xl font-bold max-w-xl"
+            style={{ color: accentColor }}
           />
-          <div className="flex flex-col gap-2">
-            <p className="text-sm lg:text-xl xl:text-2xl font-light text-left">
-              <span className="font-bold">{tPage("customer")}:</span> {customer}
+          <div className="flex flex-col items-start md:gap-2">
+            <p className="text-sm lg:text-xl xl:text-2xl font-light">
+              <span className="font-bold">{tPage("customer")}</span> {customer}
             </p>
             <a
               href={detail.website}
               target="_blank"
               rel="noreferrer"
-              className="text-sm lg:text-xl xl:text-2xl font-light text-left"
+              className="text-sm lg:text-xl xl:text-2xl font-light hover:underline"
             >
-              <span className="font-bold">{tPage("webSite")}:</span> {website}
+              <span className="font-bold">{tPage("webSite")}</span> {website}
             </a>
           </div>
         </div>
       </div>
-      <div className="container mx-auto px-5 lg:px-10 xl:px-20 flex flex-col gap-10">
+      <div className="container mx-auto px-5 lg:px-10 flex flex-col gap-3 md:gap-10">
         {details ? (
           <div className="flex flex-col gap-12 lg:gap-20">
             {details.map((item) => (
               <section
                 key={item.id}
-                className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10"
+                className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-3 lg:gap-10"
               >
                 <div className="flex flex-col items-start gap-3">
                   {/* <div className="flex w-full items-center gap-3 text-xs font-light lg:text-sm">
@@ -158,7 +167,7 @@ export default function ProjectPage() {
                     text={stripHtmlTags(item[`title_${locale}`] ?? "")}
                     speed={40}
                     animateOn="view"
-                    className="text-3xl font-vox font-light lg:text-5xl"
+                    className="text-3xl font-vox font-bold lg:text-5xl xl:text-6xl"
                   />
                 </div>
 
@@ -176,7 +185,7 @@ export default function ProjectPage() {
             text={tPage("gallery")}
             speed={50}
             animateOn="view"
-            className="text-3xl lg:text-4xl xl:text-5xl font-light"
+            className="text-3xl lg:text-5xl xl:text-6xl font-bold font-vox"
           />
         )}
       </div>
@@ -187,47 +196,25 @@ export default function ProjectPage() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-          className="container mx-auto px-5 lg:px-10 xl:px-20 flex flex-wrap gap-1"
+          className="container mx-auto px-5 lg:px-10 flex flex-wrap gap-1"
         >
-          {gallery.map((g) => (
+          {gallery.map((g, i) => (
             <GalleryImage
               key={g.id}
               src={resolveMediaUrl(g.images)}
               alt={title}
-              onClick={() => setFullscreenImage(resolveMediaUrl(g.images))}
+              onClick={() => setLightboxIndex(i)}
             />
           ))}
         </motion.div>
       )}
 
-      {fullscreenImage && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
-          onClick={() => setFullscreenImage(null)}
-        >
-          <div
-            className="relative h-[60vh] w-[70vw]"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Image
-              src={fullscreenImage}
-              alt={title}
-              fill
-              className="object-contain h-full w-full"
-              sizes="(max-width: 768px) 80vw, 42rem"
-              priority
-            />
-            <button
-              type="button"
-              aria-label="Close"
-              onClick={() => setFullscreenImage(null)}
-              className="absolute top-26 sm:top-20 md:top-10 lg:top-0 -right-10 sm:-right-12 xl:-right-14 z-10 flex h-7 w-7 lg:h-10 lg:w-10 shrink-0 items-center justify-center rounded-full bg-white/10 p-0 leading-none text-white transition hover:bg-white/20"
-            >
-              <HiOutlineXMark className="size-5 lg:size-6 shrink-0" />
-            </button>
-          </div>
-        </div>
-      )}
+      <GalleryLightbox
+        images={gallery.map((g) => resolveMediaUrl(g.images))}
+        index={lightboxIndex}
+        onClose={() => setLightboxIndex(null)}
+        alt={title}
+      />
     </main>
   );
 }

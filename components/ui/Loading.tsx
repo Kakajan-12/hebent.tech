@@ -1,64 +1,48 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import part1 from "@/public/loading/1.svg";
+import part2 from "@/public/loading/2.svg";
+import part3 from "@/public/loading/3.svg";
+import part4 from "@/public/loading/4.svg";
+import part5 from "@/public/loading/5.svg";
+import part6 from "@/public/loading/6.svg";
+import part7 from "@/public/loading/7.svg";
+import part8 from "@/public/loading/8.svg";
+import part9 from "@/public/loading/9.svg";
 import "./loading.css";
 
-type LogoPart = { d: string; center?: boolean; leftOfCenter?: boolean };
-
-/** Same shapes as public/loading/1–9.svg, assembled in logoIcon coordinates */
+type LogoPart = {
+  src: string;
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  center?: boolean;
+  leftOfCenter?: boolean;
+};
 const LOGO_PARTS: LogoPart[] = [
-  {
-    d: "M50.1052 0.864437L58.7317 9.49903C59.8704 10.6387 59.8704 12.4738 58.7317 13.6039L43.7366 28.613C42.5979 29.7527 40.7645 29.7527 39.6356 28.613L35.3223 24.2957V11.5466L46.0042 0.85477C47.1428 -0.284923 48.9762 -0.284923 50.1052 0.85477",
-  },
-  {
-    d: "M82.3533 16.4048V28.6227C82.3533 30.226 81.0506 31.5299 79.4488 31.5299H58.2394C56.6376 31.5299 55.335 30.226 55.335 28.6227V22.5186L64.3379 13.5073H79.4392C81.041 13.5073 82.3437 14.8112 82.3437 16.4145",
-  },
-  {
-    d: "M94.1363 50.1512L85.5097 58.7858C84.3711 59.9255 82.5377 59.9255 81.4087 58.7858L66.4135 43.7766C65.2749 42.6369 65.2749 40.8018 66.4135 39.6718L70.7268 35.3545H83.4641L94.146 46.0464C95.2846 47.1861 95.2846 49.0212 94.146 50.1512",
-  },
-  {
-    d: "M78.5123 82.3521H66.3058C64.704 82.3521 63.4014 81.0483 63.4014 79.445V58.2158C63.4014 56.6125 64.704 55.3086 66.3058 55.3086H72.4043L81.4072 64.3199V79.4353C81.4072 81.0386 80.1045 82.3425 78.5027 82.3425",
-  },
-  {
-    d: "M44.7979 94.1356L36.1714 85.501C35.0327 84.3613 35.0327 82.5262 36.1714 81.3961L51.1666 66.387C52.3052 65.2473 54.1386 65.2473 55.2676 66.387L59.5808 70.7043V83.4534L48.8989 94.1453C47.7603 95.285 45.9269 95.285 44.7979 94.1453",
-  },
-  {
-    d: "M12.6182 78.5953V66.3774C12.6182 64.7741 13.9208 63.4702 15.5226 63.4702H36.732C38.3339 63.4702 39.6365 64.7741 39.6365 66.3774V72.4815L30.6336 81.4928H15.5323C13.9305 81.4928 12.6278 80.1889 12.6278 78.5856",
-  },
-  {
-    d: "M0.863617 44.8488L9.49019 36.2141C10.6288 35.0745 12.4622 35.0745 13.5912 36.2141L28.5864 51.2233C29.725 52.363 29.725 54.1981 28.5864 55.3282L24.2731 59.6455H11.5359L0.853973 48.9536C-0.284658 47.8139 -0.284658 45.9788 0.853973 44.8488",
-    leftOfCenter: true,
-  },
-  {
-    d: "M16.3792 12.6475H28.5857C30.1875 12.6475 31.4902 13.9514 31.4902 15.5547V36.7838C31.4902 38.3871 30.1875 39.691 28.5857 39.691H22.4873L13.4844 30.6797V15.5643C13.4844 13.961 14.787 12.6571 16.3888 12.6571",
-  },
-  {
-    d: "M56.4443 42.5984V52.4113C56.4443 53.184 56.1355 53.918 55.5951 54.4686C55.1802 54.8839 54.8135 55.2509 54.389 55.6662C53.8486 56.2071 53.1056 56.5162 52.3433 56.5162H42.5395C41.7772 56.5162 41.0342 56.2071 40.4938 55.6662C40.0789 55.2509 39.7026 54.8839 39.2876 54.4686C38.7376 53.918 38.4385 53.184 38.4385 52.4113V42.5984C38.4385 41.8257 38.7473 41.0917 39.2876 40.5411C39.7026 40.1258 40.0692 39.7491 40.4938 39.3338C41.0342 38.793 41.7772 38.4839 42.5491 38.4839H52.3529C53.1249 38.4839 53.8582 38.793 54.4083 39.3338C54.8232 39.7491 55.1995 40.1258 55.6144 40.5411C56.1548 41.0917 56.4636 41.8257 56.4636 42.5984",
-    center: true,
-  },
+  { src: part1.src, x: 35.32, y: 0.85, w: 23.41, h: 27.76 },
+  { src: part2.src, x: 55.34, y: 13.51, w: 27.02, h: 18.02 },
+  { src: part3.src, x: 66.41, y: 35.35, w: 27.73, h: 23.43 },
+  { src: part4.src, x: 63.4, y: 55.31, w: 18.01, h: 27.04 },
+  { src: part5.src, x: 36.17, y: 66.39, w: 23.41, h: 27.76 },
+  { src: part6.src, x: 12.62, y: 63.47, w: 27.02, h: 18.02 },
+  { src: part7.src, x: 0.85, y: 36.21, w: 27.73, h: 23.43, leftOfCenter: true },
+  { src: part8.src, x: 13.48, y: 12.65, w: 18.01, h: 27.04 },
+  { src: part9.src, x: 38.44, y: 38.48, w: 18.03, h: 18.03, center: true },
 ];
-
-function ringDelay(index: number, count: number, dur: number) {
-  if (count <= 1) return 0;
-  return -(dur - (index / (count - 1)) * dur);
-}
 
 function applyPulseAnimation(loader: HTMLElement) {
   const dur =
     parseFloat(getComputedStyle(loader).getPropertyValue("--dur")) || 1.8;
-  const ring = loader.querySelectorAll<SVGGeometryElement>(".block.ring");
-
+  const ring = loader.querySelectorAll<SVGElement>(".block.ring");
   ring.forEach((el, i) => {
-    const delay = ringDelay(i, ring.length, dur);
+    const delay = -((ring.length - i) / ring.length) * dur;
     el.style.animationDelay = `${delay.toFixed(2)}s`;
   });
-
-  const center = loader.querySelector<SVGGeometryElement>(".block.center");
-  const left = loader.querySelector<SVGGeometryElement>(".block.ring-left");
-  if (center && left) {
-    const leftIndex = Array.from(ring).indexOf(left);
-    center.style.animationDelay = `${ringDelay(leftIndex, ring.length, dur).toFixed(2)}s`;
-  }
+  const center = loader.querySelector<SVGElement>(".block.center");
+  if (center) center.style.animationDelay = "0s";
 }
 
 type LoadingProps = {
@@ -89,11 +73,15 @@ function Loading({ size = "md", className = "" }: LoadingProps) {
         aria-hidden
       >
         {LOGO_PARTS.map((part, index) => (
-          <path
+          <image
             key={index}
             className={`block${part.center ? " center" : " ring"}${part.leftOfCenter ? " ring-left" : ""}`}
-            d={part.d}
-            fill="var(--c)"
+            href={part.src}
+            x={part.x}
+            y={part.y}
+            width={part.w}
+            height={part.h}
+            preserveAspectRatio="none"
           />
         ))}
       </svg>

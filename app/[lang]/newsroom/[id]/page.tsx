@@ -11,8 +11,8 @@ import { resolveMediaUrl } from "@/constant/constant";
 import { stripHtmlTags } from "@/lib/utils";
 import { useState } from "react";
 import { motion } from "motion/react";
-import { HiOutlineXMark } from "react-icons/hi2";
 import { Skeleton } from "@/components/ui/skeleton";
+import GalleryLightbox from "@/components/ui/GalleryLightbox";
 
 function formatNewsDate(iso: string, locale: string) {
   return new Intl.DateTimeFormat(locale, {
@@ -34,7 +34,7 @@ export default function NewsArticlePage() {
   } = useGetNewsDetailByIdQuery({ endpoint: "api/news", id: id });
 
   const [loadedCoverSrc, setLoadedCoverSrc] = useState<string | null>(null);
-  const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const detail = detailData as NewsDetail | undefined;
 
@@ -86,10 +86,11 @@ export default function NewsArticlePage() {
               onError={() => setLoadedCoverSrc(coverImageSrc)}
             />
           )}
-          <div className="absolute inset-0 bg-linear-to-tl from-black/75 via-black/60 to-transparent" />
+          <div className="pointer-events-none absolute inset-0 bg-linear-to-tl from-black/55 via-black/35 to-transparent z-10" />
         </div>
-        <div className="container mx-auto px-5 lg:px-10 xl:px-20 header-info text-white flex flex-col items-end gap-2 lg:gap-14 z-20 mb-7 lg:mb-13">
-          <h2 className="text-xl md:text-3xl lg:text-4xl xl:text-6xl font-bold text-right">
+
+        <div className="container px-5 lg:px-10 header-info text-white flex flex-col items-end gap-2 lg:gap-14 z-20 mb-7 lg:mb-13">
+          <h2 className="text-xl md:text-3xl lg:text-4xl xl:text-6xl font-bold text-right max-w-md pt-10">
             {title}
           </h2>
           <div className="flex flex-col gap-2">
@@ -110,7 +111,7 @@ export default function NewsArticlePage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="container mx-auto px-5 lg:px-10 xl:px-20 flex flex-col gap-10"
+        className="container mx-auto px-5 lg:px-10 flex flex-col gap-10"
       >
         <div
           className="rich-text text-sm lg:text-xl"
@@ -119,7 +120,7 @@ export default function NewsArticlePage() {
 
         {gallery.length > 0 && (
           <>
-            <h3 className="text-3xl lg:text-4xl xl:text-5xl font-light">
+            <h3 className="text-3xl lg:text-5xl xl:text-6xl font-bold font-vox">
               {t("gallery")}
             </h3>
             <motion.div
@@ -129,12 +130,12 @@ export default function NewsArticlePage() {
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
               className="flex flex-wrap gap-1"
             >
-              {gallery.map((g) => (
+              {gallery.map((g, i) => (
                 <GalleryImage
                   key={g.id}
                   src={resolveMediaUrl(g.image)}
                   alt={title}
-                  onClick={() => setFullscreenImage(resolveMediaUrl(g.image))}
+                  onClick={() => setLightboxIndex(i)}
                 />
               ))}
             </motion.div>
@@ -142,34 +143,12 @@ export default function NewsArticlePage() {
         )}
       </motion.div>
 
-      {fullscreenImage && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
-          onClick={() => setFullscreenImage(null)}
-        >
-          <div
-            className="relative inline-flex max-h-[80vh] max-w-[80vw] lg:max-h-[70vh] lg:max-w-[70vw]"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Image
-              src={fullscreenImage}
-              alt={title}
-              width={1600}
-              height={1600}
-              className="object-contain h-auto w-auto max-h-[80vh] max-w-[80vw] lg:max-h-[70vh] lg:max-w-[70vw]"
-              priority
-            />
-            <button
-              type="button"
-              aria-label="Close"
-              onClick={() => setFullscreenImage(null)}
-              className="absolute top-2 right-2 z-10 flex h-7 w-7 lg:h-10 lg:w-10 shrink-0 items-center justify-center rounded-full bg-white/10 p-0 leading-none text-white transition hover:bg-white/20"
-            >
-              <HiOutlineXMark className="size-5 lg:size-6 shrink-0" />
-            </button>
-          </div>
-        </div>
-      )}
+      <GalleryLightbox
+        images={gallery.map((g) => resolveMediaUrl(g.image))}
+        index={lightboxIndex}
+        onClose={() => setLightboxIndex(null)}
+        alt={title}
+      />
     </main>
   );
 }

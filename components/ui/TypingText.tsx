@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, ReactNode } from "react";
+import { useEffect, useRef, useState, ReactNode, CSSProperties } from "react";
 
 type Tag = "span" | "h1" | "h2" | "h3" | "h4" | "p" | "div";
 
@@ -14,6 +14,7 @@ interface TypingTextProps {
   animateOn?: "view" | "mount";
   as?: Tag;
   className?: string;
+  style?: CSSProperties;
 }
 
 export default function TypingText({
@@ -26,6 +27,7 @@ export default function TypingText({
   animateOn = "view",
   as = "span",
   className = "",
+  style,
 }: TypingTextProps) {
   const [display, setDisplay] = useState("");
   const [started, setStarted] = useState(animateOn === "mount");
@@ -86,7 +88,7 @@ export default function TypingText({
     </>
   );
 
-  const commonProps = { className, "aria-label": text };
+  const commonProps = { className, style, "aria-label": text };
 
   switch (as) {
     case "h1":

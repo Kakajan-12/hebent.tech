@@ -49,7 +49,7 @@ const PrivacyPolicyPage: React.FC = () => {
   ];
 
   return (
-    <section className="min-h-screen container mx-auto px-5 sm:px-7 lg:px-10 xl:px-20 2xl:px-36 text-black">
+    <section className="min-h-screen container mx-auto px-5 sm:px-7 lg:px-10 text-black">
       <div className="mx-auto flex flex-col">
         {/* Заголовок */}
         <h2 className="font-vox text-5xl md:text-6xl font-bold tracking-tight mb-6 lg:mb-12">

@@ -15,6 +15,7 @@ import { useRouter } from "@/i18n/navigation";
 import { motion } from "motion/react";
 import TypingText from "@/components/ui/TypingText";
 import { stripHtmlTags } from "@/lib/utils";
+import Heading from "@/components/Heading";
 
 const PAGE_SIZE = 9;
 
@@ -107,7 +108,7 @@ export default function ProjectsClient() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="container mx-auto px-5 sm:px-10 lg:px-20 xl:px-36"
+      className="container mx-auto px-5 lg:px-10"
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -116,28 +117,32 @@ export default function ProjectsClient() {
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
         className="flex flex-col gap-5 lg:gap-15"
       >
-        <p className="text-xl lg:text-3xl">
-          {t("heroBefore")}{" "}
-          <TypingText
-            as="span"
-            key={t("designed")}
-            text={t("designed")}
-            speed={120}
-            animateOn="view"
-            className="text-brand"
-          />
-          {/* <span className="font-semibold text-brand">{t("designed")}</span>{" "} */}{" "}
-          {t("and")}{" "}
-          <TypingText
-            as="span"
-            key={t("built")}
-            text={t("built")}
-            speed={120}
-            animateOn="view"
-            className="text-brand"
-          />
-          {t("heroAfter")}
-        </p>
+        <Heading
+          title={t("title")}
+          description={
+            <>
+              {t("heroBefore")}{" "}
+              <TypingText
+                as="span"
+                key={t("designed")}
+                text={t("designed")}
+                speed={120}
+                animateOn="view"
+                className="text-brand"
+              />{" "}
+              {t("and")}{" "}
+              <TypingText
+                as="span"
+                key={t("built")}
+                text={t("built")}
+                speed={120}
+                animateOn="view"
+                className="text-brand"
+              />
+              {t("heroAfter")}
+            </>
+          }
+        />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -147,7 +152,7 @@ export default function ProjectsClient() {
         >
           <label
             htmlFor="search"
-            className="relative flex h-10 w-full items-center justify-between rounded-sm border border-[#ABB7C2] px-3 shadow-sm md:min-w-2xs md:max-w-md"
+            className="relative flex h-10 w-full items-center justify-between rounded-sm border border-[#ABB7C2] px-3 shadow-sm md:w-102"
           >
             <input
               id="search"
@@ -168,10 +173,7 @@ export default function ProjectsClient() {
               <FiSearch className="size-5 text-[#ABB7C2]" aria-hidden />
             </span>
           </label>
-          <div
-            ref={sortRef}
-            className="w-full md:min-w-2xs md:max-w-sm relative z-20"
-          >
+          <div ref={sortRef} className="w-full md:w-102 relative z-20">
             <button
               type="button"
               aria-haspopup="listbox"
@@ -217,7 +219,6 @@ export default function ProjectsClient() {
             )}
           </div>
         </motion.div>
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -249,7 +250,6 @@ export default function ProjectsClient() {
             />
           ))}
         </motion.div>
-
         <Pagination
           page={safePage}
           totalPages={totalPages}

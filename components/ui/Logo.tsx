@@ -23,24 +23,17 @@ function Logo() {
   ];
 
   return (
-    <div className="flex items-center justify-start gap-2">
+    <div className="flex items-end justify-start md:pr-5 lg:pr-10 xl:pr-25">
+      {/* <div className="col-span-2 row-span-2"> */}
+      <RotatingLogo logos={logos} />
       <Image
-        src={logo}
-        alt="logo"
-        width={logo.width}
-        height={logo.height}
-        className="col-span-1 row-span-2 w-[60px] lg:w-[90px] h-auto"
+        src={logoText}
+        alt="logo text"
+        width={logoText.width}
+        height={logoText.height}
+        className="w-[100px] md:w-[150px] lg:w-[180px] xl:w-[220px] h-auto"
       />
-      <div className="col-span-2 row-span-2">
-        <Image
-          src={logoText}
-          alt="logo text"
-          width={logoText.width}
-          height={logoText.height}
-          className="col-span-2 row-span-1 w-[50px] lg:w-[70px] h-auto pb-2"
-        />
-        <RotatingLogo logos={logos} />
-      </div>
+      {/* </div> */}
     </div>
   );
 }

@@ -45,7 +45,7 @@ export default function Products() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="py-16 md:py-20"
     >
-      <div className="container mx-auto px-5 lg:px-10 xl:px-20">
+      <div className="container mx-auto px-5 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -56,12 +56,12 @@ export default function Products() {
           <h2 className="text-3xl font-vox font-bold tracking-tight md:text-4xl">
             {t("title")}
           </h2>
-          <p className="max-w-2xl font-vox text-base text-slate-500 md:text-lg">
+          <p className="max-w-2xl font-vox text-base text-[#3D6196] md:text-lg">
             {t("subtitle")}
           </p>
         </motion.div>
 
-        <div className="mt-5 lg:mt-10">
+        <div className="mt-5">
           {products.map((product, index) => {
             const number = `/0.${index + 1}`;
             const content = (
@@ -71,7 +71,7 @@ export default function Products() {
                   <p className="font-vox text-lg leading-snug lg:text-xl lg:max-w-xs">
                     {product.desc}
                   </p>
-                  <span className="hidden lg:block font-vox text-sm text-slate-400 ">
+                  <span className="hidden lg:block font-vox text-sm text-[#717182] ">
                     {number}
                   </span>
                 </div>

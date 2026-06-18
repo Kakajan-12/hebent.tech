@@ -20,6 +20,7 @@ import Loading from "@/components/ui/Loading";
 import SuccessModal from "@/components/ui/SuccessModal";
 import { GrUpdate } from "react-icons/gr";
 import { motion } from "motion/react";
+import Heading from "@/components/Heading";
 
 function formatPhoneHref(number: string) {
   return `tel:${number.replace(/[^+\d]/g, "")}`;
@@ -37,6 +38,7 @@ export default function ContactPage() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  console.log(socialLinks);
   const [formData, setFormData] = useState({
     name: "",
     surname: "",
@@ -44,10 +46,6 @@ export default function ContactPage() {
     message: "",
     captchaText: "",
   });
-
-  const social = (socialLinks ?? []).filter(
-    (link: SocialLink) => link.icon?.toLowerCase() !== "wechat",
-  );
 
   const fetchCaptcha = useCallback(async () => {
     const res = await fetch(`${BASE_API_URL}/captcha`, {
@@ -138,11 +136,9 @@ export default function ContactPage() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="min-h-screen container mx-auto px-5 sm:px-7 lg:px-10 xl:px-20 2xl:px-36"
+      className="min-h-screen container mx-auto px-5 sm:px-7 lg:px-10"
     >
-      <h2 className="text-3xl lg:text-5xl font-bold tracking-tighter mb-4 lg:mb-10 uppercase">
-        {t("title")}
-      </h2>
+      <Heading title={t("title")} className="mb-4 lg:mb-10 xl:mb-16" />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -151,15 +147,15 @@ export default function ContactPage() {
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
         className="grid grid-cols-1 lg:grid-cols-2 gap-1 lg:gap-16 xl:gap-36"
       >
-        <div className="contact-info space-y-3 lg:space-y-8 mb-3 lg:mb-0">
+        <div className="contact-info space-y-3 lg:space-y-8 xl:space-y-14 mb-3 lg:mb-0">
           <div className="header-info flex flex-col gap-1 lg:gap-4">
-            <h2 className="text-base lg:text-2xl font-bold">{t("text")}</h2>
-            <p className="text-sm lg:text-base xl:text-xl max-w-2xl leading-relaxed">
+            <h3 className="text-base lg:text-2xl font-bold">{t("text")}</h3>
+            <p className="text-sm lg:text-base xl:text-xl max-w-2xl font-medium">
               {t("description")}
             </p>
           </div>
 
-          <div className="body-info space-y-3 lg:space-y-8 ">
+          <div className="body-info space-y-3 lg:space-y-8 xl:space-y-14 ">
             <section>
               <h3 className="text-base lg:text-lg xl:text-2xl font-bold w-full">
                 {t("visitUs")}
@@ -213,32 +209,19 @@ export default function ContactPage() {
           </div>
 
           <div className="flex gap-6">
-            <Tooltip>
-              <TooltipTrigger>
-                <WeChatLink>
-                  <IoLogoWechat className="w-8 h-8 lg:w-10 lg:h-10 text-[#073fa1] cursor-pointer hover:opacity-70" />
-                </WeChatLink>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p className="hidden lg:block font-vox text-sm text-brand">
-                  WeChat ID: davud3108
-                </p>
-              </TooltipContent>
-            </Tooltip>
-            {social.map((item: SocialLink) => {
-              const Icon = getSocialIcon(item.icon);
+            {socialLinks?.map((item: SocialLink) => {
               const external = item.url.startsWith("http");
               return (
                 <a
                   key={item.id}
                   href={item.url}
-                  className="inline-flex"
+                  className="flex items-center justify-center max-w-44 min-w-38 capitalize text-sm  lg:text-base font-medium bg-white py-3 px-12 hover:text-white hover:bg-[#777D84] transition-all duration-300 border border-black"
                   aria-label={item.icon}
                   {...(external
                     ? { target: "_blank", rel: "noopener noreferrer" }
                     : {})}
                 >
-                  <Icon className="w-8 h-8 lg:w-10 lg:h-10 text-[#073fa1] cursor-pointer hover:opacity-70" />
+                  {item.icon}
                 </a>
               );
             })}
@@ -246,15 +229,12 @@ export default function ContactPage() {
         </div>
 
         <form
-          className="form-contact flex flex-col gap-2 "
+          className="form-contact flex flex-col gap-8 lg:gap-10 "
           onSubmit={handleContactSubmit}
         >
-          <div className="grid grid-cols-1 gap-2">
-            <div className="flex flex-col gap-2">
-              <label
-                htmlFor="name"
-                className="font-vox text-base lg:text-lg xl:text-xl font-light"
-              >
+          <div className="grid grid-cols-1 gap-8 lg:gap-10">
+            <div className="flex flex-col border border-[#6B737A] relative">
+              <label htmlFor="name" className="label-style">
                 {t("name")}
               </label>
               <input
@@ -266,14 +246,11 @@ export default function ContactPage() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="text-sm lg:text-base xl:text-xl w-full p-2 bg-slate-200 border-b border-gray-300  focus:ring-1 focus:ring-gray-300 outline-none"
+                className="input-style focus:ring-1 focus:ring-[#253081] outline-none"
               />
             </div>
-            <div className="flex flex-col gap-2">
-              <label
-                htmlFor="surname"
-                className="font-vox text-base lg:text-lg xl:text-xl font-light"
-              >
+            <div className="flex flex-col border border-[#6B737A] relative">
+              <label htmlFor="surname" className="label-style">
                 {t("surname")}
               </label>
               <input
@@ -281,7 +258,7 @@ export default function ContactPage() {
                 name="surname"
                 type="text"
                 placeholder={tPlaceHolder("surname-placeholder")}
-                className="text-sm lg:text-base xl:text-xl w-full p-2 bg-slate-200 border-b border-gray-300  focus:ring-1 focus:ring-gray-300 outline-none"
+                className="input-style focus:ring-1 focus:ring-[#253081] outline-none"
                 autoComplete="family-name"
                 value={formData.surname}
                 onChange={handleChange}
@@ -290,11 +267,8 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-2">
-            <label
-              htmlFor="email"
-              className="font-vox text-base lg:text-lg xl:text-xl font-light"
-            >
+          <div className="flex flex-col border border-[#6B737A] relative">
+            <label htmlFor="email" className="label-style">
               {t("email")}
             </label>
             <input
@@ -302,7 +276,7 @@ export default function ContactPage() {
               name="email"
               type="email"
               placeholder={"mail@example.com"}
-              className="text-sm lg:text-base xl:text-xl w-full p-2 bg-slate-200 border-b border-gray-300  focus:ring-1 focus:ring-gray-300 outline-none"
+              className="input-style focus:ring-1 focus:ring-[#253081] outline-none"
               autoComplete="email"
               value={formData.email}
               onChange={handleChange}
@@ -310,18 +284,15 @@ export default function ContactPage() {
             />
           </div>
 
-          <div className="flex flex-col gap-2">
-            <label
-              htmlFor="message"
-              className="font-vox text-base lg:text-lg xl:text-xl font-light"
-            >
+          <div className="flex flex-col border border-[#6B737A] relative">
+            <label htmlFor="message" className="label-style">
               {t("comments")}
             </label>
             <textarea
               id="message"
               name="message"
               rows={6}
-              className="text-sm lg:text-base xl:text-xl w-full p-2 bg-slate-200 border-b border-gray-300  focus:ring-1 focus:ring-gray-300 outline-none resize-none"
+              className="input-style focus:ring-1 focus:ring-[#253081] outline-none resize-none"
               autoComplete="off"
               placeholder={t("comments-placeholder")}
               value={formData.message}
@@ -358,25 +329,28 @@ export default function ContactPage() {
               </button>
             </div>
 
-            <input
-              id="captchaText"
-              name="captchaText"
-              value={formData.captchaText}
-              type="text"
-              onChange={handleChange}
-              required
-              placeholder={t("enterCaptcha-placeholder")}
-              className="text-sm lg:text-base xl:text-xl w-full p-2 bg-slate-200 border-b border-gray-300  focus:ring-1 focus:ring-gray-300 outline-none"
-              autoComplete="off"
-            />
+            <div className="flex flex-col border border-[#6B737A] relative">
+              <label htmlFor="captchaText" className="label-style">
+                Captcha
+              </label>
+              <input
+                id="captchaText"
+                name="captchaText"
+                value={formData.captchaText}
+                type="text"
+                onChange={handleChange}
+                required
+                placeholder={t("enterCaptcha-placeholder")}
+                className="input-style focus:ring-1 focus:ring-[#253081] outline-none"
+                autoComplete="off"
+              />
+            </div>
           </div>
           <button
             type="submit"
             disabled={sending}
-            className={`mt-5 lg:mt-10 text w-full py-2 lg:py-4 text-white font-bold rounded transition-colors uppercase tracking-widest text-sm flex items-center justify-center ${
-              sending
-                ? "bg-[#073fa1] cursor-wait py-0"
-                : "bg-[#073fa1] hover:bg-[#073fa1]/80"
+            className={`text w-full py-2 lg:py-4 bg-[#253081] text-white font-bold rounded transition-colors uppercase tracking-widest text-sm flex items-center justify-center ${
+              sending ? "cursor-wait py-0" : "hover:bg-[#253081]/80"
             }`}
           >
             {sending ? <Loading size="xs" className="white" /> : t("send")}

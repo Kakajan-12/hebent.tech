@@ -27,7 +27,7 @@ const CookiesPolicyPage: React.FC = () => {
     },
   ];
   return (
-    <section className="min-h-screen container mx-auto px-5 sm:px-7 lg:px-10 xl:px-20 2xl:px-36 flex flex-col gap-4 lg:gap-8">
+    <section className="min-h-screen container mx-auto px-5 sm:px-7 lg:px-10 flex flex-col gap-4 lg:gap-8">
       <h2 className="font-vox text-3xl md:text-6xl font-bold tracking-tight">
         {t("title1")}
       </h2>

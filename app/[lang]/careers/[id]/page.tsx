@@ -24,7 +24,7 @@ export default function CareerPage() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="min-h-screen container mx-auto px-5 sm:px-7 lg:px-10 xl:px-20 2xl:px-36"
+      className="min-h-screen container mx-auto px-5 sm:px-7 lg:px-10"
     >
       {isLoading && (
         <div className="py-10 flex justify-center">

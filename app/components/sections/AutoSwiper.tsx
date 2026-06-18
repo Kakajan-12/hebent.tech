@@ -3,6 +3,8 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
+import { IoArrowForwardSharp, IoArrowBackSharp } from "react-icons/io5";
+import { useTranslations } from "next-intl";
 import "swiper/css";
 import "swiper/css/navigation";
 import Image from "next/image";
@@ -10,7 +12,6 @@ import { motion } from "motion/react";
 import { useGetServicesQuery } from "@/app/api/api";
 import { Service } from "@/app/Interfaces/interfaces";
 import { resolveMediaUrl } from "@/constant/constant";
-import Loading from "@/components/ui/Loading";
 import useAppLocale from "@/app/Hooks/GetLocale";
 import { stripHtmlTags } from "@/lib/utils";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -18,6 +19,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 const AUTOPLAY_DELAY = 5000;
 
 export const AutoSwiper: React.FC = () => {
+  const t = useTranslations("Pagination");
   const { data, error, isLoading } = useGetServicesQuery();
   const services: Service[] = useMemo<Service[]>(
     () => (Array.isArray(data) ? data : []),
@@ -25,16 +27,13 @@ export const AutoSwiper: React.FC = () => {
   );
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
+  const prevRef = useRef<HTMLButtonElement>(null);
+  const nextRef = useRef<HTMLButtonElement>(null);
   const locale = useAppLocale();
   const lastWheelRef = useRef<number>(0);
   const handleTabClick = (index: number) => {
     swiper?.slideToLoop(index);
   };
-
-  // Перелистывание горизонтальным жестом двумя пальцами на трекпаде —
-  // по одному слайду, с лупом. Нативный wheel-листенер с passive:false,
-  // чтобы перехватить жест до навигации браузера "назад/вперёд";
-  // троттлинг защищает от инерционного "хвоста" событий трекпада.
   useEffect(() => {
     if (!swiper) return;
     const el = swiper.el;
@@ -127,13 +126,26 @@ export const AutoSwiper: React.FC = () => {
           }}
           watchSlidesProgress={true}
           navigation
-          onSwiper={setSwiper}
+          onSwiper={(s) => {
+            setSwiper(s);
+            if (!prevRef.current || !nextRef.current) return;
+            if (
+              s.params.navigation &&
+              typeof s.params.navigation !== "boolean"
+            ) {
+              s.params.navigation.prevEl = prevRef.current;
+              s.params.navigation.nextEl = nextRef.current;
+            }
+            s.navigation.destroy();
+            s.navigation.init();
+            s.navigation.update();
+          }}
           onSlideChange={(s) => setActiveIndex(s.realIndex)}
           className="services-swiper pb-14"
         >
           {services.map((service) => (
             <SwiperSlide key={service.id}>
-              <div className="relative flex aspect-video items-start overflow-hidden rounded p-4 lg:p-8 shadow-xl">
+              <div className="relative flex aspect-video items-start overflow-hidden rounded p-4 lg:px-16 lg:py-8">
                 <Image
                   loading="eager"
                   src={resolveMediaUrl(service.image)}
@@ -157,6 +169,22 @@ export const AutoSwiper: React.FC = () => {
               </div>
             </SwiperSlide>
           ))}
+          <button
+            ref={prevRef}
+            type="button"
+            aria-label={t("previous")}
+            className="swiper-button-prev services-swiper-nav"
+          >
+            <IoArrowBackSharp className="size-2" aria-hidden />
+          </button>
+          <button
+            ref={nextRef}
+            type="button"
+            aria-label={t("next")}
+            className="swiper-button-next services-swiper-nav"
+          >
+            <IoArrowForwardSharp className="size-2" aria-hidden />
+          </button>
         </Swiper>
       </motion.div>
     </motion.section>

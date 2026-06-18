@@ -10,7 +10,7 @@
 
 .logo-loader {
   --c: #2254f4; /* primary brand blue */
-  --size: 80px; /* overall size */
+  /* --size: 80px; overall size */
   --dur: 1.8s; /* animation cycle */
 
   width: var(--size);
@@ -31,14 +31,13 @@ Each block fades in/out in sequence
 ───────────────────────────────────────── */
 @keyframes ll-pulse {
   0%,
-  60%,
   100% {
-    opacity: 0.12;
-    transform: scale(0.75);
-  }
-  30% {
-    opacity: 1;
+    opacity: 0.4;
     transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
   }
 }
 
@@ -46,8 +45,6 @@ Each block fades in/out in sequence
   transform-box: fill-box;
   transform-origin: center;
 }
-
-/* Delays applied in Loading.tsx */
 .logo-loader.pulse .block {
   animation: ll-pulse var(--dur) ease-in-out infinite;
 }
@@ -56,7 +53,7 @@ Each block fades in/out in sequence
 VARIANT 2 — spin
 Whole logo rotates smoothly
 ───────────────────────────────────────── */
-@keyframes ll-spin {
+/* @keyframes ll-spin {
   to {
     transform: rotate(360deg);
   }
@@ -65,7 +62,7 @@ Whole logo rotates smoothly
 .logo-loader.spin svg {
   animation: ll-spin 2.4s linear infinite;
   transform-origin: 50% 50%;
-}
+} */
 
 /* ─────────────────────────────────────────
 VARIANT 3 — orbit
@@ -76,7 +73,7 @@ Outer blocks orbit; center breathes
     transform: rotate(360deg);
   }
 }
-@keyframes ll-breathe {
+/* @keyframes ll-breathe {
   0%,
   100% {
     opacity: 0.4;
@@ -86,7 +83,7 @@ Outer blocks orbit; center breathes
     opacity: 1;
     transform: scale(1.05);
   }
-}
+} */
 
 .logo-loader.orbit .outer {
   transform-box: fill-box;
@@ -125,27 +122,4 @@ COLOR HELPERS
 }
 .logo-loader.dark {
   --c: #0a0e1a;
-}
-
-/* ─────────────────────────────────────────
-FULL-SCREEN OVERLAY (production usage)
-<div class="loader-overlay">
-<div class="logo-loader pulse md"></div>
-</div>
-───────────────────────────────────────── */
-.loader-overlay {
-  position: fixed;
-  inset: 0;
-  background: #fff; /* change to your page bg */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-
-  /* fade out when .done is added */
-  transition: opacity 0.5s ease;
-}
-.loader-overlay.done {
-  opacity: 0;
-  pointer-events: none;
 }

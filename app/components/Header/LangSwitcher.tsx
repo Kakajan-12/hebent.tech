@@ -36,7 +36,7 @@ export default function LangSwitcher({ isOpen }: { isOpen?: boolean }) {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className={`flex items-center gap-2 p-1 lg:p-2.5 font-vox text-sm border border-r-0 border-black ${isOpen ? "bg-black text-white border-white hover:bg-black" : "bg-white text-black hover:bg-white"}`}
+        className={`flex items-center gap-2 p-1 lg:p-2 font-vox text-sm border border-r-0 border-black ${isOpen ? "bg-transparent text-white border-white hover:bg-black" : "bg-white text-black hover:bg-white"}`}
         aria-expanded={open}
       >
         {shortLabel}
@@ -46,14 +46,14 @@ export default function LangSwitcher({ isOpen }: { isOpen?: boolean }) {
         />
       </button>
       {open ? (
-        <div className="absolute right-0 top-full z-50 mt-2 w-14 border border-neutral-800/20 bg-white/40 backdrop-blur-sm py-2 shadow-lg">
+        <div className="absolute right-0 top-full z-50 mt-2 w-11 lg:w-14 border border-neutral-800/20 bg-white/40 backdrop-blur-sm py-2 shadow-lg">
           {routing.locales
             .filter((loc) => loc !== locale)
             .map((loc) => (
               <button
                 key={loc}
                 type="button"
-                className={`block w-full px-2 py-2 text-center text-sm ${isOpen ? " text-white hover:bg-black" : " text-black hover:bg-white/80"}`}
+                className={`block w-full px-1 lg:px-2 py-1 lg:py-2 text-center text-sm ${isOpen ? " text-white hover:bg-black" : " text-black hover:bg-white/80"}`}
                 onClick={() => switchLocale(loc)}
               >
                 {loc === "en" ? t("en") : loc === "ru" ? t("ru") : t("tk")}

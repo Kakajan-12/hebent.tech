@@ -31,7 +31,8 @@ export default function Video() {
   if (!videoSrc) {
     return (
       <div className="text-center text-lg leading-relaxed md:text-xl h-screen flex items-center justify-center">
-        <Skeleton className="w-full h-full" />
+        {/* <Skeleton className="w-full h-full" /> */}
+        <Loading size="lg" />
       </div>
     );
   }
