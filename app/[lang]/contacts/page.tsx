@@ -38,7 +38,6 @@ export default function ContactPage() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  console.log(socialLinks);
   const [formData, setFormData] = useState({
     name: "",
     surname: "",
