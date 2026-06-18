@@ -8,6 +8,7 @@ import useAppLocale from "@/app/Hooks/GetLocale";
 import { NewsItem, NewsCategory } from "@/app/Interfaces/interfaces";
 import Loading from "@/components/ui/Loading";
 import { motion } from "motion/react";
+import Heading from "@/components/Heading";
 
 function formatNewsDate(iso: string, locale: string) {
   return new Intl.DateTimeFormat(locale, {
@@ -52,20 +53,7 @@ export default function NewsroomPage() {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="container mx-auto min-h-screen px-5 lg:px-10 xl:px-20"
     >
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-        className="grid grid-cols-1 lg:grid-cols-2 lg:items-start gap-4"
-      >
-        <h2 className=" text-3xl font-bold tracking-tight lg:text-5xl">
-          {t("title")}
-        </h2>
-        <p className="text-sm lg:text-xl xl:text-3xl font-normal">
-          {t("description")}
-        </p>
-      </motion.div>
+      <Heading title={t("title")} description={t("description")} />
 
       <motion.nav
         initial={{ opacity: 0, y: 20 }}

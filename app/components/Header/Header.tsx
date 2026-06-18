@@ -50,7 +50,9 @@ export default function Header() {
       </div>
 
       {/* Logo layer B — text only */}
-      <div className="fixed top-6 md:top-5 left-11 md:left-18 z-110 mix-blend-difference pointer-events-none">
+      <div
+        className={`fixed top-6 md:top-5 left-11 md:left-18 z-110 pointer-events-none ${isOpen ? "brightness-0 invert" : "mix-blend-difference"}`}
+      >
         <div className="container mx-auto px-5 lg:px-10">
           <Link
             href="/"
@@ -64,7 +66,7 @@ export default function Header() {
               width={121}
               height={54}
               priority
-              className={`w-17 md:w-full h-auto brightness-0 invert ${isOpen ? "brightness-0 invert" : ""}`}
+              className={`w-17 md:w-full h-auto invert ${isOpen ? "brightness-0 invert" : ""}`}
             />
           </Link>
         </div>
@@ -79,7 +81,7 @@ export default function Header() {
               onClick={() => setIsOpen(false)}
               className={`hidden sm:inline-flex items-center justify-center border px-3 lg:px-8 py-1 lg:py-2 text-sm font-medium transition ${
                 isOpen
-                  ? "bg-transparent border-white text-white hover:bg-black"
+                  ? "bg-transparent border-white text-white hover:text-[#253081] hover:bg-white/50"
                   : "bg-white border-black text-black hover:bg-white"
               }`}
             >
@@ -94,7 +96,7 @@ export default function Header() {
                 onClick={() => setIsOpen((v) => !v)}
                 className={`border p-1 lg:p-2 transition ${
                   isOpen
-                    ? "bg-transparent border-white text-white hover:bg-black"
+                    ? "bg-transparent border-white text-white hover:text-[#253081] hover:bg-white/50"
                     : "bg-white border-black text-black hover:bg-white"
                 }`}
               >

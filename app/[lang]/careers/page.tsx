@@ -33,7 +33,7 @@ export default function CareersPage() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-        className="mt-10 lg:mt-15 font-vox text-xl font-bold md:text-4xl lg:text-5xl text-left"
+        className="mt-10 lg:mt-15 font-vox text-xl font-bold md:text-4xl lg:text-5xl text-left "
       >
         {t("vacancies")}
       </motion.h3>

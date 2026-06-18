@@ -12,8 +12,10 @@ import { stripHtmlTags } from "@/lib/utils";
 
 export default function AboutSection({
   showLogo = false,
+  showTitle = true,
 }: {
   showLogo?: boolean;
+  showTitle?: boolean;
 }) {
   const tAbout = useTranslations("About");
   const locale = useAppLocale();
@@ -69,15 +71,17 @@ export default function AboutSection({
             <Logo />
           </div>
         )}
-        <h2 className="block lg:hidden capitalize font-vox font-bold text-2xl md:text-3xl leading-tight text-right whitespace-nowrap">
-          {tAbout("title")}
-        </h2>
+        {showTitle && (
+          <h2 className="block lg:hidden capitalize font-vox font-bold text-2xl md:text-3xl leading-tight text-right whitespace-nowrap">
+            {tAbout("title")}
+          </h2>
+        )}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-          className="text-lg md:text-2xl lg:text-3xl font-medium text-left lg:w-1/2"
+          className={`text-lg md:text-2xl lg:text-3xl font-medium text-left lg:w-1/2 ${showTitle ? "lg:w-1/2" : "lg:w-full"}`}
         >
           {tAbout("body")}
         </motion.p>

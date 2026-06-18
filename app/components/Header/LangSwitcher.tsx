@@ -32,16 +32,16 @@ export default function LangSwitcher({ isOpen }: { isOpen?: boolean }) {
     locale === "en" ? t("en") : locale === "ru" ? t("ru") : t("tk");
 
   return (
-    <div className="relative shrink-0 font-bold" ref={ref}>
+    <div className="relative shrink-0 font-bold group" ref={ref}>
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className={`flex items-center gap-2 p-1 lg:p-2 font-vox text-sm border border-r-0 border-black ${isOpen ? "bg-transparent text-white border-white hover:bg-black" : "bg-white text-black hover:bg-white"}`}
+        className={`flex items-center gap-2 p-1 lg:p-2 font-vox text-sm border border-r-0 border-black ${isOpen ? "bg-transparent text-white border-white group-hover:text-[#253081] group-hover:bg-white/50 " : "bg-white text-black hover:bg-white"}`}
         aria-expanded={open}
       >
         {shortLabel}
         <FaChevronDown
-          className={`size-3 transition ${isOpen ? "text-white" : "text-black"} ${open ? "rotate-180" : ""}`}
+          className={`size-3 transition ${isOpen ? "text-white group-hover:text-[#253081] " : "text-black"} ${open ? "rotate-180" : ""}`}
           aria-hidden
         />
       </button>
@@ -53,7 +53,7 @@ export default function LangSwitcher({ isOpen }: { isOpen?: boolean }) {
               <button
                 key={loc}
                 type="button"
-                className={`block w-full px-1 lg:px-2 py-1 lg:py-2 text-center text-sm ${isOpen ? " text-white hover:bg-black" : " text-black hover:bg-white/80"}`}
+                className={`block w-full px-1 lg:px-2 py-1 lg:py-2 text-center text-sm ${isOpen ? " text-white hover:text-black hover:bg-white" : " text-black hover:bg-white/80"}`}
                 onClick={() => switchLocale(loc)}
               >
                 {loc === "en" ? t("en") : loc === "ru" ? t("ru") : t("tk")}

@@ -22,7 +22,7 @@ export default function AboutPage() {
         </h2>
       </div>
 
-      <AboutSection showLogo />
+      <AboutSection showLogo showTitle={true} />
       <AboutAccordion />
     </motion.main>
   );

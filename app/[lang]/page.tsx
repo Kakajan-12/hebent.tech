@@ -20,7 +20,7 @@ export default async function Home({ params }: Props) {
           <Video />
         </section>
         <AutoSwiper />
-        <About />
+        <About showTitle={false} />
         <Products />
         <ProjectsPreview />
         <Testimonials />
