@@ -3,25 +3,32 @@
 import { useId } from "react";
 import { HiCheckCircle, HiOutlineXMark } from "react-icons/hi2";
 import { AnimatePresence, motion } from "motion/react";
+import { TfiCheckBox } from "react-icons/tfi";
 
 type SuccessModalProps = {
   open: boolean;
   onClose: () => void;
   title: string;
-  message: string;
   closeLabel: string;
   titleId?: string;
   showActionButton?: boolean;
+  sending?: boolean;
+  sendingLabel?: React.ReactNode;
+  sendingTitle?: string;
+  please?: string;
 };
 
 export default function SuccessModal({
   open,
   onClose,
   title,
-  message,
   closeLabel,
   titleId,
-  showActionButton = true,
+  // showActionButton = true,
+  sending = false,
+  sendingLabel,
+  sendingTitle,
+  please,
 }: SuccessModalProps) {
   const generatedId = useId();
   const headingId = titleId ?? generatedId;
@@ -44,7 +51,7 @@ export default function SuccessModal({
             role="dialog"
             aria-modal="true"
             aria-labelledby={headingId}
-            className="relative w-full max-w-md rounded-2xl bg-white px-8 py-10 text-center shadow-xl"
+            className="relative flex w-80 min-h-68 flex-col items-center justify-center bg-white px-8 py-10 text-center"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -55,24 +62,37 @@ export default function SuccessModal({
             >
               <HiOutlineXMark className="size-5" />
             </button>
+            {sending ? (
+              <div className="mx-auto mb-5 flex items-center justify-center">
+                {sendingLabel}
+              </div>
+            ) : (
+              <div className="mx-auto mb-5 flex items-center justify-center">
+                <TfiCheckBox className="size-12 text-brand" />
+              </div>
+            )}
+            <div className="mx-auto mb-5 flex items-center justify-center"></div>
 
-            <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-green-100">
-              <HiCheckCircle className="size-12 text-green-600" />
-            </div>
+            {sending ? (
+              <h4
+                id={headingId}
+                className="w-60 mx-auto text-xl font-bold font-vox lg:text-2xl flex flex-col items-center justify-center"
+              >
+                {sendingTitle}
+                <span className="text-xs lg:text-base text-gray-500 mt-4">
+                  {please}
+                </span>
+              </h4>
+            ) : (
+              <h4
+                id={headingId}
+                className="w-60 mx-auto text-xl font-bold font-vox lg:text-2xl"
+              >
+                {title}
+              </h4>
+            )}
 
-            <h3
-              id={headingId}
-              className="mb-2 text-xl font-bold text-gray-900 lg:text-2xl"
-            >
-              {title}
-            </h3>
-            <p
-              className={`text-sm text-gray-600 lg:text-base ${showActionButton ? "mb-8" : ""}`}
-            >
-              {message}
-            </p>
-
-            {showActionButton && (
+            {/* {showActionButton && (
               <button
                 type="button"
                 onClick={onClose}
@@ -80,7 +100,7 @@ export default function SuccessModal({
               >
                 {closeLabel}
               </button>
-            )}
+            )} */}
           </motion.div>
         </motion.div>
       )}

@@ -100,7 +100,7 @@ export default function NewsroomPage() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-        className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-4 lg:mt-8 lg:grid-cols-3 xl:grid-cols-4 lg:gap-6"
+        className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-4 lg:mt-8 lg:grid-cols-3 2xl:grid-cols-4 lg:gap-6"
       >
         {(newsLoading || categoriesLoading) && (
           <div className="col-span-full flex justify-center">

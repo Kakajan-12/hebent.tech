@@ -10,6 +10,8 @@ import { useGetNewsQuery } from "@/app/api/api";
 import useAppLocale from "@/app/Hooks/GetLocale";
 import { NewsItem } from "@/app/Interfaces/interfaces";
 import NewsCard from "../Newsroom/NewsCard";
+import { MdOutlineSubdirectoryArrowRight } from "react-icons/md";
+import { HiArrowTurnDownRight } from "react-icons/hi2";
 
 type NavigationProps = {
   isOpen: boolean;
@@ -92,7 +94,7 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, ease: "easeOut", delay: 0.05 }}
-              className="grid grid-cols-1 lg:grid-cols-[200px_1fr_200px] xl:grid-cols-[300px_1fr_300px] gap-4 lg:gap-8 xl:gap-12"
+              className="grid grid-cols-1 lg:grid-cols-[200px_1fr_200px] xl:grid-cols-[325px_1fr_325px] gap-4 lg:gap-8 xl:gap-12"
             >
               <div>
                 <motion.div
@@ -107,16 +109,16 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
                     {t("products")}
                   </span>
                 </div>
-                <ul className="mt-6 flex flex-col gap-5">
+                <ul className="mt-10 flex flex-col gap-5">
                   {products.map((p) => (
                     <li key={p.href}>
                       <Link
                         href={p.href}
                         onClick={onClose}
-                        className="group inline-flex items-baseline gap-2 text-2xl lg:text-4xl font-medium hover:text-white/70 transition"
+                        className="group inline-flex items-baseline gap-2 text-lg lg:text-3xl py-1.5 font-bold hover:text-white/70 transition"
                       >
-                        <span className="text-white/40 text-lg lg:text-2xl">
-                          ↳
+                        <span className="text-white/60">
+                          <HiArrowTurnDownRight className="size-5" />
                         </span>
                         {p.label}
                       </Link>
@@ -183,16 +185,16 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
                     {t("company")}
                   </span>
                 </div>
-                <ul className="mt-6 flex flex-col gap-5">
+                <ul className="mt-10 flex flex-col gap-5">
                   {otherPages.map((p) => (
                     <li key={p.href}>
                       <Link
                         href={p.href}
                         onClick={onClose}
-                        className="inline-flex items-baseline gap-2 text-2xl lg:text-4xl font-medium hover:text-white/70 transition"
+                        className="inline-flex items-baseline gap-2 text-2xl lg:text-3xl py-1.5 font-bold hover:text-white/70 transition"
                       >
-                        <span className="text-white/40 text-lg lg:text-2xl">
-                          ↳
+                        <span className="text-white/60">
+                          <HiArrowTurnDownRight className="size-5" />
                         </span>
                         {p.label}
                       </Link>

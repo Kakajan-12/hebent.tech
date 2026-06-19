@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import Heading from "@/components/Heading";
 interface PrivacySection {
   title: string;
   content: React.ReactNode;
@@ -51,30 +51,26 @@ const PrivacyPolicyPage: React.FC = () => {
   return (
     <section className="min-h-screen container mx-auto px-5 sm:px-7 lg:px-10 text-black">
       <div className="mx-auto flex flex-col">
-        {/* Заголовок */}
-        <h2 className="font-vox text-5xl md:text-6xl font-bold tracking-tight mb-6 lg:mb-12">
-          {t("title1")}
-        </h2>
-
-        {/* Вступление */}
-        <p className="mb-6 lg:mb-16 text-sm lg:text-xl font-vox leading-relaxed">
-          {t("description1")}
-          <Link
-            href="https://hebent.tech"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline underline-offset-4 hover:text-gray-500 transition-colors"
-          >
-            {" "}
-            hebent.tech{" "}
-          </Link>
-          {t("description1_2")}
-        </p>
+        <Heading
+          title={t("title1")}
+          description={t.rich("description1", {
+            link: (chunks) => (
+              <a
+                href="https://hebent.tech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-4 hover:text-gray-500 transition-colors"
+              >
+                {chunks}
+              </a>
+            ),
+          })}
+        />
 
         {/* Секции */}
         <div className="space-y-6 lg:space-y-10">
           {sections.map((section, index) => (
-            <section key={index} className="font-vox text-sm lg:text-xl pt-4">
+            <section key={index} className="text-sm lg:text-xl pt-4">
               <h3 className="text-2xl lg:text-3xl font-bold mb-6">
                 {index + 1}. {section.title}
               </h3>

@@ -146,7 +146,7 @@ export default function ContactPage() {
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
         className="grid grid-cols-1 lg:grid-cols-2 gap-1 lg:gap-16 xl:gap-36"
       >
-        <div className="contact-info space-y-3 lg:space-y-8 xl:space-y-14 mb-3 lg:mb-0">
+        <div className="contact-info order-2 lg:order-1 space-y-3 lg:space-y-8 xl:space-y-14 mb-3 lg:mb-0">
           <div className="header-info flex flex-col gap-1 lg:gap-4">
             <h3 className="text-base lg:text-2xl font-bold">{t("text")}</h3>
             <p className="text-sm lg:text-base xl:text-xl max-w-2xl font-medium">
@@ -207,9 +207,9 @@ export default function ContactPage() {
             </section>
           </div>
 
-          <div className="flex gap-6">
+          <div className="flex flex-col sm:flex-row gap-2 md:gap-4 xl:gap-6">
             {socialLinks?.map((item: SocialLink) => {
-              const external = item.url.startsWith("http");
+              const external = item.url.startsWith("https");
               return (
                 <a
                   key={item.id}
@@ -228,7 +228,7 @@ export default function ContactPage() {
         </div>
 
         <form
-          className="form-contact flex flex-col gap-8 lg:gap-10 "
+          className="form-contact order-1 lg:order-2 flex flex-col gap-8 lg:gap-10 "
           onSubmit={handleContactSubmit}
         >
           <div className="grid grid-cols-1 gap-8 lg:gap-10">
@@ -348,11 +348,11 @@ export default function ContactPage() {
           <button
             type="submit"
             disabled={sending}
-            className={`text w-full py-2 lg:py-4 bg-[#253081] text-white font-bold rounded transition-colors uppercase tracking-widest text-sm flex items-center justify-center ${
+            className={`text w-full py-2 lg:py-2.5 bg-[#253081] text-white font-vox font-bold mb-5 lg:mb-0 transition-colors tracking-widest text-lg flex items-center justify-center ${
               sending ? "cursor-wait py-0" : "hover:bg-[#253081]/80"
             }`}
           >
-            {sending ? <Loading size="xs" className="white" /> : t("send")}
+            {t("send")}
           </button>
           {error && (
             <p role="alert" className="text-sm text-red-600">
@@ -365,10 +365,13 @@ export default function ContactPage() {
       <SuccessModal
         open={showSuccessModal}
         onClose={() => setShowSuccessModal(false)}
-        title={t("successTitle")}
-        message={t("successMessage")}
+        title={t("successMessage")}
         closeLabel={t("close")}
         titleId="contact-success-title"
+        sending={sending}
+        sendingLabel={<Loading size="md" className="white" />}
+        sendingTitle={t("sending")}
+        please={t("please")}
       />
     </motion.main>
   );

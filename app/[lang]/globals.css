@@ -35,16 +35,12 @@
 
 @import "tw-animate-css";
 
-@import "shadcn/tailwind.css";
+@import "../../node_modules/shadcn/dist/tailwind.css";
 
 @utility container {
   margin-inline: auto;
   max-width: 2000px;
 }
-/* @utility container {
-  margin-inline: auto;
-  max-width: 1800px;
-} */
 
 :root {
   --background-main: #efefef;
@@ -67,6 +63,11 @@
   --font-vox-15: var(--font-vox-15);
   --font-video: var(--font-video);
   --font-video-cond: var(--font-video-cond);
+}
+
+html,
+body {
+  overscroll-behavior: none;
 }
 
 body {
@@ -314,37 +315,68 @@ article {
 
 .footer-bg-pattern {
   pointer-events: none;
-  /* margin-bottom: 20px; */
   position: absolute;
   inset: 0;
-  background-repeat: repeat;
-  opacity: 0.03;
+  background-repeat: space;
+  opacity: 0.9;
   background-image: var(--footer-bg-url);
-  background-size: var(--footer-bg-cell) var(--footer-bg-cell);
-  --footer-bg-cell: 30px;
-}
-
-@media (min-width: 640px) {
-  .footer-bg-pattern {
-    --footer-bg-cell: 32px;
-  }
-}
-
-@media (min-width: 768px) {
-  .footer-bg-pattern {
-    --footer-bg-cell: 48px;
-  }
+  background-size: calc(38px + var(--footer-bg-gap))
+    calc(28px + var(--footer-bg-gap));
+  --footer-bg-cell: 38px 28px;
+  --footer-bg-gap: 2px;
 }
 
 .logo {
-  color: white; /* Базовый цвет */
+  color: white;
   mix-blend-mode: difference;
 }
+.rights {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  font-weight: 600;
+  font-size: 10px;
+  color: rgb(255 255 255 / 0.65);
+  pointer-events: none;
+  z-index: 1;
+}
 
-/* Контент с сервера (CMS): рендерим теги и возвращаем им стили,
-   которые сбрасывает preflight Tailwind */
+@media (min-width: 420px) {
+  .rights {
+    left: 20px;
+    right: auto;
+  }
+}
+@media (min-width: 640px) {
+  .rights {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    right: 0;
+  }
+}
+.privacy {
+  position: absolute;
+  bottom: 32px;
+  right: 20px;
+  z-index: 2;
+}
+@media (min-width: 420px) {
+  .privacy {
+    bottom: 7px;
+  }
+}
+@media (min-width: 768px) {
+  .privacy {
+    position: relative;
+  }
+}
+
 .rich-text {
-  /* font-family: var(--font-vox); */
   line-height: 1.7;
   font-weight: 400;
 }

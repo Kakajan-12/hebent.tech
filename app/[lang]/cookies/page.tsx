@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslations } from "next-intl";
-
+import Heading from "@/components/Heading";
 interface CookieCategory {
   title: string;
   description: string;
@@ -28,15 +28,16 @@ const CookiesPolicyPage: React.FC = () => {
   ];
   return (
     <section className="min-h-screen container mx-auto px-5 sm:px-7 lg:px-10 flex flex-col gap-4 lg:gap-8">
-      <h2 className="font-vox text-3xl md:text-6xl font-bold tracking-tight">
+      {/* <h2 className="font-vox text-3xl md:text-6xl font-bold tracking-tight">
         {t("title1")}
       </h2>
 
       <p className="font-vox text-sm lg:text-2xl leading-relaxed">
         {t("description")}
-      </p>
+      </p> */}
+      <Heading title={t("title1")} description={t("description")} />
 
-      <div className="font-vox text-sm lg:text-2xl">
+      <div className="text-sm lg:text-2xl">
         <h3>{t("what")}</h3>
         <ul className="list-disc pl-5 space-y-2">
           {cookieCategories.map((item, index) => (
@@ -48,7 +49,7 @@ const CookiesPolicyPage: React.FC = () => {
         </ul>
       </div>
 
-      <div className="font-vox text-sm lg:text-2xl">
+      <div className="text-sm lg:text-2xl">
         <h2 className="text-xl lg:text-3xl font-bold mb-2">{t("title2")}</h2>
         <div className="space-y-1 leading-relaxed font-normal">
           <p>{t("p1")}</p>

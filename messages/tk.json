@@ -57,7 +57,7 @@
           "Cloud platformalar",
           "Hakyky wagtda maglumat akymlary we analitika",
           "IoT enjamlary we sensor integrasiýasy",
-          "Ygtybarly, 5G taýýar infrastruktura"
+          "Mobil we web programmalary"
         ]
       },
       "values": {
@@ -93,7 +93,6 @@
     "successMessage": "Ýüz tutanyňyz üçin sag boluň. Arzaňyzy gözden geçireris we ýakyn wagtda siz bilen habarlaşarys.",
     "close": "Ýapmak",
     "whatYoullDo": "Näme edýärsiňiz",
-    "addFiles": "Resýumeňizi we portfolionyzy goşyň",
     "jobs": [
       {
         "id": "1",
@@ -126,10 +125,6 @@
     "email": "E-poçta",
     "phone": "Telefon raýyletmek",
     "address": "Türkmenistan,ş. Aşgabat,k. Bitarap Türkmenistan 3/1, 'Altyn Ýüplük' bina",
-    "hours": "09:00 – 19:00",
-    "instagram": "Instagram",
-    "twitter": "X",
-    "facebook": "Facebook",
     "name": "Ady",
     "surname": "Familiýasy",
     "name-placeholder": "Aman",
@@ -141,7 +136,9 @@
     "enterCaptcha": "Captcha giriziň",
     "update": "Üýtgetmek",
     "successTitle": "Habar iberildi!",
-    "successMessage": "Biz bilen habarlaşandygyňyz üçin sag boluň. Ýakyn wagtda siz bilen habarlaşarys.",
+    "successMessage": "Kontakt üstünlikli iberildi",
+    "sending": "Iberýär...",
+    "please": "Gowylyňyz",
     "close": "Ýapmak"
   },
   "Stats": {
@@ -211,9 +208,7 @@
     "projects": "Taslamalar",
     "careers": "Iş orunlary",
     "news": "Täzelikler",
-    "instagram": "Instagram",
-    "twitter": "X",
-    "facebook": "Facebook"
+    "products": "Önümler"
   },
   "Pagination": {
     "previous": "Öňki sahypa",
@@ -222,10 +217,7 @@
   "Lang": {
     "en": "EN",
     "ru": "RU",
-    "tk": "TK",
-    "english": "English",
-    "russian": "Русский",
-    "turkmen": "Türkmençe"
+    "tk": "TK"
   },
   "CookiesPolicy": {
     "title1": "Cookie syýasaty",
@@ -256,8 +248,7 @@
   },
   "PrivacyPolicy": {
     "title1": "Gizlinlik syýasaty",
-    "description1": "Hebent Tech kompaniýasynda biz siziň şahsy maglumatlaryňyzyň goralmagyna uly ähmiýet berýäris. Bu Gizlinlik syýasaty, siz biziň",
-    "description1_2": "web sahypamyzy ýa-da hyzmatlarymyzy ulananyňyzda, biz tarapyndan ýygnalýan, ulanylýan we goralýan şahsy maglumatlar barada düşündirýär.",
+    "description1": "Hebent Tech kompaniýasynda biz siziň şahsy maglumatlaryňyzyň goralmagyna uly ähmiýet berýäris. Bu Gizlinlik syýasaty, siz biziň <link>hebent.tech</link> web sahypamyzy ýa-da hyzmatlarymyzy ulananyňyzda, biz tarapyndan ýygnalýan, ulanylýan we goralýan şahsy maglumatlar barada düşündirýär.",
     "title2": "Yygnalýan maglumatlar",
     "description2": "Biz aşakdaky görnüşdäki maglumatlary ýygnap bileris:",
     "items1": [

@@ -90,7 +90,7 @@ export default function NewsArticlePage() {
         </div>
 
         <div className="container px-5 lg:px-10 header-info text-white flex flex-col items-end gap-2 lg:gap-14 z-20 mb-7 lg:mb-13">
-          <h2 className="text-xl md:text-3xl lg:text-4xl xl:text-6xl font-bold text-right max-w-md pt-10">
+          <h2 className="text-xl md:text-3xl lg:text-4xl xl:text-6xl font-bold text-right max-w-md lg:max-w-2xl 2xl:max-w-3xl pt-10">
             {title}
           </h2>
           <div className="flex flex-col gap-2">

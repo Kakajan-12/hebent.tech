@@ -24,8 +24,7 @@
     "eventsDesc": "Powerful event management and ticketing, from planning to the show"
   },
   "Video": {
-    "title": "VIDEO",
-    "comingSoon": "Coming soon in May"
+    "title": "VIDEO"
   },
   "About": {
     "title": "About Us",
@@ -94,7 +93,6 @@
     "successMessage": "Thank you for applying. We'll review your application and get back to you soon.",
     "close": "Close",
     "whatYoullDo": "What You'll Do",
-    "addFiles": "Add your CV and Portfolio",
     "jobs": [
       {
         "id": "1",
@@ -127,7 +125,6 @@
     "email": "Email",
     "phone": "Phone",
     "address": "Turkmenistan, c. Ashgabat, st. Bitarap Turkmenistan 3/1, 'Altyn Ýüplük' building",
-    "hours": "Hours",
     "name": "Name",
     "surname": "Surname",
     "name-placeholder": "Aman",
@@ -137,10 +134,11 @@
     "send": "Send",
     "enterCaptcha-placeholder": "Enter text from the picture",
     "enterCaptcha": "Enter Captcha",
-    "addFiles": "Add your CV and Portfolio",
     "update": "Update",
     "successTitle": "Message sent!",
-    "successMessage": "Thank you for contacting us. We'll get back to you soon.",
+    "successMessage": "Contact submitted successfully",
+    "sending": "Sending...",
+    "please": "Please wait",
     "close": "Close"
   },
   "Stats": {
@@ -162,7 +160,7 @@
     "heroAfter": "— from mobile apps to web platforms and clean user interfaces.",
     "search-placeholder": "Search ...",
     "sorted": "Sort by : ",
-    "sort-single": "Single",
+    "sort-single": "Default",
     "sort-title": "Title",
     "sort-date": "Creation date",
     "customer": "Customer: ",
@@ -193,7 +191,7 @@
     "searchAria": "Search",
     "searchPlaceholder": "Search",
     "sortBy": "Sort by:",
-    "sortSingle": "Single",
+    "sortSingle": "Default",
     "sortTitle": "Title",
     "gallery": "Gallery:"
   },
@@ -210,9 +208,7 @@
     "projects": "Projects",
     "careers": "Careers",
     "news": "News",
-    "instagram": "Instagram",
-    "twitter": "X",
-    "facebook": "Facebook"
+    "products": "Products"
   },
   "Pagination": {
     "previous": "Previous page",
@@ -230,15 +226,15 @@
     "categories": [
       {
         "title": "Essential Cookies:",
-        "description": "Necessary for the website to function properly, enabling basic features like page navigation and access to secure areas. Performance Cookies: Collect information about how visitors use our site, helping us improve speed and usability."
+        "description": "Necessary for the website to function properly, enabling basic features like page navigation and access to secure areas."
+      },
+      {
+        "title": "Performance Cookies:",
+        "description": "Collect information about how visitors use our site, helping us improve speed and usability."
       },
       {
         "title": "Functional Cookies:",
         "description": "Remember your preferences and settings to provide a more personalized experience."
-      },
-      {
-        "title": "Advertising Cookies:",
-        "description": "Used to deliver relevant ads based on your interests and to measure the effectiveness of marketing campaigns."
       },
       {
         "title": "Advertising Cookies:",
@@ -252,8 +248,7 @@
   },
   "PrivacyPolicy": {
     "title1": "Privacy Policy",
-    "description1": "At Hebent Tech, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and protect the personal information you provide to us when you use our website ",
-    "description1_2": " and any of our services.",
+    "description1": "At Hebent Tech, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and protect the personal information you provide to us when you use our website <link>hebent.tech</link> and any of our services.",
     "title2": "Information We Collect",
     "description2": "We may collect the following types of information:",
     "items1": [

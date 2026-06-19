@@ -302,8 +302,7 @@ const ApplicationForm = () => {
       <SuccessModal
         open={showSuccessModal}
         onClose={() => setShowSuccessModal(false)}
-        title={t("successTitle")}
-        message={t("successMessage")}
+        title={t("successMessage")}
         closeLabel={t("close")}
         titleId="application-success-title"
         showActionButton={false}

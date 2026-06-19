@@ -131,7 +131,7 @@ function LightboxContent({
           type="button"
           aria-label="Close"
           onClick={onClose}
-          className="absolute -top-5 sm:top-0 -right-5 sm:right-0 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+          className="absolute -top-10 sm:-top-6 -right-5 sm:-right-3 md:-right-10 lg:-right-12 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
         >
           <HiOutlineXMark className="size-6" />
         </button>
@@ -143,7 +143,7 @@ function LightboxContent({
                 key={`${src}-${i}`}
                 className="relative min-w-0 flex-[0_0_100%]"
               >
-                <div className="relative flex h-[70vh] items-center justify-center">
+                <div className="relative flex h-[60vh] items-center justify-center">
                   <Image
                     src={src}
                     alt={alt}

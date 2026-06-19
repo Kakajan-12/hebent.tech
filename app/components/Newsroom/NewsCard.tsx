@@ -40,7 +40,7 @@ export default function NewsCard({
   const router = useRouter();
   return (
     <article
-      className={`flex flex-col gap-3 px-2 py-4 hover:shadow-sm transition duration-300 hover:cursor-pointer group ${
+      className={`flex flex-col gap-3 py-4 hover:shadow-sm transition duration-300 hover:cursor-pointer group ${
         light ? "text-white" : "text-[#1E2124] hover:scale-105"
       }`}
       onClick={() => {
