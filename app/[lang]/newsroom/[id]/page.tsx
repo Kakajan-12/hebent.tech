@@ -72,6 +72,13 @@ export default function NewsArticlePage() {
   return (
     <main className="relative flex-col flex gap-10 min-h-screen">
       <div className="-mt-42 relative h-90 sm:h-110 lg:h-140 xl:h-176 2xl:h-190 aspect-video w-full flex items-end justify-end overflow-hidden">
+        <Link
+          href={`/${locale}/newsroom`}
+          aria-label={t("back")}
+          className="absolute bottom-7 left-5 lg:left-10 z-30 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white transition-colors hover:bg-white hover:text-black"
+        >
+          <ArrowLeft className="h-5 w-5" />
+        </Link>
         <div className="absolute inset-0 w-ful h-full z-10">
           {isCoverImageLoading && (
             <Skeleton className="absolute inset-0 z-10 h-full w-full rounded-none" />
@@ -115,14 +122,6 @@ export default function NewsArticlePage() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="container mx-auto px-5 lg:px-10 flex flex-col gap-10"
       >
-        <Link
-          href={`/${locale}/newsroom`}
-          aria-label={t("back")}
-          className="flex h-11 w-11 items-center justify-center rounded-full border border-black/10 text-black transition-colors hover:bg-black hover:text-white"
-        >
-          <ArrowLeft className="h-5 w-5" />
-        </Link>
-
         <div
           className="rich-text text-sm lg:text-xl"
           dangerouslySetInnerHTML={{ __html: textHtml }}

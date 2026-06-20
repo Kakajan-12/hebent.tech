@@ -174,7 +174,8 @@
     "sortSingle": "Default",
     "sortTitle": "Title",
     "gallery": "Gallery:",
-    "back": "Back to news"
+    "back": "Back to news",
+    "noNews": "No news available right now."
   },
   "Footer": {
     "contacts": "Contacts",

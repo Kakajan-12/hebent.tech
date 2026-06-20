@@ -113,8 +113,8 @@ export default function NewsroomPage() {
           </div>
         )}
         {!newsLoading && !newsError && filtered.length === 0 && (
-          <div className="col-span-full py-6 font-vox text-sm md:text-base text-center">
-            No news available right now.
+          <div className="col-span-full py-6 text-sm md:text-base text-center">
+            {t("noNews")}
           </div>
         )}
         {filtered.map((item) => (
