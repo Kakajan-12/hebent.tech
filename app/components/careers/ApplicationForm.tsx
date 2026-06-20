@@ -170,7 +170,7 @@ const ApplicationForm = () => {
         {t.rich("personal-info", { br: () => <br /> })}
       </h2>
       <form
-        className="space-y-5 flex flex-col self-end justify-self-end gap-5 w-2/3"
+        className="space-y-5 flex flex-col self-end justify-self-end gap-5 w-full lg:w-2/3"
         onSubmit={handleSubmit}
       >
         {/* Section: Personal Information */}
@@ -179,44 +179,52 @@ const ApplicationForm = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-          className="space-y-5 lg:space-y-16"
+          className="space-y-5"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-5 ">
-            <div className="flex flex-col border border-[#6B737A] relative">
-              <label className="label-style">{t("name")}</label>
+            <div className="flex flex-col border border-[#6B737A] relative group">
+              <label className="label-style opacity-0 group-focus-within:opacity-100 transition-opacity duration-300">
+                {t("name")}
+              </label>
               <input
                 type="text"
                 name="name"
-                placeholder={t("name-placeholder")}
+                placeholder={t("name")}
                 required
-                className="input-style focus:ring-1 focus:ring-[#253081] outline-none"
+                className="input-style focus:ring-1 focus:ring-brand-dark outline-none focus:placeholder:text-transparent"
               />
             </div>
 
-            <div className="flex flex-col border border-[#6B737A] relative">
-              <label className="label-style">{t("surname")}</label>
+            <div className="flex flex-col border border-[#6B737A] relative group">
+              <label className="label-style opacity-0 group-focus-within:opacity-100 transition-opacity duration-300">
+                {t("surname")}
+              </label>
               <input
                 type="text"
                 name="surname"
-                placeholder={t("surname-placeholder")}
+                placeholder={t("surname")}
                 required
-                className="input-style focus:ring-1 focus:ring-[#253081] outline-none"
+                className="input-style focus:ring-1 focus:ring-brand-dark outline-none focus:placeholder:text-transparent"
               />
             </div>
 
-            <div className="flex flex-col border border-[#6B737A] relative">
-              <label className="label-style">{t("email")}</label>
+            <div className="flex flex-col border border-[#6B737A] relative group">
+              <label className="label-style opacity-0 group-focus-within:opacity-100 transition-opacity duration-300">
+                {t("email")}
+              </label>
               <input
                 type="email"
                 name="email"
                 placeholder={"mail@example.com"}
                 required
-                className="input-style focus:ring-1 focus:ring-[#253081] outline-none"
+                className="input-style focus:ring-1 focus:ring-brand-dark outline-none focus:placeholder:text-transparent"
               />
             </div>
 
-            <div className="flex flex-col border border-[#6B737A] relative">
-              <label className="label-style">{t("phoneNumber")}</label>
+            <div className="flex flex-col border border-[#6B737A] relative group">
+              <label className="label-style opacity-0 group-focus-within:opacity-100 transition-opacity duration-300">
+                {t("phoneNumber")}
+              </label>
               <input
                 type="tel"
                 name="phone"
@@ -232,7 +240,7 @@ const ApplicationForm = () => {
                 onBlur={() => {
                   if (phone === PHONE_PREFIX) setPhone("");
                 }}
-                className="input-style focus:ring-1 focus:ring-[#253081] outline-none"
+                className="input-style focus:ring-1 focus:ring-brand-dark outline-none focus:placeholder:text-transparent"
               />
             </div>
             <div className="flex flex-col gap-3">
@@ -256,46 +264,45 @@ const ApplicationForm = () => {
                   <FiPaperclip className="w-6 h-6 text-[#6B737A]" />
                 </div>
               </div>
-
-              {files.length > 0 && (
-                <ul className="mt-4 space-y-2">
-                  {files.map((file, index) => (
-                    <li
-                      key={`${file.name}-${index}`}
-                      className="flex items-center justify-between bg-gray-100 p-2 px-4 rounded-md border border-gray-200"
-                    >
-                      <div className="flex items-center gap-2 overflow-hidden">
-                        <div className="w-2 h-2 bg-black rounded-full shrink-0" />
-                        <span className="text-sm lg:text-xl truncate">
-                          {file.name}
-                        </span>
-                        <span className="text-xs lg:text-xl text-gray-400 truncate">
-                          ({(file.size / 1024).toFixed(1)} KB)
-                        </span>
-                      </div>
-                      <button
-                        onClick={() => removeFile(index)}
-                        className="z-20 p-1 hover:bg-gray-200 rounded-full transition-colors"
-                        type="button"
-                      >
-                        <FiX className="w-4 h-4 text-red-500" />
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              )}
             </div>
             {/* Submit Button */}
             <div className="flex justify-center">
               <button
                 type="submit"
                 disabled={isLoading}
-                className="flex justify-center items-center font-vox bg-[#253081] text-white w-full py-3 font-bold text-base lg:text-lg hover:bg-opacity-90 transition-colors"
+                className="flex justify-center items-center font-vox bg-brand-dark text-white w-full py-3 font-bold text-base lg:text-lg hover:bg-opacity-90 transition-colors"
               >
                 {isLoading ? <Loading size="xs" /> : t("send")}
               </button>
             </div>
           </div>
+          {files.length > 0 && (
+            <ul className="mt-4 space-y-2">
+              {files.map((file, index) => (
+                <li
+                  key={`${file.name}-${index}`}
+                  className="flex items-center justify-between bg-gray-100 p-2 px-4 rounded-md border border-gray-200"
+                >
+                  <div className="flex items-center gap-2 overflow-hidden">
+                    <div className="w-2 h-2 bg-black rounded-full shrink-0" />
+                    <span className="text-sm lg:text-xl truncate">
+                      {file.name}
+                    </span>
+                    <span className="text-xs lg:text-xl text-gray-400 truncate">
+                      ({(file.size / 1024).toFixed(1)} KB)
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => removeFile(index)}
+                    className="z-20 p-1 hover:bg-gray-200 rounded-full transition-colors"
+                    type="button"
+                  >
+                    <FiX className="w-4 h-4 text-red-500" />
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
         </motion.section>
       </form>
 

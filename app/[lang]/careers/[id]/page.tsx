@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 import Loading from "@/components/ui/Loading";
 import { motion } from "motion/react";
+import { stripHtmlTags } from "@/lib/utils";
 
 export default function CareerPage() {
   const t = useTranslations("Careers");
@@ -24,7 +25,7 @@ export default function CareerPage() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="min-h-screen container mx-auto px-5 sm:px-7 lg:px-10"
+      className="container mx-auto px-5 sm:px-7 lg:px-10"
     >
       {isLoading && (
         <div className="py-10 flex justify-center">
@@ -51,16 +52,25 @@ export default function CareerPage() {
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
             className="flex flex-col gap-5 lg:gap-10"
           >
-            <h2 className="text-xl lg:text-5xl font-bold">
-              {vacancy[`title_${locale}`]}
-            </h2>
+            {/* <h2 className="text-xl lg:text-5xl font-bold">
+              {stripHtmlTags(vacancy[`title_${locale}`])}
+            </h2> */}
 
             <div className="flex flex-col gap-2">
-              <h3 className="text-xl lg:text-3xl font-bold">
+              <h3 className="text-3xl lg:text-5xl font-bold tracking-tight font-vox">
+                {t("role")}
+              </h3>
+              <div
+                className="text-sm lg:text-2xl leading-relaxed text-left rich-text self-end justify-self-end lg:w-[60%] xl:w-2/3"
+                dangerouslySetInnerHTML={{ __html: vacancy[`title_${locale}`] }}
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <h3 className="text-3xl lg:text-5xl font-bold tracking-tight font-vox">
                 {t("whatYoullDo")}
               </h3>
               <div
-                className="font-vox text-sm lg:text-2xl leading-relaxed"
+                className="text-sm lg:text-2xl leading-relaxed text-left rich-text self-end justify-self-end lg:w-[60%] xl:w-2/3"
                 dangerouslySetInnerHTML={{ __html: vacancy[`text_${locale}`] }}
               />
             </div>

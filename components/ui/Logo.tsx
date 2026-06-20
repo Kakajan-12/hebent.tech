@@ -1,39 +1,46 @@
-import React from "react";
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import logo from "@/public/logoIcon.svg";
 import logoText from "@/public/logos/Hebent.svg";
-import logtech from "@/public/logos/LOGTECH.svg";
-import govtech from "@/public/logos/GOVTECH.svg";
-import fintech from "@/public/logos/FINTECH.svg";
-import medtech from "@/public/logos/MEDTECH.svg";
-import traveltech from "@/public/logos/TRAVELTECH.svg";
-import eventtech from "@/public/logos/EVENTTECH.svg";
-import cybertech from "@/public/logos/CYBERTECH.svg";
-import RotatingLogo from "@/app/components/RotatingLogo";
+import DecryptedText from "@/components/DecryptedText";
+
+const logos = ["log", "gov", "fin", "med", "travel", "event", "cyber"];
 
 function Logo() {
-  const logos = [
-    logtech,
-    govtech,
-    fintech,
-    medtech,
-    traveltech,
-    eventtech,
-    cybertech,
-  ];
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setIndex((prev) => (prev + 1) % logos.length);
+    }, 2500);
+    return () => clearInterval(id);
+  }, []);
 
   return (
-    <div className="flex items-end justify-start md:pr-5 lg:pr-10 xl:pr-25">
-      {/* <div className="col-span-2 row-span-2"> */}
-      <RotatingLogo logos={logos} />
+    <div className="flex flex-col items-end justify-start gap-1 lg:gap-3 md:pr-5 lg:pr-10 xl:pr-25">
       <Image
         src={logoText}
         alt="logo text"
         width={logoText.width}
         height={logoText.height}
-        className="w-[100px] md:w-[150px] lg:w-[180px] xl:w-[220px] h-auto"
+        className="shrink-0 w-[100px] md:w-[150px] lg:w-[180px] xl:w-[220px] h-auto"
       />
-      {/* </div> */}
+
+      <div className="flex items-end -mr-1">
+        <DecryptedText
+          key={index}
+          text={logos[index]}
+          animateOn="view"
+          sequential
+          speed={100}
+          revealDirection="start"
+          parentClassName="shrink-0 whitespace-nowrap text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold uppercase text-[#0044E1] tracking-widest"
+        />
+        <span className="shrink-0 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold uppercase text-[#0044E1] tracking-widest">
+          tech
+        </span>
+      </div>
     </div>
   );
 }

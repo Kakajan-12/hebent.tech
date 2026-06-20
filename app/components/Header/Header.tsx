@@ -81,7 +81,7 @@ export default function Header() {
               onClick={() => setIsOpen(false)}
               className={`hidden sm:inline-flex items-center justify-center border px-3 lg:px-8 py-1 lg:py-2 text-sm font-medium transition ${
                 isOpen
-                  ? "bg-transparent border-white text-white hover:text-[#253081] hover:bg-white/50"
+                  ? "bg-transparent border-white text-white hover:text-brand-dark hover:bg-white/50"
                   : "bg-white border-black text-black hover:bg-white"
               }`}
             >
@@ -96,7 +96,7 @@ export default function Header() {
                 onClick={() => setIsOpen((v) => !v)}
                 className={`border p-1 lg:p-2 transition ${
                   isOpen
-                    ? "bg-transparent border-white text-white hover:text-[#253081] hover:bg-white/50"
+                    ? "bg-transparent border-white text-white hover:text-brand-dark hover:bg-white/50"
                     : "bg-white border-black text-black hover:bg-white"
                 }`}
               >

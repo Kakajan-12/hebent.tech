@@ -1,17 +1,15 @@
 "use client";
 
-import Image from "next/image";
 import { FiSearch } from "react-icons/fi";
 import { FaChevronDown } from "react-icons/fa6";
 import { useTranslations } from "next-intl";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Loading from "@/components/ui/Loading";
 import Pagination from "@/app/components/Pagination";
+import ProjectCard from "@/app/components/Projects/ProjectCard";
 import { useGetProjectsQuery } from "@/app/api/api";
 import useAppLocale from "@/app/Hooks/GetLocale";
 import { Project } from "@/app/Interfaces/interfaces";
-import { resolveMediaUrl } from "@/constant/constant";
-import { useRouter } from "@/i18n/navigation";
 import { motion } from "motion/react";
 import TypingText from "@/components/ui/TypingText";
 import { stripHtmlTags } from "@/lib/utils";
@@ -152,7 +150,7 @@ export default function ProjectsClient() {
         >
           <label
             htmlFor="search"
-            className="relative flex h-10 w-full items-center justify-between rounded-sm border border-[#ABB7C2] px-3 shadow-sm md:w-102"
+            className="relative flex h-10 w-full items-center justify-between rounded-sm border border-[#ABB7C2] px-3 shadow-sm md:w-102 cursor-pointer"
           >
             <input
               id="search"
@@ -163,7 +161,7 @@ export default function ProjectsClient() {
                 setQuery(e.target.value);
                 setPage(1);
               }}
-              className="h-full min-h-0 min-w-0 items-center flex-1 bg-transparent py-0 outline-none transition-all placeholder:text-[#ABB7C2] focus:border-slate-400"
+              className="h-full min-h-0 min-w-0 items-center flex-1 bg-transparent py-0 outline-none transition-all placeholder:text-[#ABB7C2] focus:border-slate-400 cursor-pointer"
             />
             <span
               className={`flex shrink-0 items-center transition-opacity duration-150 ${
@@ -242,12 +240,7 @@ export default function ProjectsClient() {
             </div>
           )}
           {slice.map((project) => (
-            <ProjectApiCard
-              key={project.id}
-              project={project}
-              title={stripHtmlTags(project[`title_${locale}`])}
-              text={stripHtmlTags(project[`text_${locale}`])}
-            />
+            <ProjectCard key={project.id} project={project} />
           ))}
         </motion.div>
         <Pagination
@@ -257,53 +250,5 @@ export default function ProjectsClient() {
         />
       </motion.div>
     </motion.main>
-  );
-}
-
-type ProjectApiCardProps = {
-  project: Project;
-  title: string;
-  text: string;
-};
-
-function ProjectApiCard({ project, title, text }: ProjectApiCardProps) {
-  const router = useRouter();
-  const [isImageLoading, setIsImageLoading] = useState(true);
-  const imageSrc = resolveMediaUrl(project.image);
-  const goToProject = () => {
-    router.push(`/project/${project.id}`);
-  };
-
-  return (
-    <div className="cut-card bg-brand p-px">
-      <article
-        className="group relative aspect-square cut-card bg-white"
-        onClick={goToProject}
-      >
-        {isImageLoading && (
-          <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-100/70">
-            <Loading size="sm" />
-          </div>
-        )}
-        <Image
-          src={imageSrc}
-          alt={title}
-          fill
-          sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
-          className="object-contain transition duration-500 group-hover:scale-105"
-          onLoad={() => setIsImageLoading(false)}
-          onError={() => setIsImageLoading(false)}
-        />
-        <div className="absolute inset-0 bg-black opacity-60 transition duration-300 lg:opacity-0 lg:group-hover:opacity-60" />
-        <div className="pointer-events-none absolute inset-0 flex flex-col justify-center items-center p-5 opacity-100 transition duration-300 lg:opacity-0 lg:group-hover:opacity-100">
-          <h3 className="text-lg font-semibold leading-snug text-white text-center">
-            {title}
-          </h3>
-          <p className="mt-2 line-clamp-3 text-sm text-white/85 text-center">
-            {text}
-          </p>
-        </div>
-      </article>
-    </div>
   );
 }

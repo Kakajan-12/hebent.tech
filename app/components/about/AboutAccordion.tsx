@@ -103,48 +103,20 @@ export default function AboutAccordion() {
   const t = useTranslations("About.accordion");
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.12 });
-  const [activeSection, setActiveSection] = useState(-1);
-  const hasStarted = useRef(false);
-
-  useEffect(() => {
-    if (!isInView || hasStarted.current) return;
-    hasStarted.current = true;
-    const frame = window.requestAnimationFrame(() => setActiveSection(0));
-    return () => window.cancelAnimationFrame(frame);
-  }, [isInView]);
-
-  const handleSectionComplete = useCallback(() => {
-    setActiveSection((prev) =>
-      prev < SECTION_IDS.length - 1 ? prev + 1 : prev,
-    );
-  }, []);
 
   return (
     <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
       ref={containerRef}
-      initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="container mx-auto px-5 lg:px-10"
+      transition={{ duration: 0.2, ease: "easeOut" }}
+      className="container mx-auto px-5 lg:px-10 mt-4 lg:mt-12"
     >
-      {SECTION_IDS.map((id, index) => {
-        const status: SectionStatus =
-          index < activeSection
-            ? "done"
-            : index === activeSection
-              ? "active"
-              : "waiting";
-
-        return (
-          <SectionRow
-            key={id}
-            id={id}
-            t={t}
-            status={status}
-            onComplete={handleSectionComplete}
-          />
-        );
-      })}
+      {SECTION_IDS.map((id) => (
+        <SectionRow key={id} id={id} t={t} />
+      ))}
     </motion.div>
   );
 }
@@ -152,18 +124,26 @@ export default function AboutAccordion() {
 function SectionRow({
   id,
   t,
-  status,
-  onComplete,
 }: {
   id: SectionId;
   t: ReturnType<typeof useTranslations<"About.accordion">>;
-  status: SectionStatus;
-  onComplete: () => void;
 }) {
-  const isDone = status === "done";
-  const isActive = status === "active";
+  const rowRef = useRef<HTMLDivElement>(null);
+  // Each section reveals based on its own scroll visibility, so fast
+  // scrolling never leaves a section stuck invisible behind the typing chain.
+  const isInView = useInView(rowRef, { once: true, amount: 0.3 });
+  const [isDone, setIsDone] = useState(false);
   const [phase, setPhase] = useState<SectionPhase>("line");
+
+  const status: SectionStatus = isDone
+    ? "done"
+    : isInView
+      ? "active"
+      : "waiting";
+  const isActive = status === "active";
   const currentPhase: SectionPhase = isDone ? "done" : phase;
+
+  const onComplete = useCallback(() => setIsDone(true), []);
 
   useEffect(() => {
     if (!isActive) return;
@@ -175,7 +155,7 @@ function SectionRow({
   const titleText = t(`${id}.title`);
 
   return (
-    <div className="flex flex-col gap-1 lg:gap-4">
+    <div ref={rowRef} className="flex flex-col gap-1 lg:gap-4">
       <motion.div
         initial={{ scaleX: 0, opacity: 0.35 }}
         animate={

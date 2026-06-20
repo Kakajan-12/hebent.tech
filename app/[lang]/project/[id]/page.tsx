@@ -3,6 +3,8 @@
 import { notFound, useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import { useState } from "react";
 import Loading from "@/components/ui/Loading";
 import { useGetProjectDetailByIdQuery } from "@/app/api/api";
@@ -83,6 +85,13 @@ export default function ProjectPage() {
   return (
     <main className="relative flex-col flex gap-3 md:gap-10 min-h-screen overflow-x-clip">
       <div className="-mt-42 relative h-90 sm:h-110 md:h-130 lg:h-140 xl:h-176 2xl:h-190 w-full flex items-end justify-end overflow-hidden bg-white">
+        <Link
+          href={`/${locale}/project`}
+          aria-label={tPage("back")}
+          className="absolute bottom-7 left-5 lg:left-10 z-30 flex h-11 w-11 items-center justify-center rounded-full border border-black/10 text-black transition-colors hover:bg-black hover:text-white"
+        >
+          <ArrowLeft className="h-5 w-5" />
+        </Link>
         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-2/3 h-2/3 z-10">
           {isImageLoading && (
             <Skeleton className="absolute inset-0 z-10 h-full w-full rounded-none" />

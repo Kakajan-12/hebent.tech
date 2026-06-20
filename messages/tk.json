@@ -76,6 +76,7 @@
     "title": "Biziň maksatymyzynyň <br></br> bir bölegi boluň",
     "text": "Hebent Tech-de biz görýäris: uly netije uly topardan başlaýar. Täsir etmek, hünärmenlikde ösmek we manysly zatlara goşant goşmak isleýän aňly, täjek we yhlasly adamlary hemişe gözleýäris.",
     "vacancies": "Açyk iş orunlary",
+    "role": "Iş boýunça maglumat",
     "apply": "Ýüz tutmak",
     "personal-info": "Şahsy <br></br> maglumatlar",
     "name": "Ady",
@@ -83,38 +84,16 @@
     "name-placeholder": "Aman",
     "surname-placeholder": "Amanov",
     "email": "E-poçta",
-    "phoneNumber": "Telefon raýyletmek",
+    "phoneNumber": "Telefon nomeryňyz",
     "portfolio": "Portfolio",
-    "drop-files": "Sizin ýazylanlar ýüze çykaryňyz",
-    "selected": "Seçildi",
-    "files": "fayllar",
-    "send": "Göndermek",
+    "drop-files": "Faýllaryňyzy şu ýere goşuň",
+    "selected": "Saýlandy",
+    "files": "faýllar",
+    "send": "Ibermek",
     "successTitle": "Arza iberildi!",
     "successMessage": "Ýüz tutanyňyz üçin sag boluň. Arzaňyzy gözden geçireris we ýakyn wagtda siz bilen habarlaşarys.",
     "close": "Ýapmak",
-    "whatYoullDo": "Näme edýärsiňiz",
-    "jobs": [
-      {
-        "id": "1",
-        "title": "Frontend işläp düziji (React.js)",
-        "description": "Esasy platformamyz üçin düşnükli we jogapkär web interfeýslerini gurarsyňyz. React, CSS we häzirki zaman JavaScript framework-larynda güýçli ussatlygy bolan adamy gözleýäris."
-      },
-      {
-        "id": "2",
-        "title": "Frontend işläp düziji (React.js)",
-        "description": "Esasy platformamyz üçin düşnükli we jogapkär web interfeýslerini gurarsyňyz. React, CSS we häzirki zaman JavaScript framework-larynda güýçli ussatlygy bolan adamy gözleýäris."
-      },
-      {
-        "id": "3",
-        "title": "Frontend işläp düziji (React.js)",
-        "description": "Esasy platformamyz üçin düşnükli we jogapkär web interfeýslerini gurarsyňyz. React, CSS we häzirki zaman JavaScript framework-larynda güýçli ussatlygy bolan adamy gözleýäris."
-      },
-      {
-        "id": "4",
-        "title": "Frontend işläp düziji (React.js)",
-        "description": "Esasy platformamyz üçin düşnükli we jogapkär web interfeýslerini gurarsyňyz. React, CSS we häzirki zaman JavaScript framework-larynda güýçli ussatlygy bolan adamy gözleýäris."
-      }
-    ]
+    "whatYoullDo": "Näme edýärsiňiz"
   },
   "Contacts": {
     "title": "Biz bilen habarlaşmak",
@@ -165,7 +144,8 @@
     "sort-date": "Döredilen senesi boýunça",
     "customer": "Müşderi: ",
     "webSite": "Web-sait: ",
-    "gallery": "Galereýa:"
+    "gallery": "Galereýa:",
+    "back": "Taslamalara dolan"
   },
   "Testimonials": {
     "title": "Müşderiler"
@@ -193,7 +173,8 @@
     "sortBy": "Tertipleşdir:",
     "sortSingle": "Bellenen",
     "sortTitle": "Ady boýunça",
-    "gallery": "Galereýa:"
+    "gallery": "Galereýa:",
+    "back": "Täzeliklere dolan"
   },
   "Footer": {
     "contacts": "Habarlaşmak",
@@ -285,5 +266,10 @@
       }
     ],
     "span": "Biz hiç haçan siziň şahsy maglumatlaryňyzy üçünji taraplara satmaýarys ýa-da kärendesine bermeýäris."
+  },
+  "NotFound": {
+    "title": "Sahypa tapylmady",
+    "description": "Gynansak-da, gözleýän sahypaňyz ýok ýa-da başga ýere göçürilen.",
+    "home": "Baş sahypa"
   }
 }

@@ -63,3 +63,14 @@ export function getSocialIcon(icon: string | null | undefined): IconType {
   const key = icon.trim().toLowerCase().replace(/\s+/g, "-");
   return iconMap[key] ?? FaGlobe;
 }
+
+// Normalizes a social link URL so it always works as an external link.
+// API values may omit the protocol (e.g. "t.me/davud3108"), which the browser
+// would otherwise treat as a relative path and break the link.
+export function normalizeSocialUrl(url: string | null | undefined): string {
+  const value = (url ?? "").trim();
+  if (!value) return "";
+  // Already has a scheme (https://, weixin://, tel:, mailto:, etc.)
+  if (/^[a-z][a-z0-9+.-]*:/i.test(value)) return value;
+  return `https://${value.replace(/^\/+/, "")}`;
+}

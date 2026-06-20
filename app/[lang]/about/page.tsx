@@ -13,7 +13,7 @@ export default function AboutPage() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="min-h-screen flex flex-col gap-3 lg:gap-4"
+      className="min-h-screen flex flex-col gap-3 lg:gap-8"
     >
       <div className="hidden lg:grid lg:grid-cols-2 gap-4 container mx-auto px-5 lg:px-10">
         <p className=""></p>

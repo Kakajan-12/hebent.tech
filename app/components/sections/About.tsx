@@ -53,7 +53,7 @@ export default function AboutSection({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="container mx-auto px-5 lg:px-10 flex flex-col gap-4 lg:gap-8 items-center justify-center"
+      className="container mx-auto px-5 lg:px-10 flex flex-col gap-4 lg:gap-20 items-center justify-center"
     >
       <motion.div
         variants={{
@@ -81,7 +81,7 @@ export default function AboutSection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-          className={`text-lg md:text-2xl lg:text-3xl font-medium text-left lg:w-1/2 ${showTitle ? "lg:w-1/2" : "lg:w-full"}`}
+          className={`text-lg md:text-2xl lg:text-3xl font-medium  lg:w-1/2 ${showTitle ? "lg:w-1/2 text-left" : "lg:w-full text-center"}`}
         >
           {tAbout("body")}
         </motion.p>

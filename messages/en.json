@@ -76,6 +76,7 @@
     "title": "Be part of <br></br> our mission",
     "text": "At Hebent Tech, we believe that great work starts with great people. We're always looking for passionate, talented, and driven individuals who want to make an impact, grow professionally, and contribute to something meaningful.",
     "vacancies": "Current Vacancies",
+    "role": "About the vacancy",
     "apply": "Apply",
     "personal-info": "Personal <br></br> Information",
     "name": "Name",
@@ -92,29 +93,7 @@
     "successTitle": "Application sent!",
     "successMessage": "Thank you for applying. We'll review your application and get back to you soon.",
     "close": "Close",
-    "whatYoullDo": "What You'll Do",
-    "jobs": [
-      {
-        "id": "1",
-        "title": "Frontend Developer (React.js)",
-        "description": "You'll work on building intuitive and responsive web interfaces for our core platform. We're looking for someone with strong skills in React, CSS, and modern JavaScript frameworks."
-      },
-      {
-        "id": "2",
-        "title": "Frontend Developer (React.js)",
-        "description": "You'll work on building intuitive and responsive web interfaces for our core platform. We're looking for someone with strong skills in React, CSS, and modern JavaScript frameworks."
-      },
-      {
-        "id": "3",
-        "title": "Frontend Developer (React.js)",
-        "description": "You'll work on building intuitive and responsive web interfaces for our core platform. We're looking for someone with strong skills in React, CSS, and modern JavaScript frameworks."
-      },
-      {
-        "id": "4",
-        "title": "Frontend Developer (React.js)",
-        "description": "You'll work on building intuitive and responsive web interfaces for our core platform. We're looking for someone with strong skills in React, CSS, and modern JavaScript frameworks."
-      }
-    ]
+    "whatYoullDo": "What You'll Do"
   },
   "Contacts": {
     "title": "Contact Us",
@@ -165,7 +144,8 @@
     "sort-date": "Creation date",
     "customer": "Customer: ",
     "webSite": "Website: ",
-    "gallery": "Gallery:"
+    "gallery": "Gallery:",
+    "back": "Back to projects"
   },
   "Testimonials": {
     "title": "Our clients"
@@ -193,7 +173,8 @@
     "sortBy": "Sort by:",
     "sortSingle": "Default",
     "sortTitle": "Title",
-    "gallery": "Gallery:"
+    "gallery": "Gallery:",
+    "back": "Back to news"
   },
   "Footer": {
     "contacts": "Contacts",
@@ -285,5 +266,10 @@
       }
     ],
     "span": "We will never sell or rent your personal information to third parties."
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "description": "Sorry, the page you are looking for does not exist or has been moved.",
+    "home": "Back to home"
   }
 }

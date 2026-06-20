@@ -11,13 +11,13 @@ export default function ProjectsPreview() {
   const t = useTranslations("ProjectsPreview");
   const { data, error, isLoading } = useGetProjectsQuery();
   const projects: Project[] = Array.isArray(data) ? data : [];
-  const slice = projects.slice(0, 6);
+  const slice = projects.slice(0, 8);
 
   return (
     <section className="py-6 lg:py-24">
       <div className="container mx-auto px-5 lg:px-10">
         {/* <div className="flex flex-wrap items-end justify-between gap-4 "> */}
-        <h2 className="text-3xl font-vox font-bold tracking-tight md:text-4xl">
+        <h2 className="text-3xl font-vox font-bold tracking-tight md:text-4xl lg:text-5xl">
           {t("title")}
         </h2>
         {/* </div> */}

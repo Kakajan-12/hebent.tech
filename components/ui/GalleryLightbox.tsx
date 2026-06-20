@@ -170,7 +170,7 @@ function LightboxContent({
                   scrollTo(i);
                 }}
                 className={`h-2 rounded-full transition-all ${
-                  i === selected ? "w-6 bg-[#253081]" : "w-2 bg-white/40"
+                  i === selected ? "w-6 bg-brand-dark" : "w-2 bg-white/40"
                 }`}
               />
             ))}

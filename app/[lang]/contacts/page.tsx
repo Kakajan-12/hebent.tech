@@ -1,20 +1,14 @@
 "use client";
 
-import type { FormEvent } from "react";
-import { IoLogoWechat } from "react-icons/io5";
+import type { SyntheticEvent } from "react";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
-import WeChatLink from "@/components/WeChatLink";
 import Image from "next/image";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+
 import { SocialLink, Phone } from "@/app/Interfaces/interfaces";
 import { useGetSocialLinksQuery, useGetPhonesQuery } from "@/app/api/api";
+import SocialLinkAnchor from "@/components/SocialLinkAnchor";
 import { BASE_API_URL } from "@/constant/constant";
-import { getSocialIcon } from "@/lib/socialIcon";
 import { useState, useEffect, useCallback } from "react";
 import Loading from "@/components/ui/Loading";
 import SuccessModal from "@/components/ui/SuccessModal";
@@ -93,7 +87,9 @@ export default function ContactPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleContactSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleContactSubmit = async (
+    event: SyntheticEvent<HTMLFormElement>,
+  ) => {
     event.preventDefault();
     setSending(true);
     setError(null);
@@ -135,7 +131,7 @@ export default function ContactPage() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="min-h-screen container mx-auto px-5 sm:px-7 lg:px-10"
+      className="container mx-auto px-5 sm:px-7 lg:px-10"
     >
       <Heading title={t("title")} className="mb-4 lg:mb-10 xl:mb-16" />
 
@@ -208,22 +204,13 @@ export default function ContactPage() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-2 md:gap-4 xl:gap-6">
-            {socialLinks?.map((item: SocialLink) => {
-              const external = item.url.startsWith("https");
-              return (
-                <a
-                  key={item.id}
-                  href={item.url}
-                  className="flex items-center justify-center max-w-44 min-w-38 capitalize text-sm  lg:text-base font-medium bg-white py-3 px-12 hover:text-white hover:bg-[#777D84] transition-all duration-300 border border-black"
-                  aria-label={item.icon}
-                  {...(external
-                    ? { target: "_blank", rel: "noopener noreferrer" }
-                    : {})}
-                >
-                  {item.icon}
-                </a>
-              );
-            })}
+            {socialLinks?.map((item: SocialLink) => (
+              <SocialLinkAnchor
+                key={item.id}
+                item={item}
+                className="flex items-center justify-center max-w-44 min-w-38 capitalize text-sm  lg:text-base font-medium bg-white py-3 px-12 hover:text-white hover:bg-[#777D84] transition-all duration-300 border border-black"
+              />
+            ))}
           </div>
         </div>
 
@@ -232,32 +219,38 @@ export default function ContactPage() {
           onSubmit={handleContactSubmit}
         >
           <div className="grid grid-cols-1 gap-8 lg:gap-10">
-            <div className="flex flex-col border border-[#6B737A] relative">
-              <label htmlFor="name" className="label-style">
+            <div className="flex flex-col border border-[#6B737A] relative group">
+              <label
+                htmlFor="name"
+                className="label-style opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"
+              >
                 {t("name")}
               </label>
               <input
                 id="name"
                 name="name"
                 type="text"
-                placeholder={tPlaceHolder("name-placeholder")}
+                placeholder={t("name")}
                 autoComplete="name"
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="input-style focus:ring-1 focus:ring-[#253081] outline-none"
+                className="input-style focus:ring-1 focus:ring-brand-dark outline-none focus:placeholder:text-transparent"
               />
             </div>
-            <div className="flex flex-col border border-[#6B737A] relative">
-              <label htmlFor="surname" className="label-style">
+            <div className="flex flex-col border border-[#6B737A] relative group">
+              <label
+                htmlFor="surname"
+                className="label-style opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"
+              >
                 {t("surname")}
               </label>
               <input
                 id="surname"
                 name="surname"
                 type="text"
-                placeholder={tPlaceHolder("surname-placeholder")}
-                className="input-style focus:ring-1 focus:ring-[#253081] outline-none"
+                placeholder={t("surname")}
+                className="input-style focus:ring-1 focus:ring-brand-dark outline-none focus:placeholder:text-transparent"
                 autoComplete="family-name"
                 value={formData.surname}
                 onChange={handleChange}
@@ -266,8 +259,11 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="flex flex-col border border-[#6B737A] relative">
-            <label htmlFor="email" className="label-style">
+          <div className="flex flex-col border border-[#6B737A] relative group">
+            <label
+              htmlFor="email"
+              className="label-style opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"
+            >
               {t("email")}
             </label>
             <input
@@ -275,7 +271,7 @@ export default function ContactPage() {
               name="email"
               type="email"
               placeholder={"mail@example.com"}
-              className="input-style focus:ring-1 focus:ring-[#253081] outline-none"
+              className="input-style focus:ring-1 focus:ring-brand-dark outline-none focus:placeholder:text-transparent"
               autoComplete="email"
               value={formData.email}
               onChange={handleChange}
@@ -283,17 +279,20 @@ export default function ContactPage() {
             />
           </div>
 
-          <div className="flex flex-col border border-[#6B737A] relative">
-            <label htmlFor="message" className="label-style">
+          <div className="flex flex-col border border-[#6B737A] relative group">
+            <label
+              htmlFor="message"
+              className="label-style opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"
+            >
               {t("comments")}
             </label>
             <textarea
               id="message"
               name="message"
               rows={6}
-              className="input-style focus:ring-1 focus:ring-[#253081] outline-none resize-none"
+              className="input-style focus:ring-1 focus:ring-brand-dark outline-none resize-none focus:placeholder:text-transparent"
               autoComplete="off"
-              placeholder={t("comments-placeholder")}
+              placeholder={t("comments")}
               value={formData.message}
               onChange={handleChange}
               required
@@ -313,7 +312,7 @@ export default function ContactPage() {
                     className=" px-4 py-2 font-mono font-bold tracking-widest select-none "
                   />
                 ) : (
-                  <div className="w-[300px] h-[100px] bg-white border border-gray-300 grid place-items-center text-xs text-gray-500 px-2 text-center">
+                  <div className="w-[300px] h-[100px] bg-transparent grid place-items-center text-xs text-gray-500 px-2 text-center">
                     {captchaLoading ? "Loading..." : "Captcha unavailable"}
                   </div>
                 )}
@@ -328,8 +327,11 @@ export default function ContactPage() {
               </button>
             </div>
 
-            <div className="flex flex-col border border-[#6B737A] relative">
-              <label htmlFor="captchaText" className="label-style">
+            <div className="flex flex-col border border-[#6B737A] relative group">
+              <label
+                htmlFor="captchaText"
+                className="label-style opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"
+              >
                 Captcha
               </label>
               <input
@@ -340,7 +342,7 @@ export default function ContactPage() {
                 onChange={handleChange}
                 required
                 placeholder={t("enterCaptcha-placeholder")}
-                className="input-style focus:ring-1 focus:ring-[#253081] outline-none"
+                className="input-style focus:ring-1 focus:ring-brand-dark outline-none focus:placeholder:text-transparent"
                 autoComplete="off"
               />
             </div>
@@ -348,8 +350,8 @@ export default function ContactPage() {
           <button
             type="submit"
             disabled={sending}
-            className={`text w-full py-2 lg:py-2.5 bg-[#253081] text-white font-vox font-bold mb-5 lg:mb-0 transition-colors tracking-widest text-lg flex items-center justify-center ${
-              sending ? "cursor-wait py-0" : "hover:bg-[#253081]/80"
+            className={`text w-full py-2 lg:py-2.5 bg-brand-dark text-white font-vox font-bold mb-5 lg:mb-0 transition-colors tracking-widest text-lg flex items-center justify-center ${
+              sending ? "cursor-wait py-0" : "hover:bg-brand-dark/80"
             }`}
           >
             {t("send")}

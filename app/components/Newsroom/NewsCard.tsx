@@ -40,8 +40,8 @@ export default function NewsCard({
   const router = useRouter();
   return (
     <article
-      className={`flex flex-col gap-3 py-4 hover:shadow-sm transition duration-300 hover:cursor-pointer group ${
-        light ? "text-white" : "text-[#1E2124] hover:scale-105"
+      className={`flex flex-col gap-3 py-4 transition duration-300 cursor-pointer group ${
+        light ? "text-white" : "text-[#1E2124] hover:scale-105 "
       }`}
       onClick={() => {
         onNavigate?.();
@@ -84,7 +84,7 @@ export default function NewsCard({
           e.stopPropagation();
           onNavigate?.();
         }}
-        className={`link-underline-slide capitalize mt-2 text-base font-light ${
+        className={`link-underline-slide mt-2 text-base font-light ${
           light
             ? "text-white/70 hover:text-white"
             : "text-[#767676] hover:text-black"

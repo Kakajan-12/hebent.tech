@@ -1,3 +1,5 @@
+import CountUp from "@/components/CountUp";
+
 type StatCardProps = {
   value: string;
   label: string;
@@ -30,7 +32,14 @@ export default function StatCard({ value, label }: StatCardProps) {
     <div className="stat-card aspect-video flex flex-col items-center justify-center bg-brand h-full w-full text-white text-center shadow-sm">
       <div className="flex items-center justify-center text-5xl tracking-tight font-bold">
         <span>
-          {value}
+          <CountUp
+            to={Number(value)}
+            from={0}
+            separator=","
+            direction="up"
+            duration={1}
+            delay={0}
+          />
           {!hidePlus ? "+" : ""}
         </span>
       </div>

@@ -3,7 +3,9 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
-import { IoArrowForwardSharp, IoArrowBackSharp } from "react-icons/io5";
+import { MdKeyboardArrowRight } from "react-icons/md";
+import { MdKeyboardArrowLeft } from "react-icons/md";
+// import { IoArrowForwardSharp, IoArrowBackSharp } from "react-icons/io5";
 import { useTranslations } from "next-intl";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -70,7 +72,7 @@ export const AutoSwiper: React.FC = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="mb-10 lg:mb-20 mt-5 lg:mt-10"
+      className="mb-10 lg:mb-20 mt-5 lg:mt-10 max-h-[85vh]"
     >
       <motion.div
         initial={{ opacity: 0, x: 200 }}
@@ -110,14 +112,14 @@ export const AutoSwiper: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="relative"
+        className="relative container mx-auto px-5 lg:px-10"
       >
         <Swiper
           modules={[Autoplay, Navigation]}
           loop={true}
           centeredSlides={true}
-          slidesPerView={1.1}
-          spaceBetween={20}
+          slidesPerView={1}
+          spaceBetween={40}
           speed={800}
           autoplay={{
             delay: AUTOPLAY_DELAY,
@@ -145,13 +147,13 @@ export const AutoSwiper: React.FC = () => {
         >
           {services.map((service) => (
             <SwiperSlide key={service.id}>
-              <div className="relative flex aspect-video items-start overflow-hidden rounded p-4 lg:px-16 lg:py-8">
+              <div className="relative flex aspect-video md:aspect-auto md:w-full md:max-h-[80vh] md:h-[75vh] xl:h-[85vh] items-start overflow-hidden rounded p-4 lg:px-16  lg:py-8">
                 <Image
                   loading="eager"
                   src={resolveMediaUrl(service.image)}
                   alt={service[`title_${locale}`]}
                   fill
-                  className="object-cover lg:object-fill"
+                  className="object-cover"
                   sizes="(max-width: 768px) 88vw, 75vw"
                 />
                 <div
@@ -159,10 +161,10 @@ export const AutoSwiper: React.FC = () => {
                   className="pointer-events-none absolute inset-0 bg-linear-to-r from-black/80 via-black/40 to-transparent"
                 />
                 <div className="relative z-10 flex min-w-20 lg:min-w-60 max-w-[70%] flex-col items-start gap-1 lg:gap-2">
-                  <h3 className="text-[8px] lg:text-sm xl:text-xl font-bold uppercase text-white">
+                  <h3 className="text-[8px] md:text-sm xl:text-xl font-bold uppercase text-white">
                     {stripHtmlTags(service[`title_${locale}`])}
                   </h3>
-                  <p className="text-xs sm:text-sm lg:text-base xl:text-2xl font-medium leading-tight text-white wrap-break-word">
+                  <p className="text-xs sm:text-sm md:text-base xl:text-2xl font-medium leading-tight text-white wrap-break-word">
                     {stripHtmlTags(service[`text_${locale}`])}
                   </p>
                 </div>
@@ -175,7 +177,7 @@ export const AutoSwiper: React.FC = () => {
             aria-label={t("previous")}
             className="swiper-button-prev services-swiper-nav"
           >
-            <IoArrowBackSharp className="size-2" aria-hidden />
+            <MdKeyboardArrowLeft className="size-2" aria-hidden />
           </button>
           <button
             ref={nextRef}
@@ -183,7 +185,7 @@ export const AutoSwiper: React.FC = () => {
             aria-label={t("next")}
             className="swiper-button-next services-swiper-nav"
           >
-            <IoArrowForwardSharp className="size-2" aria-hidden />
+            <MdKeyboardArrowRight className="size-2" aria-hidden />
           </button>
         </Swiper>
       </motion.div>

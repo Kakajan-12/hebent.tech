@@ -8,8 +8,9 @@ import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { SocialLink, Phone } from "@/app/Interfaces/interfaces";
 import { useGetPhonesQuery, useGetSocialLinksQuery } from "@/app/api/api";
-import { getSocialIcon } from "@/lib/socialIcon";
+import SocialLinkAnchor from "@/components/SocialLinkAnchor";
 import footerBg from "../../../public/bg-footer1.svg";
+import useAppLocale from "@/app/Hooks/GetLocale";
 
 function formatPhoneHref(number: string) {
   return `tel:${number.replace(/[^+\d]/g, "")}`;
@@ -19,11 +20,12 @@ export default function Footer() {
   const t = useTranslations("Footer");
   const { data: socialLinks } = useGetSocialLinksQuery();
   const { data: phones } = useGetPhonesQuery();
+  const locale = useAppLocale();
 
   const products = [
-    "Hebent Travel Tech",
-    "Hebent Log Tech",
-    "Hebent Event Tech",
+    { href: "https://travel-tech.hebent.tech", label: "Hebent Travel Tech" },
+    { href: "https://logtech.hebent.tech", label: "Hebent Log Tech" },
+    { href: `${locale}/products/eventtech`, label: "Hebent Event Tech" },
   ];
 
   return (
@@ -43,7 +45,7 @@ export default function Footer() {
       />
       <div className="relative z-10 container mx-auto px-5 lg:px-10 pt-8 lg:pt-14">
         <div className="footer-container-content grid grid-cols-1 sm:grid-cols-2 gap-8 justify-center">
-          <div className="left-content flex flex-col sm:gap-11 items-start justify-between md:pl-12">
+          <div className="left-content flex flex-col sm:gap-11 items-start justify-between md:pl-18">
             <div className="flex flex-col gap-9 items-start justify-start">
               <Link href="/" className="inline-block">
                 <Image
@@ -51,27 +53,18 @@ export default function Footer() {
                   alt="HEBENT TECHNOLOGY"
                   width={200}
                   height={200}
-                  className="h-auto w-46 lg:w-70 brightness-0 invert"
+                  className="h-auto w-46 lg:w-80 brightness-0 invert"
                 />
               </Link>
 
               <div className="hidden sm:flex flex-row w-full justify-between md:gap-3 lg:gap-6">
-                {socialLinks?.map((item: SocialLink) => {
-                  const external = item.url.startsWith("https");
-                  return (
-                    <a
-                      key={item.id}
-                      href={item.url}
-                      className="flex items-center justify-center w-22 capitalize text-xs font-medium bg-transparent py-2 px-3 hover:bg-white hover:border-black hover:text-black transition-all duration-300 border border-white"
-                      aria-label={item.icon}
-                      {...(external
-                        ? { target: "_blank", rel: "noopener noreferrer" }
-                        : {})}
-                    >
-                      {item.icon}
-                    </a>
-                  );
-                })}
+                {socialLinks?.map((item: SocialLink) => (
+                  <SocialLinkAnchor
+                    key={item.id}
+                    item={item}
+                    className="flex items-center justify-center w-22 capitalize text-xs font-medium bg-transparent py-2 px-3 hover:bg-white hover:border-black hover:text-black transition-all duration-300 border border-white"
+                  />
+                ))}
               </div>
             </div>
 
@@ -107,15 +100,18 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <div className="right-content flex justify-between lg:justify-end items-start gap-6 md:gap-12 lg:gap-23 md:pr-12">
+          <div className="right-content flex justify-between lg:justify-end items-start gap-6 md:gap-12 lg:gap-23 md:pr-18">
             <div className="products text-xs lg:text-base">
               <h3 className=" font-bold font-vox">{t("products")}</h3>
               <ul className="mt-3 lg:mt-7 space-y-4 text-white font-normal">
                 {products.map((product) => (
-                  <li key={product}>
-                    <span className="text-xs lg:text-base whitespace-nowrap hover:text-white/70 transition-colors">
-                      {product}
-                    </span>
+                  <li key={product.label}>
+                    <a
+                      href={product.href}
+                      className="text-xs lg:text-base whitespace-nowrap hover:text-white/70 transition-colors"
+                    >
+                      {product.label}
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -160,22 +156,13 @@ export default function Footer() {
             </div>
           </div>
           <div className="flex sm:hidden gap-3 mb-24">
-            {socialLinks?.map((item: SocialLink) => {
-              const external = item.url.startsWith("https");
-              return (
-                <a
-                  key={item.id}
-                  href={item.url}
-                  className="flex items-center justify-center w-20 capitalize text-xs font-medium bg-transparent py-2 px-3 hover:bg-white hover:border-black hover:text-black transition-all duration-300 border border-white"
-                  aria-label={item.icon}
-                  {...(external
-                    ? { target: "_blank", rel: "noopener noreferrer" }
-                    : {})}
-                >
-                  {item.icon}
-                </a>
-              );
-            })}
+            {socialLinks?.map((item: SocialLink) => (
+              <SocialLinkAnchor
+                key={item.id}
+                item={item}
+                className="flex items-center justify-center w-20 capitalize text-xs font-medium bg-transparent py-2 px-3 hover:bg-white hover:border-black hover:text-black transition-all duration-300 border border-white"
+              />
+            ))}
           </div>
         </div>
       </div>

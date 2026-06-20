@@ -3,6 +3,8 @@
 import { useParams, notFound } from "next/navigation";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import Loading from "@/components/ui/Loading";
 import { useGetNewsDetailByIdQuery } from "@/app/api/api";
 import useAppLocale from "@/app/Hooks/GetLocale";
@@ -113,6 +115,14 @@ export default function NewsArticlePage() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="container mx-auto px-5 lg:px-10 flex flex-col gap-10"
       >
+        <Link
+          href={`/${locale}/newsroom`}
+          aria-label={t("back")}
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-black/10 text-black transition-colors hover:bg-black hover:text-white"
+        >
+          <ArrowLeft className="h-5 w-5" />
+        </Link>
+
         <div
           className="rich-text text-sm lg:text-xl"
           dangerouslySetInnerHTML={{ __html: textHtml }}

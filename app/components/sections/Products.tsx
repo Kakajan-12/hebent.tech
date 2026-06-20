@@ -53,22 +53,20 @@ export default function Products() {
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
           className="flex flex-col gap-2"
         >
-          <h2 className="text-3xl font-vox font-bold tracking-tight md:text-4xl">
+          <h2 className="text-3xl font-vox font-bold tracking-tight md:text-4xl lg:text-5xl">
             {t("title")}
           </h2>
-          <p className="max-w-2xl font-vox text-base text-[#3D6196] md:text-lg">
-            {t("subtitle")}
-          </p>
+          <p className="text-base text-[#3D6196] md:text-lg">{t("subtitle")}</p>
         </motion.div>
 
         <div className="mt-5">
           {products.map((product, index) => {
             const number = `/0.${index + 1}`;
             const content = (
-              <article className="group relative grid grid-cols-1 items-center gap-4 py-4 lg:py-8 transition-colors duration-300 md:grid-cols-2 md:gap-6 md:py-10">
-                <div className="col-span-full h-px w-full origin-left scale-x-100 bg-black lg:scale-x-0 lg:transition-transform lg:duration-700 lg:ease-out lg:group-hover:scale-x-100 lg:group-hover:delay-150" />
+              <article className="group relative grid grid-cols-1 items-center gap-x-4 py-4 lg:py-8 transition-colors duration-300 md:grid-cols-2 md:gap-x-6 lg:gap-x-8 xl:gap-x-22 md:py-10">
+                <div className="col-span-full h-px w-full origin-left scale-x-100 bg-black lg:scale-x-0 lg:transition-transform lg:duration-700 lg:ease-out lg:group-hover:scale-x-100 lg:group-hover:delay-150 mb-4" />
                 <div className="flex flex-col gap-6">
-                  <p className="font-vox text-lg leading-snug lg:text-xl lg:max-w-xs">
+                  <p className="text-lg leading-snug lg:text-xl lg:max-w-xs">
                     {product.desc}
                   </p>
                   <span className="hidden lg:block font-vox text-sm text-[#717182] ">
@@ -76,9 +74,22 @@ export default function Products() {
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between gap-4">
-                  <h3 className="font-vox text-4xl font-bold tracking-tight transition-transform duration-500 ease group-hover:translate-x-3 sm:text-5xl md:text-6xl lg:text-7xl">
-                    {product.label}
+                <div className="flex items-center justify-between gap-4 font-vox">
+                  <h3 className="text-left text-4xl text-[#0A0A0A]  font-bold tracking-tight transition-transform duration-500 ease group-hover:translate-x-3 sm:text-5xl md:text-5xl lg:text-7xl">
+                    {(() => {
+                      const words = product.label.split(/\s+/);
+                      return (
+                        <>
+                          {words.slice(0, 2).join(" ")}
+                          {words.length > 2 && (
+                            <>
+                              <br />
+                              {words.slice(2).join(" ")}
+                            </>
+                          )}
+                        </>
+                      );
+                    })()}
                   </h3>
                   <HiArrowUpRight
                     aria-hidden

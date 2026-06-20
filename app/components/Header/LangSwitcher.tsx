@@ -36,12 +36,12 @@ export default function LangSwitcher({ isOpen }: { isOpen?: boolean }) {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className={`flex items-center gap-2 p-1 lg:p-2 font-vox text-sm border border-r-0 border-black ${isOpen ? "bg-transparent text-white border-white group-hover:text-[#253081] group-hover:bg-white/50 " : "bg-white text-black hover:bg-white"}`}
+        className={`flex items-center gap-2 p-1 lg:p-2 font-vox text-sm border border-r-0 border-black ${isOpen ? "bg-transparent text-white border-white group-hover:text-brand-dark group-hover:bg-white/50 " : "bg-white text-black hover:bg-white"}`}
         aria-expanded={open}
       >
         {shortLabel}
         <FaChevronDown
-          className={`size-3 transition ${isOpen ? "text-white group-hover:text-[#253081] " : "text-black"} ${open ? "rotate-180" : ""}`}
+          className={`size-3 transition ${isOpen ? "text-white group-hover:text-brand-dark " : "text-black"} ${open ? "rotate-180" : ""}`}
           aria-hidden
         />
       </button>

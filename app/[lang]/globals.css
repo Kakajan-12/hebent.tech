@@ -22,11 +22,25 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: "Nexa";
+  src: url("/fonts/nexa-bold/NexaXBold.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
 
 @font-face {
   font-family: "Vox";
   src: url("/fonts/Vox-Regular/Vox-Regular.woff2") format("woff2");
   font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Vox";
+  src: url("/fonts/Vox-Regular/Vox-Bold.woff2") format("woff2");
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
@@ -45,9 +59,11 @@
 :root {
   --background-main: #efefef;
   --brand: #0043d8;
+  --brand-dark: #253081;
   --footer: #0a1f44;
   --font-nexa: "Nexa", sans-serif;
   --font-nexabold: "Nexa", sans-serif;
+  --font-nexaxbold: "Nexa", sans-serif;
   --font-vox: "Vox", sans-serif;
   --font-vox-15: "Vox 15", sans-serif;
   --font-video: "Video", sans-serif;
@@ -63,6 +79,7 @@
   --font-vox-15: var(--font-vox-15);
   --font-video: var(--font-video);
   --font-video-cond: var(--font-video-cond);
+  --color-brand-dark: var(--brand-dark);
 }
 
 html,
@@ -72,7 +89,7 @@ body {
 
 body {
   background: var(--background-main);
-  color: #333333;
+  color: #000000;
   font-weight: 500;
   font-family: var(--font-nexa);
 }
@@ -470,4 +487,30 @@ article {
   border: 0;
   border-top: 1px solid #d4d4d4;
   margin: 1.5em 0;
+}
+
+@utility shadow-y {
+  box-shadow:
+    0 -6px 20px -6px rgb(0 0 0 / 0.1),
+    0 6px 20px -6px rgb(0 0 0 / 0.1);
+}
+
+@utility shadow-y-light {
+  box-shadow:
+    0 -6px 12px -6px rgb(255 255 255 / 0.1),
+    0 6px 12px -6px rgb(255 255 255 / 0.1);
+}
+
+/* Zero the shared footer's top margin on the 404 / not-found page */
+body:has([data-not-found]) footer {
+  margin-top: 0;
+}
+
+/* On the 404 / not-found page the header sits over a dark animated
+   background — render the logo icon + wordmark in solid white. */
+body:has([data-not-found]) header img {
+  filter: brightness(0) invert(1);
+}
+body:has([data-not-found]) header .mix-blend-difference {
+  mix-blend-mode: normal;
 }

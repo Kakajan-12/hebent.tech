@@ -49,7 +49,7 @@ const PrivacyPolicyPage: React.FC = () => {
   ];
 
   return (
-    <section className="min-h-screen container mx-auto px-5 sm:px-7 lg:px-10 text-black">
+    <section className="container mx-auto px-5 sm:px-7 lg:px-10 text-black">
       <div className="mx-auto flex flex-col">
         <Heading
           title={t("title1")}
@@ -65,6 +65,7 @@ const PrivacyPolicyPage: React.FC = () => {
               </a>
             ),
           })}
+          isPrivasyPage={true}
         />
 
         {/* Секции */}

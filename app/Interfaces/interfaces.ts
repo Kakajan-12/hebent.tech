@@ -162,25 +162,3 @@ export type ContactResponse = {
   message: string;
   captchaText: string;
 };
-
-// export type Privacy = {
-//   id: number;
-//   en: string;
-//   ru: string;
-//   tk: string;
-// };
-
-// export type Cookie = {
-//   id: number;
-//   en: string;
-//   ru: string;
-//   tk: string;
-// };
-
-// export type applyAjob = {
-//   id: number;
-//   tk: string;
-//   en: string;
-//   ru: string;
-//   date: string;
-// };

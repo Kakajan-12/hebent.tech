@@ -8,6 +8,7 @@ import { Vacancy } from "@/app/Interfaces/interfaces";
 import Loading from "@/components/ui/Loading";
 import { motion } from "motion/react";
 import Heading from "@/components/Heading";
+import { stripHtmlTags } from "@/lib/utils";
 
 export default function CareersPage() {
   const t = useTranslations("Careers");
@@ -71,8 +72,8 @@ export default function CareersPage() {
           <JobListing
             key={job.id}
             id={job.id}
-            title={job[`title_${locale}`]}
-            text={job[`text_${locale}`]}
+            title={stripHtmlTags(job[`title_${locale}`])}
+            text={stripHtmlTags(job[`text_${locale}`])}
           />
         ))}
       </motion.ul>
