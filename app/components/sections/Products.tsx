@@ -63,7 +63,7 @@ export default function Products() {
           {products.map((product, index) => {
             const number = `/0.${index + 1}`;
             const content = (
-              <article className="group relative grid grid-cols-1 items-center gap-x-4 py-4 lg:py-8 transition-colors duration-300 md:grid-cols-2 md:gap-x-6 lg:gap-x-8 xl:gap-x-22 md:py-10">
+              <article className="group relative grid grid-cols-1 items-center gap-x-4 py-4 lg:py-8 transition-colors duration-300 md:grid-cols-2 md:gap-x-8 xl:gap-x-22 md:py-10">
                 <div className="col-span-full h-px w-full origin-left scale-x-100 bg-black lg:scale-x-0 lg:transition-transform lg:duration-700 lg:ease-out lg:group-hover:scale-x-100 lg:group-hover:delay-150 mb-4" />
                 <div className="flex flex-col gap-6">
                   <p className="text-lg leading-snug lg:text-xl lg:max-w-xs">
@@ -75,7 +75,7 @@ export default function Products() {
                 </div>
 
                 <div className="flex items-center justify-between gap-4 font-vox">
-                  <h3 className="text-left text-4xl text-[#0A0A0A]  font-bold tracking-tight transition-transform duration-500 ease group-hover:translate-x-3 sm:text-5xl md:text-5xl lg:text-7xl">
+                  <h3 className="text-left text-4xl text-[#0A0A0A]  font-bold tracking-tight transition-transform duration-500 ease group-hover:translate-x-3 sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl">
                     {(() => {
                       const words = product.label.split(/\s+/);
                       return (

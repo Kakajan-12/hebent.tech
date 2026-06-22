@@ -53,7 +53,7 @@ export default function AboutSection({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="container mx-auto px-5 lg:px-10 flex flex-col gap-4 lg:gap-20 items-center justify-center"
+      className="container mx-auto px-5 lg:px-10 flex flex-col gap-4 md:gap-10 xl:gap-20 items-center justify-center"
     >
       <motion.div
         variants={{
@@ -97,7 +97,7 @@ export default function AboutSection({
             transition: { staggerChildren: 0.12, delayChildren: 0.2 },
           },
         }}
-        className="grid justify-items-center gap-2 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full"
+        className="grid justify-items-center gap-2 md:gap-8 grid-cols-2 md:grid-cols-4 w-full"
       >
         {statistics.map((s) => (
           <motion.div

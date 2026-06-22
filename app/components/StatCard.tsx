@@ -30,7 +30,7 @@ export default function StatCard({ value, label }: StatCardProps) {
 
   return (
     <div className="stat-card aspect-video flex flex-col items-center justify-center bg-brand h-full w-full text-white text-center shadow-sm">
-      <div className="flex items-center justify-center text-5xl tracking-tight font-bold">
+      <div className="flex items-center justify-center text-3xl sm:text-4xl tracking-tight font-bold">
         <span>
           <CountUp
             to={Number(value)}
@@ -43,7 +43,7 @@ export default function StatCard({ value, label }: StatCardProps) {
           {!hidePlus ? "+" : ""}
         </span>
       </div>
-      <p className="font-vox text-2xl lg:text-xl font-bold text-white whitespace-nowrap">
+      <p className="font-vox text-xl sm:text-2xl lg:text-xl font-bold text-white whitespace-nowrap">
         {label}
       </p>
     </div>

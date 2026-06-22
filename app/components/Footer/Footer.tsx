@@ -69,7 +69,7 @@ export default function Footer() {
             </div>
 
             <div className="mt-auto flex flex-col gap-6 items-start">
-              <div className="privacy flex flex-col-reverse md:flex-row justify-start items-end gap-2 lg:gap-11 font-semibold text-xs font-vox text-white/65 mt-4 pb-2 px-5">
+              <div className="privacy flex flex-col-reverse md:flex-row justify-start items-end gap-2 lg:gap-11 font-semibold text-xs font-vox text-white/65 mt-4 pb-2 px-0 md:px-5">
                 <Link
                   href={`/privasypolicy`}
                   className="underline-offset-2 underline whitespace-nowrap cursor-pointer"
