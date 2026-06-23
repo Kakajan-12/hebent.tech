@@ -96,10 +96,9 @@ export default function NewsroomPage() {
       </motion.nav>
 
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-4 lg:mt-8 lg:grid-cols-3 2xl:grid-cols-4 lg:gap-6"
       >
         {(newsLoading || categoriesLoading) && (

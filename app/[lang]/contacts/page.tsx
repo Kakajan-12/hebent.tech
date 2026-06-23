@@ -136,10 +136,9 @@ export default function ContactPage() {
       <Heading title={t("title")} className="mb-4 lg:mb-10 xl:mb-16" />
 
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className="grid grid-cols-1 lg:grid-cols-2 gap-1 lg:gap-16 xl:gap-36"
       >
         <div className="contact-info order-2 lg:order-1 space-y-3 lg:space-y-8 xl:space-y-14 mb-3 lg:mb-0">
@@ -208,7 +207,7 @@ export default function ContactPage() {
               <SocialLinkAnchor
                 key={item.id}
                 item={item}
-                className="flex items-center justify-center max-w-44 min-w-38 capitalize text-sm  lg:text-base font-medium bg-white py-3 px-12 hover:text-white hover:bg-[#777D84] transition-all duration-300 border border-black"
+                className="flex items-center justify-center max-w-44 min-w-38 capitalize text-sm leading-none lg:text-base font-medium bg-white py-3 px-12 hover:text-white hover:bg-[#777D84] transition-all duration-300 border border-black"
               />
             ))}
           </div>
@@ -301,30 +300,36 @@ export default function ContactPage() {
 
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-4">
-              <div className="flex items-center gap-4 flex-col">
+              <div className="flex items-center gap-4">
                 {captchaImage ? (
-                  <Image
-                    unoptimized
-                    src={`data:image/svg+xml;utf8,${encodeURIComponent(captchaImage)}`}
-                    alt="Captcha"
-                    width={200}
-                    height={200}
-                    className=" px-4 py-2 font-mono font-bold tracking-widest select-none "
-                  />
+                  <>
+                    <Image
+                      unoptimized
+                      src={`data:image/svg+xml;utf8,${encodeURIComponent(captchaImage)}`}
+                      alt="Captcha"
+                      width={200}
+                      height={200}
+                      className=" px-4 py-2 font-mono font-bold tracking-widest select-none "
+                    />
+                    <button
+                      type="button"
+                      onClick={() => void loadCaptcha()}
+                      disabled={captchaLoading}
+                      className="text-sm underline text-brand"
+                    >
+                      {captchaLoading ? "" : <GrUpdate className="w-4 h-4" />}
+                    </button>
+                  </>
                 ) : (
-                  <div className="w-[300px] h-[100px] bg-transparent grid place-items-center text-xs text-gray-500 px-2 text-center">
-                    {captchaLoading ? "Loading..." : "Captcha unavailable"}
+                  <div className="w-[300px] h-[100px] bg-transparent grid place-items-center text-xs text-gray-500 px-2">
+                    {captchaLoading ? (
+                      <Loading size="sm" />
+                    ) : (
+                      "Captcha unavailable"
+                    )}
                   </div>
                 )}
               </div>
-              <button
-                type="button"
-                onClick={() => void loadCaptcha()}
-                disabled={captchaLoading}
-                className="text-sm underline text-brand"
-              >
-                {captchaLoading ? "" : <GrUpdate className="w-4 h-4" />}
-              </button>
             </div>
 
             <div className="flex flex-col border border-[#6B737A] relative group">

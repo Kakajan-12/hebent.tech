@@ -11,6 +11,7 @@ import { useGetPhonesQuery, useGetSocialLinksQuery } from "@/app/api/api";
 import SocialLinkAnchor from "@/components/SocialLinkAnchor";
 import footerBg from "../../../public/bg-footer1.svg";
 import useAppLocale from "@/app/Hooks/GetLocale";
+import { FaRegCopyright } from "react-icons/fa6";
 
 function formatPhoneHref(number: string) {
   return `tel:${number.replace(/[^+\d]/g, "")}`;
@@ -45,7 +46,7 @@ export default function Footer() {
       />
       <div className="relative z-10 container mx-auto px-5 lg:px-10 pt-8 lg:pt-14">
         <div className="footer-container-content grid grid-cols-1 sm:grid-cols-2 gap-8 justify-center">
-          <div className="left-content flex flex-col sm:gap-11 items-start justify-between md:pl-18">
+          <div className="left-content flex flex-col sm:gap-11 items-start justify-between lg:pl-18">
             <div className="flex flex-col gap-9 items-start justify-start">
               <Link href="/" className="inline-block">
                 <Image
@@ -62,45 +63,13 @@ export default function Footer() {
                   <SocialLinkAnchor
                     key={item.id}
                     item={item}
-                    className="flex items-center justify-center w-22 capitalize text-xs font-medium bg-transparent py-2 px-3 hover:bg-white hover:border-black hover:text-black transition-all duration-300 border border-white"
+                    className="flex items-center justify-center w-22 capitalize text-xs font-medium bg-transparent py-2 px-3 hover:bg-white leading-none hover:border-black hover:text-black transition-all duration-300 border border-white"
                   />
                 ))}
               </div>
             </div>
-
-            <div className="mt-auto flex flex-col gap-6 items-start">
-              <div className="privacy flex flex-col-reverse md:flex-row justify-start items-end gap-2 lg:gap-11 font-semibold text-xs font-vox text-white/65 mt-4 pb-2 px-0 md:px-5">
-                <Link
-                  href={`/privasypolicy`}
-                  className="underline-offset-2 underline whitespace-nowrap cursor-pointer"
-                >
-                  {t("privacy")}
-                </Link>
-                <Link
-                  href={`/cookies`}
-                  className="underline-offset-2 underline whitespace-nowrap cursor-pointer"
-                >
-                  Cookies
-                </Link>
-              </div>
-
-              <div className="rights font-vox">
-                <span className="whitespace-nowrap">{t("rights")} | </span>
-                <span className="whitespace-nowrap"> Powered by </span>
-                <div className="flex items-center">
-                  <Image
-                    src="/logoIcon.svg"
-                    alt="HEBENT TECHNOLOGY"
-                    width={24}
-                    height={24}
-                    className="inline-block mx-1 shrink-0 brightness-0 invert logo-spin motion-reduce:animate-none"
-                  />
-                  <span className=" whitespace-nowrap">HEBENT TECHNOLOGY</span>
-                </div>
-              </div>
-            </div>
           </div>
-          <div className="right-content flex justify-between lg:justify-end items-start gap-6 md:gap-12 lg:gap-23 md:pr-18">
+          <div className="right-content flex justify-between lg:justify-end items-start gap-6 md:gap-12 lg:gap-23 lg:pr-18">
             <div className="products text-xs lg:text-base">
               <h3 className=" font-bold font-vox">{t("products")}</h3>
               <ul className="mt-3 lg:mt-7 space-y-4 text-white font-normal">
@@ -155,14 +124,44 @@ export default function Footer() {
               </ul>
             </div>
           </div>
-          <div className="flex sm:hidden gap-3 mb-24">
+          <div className="flex sm:hidden gap-3">
             {socialLinks?.map((item: SocialLink) => (
               <SocialLinkAnchor
                 key={item.id}
                 item={item}
-                className="flex items-center justify-center w-20 capitalize text-xs font-medium bg-transparent py-2 px-3 hover:bg-white hover:border-black hover:text-black transition-all duration-300 border border-white"
+                className="flex items-center justify-center w-20 capitalize text-xs font-medium bg-transparent py-2 px-3 hover:bg-white leading-none hover:border-black hover:text-black transition-all duration-300 border border-white"
               />
             ))}
+          </div>
+        </div>
+        <div className="mt-3 sm:mt-7 lg:mt-11 grid grid-cols-1 sm:grid-cols-3 gap-1 md:gap-6 items-center lg:px-18">
+          <div className="privacy flex flex-col sm:flex-row justify-self-start gap-2 lg:gap-11 font-semibold text-[10px] md:text-xs text-white/65">
+            <Link
+              href={`/privasypolicy`}
+              className="whitespace-nowrap cursor-pointer text-left"
+            >
+              {t("privacy")}
+            </Link>
+            <Link
+              href={`/cookies`}
+              className="whitespace-nowrap cursor-pointer"
+            >
+              Cookies
+            </Link>
+          </div>
+
+          <div className="flex items-center gap-1 justify-center text-[10px] md:text-xs text-white/65">
+            <FaRegCopyright className="size-4 shrink-0  mb-1" />
+            <span className=" whitespace-nowrap">
+              {new Date().getFullYear()} HEBENT TECHNOLOGY
+            </span>
+            <Image
+              src="/logoIcon.svg"
+              alt="HEBENT TECHNOLOGY"
+              width={24}
+              height={24}
+              className="inline-block shrink-0 brightness-0 mb-1 invert logo-spin motion-reduce:animate-none"
+            />
           </div>
         </div>
       </div>

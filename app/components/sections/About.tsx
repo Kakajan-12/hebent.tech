@@ -97,7 +97,7 @@ export default function AboutSection({
             transition: { staggerChildren: 0.12, delayChildren: 0.2 },
           },
         }}
-        className="grid justify-items-center gap-2 md:gap-8 grid-cols-2 md:grid-cols-4 w-full"
+        className="grid justify-items-center gap-3 md:gap-8 grid-cols-2 md:grid-cols-4 w-full"
       >
         {statistics.map((s) => (
           <motion.div

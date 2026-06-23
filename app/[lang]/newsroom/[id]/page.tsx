@@ -75,7 +75,7 @@ export default function NewsArticlePage() {
         <Link
           href={`/${locale}/newsroom`}
           aria-label={t("back")}
-          className="absolute bottom-7 left-5 lg:left-10 z-30 flex h-11 w-11 items-center justify-center rounded-full border border-white/30 text-white transition-colors hover:bg-white hover:text-black"
+          className="absolute bottom-7 left-5 lg:left-10 z-30 flex h-9.5 w-9.5 items-center justify-center border border-black transition-colors bg-white"
         >
           <ArrowLeft className="h-5 w-5" />
         </Link>

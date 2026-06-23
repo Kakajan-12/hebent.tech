@@ -31,7 +31,7 @@ export default function StatCard({ value, label }: StatCardProps) {
   return (
     <div className="stat-card aspect-video flex flex-col items-center justify-center bg-brand h-full w-full text-white text-center shadow-sm">
       <div className="flex items-center justify-center text-3xl sm:text-4xl tracking-tight font-bold">
-        <span>
+        <span className="leading-none">
           <CountUp
             to={Number(value)}
             from={0}

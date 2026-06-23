@@ -109,7 +109,7 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
                     {t("products")}
                   </span>
                 </div>
-                <ul className="mt-10 flex flex-col gap-5">
+                <ul className="mt-5 md:mt-10  flex flex-col gap-2 md:gap-5">
                   {products.map((p) => (
                     <li key={p.href}>
                       <Link
@@ -185,7 +185,7 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
                     {t("company")}
                   </span>
                 </div>
-                <ul className="mt-10 flex flex-col gap-5">
+                <ul className="mt-5 md:mt-10  flex flex-col gap-2 md:gap-5">
                   {otherPages.map((p) => (
                     <li key={p.href}>
                       <Link

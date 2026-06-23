@@ -344,54 +344,21 @@ article {
   --footer-bg-gap: 2px;
 }
 
+.project-bg-pattern {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background-repeat: space;
+  transition: opacity 0.3s ease;
+  background-image: var(--project-bg-url);
+  background-size: calc(28px + var(--project-bg-gap))
+    calc(38px + var(--project-bg-gap));
+  --project-bg-cell: 28px 38px;
+}
+
 .logo {
   color: white;
   mix-blend-mode: difference;
-}
-.rights {
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.25rem;
-  font-weight: 600;
-  font-size: 10px;
-  color: rgb(255 255 255 / 0.65);
-  pointer-events: none;
-  z-index: 1;
-}
-
-@media (min-width: 420px) {
-  .rights {
-    left: 20px;
-    right: auto;
-  }
-}
-@media (min-width: 640px) {
-  .rights {
-    font-size: 0.75rem;
-    line-height: 1rem;
-    right: 0;
-  }
-}
-.privacy {
-  position: absolute;
-  bottom: 32px;
-  right: 20px;
-  z-index: 2;
-}
-@media (min-width: 420px) {
-  .privacy {
-    bottom: 7px;
-  }
-}
-@media (min-width: 768px) {
-  .privacy {
-    position: relative;
-  }
 }
 
 .rich-text {
