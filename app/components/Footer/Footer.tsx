@@ -2,7 +2,6 @@
 
 import type { CSSProperties } from "react";
 import { FiPhone, FiMail, FiClock } from "react-icons/fi";
-import { FiMapPin } from "react-icons/fi";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";

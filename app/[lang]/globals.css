@@ -344,18 +344,6 @@ article {
   --footer-bg-gap: 2px;
 }
 
-.project-bg-pattern {
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  background-repeat: space;
-  transition: opacity 0.3s ease;
-  background-image: var(--project-bg-url);
-  background-size: calc(28px + var(--project-bg-gap))
-    calc(38px + var(--project-bg-gap));
-  --project-bg-cell: 28px 38px;
-}
-
 .logo {
   color: white;
   mix-blend-mode: difference;

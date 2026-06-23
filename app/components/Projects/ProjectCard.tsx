@@ -1,13 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import type { CSSProperties } from "react";
 import type { Project } from "@/app/Interfaces/interfaces";
-import card from "../../../public/card.svg";
 import { useRouter } from "@/i18n/navigation";
 import { resolveMediaUrl } from "@/constant/constant";
 import useAppLocale from "@/app/Hooks/GetLocale";
 import { stripHtmlTags } from "@/lib/utils";
+import pattern from "../../../public/pattern.svg";
 
 type ProjectCardProps = {
   project: Project;
@@ -21,7 +20,6 @@ export default function ProjectCard({
   const router = useRouter();
   const locale = useAppLocale();
   const title = stripHtmlTags(project[`title_${locale}`]);
-  const text = stripHtmlTags(project[`text_${locale}`]);
 
   const goToProject = () => {
     router.push(`/project/${project.id}`);
@@ -29,16 +27,16 @@ export default function ProjectCard({
 
   return (
     <article
-      className="group relative cut-card bg-brand aspect-square   flex justify-center items-center hover:bg-white"
+      className="group relative cut-card bg-brand aspect-square flex justify-center items-center hover:bg-white"
       onClick={goToProject}
     >
       <div
-        className="project-bg-pattern opacity-100 group-hover:opacity-0"
-        style={
-          {
-            "--project-bg-url": `url(${card.src})`,
-          } as CSSProperties
-        }
+        className="absolute inset-0 opacity-100 transition duration-300 group-hover:opacity-0"
+        style={{
+          backgroundImage: `url(${pattern.src})`,
+          backgroundSize: "700px",
+          backgroundRepeat: "repeat",
+        }}
         aria-hidden
       >
         {/* <div className="absolute inset-0 bg-white opacity-0 transition duration-300 lg:group-hover:opacity-100" /> */}
@@ -55,7 +53,7 @@ export default function ProjectCard({
         }`}
       />
 
-      <h3 className="relative z-20 font-vox text-xl md:text-3xl xl:text-5xl font-semibold leading-snug text-white text-center opacity-100 group-hover:opacity-0 transition duration-300">
+      <h3 className="relative z-20 px-4 font-vox text-5xl md:text-4xl xl:text-5xl font-medium leading-snug text-white text-center opacity-100 group-hover:opacity-0 transition duration-300">
         {title}
       </h3>
       {/* <p className="line-clamp-3 text-sm font-semibold text-black text-center pointer-events-none absolute inset-0 flex flex-col justify-center items-center p-5 opacity-100 transition duration-300 md:opacity-0">
