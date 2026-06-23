@@ -8,6 +8,7 @@ import "./globals.css";
 import Header from "../components/Header/Header";
 import ReduxProvider from "../ProviderRedux";
 import Footer from "../components/Footer/Footer";
+import ScrollToTop from "../components/ScrollToTop";
 import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
@@ -46,6 +47,7 @@ export default async function RootLayout({
       <body className="flex min-h-screen flex-col font-sans antialiased">
         <ReduxProvider>
           <NextIntlClientProvider locale={lang} messages={messages}>
+            <ScrollToTop />
             <Header />
             {children}
             <Toaster position="top-center" richColors />
