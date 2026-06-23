@@ -75,9 +75,9 @@ export default function NewsArticlePage() {
         <Link
           href={`/${locale}/newsroom`}
           aria-label={t("back")}
-          className="absolute bottom-7 left-5 lg:left-10 z-30 flex h-9.5 w-9.5 items-center justify-center border border-black transition-colors bg-white"
+          className="absolute bottom-7 left-5 lg:left-10 z-30 flex h-7.5 w-7.5 lg:h-9.5 lg:w-9.5 items-center justify-center border border-black transition-colors bg-white"
         >
-          <ArrowLeft className="h-5 w-5" />
+          <ArrowLeft className="h-4 w-4 lg:h-5 lg:w-5" />
         </Link>
         <div className="absolute inset-0 w-ful h-full z-10">
           {isCoverImageLoading && (

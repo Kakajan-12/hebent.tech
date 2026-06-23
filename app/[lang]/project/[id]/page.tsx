@@ -88,9 +88,9 @@ export default function ProjectPage() {
         <Link
           href={`/${locale}/project`}
           aria-label={tPage("back")}
-          className="absolute bottom-7 left-5 lg:left-10 z-30 flex h-9.5 w-9.5 items-center justify-center border border-black transition-colors bg-white"
+          className="absolute bottom-7 left-5 lg:left-10 z-30 flex h-7.5 w-7.5 lg:h-9.5 lg:w-9.5 items-center justify-center border border-black transition-colors bg-white"
         >
-          <ArrowLeft className="h-5 w-5" />
+          <ArrowLeft className="h-4 w-4 lg:h-5 lg:w-5" />
         </Link>
         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-2/3 h-2/3 z-10">
           {isImageLoading && (
@@ -201,10 +201,9 @@ export default function ProjectPage() {
 
       {gallery.length > 0 && (
         <motion.div
-          initial={{ opacity: 0, x: 200 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="container mx-auto px-5 lg:px-10 flex flex-wrap gap-1"
         >
           {gallery.map((g, i) => (

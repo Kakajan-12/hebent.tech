@@ -43,7 +43,7 @@ export default async function RootLayout({
 
   return (
     <html lang={lang} suppressHydrationWarning>
-      <body className="flex min-h-screen flex-col font-sans antialiased overflow-x-hidden">
+      <body className="flex min-h-screen flex-col font-sans antialiased">
         <ReduxProvider>
           <NextIntlClientProvider locale={lang} messages={messages}>
             <Header />
