@@ -3,9 +3,8 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
-import { MdKeyboardArrowRight } from "react-icons/md";
-import { MdKeyboardArrowLeft } from "react-icons/md";
-// import { IoArrowForwardSharp, IoArrowBackSharp } from "react-icons/io5";
+import { BsArrowRight } from "react-icons/bs";
+import { BsArrowLeft } from "react-icons/bs";
 import { useTranslations } from "next-intl";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -177,7 +176,7 @@ export const AutoSwiper: React.FC = () => {
             aria-label={t("previous")}
             className="swiper-button-prev services-swiper-nav"
           >
-            <MdKeyboardArrowLeft className="size-2" aria-hidden />
+            <BsArrowLeft className="size-2" aria-hidden />
           </button>
           <button
             ref={nextRef}
@@ -185,7 +184,7 @@ export const AutoSwiper: React.FC = () => {
             aria-label={t("next")}
             className="swiper-button-next services-swiper-nav"
           >
-            <MdKeyboardArrowRight className="size-2" aria-hidden />
+            <BsArrowRight className="size-2" aria-hidden />
           </button>
         </Swiper>
       </motion.div>

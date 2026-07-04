@@ -156,22 +156,22 @@ article {
 .services-swiper {
   --swiper-navigation-size: 22px;
   --swiper-navigation-color: #fff;
-  --swiper-navigation-sides-offset: 160px;
+  --swiper-navigation-sides-offset: 16px;
 }
 
 @media (max-width: 1024px) {
   .services-swiper {
-    --swiper-navigation-sides-offset: 120px;
+    --swiper-navigation-sides-offset: 12px;
   }
 }
 @media (max-width: 768px) {
   .services-swiper {
-    --swiper-navigation-sides-offset: 80px;
+    --swiper-navigation-sides-offset: 8px;
   }
 }
 @media (max-width: 480px) {
   .services-swiper {
-    --swiper-navigation-sides-offset: 50px;
+    --swiper-navigation-sides-offset: 6px;
   }
 }
 
