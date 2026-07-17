@@ -152,7 +152,7 @@ export default function Footer() {
           <div className="flex items-center gap-1 justify-center text-[10px] md:text-xs text-white/65">
             <FaRegCopyright className="size-4 shrink-0  mb-1" />
             <span className=" whitespace-nowrap">
-              {new Date().getFullYear()} HEBENT TECHNOLOGY
+              {new Date().getFullYear()}
             </span>
             <Image
               src="/logoIcon.svg"
@@ -161,6 +161,7 @@ export default function Footer() {
               height={24}
               className="inline-block shrink-0 brightness-0 mb-1 invert logo-spin motion-reduce:animate-none"
             />
+            <span>HEBENT TECHNOLOGY</span>
           </div>
         </div>
       </div>
