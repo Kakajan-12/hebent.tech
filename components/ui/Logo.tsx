@@ -5,7 +5,7 @@ import Image from "next/image";
 import logoText from "@/public/logos/Hebent.svg";
 import DecryptedText from "@/components/DecryptedText";
 
-const logos = ["log", "gov", "fin", "med", "travel", "event", "cyber"];
+const logos = ["fleet", "gov", "fin", "med", "travel", "event", "cyber"];
 
 function Logo() {
   const [index, setIndex] = useState(0);
@@ -37,9 +37,11 @@ function Logo() {
           revealDirection="start"
           parentClassName="shrink-0 whitespace-nowrap text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold uppercase text-[#0044E1] tracking-widest"
         />
-        <span className="shrink-0 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold uppercase text-[#0044E1] tracking-widest">
-          tech
-        </span>
+        {logos[index] !== "fleet" && (
+          <span className="shrink-0 text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold uppercase text-[#0044E1] tracking-widest">
+            tech
+          </span>
+        )}
       </div>
     </div>
   );
