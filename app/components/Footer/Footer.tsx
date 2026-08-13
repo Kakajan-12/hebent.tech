@@ -9,7 +9,6 @@ import { SocialLink, Phone } from "@/app/Interfaces/interfaces";
 import { useGetPhonesQuery, useGetSocialLinksQuery } from "@/app/api/api";
 import SocialLinkAnchor from "@/components/SocialLinkAnchor";
 import footerBg from "../../../public/bg-footer1.svg";
-import useAppLocale from "@/app/Hooks/GetLocale";
 import { FaRegCopyright } from "react-icons/fa6";
 
 function formatPhoneHref(number: string) {
@@ -20,12 +19,11 @@ export default function Footer() {
   const t = useTranslations("Footer");
   const { data: socialLinks } = useGetSocialLinksQuery();
   const { data: phones } = useGetPhonesQuery();
-  const locale = useAppLocale();
 
   const products = [
     { href: "https://travel-tech.hebent.tech", label: "Hebent Travel Tech" },
-    { href: "https://logtech.hebent.tech", label: "Hebent Log Tech" },
-    { href: `${locale}/products/eventtech`, label: "Hebent Event Tech" },
+    { href: "https://logtech.hebent.tech", label: "Hebent Fleet" },
+    { href: `/products/eventtech`, label: "Hebent Event Tech" },
   ];
 
   return (

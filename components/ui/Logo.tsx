@@ -24,7 +24,7 @@ function Logo() {
         alt="logo text"
         width={logoText.width}
         height={logoText.height}
-        className="shrink-0 w-[100px] md:w-[150px] lg:w-[180px] xl:w-[220px] h-auto"
+        className="shrink-0 w-25 md:w-37.5 lg:w-45 xl:w-55 h-auto"
       />
 
       <div className="flex items-end -mr-1">

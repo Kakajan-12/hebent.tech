@@ -3,7 +3,10 @@
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import NavDropdown from "./NavDropdown";
+import useAppLocale from "@/app/Hooks/GetLocale";
+
 import React from "react";
+
 import { CiMenuBurger } from "react-icons/ci";
 {
   /* <CiMenuBurger /> */
@@ -11,6 +14,7 @@ import { CiMenuBurger } from "react-icons/ci";
 
 export default function DesktopMenu() {
   const pathname = usePathname();
+  const locale = useAppLocale();
 
   const checkActive = (href: string) => {
     if (href === "/") return pathname === "/";
@@ -25,9 +29,12 @@ export default function DesktopMenu() {
       href: "/products",
       label: t("products"),
       items: [
-        { href: "/products/traveltech", label: t("travel") },
-        { href: "/products/logtech", label: t("logistics") },
-        { href: "/products/eventtech", label: t("events") },
+        {
+          href: "https://travel-tech.hebent.tech",
+          label: "Hebent Travel Tech",
+        },
+        { href: "https://logtech.hebent.tech", label: "Hebent Fleet" },
+        { href: `${locale}/products/eventtech`, label: "Hebent Event Tech" },
       ],
     },
     { href: "/newsroom", label: t("newsroom") },
