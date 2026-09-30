@@ -6,6 +6,9 @@ import { useGetVideosQuery } from "@/app/api/api";
 import { resolveMediaUrl } from "@/constant/constant";
 import Loading from "@/components/ui/Loading";
 import { Skeleton } from "@/components/ui/skeleton";
+import VideoLink from "../../../public/video.webp";
+
+const VIDEO_SRC = "/video.webm";
 
 export default function Video() {
   const { data, error, isLoading } = useGetVideosQuery();
@@ -45,7 +48,7 @@ export default function Video() {
       )}
       <video
         className="relative h-full w-full object-cover"
-        src={videoSrc}
+        src={VIDEO_SRC}
         autoPlay
         muted
         loop
