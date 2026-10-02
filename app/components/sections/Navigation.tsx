@@ -64,6 +64,8 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
     { href: "https://travel-tech.hebent.tech", label: t("travel") },
     { href: "https://logtech.hebent.tech", label: t("logistics") },
     { href: `/products/eventtech`, label: t("events") },
+    { href: `/products/entertainment-system`, label: t("entertainmentSystem") },
+
     // { href: "https://eventtech.hebent.tech", label: t("events") },
   ];
 

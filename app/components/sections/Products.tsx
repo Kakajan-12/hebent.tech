@@ -35,6 +35,12 @@ export default function Products() {
       desc: t("eventsDesc"),
       external: false,
     },
+    {
+      href: "/products/entertainment-system",
+      label: tNav("entertainmentSystem").trim(),
+      desc: t("entertainment-systemDesc"),
+      external: false,
+    },
   ];
 
   return (

@@ -35,6 +35,10 @@ export default function DesktopMenu() {
         },
         { href: "https://logtech.hebent.tech", label: "Hebent Fleet" },
         { href: `${locale}/products/eventtech`, label: "Hebent Event Tech" },
+        {
+          href: `${locale}/products/entertainment-system`,
+          label: "Hebent Entertainment System",
+        },
       ],
     },
     { href: "/newsroom", label: t("newsroom") },

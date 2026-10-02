@@ -24,6 +24,10 @@ export default function Footer() {
     { href: "https://travel-tech.hebent.tech", label: "Hebent Travel Tech" },
     { href: "https://logtech.hebent.tech", label: "Hebent Fleet" },
     { href: `/products/eventtech`, label: "Hebent Event Tech" },
+    {
+      href: `/products/entertainment-system`,
+      label: "Hebent Entertainment System",
+    },
   ];
 
   return (

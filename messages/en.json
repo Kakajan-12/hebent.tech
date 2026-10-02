@@ -12,6 +12,7 @@
     "travel": " Hebent Travel Tech",
     "logistics": "Hebent Fleet",
     "events": "Hebent Event Tech",
+    "entertainmentSystem": "Hebent Entertainment System",
     "about": "About us",
     "careers": "Careers",
     "contacts": "Contact us"
@@ -21,7 +22,8 @@
     "subtitle": "Industry-focused platforms engineered by Hebent to move whole sectors forward.",
     "travelDesc": "Smart travel and booking solutions, from search to seamless trips",
     "logisticsDesc": "End-to-end logistics and supply chain management, on time, every time",
-    "eventsDesc": "Powerful event management and ticketing, from planning to the show"
+    "eventsDesc": "Powerful event management and ticketing, from planning to the show",
+    "entertainment-systemDesc": "Portable multimedia server for transportation with offline access to entertainment content"
   },
   "Video": {
     "title": "VIDEO"
@@ -270,5 +272,9 @@
     "title": "Page not found",
     "description": "Sorry, the page you are looking for does not exist or has been moved.",
     "home": "Back to home"
+  },
+  "ComingSoon": {
+    "title": "We Are Building Something Great!",
+    "description": "Our new digital experience is on its way. Stay tuned."
   }
 }

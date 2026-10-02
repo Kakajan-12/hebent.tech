@@ -12,6 +12,7 @@
     "travel": " Hebent Travel Tech",
     "logistics": "Hebent Fleet",
     "events": "Hebent Event Tech",
+    "entertainmentSystem": "Hebent Entertainment System",
     "about": "Biz barada",
     "careers": "Iş orunlary",
     "contacts": "Biz bilen habarlaşmak"
@@ -21,7 +22,8 @@
     "subtitle": "Hebent tarapyndan döredilen, tutuş pudaklary öňe iterýän platformalar.",
     "travelDesc": "Akylly syýahat we bron çözgütleri — gözlegden rahat syýahata çenli",
     "logisticsDesc": "Doly logistika we üpjünçilik zynjyryny dolandyrmak — hemişe öz wagtynda",
-    "eventsDesc": "Çäreleri dolandyrmak we bilet satuwy — meýilleşdirmeden çärä çenli"
+    "eventsDesc": "Çäreleri dolandyrmak we bilet satuwy — meýilleşdirmeden çärä çenli",
+    "entertainment-systemDesc": "Ulaglar üçin internetsiz mazmuna elýeterlilik berýän göçme multimediýa serweri"
   },
   "Video": {
     "title": "WIDEO"
@@ -270,5 +272,9 @@
     "title": "Sahypa tapylmady",
     "description": "Gynansak-da, gözleýän sahypaňyz ýok ýa-da başga ýere göçürilen.",
     "home": "Baş sahypa"
+  },
+  "ComingSoon": {
+    "title": "Biz ajaýyp bir zat döredýäris!",
+    "description": "Täze sanly tejribämiz ýakynda taýyn bolar. Habarlarymyzy yzarlaň."
   }
 }
