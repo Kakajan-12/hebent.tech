@@ -18,12 +18,6 @@ export default function Products() {
 
   const products: Product[] = [
     {
-      href: "https://travel-tech.hebent.tech",
-      label: tNav("travel").trim(),
-      desc: t("travelDesc"),
-      external: true,
-    },
-    {
       href: "https://logtech.hebent.tech",
       label: tNav("logistics").trim(),
       desc: t("logisticsDesc"),
@@ -34,6 +28,12 @@ export default function Products() {
       label: tNav("events").trim(),
       desc: t("eventsDesc"),
       external: false,
+    },
+    {
+      href: "https://travel-tech.hebent.tech",
+      label: tNav("travel").trim(),
+      desc: t("travelDesc"),
+      external: true,
     },
     {
       href: "/products/entertainment-system",

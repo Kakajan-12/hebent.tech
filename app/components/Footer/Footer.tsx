@@ -21,9 +21,9 @@ export default function Footer() {
   const { data: phones } = useGetPhonesQuery();
 
   const products = [
-    { href: "https://travel-tech.hebent.tech", label: "Hebent Travel Tech" },
     { href: "https://logtech.hebent.tech", label: "Hebent Fleet" },
     { href: `/products/eventtech`, label: "Hebent Event Tech" },
+    { href: "https://travel-tech.hebent.tech", label: "Hebent Travel Tech" },
     {
       href: `/products/entertainment-system`,
       label: "Hebent Entertainment System",

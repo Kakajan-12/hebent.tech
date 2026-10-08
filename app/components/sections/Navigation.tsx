@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { useTranslations } from "next-intl";
@@ -36,6 +36,7 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
   const t = useTranslations("Nav");
   const locale = useAppLocale();
   const { data: newsData } = useGetNewsQuery();
+  const [hoveredProduct, setHoveredProduct] = useState<string | null>(null);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -60,12 +61,15 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
     return list.slice(0, 2);
   }, [newsData]);
 
-  const products = [
-    { href: "https://travel-tech.hebent.tech", label: t("travel") },
+  const products: { href: string; label: string; hoverLabel?: string }[] = [
     { href: "https://logtech.hebent.tech", label: t("logistics") },
     { href: `/products/eventtech`, label: t("events") },
-    { href: `/products/entertainment-system`, label: t("entertainmentSystem") },
-
+    { href: "https://travel-tech.hebent.tech", label: t("travel") },
+    {
+      href: `/products/entertainment-system`,
+      label: "Hebent ES",
+      hoverLabel: t("entertainmentSystem"),
+    },
     // { href: "https://eventtech.hebent.tech", label: t("events") },
   ];
 
@@ -117,12 +121,16 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
                       <Link
                         href={p.href}
                         onClick={onClose}
+                        onMouseEnter={() => setHoveredProduct(p.href)}
+                        onMouseLeave={() => setHoveredProduct(null)}
                         className="group inline-flex items-baseline gap-2 text-lg lg:text-3xl py-1.5 font-bold hover:text-white/70 transition"
                       >
                         <span className="text-white/60">
                           <HiArrowTurnDownRight className="size-5" />
                         </span>
-                        {p.label}
+                        {p.hoverLabel && hoveredProduct === p.href
+                          ? p.hoverLabel
+                          : p.label}
                       </Link>
                     </li>
                   ))}
