@@ -128,9 +128,36 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
                         <span className="text-white/60">
                           <HiArrowTurnDownRight className="size-5" />
                         </span>
-                        {p.hoverLabel && hoveredProduct === p.href
-                          ? p.hoverLabel
-                          : p.label}
+                        {p.hoverLabel ? (
+                          <AnimatePresence mode="wait" initial={false}>
+                            <motion.span
+                              key={
+                                hoveredProduct === p.href ? "hover" : "default"
+                              }
+                              initial={{ opacity: 0, y: 8 }}
+                              animate={{
+                                opacity: 1,
+                                y: 0,
+                                transition: {
+                                  duration: 0.35,
+                                  ease: "easeOut",
+                                  delay: 0.1,
+                                },
+                              }}
+                              exit={{
+                                opacity: 0,
+                                y: -8,
+                                transition: { duration: 0.2, ease: "easeIn" },
+                              }}
+                            >
+                              {hoveredProduct === p.href
+                                ? p.hoverLabel
+                                : p.label}
+                            </motion.span>
+                          </AnimatePresence>
+                        ) : (
+                          p.label
+                        )}
                       </Link>
                     </li>
                   ))}
