@@ -11,7 +11,7 @@
 .logo-loader {
   --c: #2254f4; /* primary brand blue */
   /* --size: 80px; overall size */
-  --dur: 1.8s; /* animation cycle */
+  --dur: 0.5s; /* animation cycle */
 
   width: var(--size);
   height: var(--size);

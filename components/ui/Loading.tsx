@@ -35,7 +35,7 @@ const LOGO_PARTS: LogoPart[] = [
 
 function applyPulseAnimation(loader: HTMLElement) {
   const dur =
-    parseFloat(getComputedStyle(loader).getPropertyValue("--dur")) || 1.8;
+    parseFloat(getComputedStyle(loader).getPropertyValue("--dur")) || 0.5;
   const ring = loader.querySelectorAll<SVGElement>(".block.ring");
   ring.forEach((el, i) => {
     const delay = -((ring.length - i) / ring.length) * dur;
