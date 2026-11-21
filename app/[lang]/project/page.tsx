@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Loading from "@/components/ui/Loading";
 import Pagination from "@/app/components/Pagination";
-import ProjectCard from "@/app/components/Projects/ProjectCard";
+import ProjectRow from "@/app/components/Projects/ProjectRow";
 import { useGetProjectsQuery } from "@/app/api/api";
 import useAppLocale from "@/app/Hooks/GetLocale";
 import { Project } from "@/app/Interfaces/interfaces";
@@ -69,7 +69,11 @@ export default function ProjectsClient() {
     let list = projects;
     const q = query.trim().toLowerCase();
     if (q) {
-      list = list.filter((p) => p[`title_${locale}`].toLowerCase().includes(q));
+      list = list.filter((p) =>
+        stripHtmlTags(p[`title_${locale}`] ?? "")
+          .toLowerCase()
+          .includes(q),
+      );
     }
     if (sort === "title") {
       list = [...list].sort((a, b) =>
@@ -168,7 +172,7 @@ export default function ProjectsClient() {
               <FiSearch className="size-5 text-[#ABB7C2]" aria-hidden />
             </span>
           </label>
-          <div ref={sortRef} className="w-full md:w-102 relative z-20">
+          <div ref={sortRef} className="w-full md:w-60 lg:w-72 relative z-20">
             <button
               type="button"
               aria-haspopup="listbox"
@@ -218,26 +222,29 @@ export default function ProjectsClient() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-          className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
         >
           {projectsLoading && (
-            <div className="col-span-full py-6 flex justify-center">
+            <div className="py-6 flex justify-center">
               <Loading size="sm" />
             </div>
           )}
           {projectsError && !projectsLoading && (
-            <div className="col-span-full py-6 font-vox text-sm md:text-base text-red-700 text-center">
+            <div className="py-6 font-play text-sm md:text-base text-red-700 text-center">
               Failed to load projects.
             </div>
           )}
           {!projectsLoading && !projectsError && slice.length === 0 && (
-            <div className="col-span-full py-6 font-vox text-sm md:text-base text-center">
+            <div className="py-6 font-play text-sm md:text-base text-center">
               No projects available right now.
             </div>
           )}
-          {slice.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+          {slice.length > 0 && (
+            <ul className="border-t border-[#0A0A0A]">
+              {slice.map((project) => (
+                <ProjectRow key={project.id} project={project} />
+              ))}
+            </ul>
+          )}
         </motion.div>
         <Pagination
           page={safePage}

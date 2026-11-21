@@ -1,6 +1,5 @@
 "use client";
 
-import type { CSSProperties } from "react";
 import { FiPhone, FiMail, FiClock } from "react-icons/fi";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
@@ -8,8 +7,7 @@ import { useTranslations } from "next-intl";
 import { SocialLink, Phone } from "@/app/Interfaces/interfaces";
 import { useGetPhonesQuery, useGetSocialLinksQuery } from "@/app/api/api";
 import SocialLinkAnchor from "@/components/SocialLinkAnchor";
-import footerBg from "../../../public/bg-footer1.svg";
-import { FaRegCopyright } from "react-icons/fa6";
+import pattern from "../../../public/pattern-footer.svg";
 
 function formatPhoneHref(number: string) {
   return `tel:${number.replace(/[^+\d]/g, "")}`;
@@ -22,6 +20,10 @@ export default function Footer() {
 
   const products = [
     { href: "https://logtech.hebent.tech", label: "Hebent Fleet" },
+    {
+      href: "https://agro.hebent.tech/tk/auth/login",
+      label: "Hebent Agro Tech",
+    },
     { href: `/products/eventtech`, label: "Hebent Event Tech" },
     { href: "https://travel-tech.hebent.tech", label: "Hebent Travel Tech" },
     {
@@ -37,12 +39,12 @@ export default function Footer() {
         aria-hidden
       />
       <div
-        className="footer-bg-pattern "
-        style={
-          {
-            "--footer-bg-url": `url(${footerBg.src})`,
-          } as CSSProperties
-        }
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `url(${pattern.src})`,
+          backgroundSize: "1400px",
+          backgroundRepeat: "repeat",
+        }}
         aria-hidden
       />
       <div className="relative z-10 container mx-auto px-5 lg:px-10 pt-8 lg:pt-14">
@@ -72,12 +74,13 @@ export default function Footer() {
           </div>
           <div className="right-content flex justify-between lg:justify-end items-start gap-6 md:gap-12 lg:gap-23 lg:pr-18">
             <div className="products text-xs lg:text-base">
-              <h3 className=" font-bold font-vox">{t("products")}</h3>
+              <h3 className=" font-bold font-play">{t("products")}</h3>
               <ul className="mt-3 lg:mt-7 space-y-4 text-white font-normal">
                 {products.map((product) => (
                   <li key={product.label}>
                     <a
                       href={product.href}
+                      target="_blank"
                       className="text-xs lg:text-base whitespace-nowrap hover:text-white/70 transition-colors"
                     >
                       {product.label}
@@ -87,7 +90,7 @@ export default function Footer() {
               </ul>
             </div>
             <div className="contacts text-xs lg:text-base">
-              <h3 className=" font-bold font-vox">{t("contacts")}</h3>
+              <h3 className=" font-bold font-play">{t("contacts")}</h3>
               <ul className="mt-3 lg:mt-7 space-y-4 text-white font-normal">
                 {phones?.map((phone: Phone) => (
                   <li key={phone.id} className="flex gap-4 items-center">
@@ -135,35 +138,39 @@ export default function Footer() {
             ))}
           </div>
         </div>
-        <div className="mt-3 sm:mt-7 lg:mt-11 grid grid-cols-1 sm:grid-cols-3 gap-1 md:gap-6 items-center lg:px-18">
-          <div className="privacy flex flex-col sm:flex-row justify-self-start gap-2 lg:gap-11 font-semibold text-[10px] md:text-xs text-white/65">
+        <div className="mt-8 lg:mt-14 py-3 border-t border-white/60 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 lg:mx-18 text-xs lg:text-sm text-white">
+          <nav className="flex flex-wrap gap-x-5 lg:gap-x-4 gap-y-2">
+            {/* <Link
+              href="/privasypolicy"
+              className="whitespace-nowrap hover:text-white/70 transition-colors"
+            >
+              {t("terms")}
+            </Link> */}
             <Link
-              href={`/privasypolicy`}
-              className="whitespace-nowrap cursor-pointer text-left"
+              href="/privasypolicy"
+              className="whitespace-nowrap hover:text-white/70 transition-colors"
             >
               {t("privacy")}
             </Link>
             <Link
-              href={`/cookies`}
-              className="whitespace-nowrap cursor-pointer"
+              href="/cookies"
+              className="whitespace-nowrap hover:text-white/70 transition-colors"
             >
-              Cookies
+              {t("cookieTerms")}
             </Link>
-          </div>
+          </nav>
 
-          <div className="flex items-center gap-1 justify-center text-[10px] md:text-xs text-white/65">
-            <FaRegCopyright className="size-4 shrink-0  mb-1" />
-            <span className=" whitespace-nowrap">
-              {new Date().getFullYear()}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 lg:gap-5">
+            <span className="whitespace-nowrap">
+              © {new Date().getFullYear()}, {t("rights")}
             </span>
             <Image
-              src="/logoIcon.svg"
+              src="/logo1.svg"
               alt="HEBENT TECHNOLOGY"
-              width={24}
-              height={24}
-              className="inline-block shrink-0 brightness-0 mb-1 invert logo-spin motion-reduce:animate-none"
+              width={100}
+              height={30}
+              className="h-auto w-25 sm:w-20 brightness-0 invert"
             />
-            <span>HEBENT TECHNOLOGY</span>
           </div>
         </div>
       </div>

@@ -143,15 +143,15 @@ export default function ContactPage() {
       >
         <div className="contact-info order-2 lg:order-1 space-y-3 lg:space-y-8 xl:space-y-14 mb-3 lg:mb-0">
           <div className="header-info flex flex-col gap-1 lg:gap-4">
-            <h3 className="text-base lg:text-2xl font-bold">{t("text")}</h3>
-            <p className="text-sm lg:text-base xl:text-xl max-w-2xl font-medium">
+            <h3 className="text-base lg:text-2xl font-semibold">{t("text")}</h3>
+            <p className="text-sm lg:text-base xl:text-xl max-w-2xl font-normal">
               {t("description")}
             </p>
           </div>
 
           <div className="body-info space-y-3 lg:space-y-8 xl:space-y-14 ">
             <section>
-              <h3 className="text-base lg:text-lg xl:text-2xl font-bold w-full">
+              <h3 className="text-base lg:text-lg xl:text-2xl font-semibold w-full">
                 {t("visitUs")}
               </h3>
               <motion.div
@@ -161,13 +161,13 @@ export default function ContactPage() {
                 style={{ transformOrigin: "left" }}
                 className="h-px bg-black"
               />
-              <p className="text-sm lg:text-base xl:text-xl font-medium mt-4">
+              <p className="text-sm lg:text-base xl:text-xl font-normal mt-4">
                 {t("address")}
               </p>
             </section>
 
             <section>
-              <h3 className="text-base lg:text-lg xl:text-2xl font-bold w-full">
+              <h3 className="text-base lg:text-lg xl:text-2xl font-semibold w-full">
                 {t("talkToUs")}
               </h3>
               <motion.div
@@ -184,7 +184,7 @@ export default function ContactPage() {
                       <li key={phone.id}>
                         <a
                           href={formatPhoneHref(phone.number)}
-                          className="text-sm lg:text-base xl:text-xl font-medium hover:text-brand hover:translate-x-1 transition-all duration-300 block"
+                          className="text-sm lg:text-base xl:text-xl font-normal hover:text-brand hover:translate-x-1 transition-all duration-300 block"
                         >
                           {phone.number}
                         </a>
@@ -194,7 +194,7 @@ export default function ContactPage() {
                 </div>
                 <Link
                   href="mailto:info@hebent.tech"
-                  className="text-sm lg:text-base xl:text-xl hover:text-brand hover:translate-x-1 transition-all duration-300 block"
+                  className="text-sm font-normal lg:text-base xl:text-xl hover:text-brand hover:translate-x-1 transition-all duration-300 block"
                 >
                   info@hebent.tech
                 </Link>
@@ -355,7 +355,7 @@ export default function ContactPage() {
           <button
             type="submit"
             disabled={sending}
-            className={`text w-full py-2 lg:py-2.5 bg-brand-dark text-white font-vox font-bold mb-5 lg:mb-0 transition-colors tracking-widest text-lg flex items-center justify-center ${
+            className={`text w-full py-2 lg:py-2.5 bg-brand-dark text-white font-play font-bold mb-5 lg:mb-0 transition-colors tracking-widest text-lg flex items-center justify-center ${
               sending ? "cursor-wait py-0" : "hover:bg-brand-dark/80"
             }`}
           >

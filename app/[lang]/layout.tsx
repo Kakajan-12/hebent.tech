@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Play } from "next/font/google";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
@@ -10,6 +11,13 @@ import ReduxProvider from "../ProviderRedux";
 import Footer from "../components/Footer/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 import { Toaster } from "sonner";
+
+const play = Play({
+  subsets: ["latin", "latin-ext", "cyrillic"],
+  weight: ["400", "700"],
+  variable: "--font-play-src",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Hebent Technology",
@@ -43,7 +51,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={lang} suppressHydrationWarning>
+    <html lang={lang} className={play.variable} suppressHydrationWarning>
       <body className="flex min-h-screen flex-col font-sans antialiased">
         <ReduxProvider>
           <NextIntlClientProvider locale={lang} messages={messages}>

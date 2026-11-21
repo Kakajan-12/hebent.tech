@@ -11,6 +11,7 @@
     "company": "Компания",
     "travel": " Hebent Travel Tech",
     "logistics": "Hebent Fleet",
+    "agro": "Hebent Agro Tech",
     "events": "Hebent Event Tech",
     "entertainmentSystem": "Hebent Entertainment System",
     "about": "О нас",
@@ -22,6 +23,7 @@
     "subtitle": "Отраслевые платформы Hebent, которые двигают вперёд целые индустрии.",
     "travelDesc": "Умные решения для путешествий и бронирования — от поиска до комфортной поездки",
     "logisticsDesc": "Сквозное управление логистикой и цепочками поставок — точно и вовремя",
+    "agroDesc": "Цифровая платформа для мониторинга и контроля сельскохозяйственных земель",
     "eventsDesc": "Мощное управление мероприятиями и билетами — от планирования до события",
     "entertainment-systemDesc": "Мультимедийная система для транспорта с доступом к различному контенту"
   },
@@ -147,7 +149,8 @@
     "customer": "Клиент: ",
     "webSite": "Вебсайт: ",
     "gallery": "Галерея:",
-    "back": "Назад к проектам"
+    "back": "Назад к проектам",
+    "learnMore": "Подробнее"
   },
   "Testimonials": {
     "title": "Наши клиенты"
@@ -217,7 +220,10 @@
     "projects": "Проекты",
     "careers": "Карьера",
     "news": "Новости",
-    "products": "Продукты"
+    "products": "Продукты",
+    "terms": "Условия использования",
+    "cookieTerms": "Условия Cookie",
+    "rights": "Все права защищены"
   },
   "Pagination": {
     "previous": "Предыдущая страница",

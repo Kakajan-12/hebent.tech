@@ -50,7 +50,7 @@ export default function Testimonials() {
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
         className="container mx-auto mb-10 px-5 lg:px-10"
       >
-        <h2 className="text-3xl font-bold font-vox md:text-4xl lg:text-5xl">
+        <h2 className="text-3xl font-bold font-play md:text-4xl lg:text-5xl">
           {t("title")}
         </h2>
       </motion.div>

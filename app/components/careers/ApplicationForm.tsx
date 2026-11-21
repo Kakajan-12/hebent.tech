@@ -166,7 +166,7 @@ const ApplicationForm = () => {
       transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
       className="container mx-auto flex flex-col gap-5"
     >
-      <h2 className="text-3xl lg:text-5xl font-bold tracking-tight font-vox">
+      <h2 className="text-3xl lg:text-5xl font-bold tracking-tight font-play">
         {t.rich("personal-info", { br: () => <br /> })}
       </h2>
       <form
@@ -270,7 +270,7 @@ const ApplicationForm = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="flex justify-center items-center font-vox bg-brand-dark text-white w-full py-3 font-bold text-base lg:text-lg hover:bg-opacity-90 transition-colors"
+                className="flex justify-center items-center font-play bg-brand-dark text-white w-full py-3 font-bold text-base lg:text-lg hover:bg-opacity-90 transition-colors"
               >
                 {isLoading ? <Loading size="xs" /> : t("send")}
               </button>

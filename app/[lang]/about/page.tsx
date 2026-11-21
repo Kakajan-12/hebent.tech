@@ -17,7 +17,7 @@ export default function AboutPage() {
     >
       <div className="hidden lg:grid lg:grid-cols-2 gap-4 container mx-auto px-5 lg:px-10">
         <p className=""></p>
-        <h2 className=" uppercase font-vox font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight text-left whitespace-nowrap">
+        <h2 className=" uppercase font-play font-bold text-2xl md:text-3xl lg:text-4xl xl:text-5xl leading-tight text-left whitespace-nowrap">
           {t("title")}
         </h2>
       </div>

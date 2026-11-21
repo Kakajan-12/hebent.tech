@@ -11,6 +11,7 @@
     "company": "Kompaniýa",
     "travel": " Hebent Travel Tech",
     "logistics": "Hebent Fleet",
+    "agro": "Hebent Agro Tech",
     "events": "Hebent Event Tech",
     "entertainmentSystem": "Hebent Entertainment System",
     "about": "Biz barada",
@@ -22,6 +23,7 @@
     "subtitle": "Hebent tarapyndan döredilen, tutuş pudaklary öňe iterýän platformalar.",
     "travelDesc": "Akylly syýahat we bron çözgütleri — gözlegden rahat syýahata çenli",
     "logisticsDesc": "Doly logistika we üpjünçilik zynjyryny dolandyrmak — hemişe öz wagtynda",
+    "agroDesc": "Oba hojalyk ýerlerine gözegçilik we monitoring etmek üçin sanly platforma",
     "eventsDesc": "Çäreleri dolandyrmak we bilet satuwy — meýilleşdirmeden çärä çenli",
     "entertainment-systemDesc": "Dürli mazmuna elýeterliligi bolan ulaglar üçin multimediýa ulgamy"
   },
@@ -147,7 +149,8 @@
     "customer": "Müşderi: ",
     "webSite": "Web-sait: ",
     "gallery": "Galereýa:",
-    "back": "Taslamalara dolan"
+    "back": "Taslamalara dolan",
+    "learnMore": "Giňişleýin"
   },
   "Testimonials": {
     "title": "Müşderiler"
@@ -190,7 +193,10 @@
     "projects": "Taslamalar",
     "careers": "Iş orunlary",
     "news": "Täzelikler",
-    "products": "Önümler"
+    "products": "Önümler",
+    "terms": "Ulanyş şertleri",
+    "cookieTerms": "Cookie şertleri",
+    "rights": "Ähli hukuklar goralan"
   },
   "Pagination": {
     "previous": "Öňki sahypa",

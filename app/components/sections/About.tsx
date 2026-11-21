@@ -20,6 +20,7 @@ export default function AboutSection({
   const tAbout = useTranslations("About");
   const locale = useAppLocale();
   const { data, error, isLoading } = useGetStatisticsQuery();
+  // console.log(data);
 
   const statistics: Statistic[] = Array.isArray(data) ? data : [];
 
@@ -72,7 +73,7 @@ export default function AboutSection({
           </div>
         )}
         {showTitle && (
-          <h2 className="block lg:hidden capitalize font-vox font-bold text-2xl md:text-3xl leading-tight text-right whitespace-nowrap">
+          <h2 className="block lg:hidden capitalize font-play font-bold text-2xl md:text-3xl leading-tight text-right whitespace-nowrap">
             {tAbout("title")}
           </h2>
         )}
@@ -97,7 +98,7 @@ export default function AboutSection({
             transition: { staggerChildren: 0.12, delayChildren: 0.2 },
           },
         }}
-        className="grid justify-items-center gap-3 md:gap-8 grid-cols-2 md:grid-cols-4 w-full"
+        className="grid justify-items-start gap-y-10 gap-x-6 md:gap-8 grid-cols-2 md:grid-cols-4 w-full py-10 md:py-16 lg:px-25"
       >
         {statistics.map((s) => (
           <motion.div

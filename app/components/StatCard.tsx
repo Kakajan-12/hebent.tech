@@ -29,8 +29,8 @@ export default function StatCard({ value, label }: StatCardProps) {
   const hidePlus = isProductsLabel(label);
 
   return (
-    <div className="stat-card aspect-video flex flex-col items-center justify-center bg-brand h-full w-full text-white text-center shadow-sm">
-      <div className="flex items-center justify-center text-3xl sm:text-4xl tracking-tight font-bold">
+    <div className="flex flex-col items-start justify-start gap-2 md:gap-3 h-full w-full text-left">
+      <div className="text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight">
         <span className="leading-none">
           <CountUp
             to={Number(value)}
@@ -43,7 +43,7 @@ export default function StatCard({ value, label }: StatCardProps) {
           {!hidePlus ? "+" : ""}
         </span>
       </div>
-      <p className="font-vox text-xl sm:text-2xl lg:text-xl font-bold text-white whitespace-nowrap">
+      <p className="text-xs sm:text-sm font-medium whitespace-nowrap">
         {label}
       </p>
     </div>

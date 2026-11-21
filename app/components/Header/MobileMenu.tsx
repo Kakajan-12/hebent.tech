@@ -91,7 +91,7 @@ export default function MobileNav() {
         onClick={closeMenu}
       >
         <nav
-          className="flex h-full w-[min(20rem,calc(100vw-2rem))] max-w-full flex-col bg-white shadow-2xl font-vox"
+          className="flex h-full w-[min(20rem,calc(100vw-2rem))] max-w-full flex-col bg-white shadow-2xl font-play"
           aria-label="Mobile"
           role="dialog"
           aria-modal="true"
@@ -216,7 +216,7 @@ export default function MobileNav() {
                 <button
                   key={loc}
                   type="button"
-                  className={`font-vox flex-1 rounded-lg border border-slate-200 py-2 text-center text-sm font-semibold transition hover:bg-slate-50 ${
+                  className={`font-play flex-1 rounded-lg border border-slate-200 py-2 text-center text-sm font-semibold transition hover:bg-slate-50 ${
                     loc === locale
                       ? "bg-slate-100 text-brand"
                       : "text-slate-800"

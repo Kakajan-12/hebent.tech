@@ -75,7 +75,7 @@ export default function NewsCard({
       <h3 className="text-sm font-bold leading-snug tracking-tight md:text-xl line-clamp-2">
         {cleanTitle}
       </h3>
-      <p className="font-medium line-clamp-4 flex-1 text-sm leading-relaxed">
+      <p className="font-normal line-clamp-4 flex-1 text-sm leading-relaxed">
         {cleanText}
       </p>
       <Link

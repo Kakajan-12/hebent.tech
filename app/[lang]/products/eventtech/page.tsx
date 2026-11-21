@@ -5,16 +5,14 @@ const EventTechPage = () => {
   const tc = useTranslations("ComingSoon");
 
   return (
-    <section className="min-h-screen">
+    <section className="min-h-[70vh] flex items-center justify-center">
       <div className="container mx-auto px-5 sm:px-7 lg:px-10 flex flex-col gap-5 justify-center items-center">
         <h2 className="text-3xl font-bold tracking-tight text-black md:text-4xl">
           {t("events")}
         </h2>
         <p className="text-sm lg:text-3xl leading-relaxed flex flex-col gap-2 items-center">
-          <span className="font-bold">{tc("title")}</span>
-          <span className="text-base">
-            {tc("description")}
-          </span>
+          <span className="font-medium">{tc("title")}</span>
+          <span className="text-base">{tc("description")}</span>
         </p>
       </div>
     </section>

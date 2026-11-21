@@ -195,7 +195,7 @@ function SectionRow({
               currentPhase === "done"
             }
             onComplete={() => setPhase("title")}
-            className="font-vox font-bold text-xl lg:text-2xl"
+            className="font-play font-bold text-xl lg:text-2xl"
           />
           <TypingText
             text={titleText}
@@ -204,7 +204,7 @@ function SectionRow({
               isDone || currentPhase === "content" || currentPhase === "done"
             }
             onComplete={() => setPhase("content")}
-            className="font-vox font-bold text-4xl lg:text-6xl leading-6 lg:leading-10"
+            className="font-play font-bold text-4xl lg:text-6xl leading-6 lg:leading-10"
           />
         </h3>
 

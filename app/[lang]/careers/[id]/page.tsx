@@ -34,13 +34,13 @@ export default function CareerPage() {
       )}
 
       {!isLoading && error && (
-        <p className="font-vox text-base text-red-700">
+        <p className="font-play text-base text-red-700">
           Failed to load vacancy.
         </p>
       )}
 
       {!isLoading && !error && !vacancy && (
-        <p className="font-vox text-base">Vacancy not found.</p>
+        <p className="font-play text-base">Vacancy not found.</p>
       )}
 
       {!isLoading && !error && vacancy && (
@@ -57,7 +57,7 @@ export default function CareerPage() {
             </h2> */}
 
             <div className="flex flex-col gap-2">
-              <h3 className="text-3xl lg:text-5xl font-bold tracking-tight font-vox">
+              <h3 className="text-3xl lg:text-5xl font-bold tracking-tight font-play">
                 {t("role")}
               </h3>
               <div
@@ -66,7 +66,7 @@ export default function CareerPage() {
               />
             </div>
             <div className="flex flex-col gap-2">
-              <h3 className="text-3xl lg:text-5xl font-bold tracking-tight font-vox">
+              <h3 className="text-3xl lg:text-5xl font-bold tracking-tight font-play">
                 {t("whatYoullDo")}
               </h3>
               <div

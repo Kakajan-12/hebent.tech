@@ -53,7 +53,7 @@ export default function ProjectCard({
         }`}
       />
 
-      <h3 className="relative z-20 px-4 font-vox text-5xl md:text-4xl xl:text-5xl font-medium leading-snug text-white text-center opacity-100 group-hover:opacity-0 transition duration-300">
+      <h3 className="relative z-20 px-4 font-play text-5xl md:text-4xl xl:text-5xl font-medium leading-snug text-white text-center opacity-100 group-hover:opacity-0 transition duration-300">
         {title}
       </h3>
       {/* <p className="line-clamp-3 text-sm font-semibold text-black text-center pointer-events-none absolute inset-0 flex flex-col justify-center items-center p-5 opacity-100 transition duration-300 md:opacity-0">

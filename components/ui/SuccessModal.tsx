@@ -76,7 +76,7 @@ export default function SuccessModal({
             {sending ? (
               <h4
                 id={headingId}
-                className="w-60 mx-auto text-xl font-bold font-vox lg:text-2xl flex flex-col items-center justify-center"
+                className="w-60 mx-auto text-xl font-bold font-play lg:text-2xl flex flex-col items-center justify-center"
               >
                 {sendingTitle}
                 <span className="text-xs lg:text-base text-gray-500 mt-4">
@@ -86,7 +86,7 @@ export default function SuccessModal({
             ) : (
               <h4
                 id={headingId}
-                className="w-60 mx-auto text-xl font-bold font-vox lg:text-2xl"
+                className="w-60 mx-auto text-xl font-bold font-play lg:text-2xl"
               >
                 {title}
               </h4>

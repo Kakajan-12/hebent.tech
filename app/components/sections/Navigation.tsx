@@ -63,6 +63,7 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
 
   const products: { href: string; label: string; hoverLabel?: string }[] = [
     { href: "https://logtech.hebent.tech", label: t("logistics") },
+    { href: "https://agro.hebent.tech/tk/auth/login", label: t("agro") },
     { href: `/products/eventtech`, label: t("events") },
     { href: "https://travel-tech.hebent.tech", label: t("travel") },
     {
@@ -91,7 +92,7 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25, ease: "easeOut" }}
-          className="fixed inset-0 z-100 bg-linear-to-r from-[#233086] via-[#1348BD] to-[#0063FE] text-white font-vox overflow-y-auto lg:overflow-y-hidden overscroll-contain pb-4"
+          className="fixed inset-0 z-100 bg-linear-to-r from-[#233086] via-[#1348BD] to-[#0063FE] text-white font-play overflow-y-auto lg:overflow-y-hidden overscroll-contain pb-4"
           role="dialog"
           aria-modal="true"
         >
@@ -110,7 +111,7 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
                   style={{ transformOrigin: "left" }}
                   className="h-px bg-white"
                 />
-                <div className="flex items-center justify-between pt-3 font-nexa">
+                <div className="flex items-center justify-between pt-3 font-jost">
                   <span className="text-xs tracking-widest text-[#b9b9b9] uppercase">
                     {t("products")}
                   </span>
@@ -172,7 +173,7 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
                   style={{ transformOrigin: "left" }}
                   className="h-px bg-white"
                 />
-                <div className="flex items-center justify-between pt-3 font-nexa">
+                <div className="flex items-center justify-between pt-3 font-jost">
                   <span className="text-xs tracking-widest text-[#b9b9b9] uppercase">
                     {t("newsroom")}
                   </span>
@@ -188,7 +189,7 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
                     />
                   </Link>
                 </div>
-                <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2 lg:gap-4 font-nexa">
+                <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2 lg:gap-4 font-jost">
                   {latestNews.length === 0 ? (
                     <p className="text-sm text-white/50 sm:col-span-2">—</p>
                   ) : (
@@ -217,7 +218,7 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
                   style={{ transformOrigin: "left" }}
                   className="h-px bg-white"
                 />
-                <div className="flex items-center justify-between pt-3 font-nexa">
+                <div className="flex items-center justify-between pt-3 font-jost">
                   <span className="text-xs tracking-widest text-[#b9b9b9] uppercase">
                     {t("company")}
                   </span>

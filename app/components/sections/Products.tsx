@@ -24,6 +24,12 @@ export default function Products() {
       external: true,
     },
     {
+      href: "https://agro.hebent.tech/tk/auth/login",
+      label: tNav("agro").trim(),
+      desc: t("agroDesc"),
+      external: true,
+    },
+    {
       href: "/products/eventtech",
       label: tNav("events").trim(),
       desc: t("eventsDesc"),
@@ -59,7 +65,7 @@ export default function Products() {
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
           className="flex flex-col gap-2"
         >
-          <h2 className="text-3xl font-vox font-bold tracking-tight md:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-play font-bold tracking-tight md:text-4xl lg:text-5xl">
             {t("title")}
           </h2>
           <p className="text-base text-[#3D6196] md:text-lg">{t("subtitle")}</p>
@@ -75,12 +81,12 @@ export default function Products() {
                   <p className="text-lg leading-snug lg:text-xl lg:max-w-xs">
                     {product.desc}
                   </p>
-                  <span className="hidden lg:block font-vox text-sm text-[#717182] ">
+                  <span className="hidden lg:block font-play text-sm text-[#717182] ">
                     {number}
                   </span>
                 </div>
 
-                <div className="flex items-center justify-between gap-4 font-vox">
+                <div className="flex items-center justify-between gap-4 font-play">
                   <h3 className="text-left text-4xl text-[#0A0A0A]  font-bold tracking-tight transition-transform duration-500 ease group-hover:translate-x-3 sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl">
                     {(() => {
                       const words = product.label.split(/\s+/);

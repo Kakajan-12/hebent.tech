@@ -26,12 +26,12 @@ export default function NotFound() {
         />
       </div>
       <div className="relative z-10 flex flex-col items-center justify-center gap-8">
-        <div className="font-vox font-bold text-7xl md:text-8xl xl:text-9xl text-white leading-none bg-white/10 backdrop-blur-xs px-9 py-5">
+        <div className="font-play font-bold text-7xl md:text-8xl xl:text-9xl text-white leading-none bg-white/10 backdrop-blur-xs px-9 py-5">
           404
         </div>
 
         <div className=" text-white leading-none bg-white/10 backdrop-blur-xs px-6 py-4 lg:px-22 lg:py-8 flex flex-col items-center justify-center  gap-4 lg:gap-8">
-          <h3 className="font-vox text-white text-2xl md:text-3xl xl:text-4xl font-bold">
+          <h3 className="font-play text-white text-2xl md:text-3xl xl:text-4xl font-bold">
             {t("title")}
           </h3>
           <Link
@@ -43,7 +43,7 @@ export default function NotFound() {
           </Link>
         </div>
       </div>
-      {/* <span className="font-vox font-bold text-7xl md:text-8xl xl:text-9xl text-brand leading-none">
+      {/* <span className="font-play font-bold text-7xl md:text-8xl xl:text-9xl text-brand leading-none">
         404
       </span>
 

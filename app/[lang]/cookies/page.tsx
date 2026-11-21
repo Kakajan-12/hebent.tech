@@ -28,11 +28,11 @@ const CookiesPolicyPage: React.FC = () => {
   ];
   return (
     <section className="container mx-auto px-5 sm:px-7 lg:px-10 flex flex-col gap-4 lg:gap-8">
-      {/* <h2 className="font-vox text-3xl md:text-6xl font-bold tracking-tight">
+      {/* <h2 className="font-play text-3xl md:text-6xl font-bold tracking-tight">
         {t("title1")}
       </h2>
 
-      <p className="font-vox text-sm lg:text-2xl leading-relaxed">
+      <p className="font-play text-sm lg:text-2xl leading-relaxed">
         {t("description")}
       </p> */}
       <Heading title={t("title1")} description={t("description")} />

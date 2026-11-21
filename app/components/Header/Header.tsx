@@ -14,7 +14,7 @@ export default function Header() {
   const t = useTranslations("Nav");
 
   return (
-    <header className="h-32 lg:h-42">
+    <header className="h-28 lg:h-42">
       {/* Frosted glass bar — always visible, except inside nav at lg+ */}
       <div
         className={`fixed top-5 left-0 right-0 pointer-events-none px-5 lg:px-10 ${
@@ -73,7 +73,7 @@ export default function Header() {
       </div>
 
       <div className="fixed top-5 right-0 z-110 pointer-events-none">
-        <div className="container mx-auto px-5 lg:px-10 font-vox">
+        <div className="container mx-auto px-5 lg:px-10 font-play">
           <div className="flex items-center justify-end gap-5 py-4 md:py-6 lg:py-5 px-3 lg:px-5 pointer-events-auto">
             {/* <div className="pointer-events-auto flex items-center gap-2"> */}
             <Link

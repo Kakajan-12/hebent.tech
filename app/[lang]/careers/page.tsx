@@ -34,7 +34,7 @@ export default function CareersPage() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-        className="mt-10 lg:mt-15 mb-2 lg:mb-6 font-vox text-xl font-bold md:text-4xl lg:text-5xl text-left "
+        className="mt-10 lg:mt-15 mb-2 lg:mb-6 font-play text-xl font-bold md:text-4xl lg:text-5xl text-left "
       >
         {t("vacancies")}
       </motion.h3>
@@ -54,17 +54,17 @@ export default function CareersPage() {
         className="mt-6"
       >
         {isLoading && (
-          <li className="flex justify-center items-center py-6 font-vox text-sm md:text-base">
+          <li className="flex justify-center items-center py-6 font-play text-sm md:text-base">
             <Loading size="sm" />
           </li>
         )}
         {error && !isLoading && (
-          <li className="flex justify-center items-center py-6 font-vox text-sm md:text-base text-red-700">
+          <li className="flex justify-center items-center py-6 font-play text-sm md:text-base text-red-700">
             Failed to load vacancies.
           </li>
         )}
         {!isLoading && !error && jobs.length === 0 && (
-          <li className="flex justify-center items-center py-6 font-vox text-sm md:text-base">
+          <li className="flex justify-center items-center py-6 font-play text-sm md:text-base">
             No vacancies available right now.
           </li>
         )}

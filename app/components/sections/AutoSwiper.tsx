@@ -96,7 +96,7 @@ export const AutoSwiper: React.FC = () => {
               />
             )}
             <span
-              className={`relative z-10 whitespace-nowrap font-vox ${
+              className={`relative z-10 whitespace-nowrap font-play ${
                 activeIndex === index ? "text-black" : "text-[#B2B2B2]"
               }`}
             >

@@ -107,7 +107,7 @@ export default function NewsroomPage() {
           </div>
         )}
         {newsError && !newsLoading && (
-          <div className="col-span-full py-6 font-vox text-sm md:text-base text-red-700 text-center">
+          <div className="col-span-full py-6 font-play text-sm md:text-base text-red-700 text-center">
             Failed to load news.
           </div>
         )}

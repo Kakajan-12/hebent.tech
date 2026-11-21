@@ -176,7 +176,7 @@ export default function ProjectPage() {
                     text={stripHtmlTags(item[`title_${locale}`] ?? "")}
                     speed={40}
                     animateOn="view"
-                    className="text-3xl font-vox font-bold lg:text-5xl xl:text-6xl"
+                    className="text-3xl font-play font-bold lg:text-5xl xl:text-6xl"
                   />
                 </div>
 
@@ -194,7 +194,7 @@ export default function ProjectPage() {
             text={tPage("gallery")}
             speed={50}
             animateOn="view"
-            className="text-3xl lg:text-5xl xl:text-6xl font-bold font-vox"
+            className="text-3xl lg:text-4xl xl:text-5xl font-medium  font-play"
           />
         )}
       </div>
