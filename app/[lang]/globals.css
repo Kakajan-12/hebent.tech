@@ -1,5 +1,3 @@
-@import url("../../public/fonts/video/stylesheet.css");
-
 @font-face {
   font-family: "Jost";
   src: url("/fonts/Jost.ttf") format("truetype");
@@ -26,8 +24,6 @@
   --footer: #0a1f44;
   --font-jost: "Jost", sans-serif;
   --font-play: var(--font-play-src), sans-serif;
-  --font-video: "Video", sans-serif;
-  --font-video-cond: "Video Cond", sans-serif;
 }
 @theme inline {
   --color-background-main: var(--background-main);
@@ -35,8 +31,6 @@
   --color-footer: var(--footer);
   --font-jost: var(--font-jost);
   --font-play: var(--font-play);
-  --font-video: var(--font-video);
-  --font-video-cond: var(--font-video-cond);
   --color-brand-dark: var(--brand-dark);
 }
 
